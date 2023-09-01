@@ -15,13 +15,13 @@
 #include "apm32f4xx_adc.h"
 #include "apm32f4xx_misc.h"
 #include "apm32f4xx_usart.h"
-#include "../Project/MDK/TIM_lib.h"
-#include "../Project/MDK/Filter_lib.h"
-#include "../Project/MDK/UART_lib.h"
-#include "../Project/MDK/SignalReceiveHandler.h"
-#include "../Project/MDK/LCD_lib.h"
-#include "../Project/MDK/SPI_lib.h"
-#include "../Project/MDK/TP_lib.h"
+#include "TIM_lib.h"
+#include "Filter_lib.h"
+#include "UART_lib.h"
+#include "SignalReceiveHandler.h"
+#include "LCD_lib.h"
+#include "SPI_lib.h"
+#include "TP_lib.h"
 
 void ADC_Init(void);
 void DAC_Init(void);
