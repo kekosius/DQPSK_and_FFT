@@ -589,11 +589,6 @@
               <FilePath>..\..\Source\ADC_lib.c</FilePath>
             </File>
             <File>
-              <FileName>Filter_lib.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\Source\Filter_lib.c</FilePath>
-            </File>
-            <File>
               <FileName>font_lib.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\Source\font_lib.c</FilePath>
@@ -602,11 +597,6 @@
               <FileName>LCD_lib.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\Source\LCD_lib.c</FilePath>
-            </File>
-            <File>
-              <FileName>QPSK_demod.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\Source\QPSK_demod.c</FilePath>
             </File>
             <File>
               <FileName>RawDataAnalys.c</FileName>
@@ -629,11 +619,6 @@
               <FilePath>..\..\Source\TIM_lib.c</FilePath>
             </File>
             <File>
-              <FileName>TP_lib.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\Source\TP_lib.c</FilePath>
-            </File>
-            <File>
               <FileName>UART_lib.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\Source\UART_lib.c</FilePath>
@@ -644,11 +629,6 @@
               <FilePath>..\..\Include\ADC_lib.h</FilePath>
             </File>
             <File>
-              <FileName>Filter_lib.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\..\Include\Filter_lib.h</FilePath>
-            </File>
-            <File>
               <FileName>font_lib.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\..\Include\font_lib.h</FilePath>
@@ -657,11 +637,6 @@
               <FileName>LCD_lib.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\..\Include\LCD_lib.h</FilePath>
-            </File>
-            <File>
-              <FileName>QPSK_demod.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\..\Include\QPSK_demod.h</FilePath>
             </File>
             <File>
               <FileName>RawDataAnalys.h</FileName>
@@ -684,14 +659,19 @@
               <FilePath>..\..\Include\TIM_lib.h</FilePath>
             </File>
             <File>
-              <FileName>TP_lib.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\..\Include\TP_lib.h</FilePath>
-            </File>
-            <File>
               <FileName>UART_lib.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\..\Include\UART_lib.h</FilePath>
+            </File>
+            <File>
+              <FileName>Filter_lib.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\Include\Filter_lib.h</FilePath>
+            </File>
+            <File>
+              <FileName>Filter_lib.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Source\Filter_lib.c</FilePath>
             </File>
           </Files>
         </Group>

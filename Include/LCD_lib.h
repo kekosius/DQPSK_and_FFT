@@ -66,7 +66,5 @@ void setDrawWindow(uint16_t, uint16_t, uint16_t, uint16_t);
 void drawPicture(uint16_t, uint16_t, const uint16_t* img);
 void drawString(uint16_t, uint16_t, uint16_t, uint16_t, uint8_t[][3], uint8_t len);
 struct Symbol drawChar(uint16_t, uint16_t, uint8_t*, uint16_t, uint16_t);
-//void drawPixel(uint16_t, uint16_t, uint16_t);
-
 
 #endif

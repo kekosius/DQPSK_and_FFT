@@ -1,5 +1,4 @@
 #include "LCD_lib.h"
-#include "font_lib.h"
 
 #define DELAY 0
 
@@ -18,8 +17,6 @@ void LCD_Start() {
 	fillRectangle(0, 0, LCD_HEIGHT, LCD_WIDTH, WHITE);
 	drawString(10, 200, BLACK, WHITE, MSG_Start_1, 7);
 	drawString(85, 250, BLACK, WHITE, MSG_Start_2, 4);
-//	SPI_Disable(SPI);
-//	SPI_DisableTIMode(SPI);
 }
 
 void LCD_DQPSK_mode() {
@@ -73,35 +70,6 @@ void LCD_DQPSK_Result(uint16_t code, uint16_t speed, double AvgV) {
 	drawString(220, 300, BLACK, WHITE, MSG_DQPSK_5, 2);
 	
 	
-}
-
-void LCD_Show_No_Result() {
-	if (WorkStatus == 0) {
-		if (NoResultState) return;
-		fillRectangle(155, 100, 500, 500, WHITE);
-		uint8_t MSG_DQPSK_5[2][3] = {"?", "?"};
-		drawString(220, 100, BLACK, WHITE, MSG_DQPSK_5, 2);
-		drawString(220, 200, BLACK, WHITE, MSG_DQPSK_5, 2);
-		drawString(220, 300, BLACK, WHITE, MSG_DQPSK_5, 2);
-		drawString(220, 400, BLACK, WHITE, MSG_DQPSK_5, 2);
-		NoResultState = 1;
-		TMR_Disable(TMR4);
-	} else {
-		if (NoResultState) return;
-		fillRectangle(155, 100, 500, 500, WHITE);
-		uint8_t MSG_Freq_6[2][3] = {"?", "?"};
-		drawString(180, 100, BLACK, WHITE, MSG_Freq_6, 2);
-		drawString(180, 200, BLACK, WHITE, MSG_Freq_6, 2);
-		drawString(180, 300, BLACK, WHITE, MSG_Freq_6, 2);
-		NoResultState = 1;
-		TMR_Disable(TMR4);
-	}
-}
-
-void LCD_Result_Reset() {
-	prevCode = 0x999;
-	NoResultState = 0;
-	NoResultCounter = 2;
 }
 
 uint8_t MSG_Freq_1[3][3] = {"А", "Р", "С"};
@@ -199,6 +167,35 @@ void LCD_Freq_Result(uint16_t freq, double AvgV) {
 	Delay(100000);
 }
 
+void LCD_Show_No_Result() {
+	if (WorkStatus == 0) {
+		if (NoResultState) return;
+		fillRectangle(155, 100, 500, 500, WHITE);
+		uint8_t MSG_DQPSK_5[2][3] = {"?", "?"};
+		drawString(220, 100, BLACK, WHITE, MSG_DQPSK_5, 2);
+		drawString(220, 200, BLACK, WHITE, MSG_DQPSK_5, 2);
+		drawString(220, 300, BLACK, WHITE, MSG_DQPSK_5, 2);
+		drawString(220, 400, BLACK, WHITE, MSG_DQPSK_5, 2);
+		NoResultState = 1;
+		TMR_Disable(TMR4);
+	} else {
+		if (NoResultState) return;
+		fillRectangle(155, 100, 500, 500, WHITE);
+		uint8_t MSG_Freq_6[2][3] = {"?", "?"};
+		drawString(180, 100, BLACK, WHITE, MSG_Freq_6, 2);
+		drawString(180, 200, BLACK, WHITE, MSG_Freq_6, 2);
+		drawString(180, 300, BLACK, WHITE, MSG_Freq_6, 2);
+		NoResultState = 1;
+		TMR_Disable(TMR4);
+	}
+}
+
+void LCD_Result_Reset() {
+	prevCode = 0x999;
+	NoResultState = 0;
+	NoResultCounter = 2;
+}
+
 void LCD_GPIO_Config() {
 	GPIO_Config_T GPIO_InitStructure;
 	
@@ -211,8 +208,7 @@ void LCD_GPIO_Config() {
 	GPIO_InitStructure.pupd = GPIO_PUPD_NOPULL;
     GPIO_Config(GPIOC, &GPIO_InitStructure);
 	
-	//GPIOC->BSCH |= GPIO_PIN_4 | GPIO_PIN_5;
-	GPIOC->BSCL |= GPIO_PIN_4 | GPIO_PIN_5; //| GPIO_PIN_5;
+	GPIOC->BSCL |= GPIO_PIN_4 | GPIO_PIN_5;
 	
 	RCM_EnableAHB1PeriphClock(RCM_AHB1_PERIPH_GPIOB);
 	
@@ -231,7 +227,7 @@ void LCD_GPIO_Config() {
 uint8_t buf[LCD_WIDTH * 2];
 
 void fillRectangle(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16_t color){
-	for(int i=0; i<(LCD_WIDTH * 2 /*(x1 - x0) * 2*/); i+=2)
+	for(int i=0; i<(LCD_WIDTH * 2); i+=2)
 	{
 		buf[i] = color >> 8;
 		buf[i + 1] = color & 0xFF;
@@ -243,8 +239,7 @@ void fillRectangle(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16_t 
 	DC_SET;
 	CS_RESET;
 	Delay(DELAY);
-	for(int y=0; y</*(y1 - y0)*/LCD_HEIGHT; y++) 
-//		HAL_SPI_Transmit(&hspi1, (uint8_t*)buf, (LCD_WIDTH * 2/*(x1 - x0) * 2*/), 0xFFFF);
+	for(int y=0; y<LCD_HEIGHT; y++) 
 		SPI_Tx_Data(SPI, buf, LCD_WIDTH * 2);
 		SPI_Wait_for_termination(SPI);
 	CS_SET;
@@ -270,7 +265,6 @@ void drawPicture(uint16_t x0, uint16_t y0, const uint16_t* img){
 		}
 		SPI_Tx_Data(SPI, buf, (w * 2));
 		SPI_Wait_for_termination(SPI);
-//		HAL_SPI_Transmit(&hspi1, (uint8_t*)buf, (w * 2), HAL_MAX_DELAY);
 	}
 	CS_SET;
 }
@@ -288,18 +282,17 @@ void drawString(uint16_t x0, uint16_t y0, uint16_t color, uint16_t Background, u
 }
 
 struct Symbol drawChar(uint16_t x, uint16_t y, uint8_t* c, uint16_t color, uint16_t Background){
-	//struct Symbol symb = getOffset(c);
 	struct Symbol symb = getOffset(c);
 	uint8_t byte;	
 	uint16_t i = 0;
 	uint16_t bytes = 44 * symb.width/8;
 	
-	setDrawWindow(x, y, x + symb.width - 1/*31*/, y + 43/*40*/);
+	setDrawWindow(x, y, x + symb.width - 1, y + 43);
 	
 	
-	while(i < bytes/*176*/) //all bytes
+	while(i < bytes) //all bytes
 	{
-		for(uint8_t j=0, n=0; j < symb.width/8 /*4*/; j++, i++) //one string
+		for(uint8_t j=0, n=0; j < symb.width/8; j++, i++) //one string
 		{
 			byte = gameplay_glyph_bitmap[symb.offset + i];
 			for(uint8_t m=0; m<8; m++, n += 2) //8-bit (pixels)
@@ -321,7 +314,6 @@ struct Symbol drawChar(uint16_t x, uint16_t y, uint8_t* c, uint16_t color, uint1
 		SPI_Tx_Data(SPI, buf, 16*symb.width/8);
 		SPI_Wait_for_termination(SPI);
 		Delay(DELAY);
-//		HAL_SPI_Transmit(&hspi1, (uint8_t*)buf, (16 * 4/*5*/), 1000);
 		CS_SET;
 	}
 	
@@ -404,7 +396,7 @@ void initLCD(void){
 	writeDataLCD(0x02); //mcu
 	//Memory access
 	writeCmdLCD(0x36);
-	writeDataLCD(0x48); //album or portreit //0xF8
+	writeDataLCD(0x48); //album or portreit || 0xF8
 	//Interface pixel format
 	writeCmdLCD(0x3A);
 	writeDataLCD(0x55); //0x55-18bit //16-bit serial mode
@@ -452,7 +444,6 @@ void writeCmdLCD(uint8_t cmd){
 	Delay(DELAY);
 	SPI_Tx_Data(SPI, &cmd, 1);
 	SPI_Wait_for_termination(SPI);
-//	HAL_SPI_Transmit(&hspi1, &cmd, 1, 5);
 	Delay(DELAY);
 	CS_SET;
 	Delay(DELAY);
@@ -462,7 +453,6 @@ void writeDataLCD(uint8_t data){
 	DC_SET;
 	CS_RESET;
 	Delay(DELAY);
-//	HAL_SPI_Transmit(&hspi1, &data, 1, 5);
 	SPI_Tx_Data(SPI, &data, 1);
 	SPI_Wait_for_termination(SPI);
 	Delay(DELAY);

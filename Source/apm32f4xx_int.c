@@ -72,5 +72,5 @@ void TMR4_IRQHandler(void)
 
 void EINT1_IRQHandler(void)
 {
-		KEY1_IRQHandler();
+	KEY1_IRQHandler();
 } 

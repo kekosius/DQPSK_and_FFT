@@ -1,6 +1,7 @@
 #include "RawDataAnalys.h"
 
 #define TICKS_NUM							 			(5376) 
+#define SEND_AVG
 
 //#define DEBUG
 //#define CALCULATION_DEBUG
@@ -141,9 +142,6 @@ uint8_t Demodulation(double* ZeroCrossTimings, uint16_t* EndOfSample, uint8_t* H
 		sum+=phase;
 	}
 	DiffPhaze[0] = sum/28;
-	//!
-	//DiffPhaze[0] = 0;
-	//!
 	offsetTime = DiffPhaze[0]*T/(2*pi);
 	uint32_t pos = 1;
 	
@@ -475,3 +473,92 @@ uint16_t SpeedLimit(uint16_t DQPSK_code) {
 		
 	}
 }
+
+void SpectrumAnalysis(double* FFT_Buff, uint8_t LowLevel) {
+	double freqPerc[6] = {0};
+	APM_MINI_LEDOn(LED3);
+	TMR_Disable(TMR3);
+	__disable_irq();
+	DAC_ConfigChannel1Data(DAC_ALIGN_12BIT_R, 0x0);
+	 
+	/*
+	Параметры, использующийеся при выполнении Быстрого Преобразования Фурье (FFT)
+	uint16_t F = 6400;							частота дискретизации
+	uint16_t N = 256;							количество измерений, использующихся при анализе
+	double T = 0.04; T = N/F = 256/6400			время сбора данных для анализа
+	double dt = 0.00015625; dt = 1/F = 1/6400	время одного измерения				
+	double Nyq = 3200; Nyq = N/(2*T)			частота найквиста
+	double df = 25; df = 1/T					шаг шкалы выходных значений в Гц
+											    (т.е выходные амплитуды будут соответсвовать
+												значениям частот 0-df-2df-...-Nyq)
+	*/	 
+	 
+	 AverageVoltage = AmlitudeAnalysis(FFT_Buff, 256);
+	 
+	 fftM(FFT_Buff, freqPerc);
+	 
+	 USART_Tx_Char(USART1, 13);
+	 USART_Tx_Char(USART1, ' ');
+	 
+	 uint16_t result = 0;
+	 
+	 for (int i = 0; i < 6; i++) {
+		 if (freqPerc[i] < 0.4 || LowLevel) freqPerc[i] = 0;
+		 else if (freqPerc[i] > 0.85) {
+			 freqPerc[i] = 1;
+			 result = 75+i*50;
+		 }
+		 USART_Tx_Specrum_Result(USART1, freqPerc[i]*100, 75+i*50);
+	 }
+	 
+	 
+	 if (result > 0) LCD_Freq_Result(result, AverageVoltage);
+	 
+	 DAC_ConfigChannel1Data(DAC_ALIGN_12BIT_R, 0x0FFF);
+	 SpectrumVarReInit();
+	 TMR_Reset(TMR3);
+	 ADC_Init();
+	 TMR3_Init();
+	 APM_MINI_LEDOff(LED3);	 
+	 __enable_irq();
+}
+
+double AmlitudeAnalysis(double* Data, uint16_t length) {
+	double max = 0;
+	double min = 0;
+	double minSum = 0;
+	double maxSum = 0;
+	double avg = 0;
+	double v = 0;
+	uint16_t maxCounter = 0;
+	uint16_t minCounter = 0;
+
+	for (uint16_t i = 0; i < length; i++){
+		v = Data[i];
+		if ((v > 400) && (min < 0)) {
+			minSum += min;
+			minCounter++;
+			min = 0;
+		}
+		if ((v < -400) && (max > 0)) {
+			maxSum += max;
+			maxCounter++;
+			max = 0;
+		}
+		if (v < min) min = v;
+		if (v > max) max = v;
+	}
+	
+	avg = (maxSum/maxCounter) - (minSum/minCounter);
+
+	#ifdef SEND_AVG
+		USART_Tx_Char(USART1, 13);
+		USART_Write(USART1, (uint8_t[5]) {'A', 'V', 'G', ':', ' '}, 5 );
+		USART_Tx_Float(USART1, avg, 3);
+		USART_Write(USART1, (uint8_t[2]) {'m', 'V'}, 2 );
+	#endif
+	
+	return avg;
+}
+
+double AverageVoltage = 0;

@@ -12,7 +12,6 @@
 struct Symbol getOffset(uint8_t*);
 void toString (uint8_t*, uint16_t);
 
-/*Store the image of the letters (glyph)*/
 static const uint8_t gameplay_glyph_bitmap[] = 
 {
   /*Unicode: U+0020 ( ) , Width: 14 */
