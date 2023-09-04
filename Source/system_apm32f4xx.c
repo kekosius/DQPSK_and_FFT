@@ -27,17 +27,10 @@
 #include "apm32f4xx.h"
 #include "system_apm32f4xx.h"
 
-/** @addtogroup Examples
+/** @addtogroup GeehyLib
   @{
   */
 
-/** @addtogroup DAC_ADC
-  @{
-  */
-
-/** @defgroup DAC_ADC_System_Macros System_Macros
-  @{
-*/
 
 /* Uncomment the following line if you need to use external SRAM as data memory  */
 /* #define DATA_IN_ExtSRAM */
@@ -332,6 +325,4 @@ void SystemInit_ExtSRAM(void)
 }
 #endif /* DATA_IN_ExtSRAM */
 
-/**@} end of group DAC_ADC_System_Functions */
-/**@} end of group DAC_ADC */
-/**@} end of group Examples */
+/**@} end of group GeehyLib */

@@ -3,6 +3,8 @@
 
 #include "main.h"
 
+extern USART_T* USART;
+
 void TMR2_Init(void);
 void TMR3_Init(void);
 void TMR4_Init(void);
