@@ -11,6 +11,8 @@ uint8_t MSG_DQPSK_3[4][3] = {"К", "Р", "Ц", ":"};
 uint8_t MSG_DQPSK_4[4][3] = {"С", "Р", "Ц", ":"};
 uint8_t MSG_DQPSK_5[4][3] = {"А", "М", "П", ":"};
 
+void LCD_Voltage_Result(uint16_t, uint16_t, double);
+
 void LCD_Start() {
 	LCD_GPIO_Config();
 	initLCD();
@@ -32,6 +34,7 @@ uint16_t prevCode = 0x999;
 uint8_t NoResultState = 0;
 
 void LCD_DQPSK_Result(uint16_t code, uint16_t speed, double AvgV) {
+	__disable_irq();
 	if (NoResultState) {
 		prevCode = 0x999;
 		TMR_Enable(TMR4);
@@ -39,18 +42,13 @@ void LCD_DQPSK_Result(uint16_t code, uint16_t speed, double AvgV) {
 	NoResultCounter = 2;
 	NoResultState = 0;
 	
-	uint8_t MSG_DQPSK_6[4][3] = {"0", ".", "0", "0"};
-	fillRectangle(155, 350, 500, 500, WHITE);
-	AvgV += 5;												//Округление по предпоследнему знаку
-	int64_t V = (int) AvgV;
-	toString(MSG_DQPSK_6[0], V/1000);
-	toString(MSG_DQPSK_6[2], (V % 1000)/100);
-	toString(MSG_DQPSK_6[3], (V % 100)/10);
-	drawString(180, 400, BLACK, WHITE, MSG_DQPSK_6, 4);
+	if (prevCode == 0x999) fillRectangle(155, 100, LCD_WIDTH, LCD_WIDTH, WHITE);
 	
+	LCD_Voltage_Result(180, 400, AvgV);
+
 	if (code == prevCode) return;
 	prevCode = code;
-	fillRectangle(155, 100, 380, 400, WHITE);
+	fillRectangle(155, 100, 350, 350, WHITE);
 	uint8_t MSG_DQPSK_4[4][3] = {"0", "x", "?", "?"};
 	toString(MSG_DQPSK_4[2], code / 0x10);
 	toString(MSG_DQPSK_4[3], code % 0x10);
@@ -69,7 +67,7 @@ void LCD_DQPSK_Result(uint16_t code, uint16_t speed, double AvgV) {
 	toString(MSG_DQPSK_5[1], speed % 10);
 	drawString(220, 300, BLACK, WHITE, MSG_DQPSK_5, 2);
 	
-	
+	__enable_irq();
 }
 
 uint8_t MSG_Freq_1[3][3] = {"А", "Р", "С"};
@@ -93,21 +91,16 @@ void LCD_Freq_Result(uint16_t freq, double AvgV) {
 	NoResultCounter = 2;
 	NoResultState = 0;
 	
-	uint8_t MSG_Freq_7[4][3] = {"0", ".", "0", "0"};
-	fillRectangle(155, 300, LCD_HEIGHT, 350, WHITE);
-	AvgV += 5;												//Округление по предпоследнему знаку
-	int64_t V = (int) AvgV;
-	toString(MSG_Freq_7[0], V/1000);
-	toString(MSG_Freq_7[2], (V % 1000)/100);
-	toString(MSG_Freq_7[3], (V % 100)/10);
-	drawString(180, 300, BLACK, WHITE, MSG_Freq_7, 4);
+	if (prevCode == 0x999) fillRectangle(155, 100, LCD_WIDTH, LCD_HEIGHT, WHITE);
 	
+	LCD_Voltage_Result(180, 300, AvgV);
+
 	if (freq == prevCode) {
 		Delay(10000000);
 		return;
 	}
 	prevCode = freq;
-	fillRectangle(155, 100, 380, 400, WHITE);
+	if (prevCode != 0x999) fillRectangle(155, 100, LCD_HEIGHT, LCD_HEIGHT, WHITE);
 	uint8_t MSG_Freq_4[3][3] = {" ", " ", " "};
 	uint8_t MSG_Freq_5[3][3] = {" ", " ", " "};
 	switch (freq) {
@@ -165,6 +158,62 @@ void LCD_Freq_Result(uint16_t freq, double AvgV) {
 	drawString(180, 100, BLACK, WHITE, MSG_Freq_4, 3);
 	drawString(180, 200, BLACK, WHITE, MSG_Freq_5, 3);
 	Delay(100000);
+}
+
+void LCD_Voltage_Result(uint16_t x_pos, uint16_t y_pos, double AvgV) {
+	uint8_t MSG_Voltage_1[4][3] = {"0", ".", "0", "0"};
+//	uint16_t pos = 0;
+	
+	
+	//fillRectangle(155, 300, LCD_HEIGHT, 350, WHITE);
+	AvgV += 5;												//Округление по предпоследнему знаку
+	int64_t V = (int) AvgV;
+	
+//	if ((V / 1000) != 1) {
+//		toString(MSG_Voltage_1[0], V/1000);
+//		MSG_Voltage_1[1][0] = 46;							//MSG_Voltage_1[1] = {46, 0, 0}, отправляет символ '.'
+//		pos = 2;
+//	} else {
+//		toString(MSG_Voltage_1[1], 1);
+//		MSG_Voltage_1[2][0] = 46;
+//		pos = 3;
+//	}
+//	if (((V % 1000)/100) != 1){
+//		toString(MSG_Voltage_1[pos], (V % 1000)/100);
+//		pos++;
+//	} else {
+//		toString(MSG_Voltage_1[pos+1], 1);
+//		pos += 2;
+//	}
+//	if (((V % 100)/10) != 1) {
+//		toString(MSG_Voltage_1[pos], (V % 100)/10);
+//		pos++;
+//	} else {
+//		toString(MSG_Voltage_1[pos+1], 1);
+//		pos += 2;
+//	}
+
+	toString(MSG_Voltage_1[0], V/1000);
+	toString(MSG_Voltage_1[2], (V % 1000)/100);
+	toString(MSG_Voltage_1[3], (V % 100)/10);
+	
+	drawFloatMonoWidth(x_pos, y_pos, BLACK, WHITE, MSG_Voltage_1, 4);
+	
+	
+//	if ((V / 1000) != 1) {
+//		toString(MSG_Voltage_1[0], V/1000);
+//		toString(MSG_Voltage_1[2], (V % 1000)/100);
+//		toString(MSG_Voltage_1[3], (V % 100)/10);
+//		drawString(x_pos, y_pos, BLACK, WHITE, MSG_Voltage_1, 4);
+//	} 
+//	else {
+//		toString(MSG_Voltage_2[1], V/1000);
+//		toString(MSG_Voltage_2[3], (V % 1000)/100);
+//		toString(MSG_Voltage_2[4], (V % 100)/10);
+//		drawString(x_pos, y_pos, BLACK, WHITE, MSG_Voltage_1, 4);
+//		else drawString(0, y_pos, BLACK, WHITE, MSG_Voltage_1, 4);
+//	}
+	
 }
 
 void LCD_Show_No_Result() {
@@ -279,6 +328,27 @@ void drawString(uint16_t x0, uint16_t y0, uint16_t color, uint16_t Background, u
 		carr_shif += symb.width + 8 - symb.space_pix;
 		index++;
 	}
+}
+
+void drawFloatMonoWidth(uint16_t x0, uint16_t y0, uint16_t color, uint16_t Background, uint8_t str[][3], uint8_t len) {
+	uint8_t index = 0;
+	uint16_t carr_shif = 0;
+	struct Symbol symb;
+	uint8_t space[3] = {95, 0, 0};
+	while(index < len)
+	{
+		if ((str[index][0]*1000000 + str[index][1]*1000 + str[index][2]) == 49000000) {
+			drawChar(x0 + carr_shif, y0, space, color, Background);
+			carr_shif += 8;
+			drawChar(x0 + carr_shif, y0, space, color, Background);
+			carr_shif += 7;
+		}
+//		drawChar(x0 + carr_shif, y0, space, color, Background);
+		symb = drawChar(x0 + carr_shif, y0, str[index], color, Background);
+		carr_shif += symb.width + 8 - symb.space_pix;
+		index++;
+	}
+	drawChar(x0 + carr_shif, y0, space, color, Background);
 }
 
 struct Symbol drawChar(uint16_t x, uint16_t y, uint8_t* c, uint16_t color, uint16_t Background){

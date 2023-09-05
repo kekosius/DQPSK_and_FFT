@@ -160,8 +160,10 @@ void TMR2_EventCallback(void) {
 		}
 		
 		if (tick == TICKS_NUM) {
+			__disable_irq();
 			AverageVoltage = AmlitudeAnalysis(OrigVoltage, 5000);
 			ReceiveStop(VoltagesData, ZeroCrossTimings, EndOfSample);
+			__enable_irq();
 		}
    }
  }
@@ -186,8 +188,7 @@ void TMR2_EventCallback(void) {
 		 if (NoResultCounter == 0) {
 			 MovingAverageClear();
 			 LCD_Show_No_Result();
-		 }
-		 NoResultCounter--;
+		 } else NoResultCounter--;
 		 TMR_ClearIntFlag(TMR4, TMR_INT_UPDATE);
 	 }
  }
@@ -206,6 +207,10 @@ void VarReInit() {
 	}
 	for (int i = 0; i < 42; i++){
 		EndOfSample[i] = 0;
+	}
+	for (int i = 0; i < 5376; i++) {
+		VoltagesData[i] = 0;
+		OrigVoltage[i] = 0;
 	}
 	HandlerVarReInit();
 	#ifdef DEBUG

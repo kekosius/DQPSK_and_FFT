@@ -107,6 +107,8 @@ struct Symbol getOffset(uint8_t* sym) {
 			return char_map[50];
 		case 120000000:
 			return char_map[51];
+		case  95000000:
+			return char_map[52];
 		default:
 			return char_map[20];
 	}

@@ -4,7 +4,7 @@
 #define MOVE_AVG_NUM									(5)
 
 #define SEND_AVG
-#define MOVE_AVG
+//#define MOVE_AVG
 
 //#define DEBUG
 //#define CALCULATION_DEBUG
