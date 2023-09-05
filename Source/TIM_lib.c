@@ -108,7 +108,7 @@ void TMR2_EventCallback(void) {
 			#ifdef FILTER_TEST
 				if (tick < 20000) FilterOutputArray[tick] = (int) RealVoltage;
 				else {
-					for (int i = 0; i < 20000; i++) USART_Tx_Number(USART1, FilterOutputArray[i]);
+					for (int i = 0; i < 20000; i++) USART_Tx_Number(USART, FilterOutputArray[i]);
 					while(1);
 				}
 				tick++;
@@ -145,14 +145,14 @@ void TMR2_EventCallback(void) {
 		
 		if (FalseActivation) {
 			#ifdef DEEP_DEBUG
-				USART_Tx_Number(USART1, 777);
+				USART_Tx_Number(USART, 777);
 			#endif
 			
 			#ifdef DEBUG
 				for(int i = 0; i < c; i++) {
-					USART_Tx_Number(USART1, (int) VoltageTestArray[i]);
+					USART_Tx_Number(USART, (int) VoltageTestArray[i]);
 				}
-				USART_Tx_Char(USART1, 13);
+				USART_Tx_Char(USART, 13);
 			#endif
 			
 			VarReInit();
@@ -214,11 +214,11 @@ void VarReInit() {
 	}
 	HandlerVarReInit();
 	#ifdef DEBUG
-		USART_Tx_Char(USART1, 13);
+		USART_Tx_Char(USART, 13);
 		for(int i = 0; i < c; i++) {
-			USART_Tx_Number(USART1, (int) VoltageTestArray[i]);
+			USART_Tx_Number(USART, (int) VoltageTestArray[i]);
 		}
-		USART_Tx_Char(USART1, 13);
+		USART_Tx_Char(USART, 13);
 		for(int i = 0; i < c; i++) {
 			VoltageTestArray[i] = 0;
 		}

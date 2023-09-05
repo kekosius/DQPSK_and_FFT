@@ -14,6 +14,8 @@
 #include "fftM_terminate.h"
 #include "rt_nonfinite.h"
 
+extern USART_T* USART;
+
 void FlagsClear(void);
 uint8_t ReadyToStartReceive(double);
 uint8_t CatchPackageStart(double, double, uint64_t*);

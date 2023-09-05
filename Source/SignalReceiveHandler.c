@@ -58,7 +58,7 @@ uint8_t CatchPackageStart(double RealVoltage, double PrevVoltage, uint64_t* tick
 		else StartSign = -1;
 		APM_MINI_LEDOn(LED2);
 		#ifdef DEEP_DEBUG
-		  USART_Tx_Number(USART1, 228);
+		  USART_Tx_Number(USART, 228);
 		#endif
 		return 1;
 	}
@@ -96,7 +96,7 @@ uint8_t GetStartSign() {
 void ReceiveStop(double* VoltagesData, double* ZeroCrossTimings, uint16_t* EndOfSample){
 	
 	#ifdef DEEP_DEBUG
-		USART_Tx_Number(USART1, 123);
+		USART_Tx_Number(USART, 123);
 	#endif
 	
 	APM_MINI_LEDOff(LED2);
@@ -113,25 +113,25 @@ void ReceiveStop(double* VoltagesData, double* ZeroCrossTimings, uint16_t* EndOf
 	
 	if(Demodulation(ZeroCrossTimings, EndOfSample, HighBinData, LowBinData)){
 		#ifdef DEBUG
-			USART_Tx_Char(USART1, 13);
-			for (int i = 0; i < 43; i++) USART_Tx_Number(USART1, EndOfSample[i]);
-			USART_Tx_Char(USART1, 13);
+			USART_Tx_Char(USART, 13);
+			for (int i = 0; i < 43; i++) USART_Tx_Number(USART, EndOfSample[i]);
+			USART_Tx_Char(USART, 13);
 			for (int i = 1; i < 43; i++) {
 				for (int j = EndOfSample[i-1]+1; j<=EndOfSample[i]; j++) {
-					USART_Tx_Float(USART1, ZeroCrossTimings[j], 5);
+					USART_Tx_Float(USART, ZeroCrossTimings[j], 5);
 				}
-				USART_Tx_Char(USART1, 13);
+				USART_Tx_Char(USART, 13);
 			}
 			for (int i = 0; i < 40; i++){
-				USART_Tx_Number(USART1, HighBinData[i]);
-				if ((i+1)%4 == 0) USART_Tx_Char(USART1, ' ');
+				USART_Tx_Number(USART, HighBinData[i]);
+				if ((i+1)%4 == 0) USART_Tx_Char(USART, ' ');
 			}
-			USART_Tx_Char(USART1, 13);
+			USART_Tx_Char(USART, 13);
 			for (int i = 0; i < 40; i++){
-				USART_Tx_Number(USART1, LowBinData[i]);
-				if ((i+1)%4 == 0) USART_Tx_Char(USART1, ' ');
+				USART_Tx_Number(USART, LowBinData[i]);
+				if ((i+1)%4 == 0) USART_Tx_Char(USART, ' ');
 			}
-			USART_Tx_Char(USART1, 13);
+			USART_Tx_Char(USART, 13);
 			while(1);
 		#endif
 	}
