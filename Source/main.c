@@ -57,6 +57,7 @@ void KEY1_IRQHandler()
 			TMR_Disable(TMR3);
 			FilterWipe();
 			VarReInit();
+			MovingAverageClear();
 			TMR2_Init();
 			LCD_Result_Reset();
 		}
@@ -65,6 +66,7 @@ void KEY1_IRQHandler()
 			WorkStatus = 1;
 			TMR_Disable(TMR2);
 			SpectrumVarReInit();
+			MovingAverageClear();
 			TMR3_Init();
 			LCD_Result_Reset();
 		}

@@ -184,6 +184,7 @@ void TMR2_EventCallback(void) {
  void TMR4_EventCallback(void) {
 	 if(TMR_ReadIntFlag(TMR4, TMR_INT_UPDATE) == SET) {
 		 if (NoResultCounter == 0) {
+			 MovingAverageClear();
 			 LCD_Show_No_Result();
 		 }
 		 NoResultCounter--;

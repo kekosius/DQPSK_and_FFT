@@ -1,7 +1,10 @@
 #include "RawDataAnalys.h"
 
 #define TICKS_NUM							 			(5376) 
+#define MOVE_AVG_NUM									(5)
+
 #define SEND_AVG
+#define MOVE_AVG
 
 //#define DEBUG
 //#define CALCULATION_DEBUG
@@ -550,6 +553,10 @@ double AmlitudeAnalysis(double* Data, uint16_t length) {
 	}
 	
 	avg = (maxSum/maxCounter) - (minSum/minCounter);
+	
+	#ifdef MOVE_AVG
+		double mAvg = MovingAverage(avg);
+	#endif
 
 	#ifdef SEND_AVG
 		USART_Tx_Char(USART, 13);
@@ -557,8 +564,39 @@ double AmlitudeAnalysis(double* Data, uint16_t length) {
 		USART_Tx_Float(USART, avg, 3);
 		USART_Write(USART, (uint8_t[2]) {'m', 'V'}, 2 );
 	#endif
+		
+	#ifdef MOVE_AVG
+		return mAvg;
+	#endif
 	
 	return avg;
 }
 
 double AverageVoltage = 0;
+
+double avgStorage[MOVE_AVG_NUM] = {0};
+uint16_t avgCounter = 0;
+
+double MovingAverage(double avg) {
+	avgStorage[avgCounter] = avg;
+	avgCounter++;
+	avgCounter %= MOVE_AVG_NUM;
+	
+	double avgSum = 0;
+	uint16_t sumCounter = 0;
+	for (uint16_t i = 0; i < MOVE_AVG_NUM; i++) {
+		if (avgStorage[i] > 0) {
+			avgSum += avgStorage[i];
+			sumCounter++;
+		}
+	}
+	
+	return (avgSum/sumCounter);
+}
+
+void MovingAverageClear() {
+	for (uint16_t i = 0; i < MOVE_AVG_NUM; i++) {
+		avgStorage[i] = 0;
+	}
+	avgCounter = 0;
+}
