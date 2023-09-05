@@ -5,8 +5,6 @@
 
 extern double AverageVoltage;
 
-extern USART_T* USART;
-
 double AmlitudeAnalysis(double*, uint16_t);
 double MovingAverage(double);
 void MovingAverageClear(void);

@@ -1,7 +1,13 @@
 #ifndef MY_LIB_UART_LIB_H_
 #define MY_LIB_UART_LIB_H_
 
-#include "main.h"
+#include <stdint.h>
+#include "apm32f4xx_usart.h"
+#include "apm32f4xx_gpio.h"
+#include "apm32f4xx_rcm.h"
+#include "apm32f4xx_misc.h"
+#include "apm32f4xx_adc.h"
+#include "math.h"
 
 void APM_MINI_COM1_Init(USART_Config_T*);
 void Delay(uint32_t);

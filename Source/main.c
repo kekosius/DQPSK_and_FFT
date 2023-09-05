@@ -1,7 +1,16 @@
+/*!
+ * @file        main.c
+ *
+ * @brief       Main program body
+ *
+ * @version     V1.0.0
+ *
+ * @date        09-08-2023
+ */
+
 #include "main.h"
 
 SPI_T* SPI = SPI1;
-USART_T* USART = USART1;
 
 void DAC_Init(void);
 void ADC_Init(void);

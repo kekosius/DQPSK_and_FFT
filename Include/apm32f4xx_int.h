@@ -34,10 +34,17 @@
 /* Includes */
 #include "apm32f4xx.h"
 
-/** @addtogroup GeehyLib
+/** @addtogroup Examples
   @{
   */
 
+/** @addtogroup DAC_ADC
+  @{
+  */
+
+/** @defgroup DAC_ADC_INT_Functions INT_Functions
+  @{
+*/
 
 void NMI_Handler(void);
 void HardFault_Handler(void);
@@ -56,4 +63,6 @@ void SysTick_Handler(void);
 
 #endif /*__APM32F4XX_INT_H */
 
-/**@} end of group GeehyLib */
+/**@} end of group DAC_ADC_INT_Functions */
+/**@} end of group DAC_ADC */
+/**@} end of group Examples */
