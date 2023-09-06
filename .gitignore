@@ -3,3 +3,5 @@ Project/IAR
 Project/MDK/Out
 Project/MDK/Listings
 Project/MDK/JLinkSettings.ini
+Project/MDK/JLinkLog.ini
+Project/MDK/JLinkLog.txt

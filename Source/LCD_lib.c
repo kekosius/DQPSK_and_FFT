@@ -91,7 +91,7 @@ void LCD_Freq_Result(uint16_t freq, double AvgV) {
 	NoResultCounter = 2;
 	NoResultState = 0;
 	
-	if (prevCode == 0x999) fillRectangle(155, 100, LCD_WIDTH, LCD_HEIGHT, WHITE);
+	if (prevCode == 0x999) fillRectangle(155, 100, LCD_WIDTH, LCD_WIDTH, WHITE);
 	
 	LCD_Voltage_Result(180, 300, AvgV);
 
@@ -162,58 +162,14 @@ void LCD_Freq_Result(uint16_t freq, double AvgV) {
 
 void LCD_Voltage_Result(uint16_t x_pos, uint16_t y_pos, double AvgV) {
 	uint8_t MSG_Voltage_1[4][3] = {"0", ".", "0", "0"};
-//	uint16_t pos = 0;
-	
-	
-	//fillRectangle(155, 300, LCD_HEIGHT, 350, WHITE);
 	AvgV += 5;												//Округление по предпоследнему знаку
 	int64_t V = (int) AvgV;
 	
-//	if ((V / 1000) != 1) {
-//		toString(MSG_Voltage_1[0], V/1000);
-//		MSG_Voltage_1[1][0] = 46;							//MSG_Voltage_1[1] = {46, 0, 0}, отправляет символ '.'
-//		pos = 2;
-//	} else {
-//		toString(MSG_Voltage_1[1], 1);
-//		MSG_Voltage_1[2][0] = 46;
-//		pos = 3;
-//	}
-//	if (((V % 1000)/100) != 1){
-//		toString(MSG_Voltage_1[pos], (V % 1000)/100);
-//		pos++;
-//	} else {
-//		toString(MSG_Voltage_1[pos+1], 1);
-//		pos += 2;
-//	}
-//	if (((V % 100)/10) != 1) {
-//		toString(MSG_Voltage_1[pos], (V % 100)/10);
-//		pos++;
-//	} else {
-//		toString(MSG_Voltage_1[pos+1], 1);
-//		pos += 2;
-//	}
-
 	toString(MSG_Voltage_1[0], V/1000);
 	toString(MSG_Voltage_1[2], (V % 1000)/100);
 	toString(MSG_Voltage_1[3], (V % 100)/10);
 	
 	drawFloatMonoWidth(x_pos, y_pos, BLACK, WHITE, MSG_Voltage_1, 4);
-	
-	
-//	if ((V / 1000) != 1) {
-//		toString(MSG_Voltage_1[0], V/1000);
-//		toString(MSG_Voltage_1[2], (V % 1000)/100);
-//		toString(MSG_Voltage_1[3], (V % 100)/10);
-//		drawString(x_pos, y_pos, BLACK, WHITE, MSG_Voltage_1, 4);
-//	} 
-//	else {
-//		toString(MSG_Voltage_2[1], V/1000);
-//		toString(MSG_Voltage_2[3], (V % 1000)/100);
-//		toString(MSG_Voltage_2[4], (V % 100)/10);
-//		drawString(x_pos, y_pos, BLACK, WHITE, MSG_Voltage_1, 4);
-//		else drawString(0, y_pos, BLACK, WHITE, MSG_Voltage_1, 4);
-//	}
-	
 }
 
 void LCD_Show_No_Result() {
@@ -343,7 +299,6 @@ void drawFloatMonoWidth(uint16_t x0, uint16_t y0, uint16_t color, uint16_t Backg
 			drawChar(x0 + carr_shif, y0, space, color, Background);
 			carr_shif += 7;
 		}
-//		drawChar(x0 + carr_shif, y0, space, color, Background);
 		symb = drawChar(x0 + carr_shif, y0, str[index], color, Background);
 		carr_shif += symb.width + 8 - symb.space_pix;
 		index++;
