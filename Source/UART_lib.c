@@ -1,6 +1,8 @@
 #include "UART_lib.h"
 #include "math.h"
 
+uint8_t errorCounter = 0;
+
 void APM_MINI_COM1_Init (USART_Config_T* configStruct) {
     
     GPIO_Config_T GPIO_configStruct;
@@ -46,8 +48,10 @@ void USART_Init(void) {
 
     Delay(0x7FFF);
     
-    USART_EnableInterrupt(USART1, USART_INT_RXBNE);
-    USART_ClearStatusFlag(USART1, USART_FLAG_RXBNE);
+    USART_EnableInterrupt(USART1, USART_INT_ERR);
+	USART_ClearStatusFlag(USART1, USART_FLAG_FE);
+	USART_ClearStatusFlag(USART1, USART_FLAG_NE);
+    USART_ClearStatusFlag(USART1, USART_FLAG_OVRE);
     NVIC_EnableIRQRequest(USART1_IRQn, 0, 0);
 }
 
@@ -61,6 +65,7 @@ void USART_Write(USART_T* usart,uint8_t *dat, uint32_t count) {
 void USART_Tx_Char(USART_T* usart, uint8_t data) {
 	while(USART_ReadStatusFlag(usart, USART_FLAG_TXBE) == RESET);
 	USART_TxData(usart, data);
+	errorCounter = 0;
 }
 
 void USART_Tx_Number(USART_T* usart, int64_t num) {
@@ -164,4 +169,30 @@ void USART_Tx_Specrum_Result(USART_T* usart, double Fp, double freq) {
 	USART_Tx_Float(usart, Fp, 1);
 	USART_Tx_Char(usart, '%');
 	USART_Tx_Char(usart, 13);
+}
+
+void USART_Restart_note() {
+	if (RCM_ReadStatusFlag(RCM_FLAG_IWDTRST) == SET) {
+		uint8_t restart_message[17] = {'U', 'S', 'A', 'R', 'T', ' ', 'E', 'R', 'R', 'O', 'R', ' ','R', 'E', 'S', 'E', 'T'};
+		USART_Write(USART, restart_message, 17);
+		USART_Tx_Char(USART, 13);
+		RCM_ClearStatusFlag();	
+	}
+}
+
+void USART_Reload(USART_T* usart) {
+	if ((USART_ReadStatusFlag(usart, USART_FLAG_FE) == SET) || 
+		(USART_ReadStatusFlag(usart, USART_FLAG_NE) == SET) || 
+		(USART_ReadStatusFlag(usart, USART_FLAG_OVRE) == SET))
+	{
+		USART_Disable(usart);
+		USART_Init();
+		errorCounter++;
+		USART_ClearStatusFlag(usart, USART_FLAG_FE);
+		USART_ClearStatusFlag(usart, USART_FLAG_NE);
+		USART_ClearStatusFlag(usart, USART_FLAG_OVRE);
+	}			
+	if (errorCounter >=5) {
+		while (1) {};
+	}		
 }

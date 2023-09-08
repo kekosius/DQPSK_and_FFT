@@ -75,3 +75,8 @@ void EINT1_IRQHandler(void)
 {
 	KEY1_IRQHandler();
 } 
+
+void USART1_IRQHandler(void)
+{
+    USART_Reload(USART);
+}

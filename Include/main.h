@@ -35,6 +35,9 @@
 #include "SignalReceiveHandler.h"
 #include "font_lib.h"
 
+extern SPI_T* SPI;
+extern USART_T* USART;
+
 void ADC_Init(void);
 void DAC_Init(void);
 void KEY1_IRQHandler(void);
