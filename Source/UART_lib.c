@@ -32,7 +32,7 @@ void Delay(uint32_t count){
     while(delay--);
 }
 
-void USART1_Init(void) {
+void USART_Init(void) {
     USART_Config_T usartConfigStruct;
 
     usartConfigStruct.baudRate = 115200;

@@ -28,6 +28,7 @@
 #include "LCD_lib.h"
 #include "SPI_lib.h"
 #include "TIM_lib.h"
+#include "WDT_lib.h"
 #include "UART_lib.h"
 #include "Filter_lib.h"
 #include "RawDataAnalys.h"

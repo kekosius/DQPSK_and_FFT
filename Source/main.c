@@ -8,7 +8,7 @@ void ADC_Init(void);
 
 int main(void)
 {
-	USART1_Init();
+	USART_Init();
     DAC_Init();
     ADC_Init();
 	APM_MINI_LEDInit(LED2);
@@ -16,7 +16,8 @@ int main(void)
 	SPI_Init();
 	LCD_Start();
 	APM_MINI_PBInit(BUTTON_KEY1, BUTTON_MODE_EINT);
-    while (1) {};
+	IWDT_init();
+    while (1) IWDT_Update();
 }
 
 void DAC_Init()
@@ -74,3 +75,4 @@ void KEY1_IRQHandler()
         EINT_ClearIntFlag(EINT_LINE_1);
     }
 }
+

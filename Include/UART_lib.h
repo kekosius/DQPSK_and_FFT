@@ -5,7 +5,7 @@
 
 void APM_MINI_COM1_Init(USART_Config_T*);
 void Delay(uint32_t);
-void USART1_Init(void);
+void USART_Init(void);
 void USART_Write(USART_T*,uint8_t*, uint32_t);
 void UART_Tx_Number(uint32_t);
 void USART_Tx_Char(USART_T*, uint8_t);
