@@ -201,6 +201,7 @@ void TMR2_EventCallback(void) {
  }
 
 void VarReInit() {
+	tick = 0;
 	PrevVoltage = 0;
 	FalseActivation = 0;
 	for (int i = 0; i < 600; i++){
