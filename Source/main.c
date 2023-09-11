@@ -4,7 +4,6 @@ SPI_T* SPI = SPI1;
 USART_T* USART = USART1;
 
 void DAC_Init(void);
-void ADC_Init(void);
 
 int main(void)
 {

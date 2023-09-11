@@ -80,3 +80,8 @@ void USART1_IRQHandler(void)
 {
     USART_Reload(USART);
 }
+
+void ADC_IRQHandler(void)
+{
+    ADC_Reload();
+}

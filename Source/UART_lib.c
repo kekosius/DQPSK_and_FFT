@@ -1,7 +1,7 @@
 #include "UART_lib.h"
 #include "math.h"
 
-uint8_t errorCounter = 0;
+uint8_t errorCounterUSART = 0;
 
 void APM_MINI_COM1_Init (USART_Config_T* configStruct) {
     
@@ -65,7 +65,7 @@ void USART_Write(USART_T* usart,uint8_t *dat, uint32_t count) {
 void USART_Tx_Char(USART_T* usart, uint8_t data) {
 	while(USART_ReadStatusFlag(usart, USART_FLAG_TXBE) == RESET);
 	USART_TxData(usart, data);
-	errorCounter = 0;
+	errorCounterUSART = 0;
 }
 
 void USART_Tx_Number(USART_T* usart, int64_t num) {
@@ -173,6 +173,7 @@ void USART_Tx_Specrum_Result(USART_T* usart, double Fp, double freq) {
 
 void USART_Restart_note() {
 	if (RCM_ReadStatusFlag(RCM_FLAG_IWDTRST) == SET) {
+		USART_Tx_Char(USART, 13);
 		uint8_t restart_message[17] = {'U', 'S', 'A', 'R', 'T', ' ', 'E', 'R', 'R', 'O', 'R', ' ','R', 'E', 'S', 'E', 'T'};
 		USART_Write(USART, restart_message, 17);
 		USART_Tx_Char(USART, 13);
@@ -187,12 +188,13 @@ void USART_Reload(USART_T* usart) {
 	{
 		USART_Disable(usart);
 		USART_Init();
-		errorCounter++;
+		errorCounterUSART++;
+		USART_Restart_note();
 		USART_ClearStatusFlag(usart, USART_FLAG_FE);
 		USART_ClearStatusFlag(usart, USART_FLAG_NE);
 		USART_ClearStatusFlag(usart, USART_FLAG_OVRE);
 	}			
-	if (errorCounter >=5) {
+	if (errorCounterUSART >=5) {
 		while (1) {};
 	}		
 }

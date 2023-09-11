@@ -5,5 +5,6 @@
 
 double GetRealVoltage(void);
 void ADC_Init(void);
+void ADC_Reload(void);
 
 #endif
