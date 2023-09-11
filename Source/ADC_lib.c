@@ -47,13 +47,10 @@ double GetRealVoltage() {
 }
 
 void ADC_Restart_note() {
-	if (RCM_ReadStatusFlag(RCM_FLAG_IWDTRST) == SET) {
-		USART_Tx_Char(USART, 13);
-		uint8_t restart_message[15] = {'A', 'D', 'C', ' ', 'E', 'R', 'R', 'O', 'R', ' ','R', 'E', 'S', 'E', 'T'};
-		USART_Write(USART, restart_message, 15);
-		USART_Tx_Char(USART, 13);
-		RCM_ClearStatusFlag();	
-	}
+	USART_Tx_Char(USART, 13);
+	uint8_t restart_message[15] = {'A', 'D', 'C', ' ', 'E', 'R', 'R', 'O', 'R', ' ','R', 'E', 'S', 'E', 'T'};
+	USART_Write(USART, restart_message, 15);
+	USART_Tx_Char(USART, 13);
 }
 
 void ADC_Reload() {

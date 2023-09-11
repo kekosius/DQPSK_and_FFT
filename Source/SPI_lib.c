@@ -1,5 +1,9 @@
 #include "SPI_lib.h"
 
+uint8_t errorCounterSPI = 0;
+
+void SPI_ClearInpitBuffer(SPI_T*);
+
 void SPI_Init()
 {
     GPIO_Config_T GPIO_InitStructure;
@@ -32,9 +36,13 @@ void SPI_Init()
     SPI1_InitStructure.baudrateDiv = SPI_BAUDRATE_DIV_2;
     SPI1_InitStructure.firstBit = SPI_FIRSTBIT_MSB;
     SPI1_InitStructure.crcPolynomial = 7;
-    SPI_Config(SPI1, &SPI1_InitStructure);
-    SPI_DisableCRC(SPI1);
-    SPI_DisableSSOutput(SPI1);
+    SPI_Config(SPI, &SPI1_InitStructure);
+    SPI_DisableCRC(SPI);
+    SPI_DisableSSOutput(SPI);
+	
+	SPI_I2S_EnableInterrupt(SPI, SPI_I2S_INT_ERR);			//SPI Error interrupt enable
+	
+	NVIC_EnableIRQRequest(SPI1_IRQn, 1, 1);
 
     SPI_Enable(SPI1);
 }
@@ -43,7 +51,9 @@ void SPI_Tx_Data (SPI_T* SPI, uint8_t* buff, uint16_t len) {
 	for (uint16_t i = 0; i < len; i++) {
 		while (SPI_I2S_ReadStatusFlag(SPI, SPI_FLAG_TXBE) == RESET) {};
 		SPI->DATA = buff[i];
+		SPI_ClearInpitBuffer(SPI);
 	}
+	errorCounterSPI = 0;
 }
 
 void SPI_Rx_Data (SPI_T* SPI, uint8_t* buff, uint16_t len) {
@@ -51,6 +61,7 @@ void SPI_Rx_Data (SPI_T* SPI, uint8_t* buff, uint16_t len) {
 		while (SPI_I2S_ReadStatusFlag(SPI, SPI_FLAG_RXBNE) == RESET) {};
 		buff[i] = SPI->DATA;
 	}
+	errorCounterSPI = 0;
 }
 
 void SPI_TxRx_Data (SPI_T* SPI, uint8_t* Tx_buff, uint8_t* Rx_buff, uint16_t len) {
@@ -62,4 +73,35 @@ void SPI_TxRx_Data (SPI_T* SPI, uint8_t* Tx_buff, uint8_t* Rx_buff, uint16_t len
 
 void SPI_Wait_for_termination (SPI_T* SPI) {
 	while ( SPI_I2S_ReadStatusFlag(SPI, SPI_FLAG_BSY) == SET) {};
+}
+
+void SPI_Restart_note() {
+	USART_Tx_Char(USART, 13);
+	uint8_t restart_message[15] = {'S', 'P', 'I', ' ', 'E', 'R', 'R', 'O', 'R', ' ','R', 'E', 'S', 'E', 'T'};
+	USART_Write(USART, restart_message, 15);
+	USART_Tx_Char(USART, 13);
+}
+
+void SPI_Reload(SPI_T* SPI) {
+	if (SPI_I2S_ReadStatusFlag(SPI, SPI_FLAG_ME) == SET ||
+		SPI_I2S_ReadStatusFlag(SPI, SPI_FLAG_OVR) == SET)
+	{
+		SPI_Disable(SPI);
+		SPI_Init();
+		errorCounterSPI++;
+		SPI_Restart_note();
+		if (SPI_I2S_ReadStatusFlag(SPI, SPI_FLAG_ME) == SET) USART_Tx_Char(USART, '2');
+		if (SPI_I2S_ReadStatusFlag(SPI, SPI_FLAG_OVR) == SET) USART_Tx_Char(USART, '3');
+		SPI_I2S_ClearStatusFlag(SPI, SPI_FLAG_ME);
+		SPI_I2S_ClearStatusFlag(SPI, SPI_FLAG_OVR);
+	}
+		
+	if (errorCounterSPI >=5) {
+		while (1) {};
+	}
+}
+
+void SPI_ClearInpitBuffer(SPI_T* SPI) {
+	uint16_t data = SPI->DATA;
+	return;
 }

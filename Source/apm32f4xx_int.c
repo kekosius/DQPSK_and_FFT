@@ -85,3 +85,8 @@ void ADC_IRQHandler(void)
 {
     ADC_Reload();
 }
+
+void SPI1_IRQHandler(void)
+{
+	SPI_Reload(SPI);
+}

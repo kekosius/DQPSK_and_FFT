@@ -172,13 +172,10 @@ void USART_Tx_Specrum_Result(USART_T* usart, double Fp, double freq) {
 }
 
 void USART_Restart_note() {
-	if (RCM_ReadStatusFlag(RCM_FLAG_IWDTRST) == SET) {
-		USART_Tx_Char(USART, 13);
-		uint8_t restart_message[17] = {'U', 'S', 'A', 'R', 'T', ' ', 'E', 'R', 'R', 'O', 'R', ' ','R', 'E', 'S', 'E', 'T'};
-		USART_Write(USART, restart_message, 17);
-		USART_Tx_Char(USART, 13);
-		RCM_ClearStatusFlag();	
-	}
+	USART_Tx_Char(USART, 13);
+	uint8_t restart_message[17] = {'U', 'S', 'A', 'R', 'T', ' ', 'E', 'R', 'R', 'O', 'R', ' ','R', 'E', 'S', 'E', 'T'};
+	USART_Write(USART, restart_message, 17);
+	USART_Tx_Char(USART, 13);
 }
 
 void USART_Reload(USART_T* usart) {

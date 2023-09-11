@@ -8,5 +8,6 @@ void SPI_Tx_Data (SPI_T*, uint8_t*, uint16_t);
 void SPI_Rx_Data (SPI_T*, uint8_t*, uint16_t);
 void SPI_TxRx_Data (SPI_T*, uint8_t*, uint8_t*, uint16_t);
 void SPI_Wait_for_termination(SPI_T* SPI);
+void SPI_Reload(SPI_T* SPI);
 
 #endif
