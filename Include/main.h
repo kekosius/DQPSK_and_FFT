@@ -24,6 +24,9 @@
 #include "apm32f4xx_spi.h"
 #include "apm32f4xx_dac.h"
 
+#include "PM.h"
+#include "FM.h"
+#include "AMP.h"
 #include "ADC_lib.h"
 #include "LCD_lib.h"
 #include "SPI_lib.h"
@@ -31,7 +34,6 @@
 #include "WDT_lib.h"
 #include "UART_lib.h"
 #include "Filter_lib.h"
-#include "RawDataAnalys.h"
 #include "SignalReceiveHandler.h"
 #include "font_lib.h"
 

@@ -599,11 +599,6 @@
               <FilePath>..\..\Source\LCD_lib.c</FilePath>
             </File>
             <File>
-              <FileName>RawDataAnalys.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\Source\RawDataAnalys.c</FilePath>
-            </File>
-            <File>
               <FileName>SignalReceiveHandler.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\Source\SignalReceiveHandler.c</FilePath>
@@ -637,11 +632,6 @@
               <FileName>LCD_lib.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\..\Include\LCD_lib.h</FilePath>
-            </File>
-            <File>
-              <FileName>RawDataAnalys.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\..\Include\RawDataAnalys.h</FilePath>
             </File>
             <File>
               <FileName>SignalReceiveHandler.h</FileName>
@@ -682,6 +672,36 @@
               <FileName>WDT_lib.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\..\Include\WDT_lib.h</FilePath>
+            </File>
+            <File>
+              <FileName>FM.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\Include\FM.h</FilePath>
+            </File>
+            <File>
+              <FileName>FM.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Source\FM.c</FilePath>
+            </File>
+            <File>
+              <FileName>AMP.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Source\AMP.c</FilePath>
+            </File>
+            <File>
+              <FileName>AMP.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\Include\AMP.h</FilePath>
+            </File>
+            <File>
+              <FileName>PM.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\Include\PM.h</FilePath>
+            </File>
+            <File>
+              <FileName>PM.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Source\PM.c</FilePath>
             </File>
           </Files>
         </Group>
