@@ -1,7 +1,22 @@
+/*!
+ * @file        UART_lib.c
+ *
+ * @brief       Функции для работы с USART
+ *
+ * @version     V1.0.0
+ *
+ * @date        12-09-2023
+ */
+
+
 #include "UART_lib.h"
 #include "math.h"
 
-uint8_t errorCounterUSART = 0;
+uint8_t errorCounterUSART = 0;			/*!< Количество ошибок по USART каналу подряд*/
+
+/*!
+ * @brief     Инициализация COM порта
+ */
 
 void APM_MINI_COM1_Init (USART_Config_T* configStruct) {
     
@@ -29,10 +44,28 @@ void APM_MINI_COM1_Init (USART_Config_T* configStruct) {
     USART_Enable(USART1);
 }
 
+/*!
+ * @brief     Задержка выполнения основной программы
+ *
+ * @param	  Количество простейших вычислений, которые будут проведены во время задержки
+ */
+
 void Delay(uint32_t count){
     volatile uint32_t delay = count;
     while(delay--);
 }
+
+/*!
+* @brief     Инициализация USART канала
+ *
+ * Выставленные параметры:
+ * - Baud rate			115200
+ * - Parity				None
+ * - Stop Bit			1
+ * - Data Bits			8
+ * - Выбранный канал - USART1, TX - PA9, RX - PA10
+ * - Включено прерывание по ошибке, при прерывании вызывается [USART_Reload()](#USART_Reload)
+ */
 
 void USART_Init(void) {
     USART_Config_T usartConfigStruct;

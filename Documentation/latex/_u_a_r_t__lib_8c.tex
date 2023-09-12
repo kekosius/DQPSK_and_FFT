@@ -1,0 +1,108 @@
+\doxysection{C\+:/\+Users/user/\+Documents/\+Keil/\+DQPSK\+\_\+plus\+\_\+\+Freq/\+Source/\+UART\+\_\+lib.c File Reference}
+\hypertarget{_u_a_r_t__lib_8c}{}\label{_u_a_r_t__lib_8c}\index{C:/Users/user/Documents/Keil/DQPSK\_plus\_Freq/Source/UART\_lib.c@{C:/Users/user/Documents/Keil/DQPSK\_plus\_Freq/Source/UART\_lib.c}}
+
+
+Функции для работы с USART.  
+
+
+{\ttfamily \#include \"{}UART\+\_\+lib.\+h\"{}}\newline
+{\ttfamily \#include \"{}math.\+h\"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{_u_a_r_t__lib_8c_a1d24b04d1fac92503650758760430988}\label{_u_a_r_t__lib_8c_a1d24b04d1fac92503650758760430988} 
+void {\bfseries APM\+\_\+\+MINI\+\_\+\+COM1\+\_\+\+Init} (USART\+\_\+\+Config\+\_\+T \texorpdfstring{$\ast$}{*}config\+Struct)
+\begin{DoxyCompactList}\small\item\em Инициализация COM порта \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_u_a_r_t__lib_8c_a20679ea811a6b044d089823921d1c77b}{Delay}} (uint32\+\_\+t count)
+\begin{DoxyCompactList}\small\item\em Задержка выполнения основной программы \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_u_a_r_t__lib_8c_aba398ef6d2b9f80899b2d65ca9a0fe7d}{USART\+\_\+\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em Инициализация USART канала \end{DoxyCompactList}\item 
+\Hypertarget{_u_a_r_t__lib_8c_a61d5578fc535674d517c49cf357889bf}\label{_u_a_r_t__lib_8c_a61d5578fc535674d517c49cf357889bf} 
+void {\bfseries USART\+\_\+\+Write} (USART\+\_\+T \texorpdfstring{$\ast$}{*}usart, uint8\+\_\+t \texorpdfstring{$\ast$}{*}dat, uint32\+\_\+t count)
+\item 
+\Hypertarget{_u_a_r_t__lib_8c_a3a0ba1bbec83df96f5b277a4ced7e553}\label{_u_a_r_t__lib_8c_a3a0ba1bbec83df96f5b277a4ced7e553} 
+void {\bfseries USART\+\_\+\+Tx\+\_\+\+Char} (USART\+\_\+T \texorpdfstring{$\ast$}{*}usart, uint8\+\_\+t data)
+\item 
+\Hypertarget{_u_a_r_t__lib_8c_a3485da353570be73acdf9debb409f2eb}\label{_u_a_r_t__lib_8c_a3485da353570be73acdf9debb409f2eb} 
+void {\bfseries USART\+\_\+\+Tx\+\_\+\+Number} (USART\+\_\+T \texorpdfstring{$\ast$}{*}usart, int64\+\_\+t num)
+\item 
+\Hypertarget{_u_a_r_t__lib_8c_a70f288762161a11b7cd1e6d89a3b8451}\label{_u_a_r_t__lib_8c_a70f288762161a11b7cd1e6d89a3b8451} 
+void {\bfseries USART\+\_\+\+Tx\+\_\+\+Number\+But\+No\+Space} (USART\+\_\+T \texorpdfstring{$\ast$}{*}usart, int64\+\_\+t num)
+\item 
+\Hypertarget{_u_a_r_t__lib_8c_a95a9a3bc419664e01812c6eb81e6483c}\label{_u_a_r_t__lib_8c_a95a9a3bc419664e01812c6eb81e6483c} 
+void {\bfseries USART\+\_\+\+Tx\+\_\+\+Float} (USART\+\_\+T \texorpdfstring{$\ast$}{*}usart, double num, uint16\+\_\+t accuracy)
+\item 
+\Hypertarget{_u_a_r_t__lib_8c_abe26c3fc64cc782d9a6931cbff3af5c2}\label{_u_a_r_t__lib_8c_abe26c3fc64cc782d9a6931cbff3af5c2} 
+void {\bfseries USART\+\_\+\+Tx\+\_\+\+Specrum\+\_\+\+Result} (USART\+\_\+T \texorpdfstring{$\ast$}{*}usart, double Fp, double freq)
+\item 
+\Hypertarget{_u_a_r_t__lib_8c_ad13f450f207565219abd37499531e215}\label{_u_a_r_t__lib_8c_ad13f450f207565219abd37499531e215} 
+void {\bfseries USART\+\_\+\+Restart\+\_\+note} ()
+\item 
+\Hypertarget{_u_a_r_t__lib_8c_afd1260a2b489660843bfd65452dbc9a6}\label{_u_a_r_t__lib_8c_afd1260a2b489660843bfd65452dbc9a6} 
+void {\bfseries USART\+\_\+\+Reload} (USART\+\_\+T \texorpdfstring{$\ast$}{*}usart)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_u_a_r_t__lib_8c_a5d2059c1bf523d392060e3428bbbe4cd}{error\+Counter\+USART}} = 0
+\item 
+\Hypertarget{_u_a_r_t__lib_8c_a3c93c3308cf79fa4bddc5f3a543e543c}\label{_u_a_r_t__lib_8c_a3c93c3308cf79fa4bddc5f3a543e543c} 
+uint8\+\_\+t {\bfseries Spectrum\+Result\+Message\+Freq} \mbox{[}6\mbox{]} = \{\textquotesingle{}H\textquotesingle{}, \textquotesingle{}z\textquotesingle{}, \textquotesingle{} \textquotesingle{}, \textquotesingle{}-\/\textquotesingle{}, \textquotesingle{}$>$\textquotesingle{}, \textquotesingle{} \textquotesingle{}\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Функции для работы с USART. 
+
+\begin{DoxyVersion}{Version}
+V1.\+0.\+0
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+12-\/09-\/2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_u_a_r_t__lib_8c_a20679ea811a6b044d089823921d1c77b}\label{_u_a_r_t__lib_8c_a20679ea811a6b044d089823921d1c77b} 
+\index{UART\_lib.c@{UART\_lib.c}!Delay@{Delay}}
+\index{Delay@{Delay}!UART\_lib.c@{UART\_lib.c}}
+\doxysubsubsection{\texorpdfstring{Delay()}{Delay()}}
+{\footnotesize\ttfamily void Delay (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{count }\end{DoxyParamCaption})}
+
+
+
+Задержка выполнения основной программы 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Количество} & простейших вычислений, которые будут проведены во время задержки \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_u_a_r_t__lib_8c_aba398ef6d2b9f80899b2d65ca9a0fe7d}\label{_u_a_r_t__lib_8c_aba398ef6d2b9f80899b2d65ca9a0fe7d} 
+\index{UART\_lib.c@{UART\_lib.c}!USART\_Init@{USART\_Init}}
+\index{USART\_Init@{USART\_Init}!UART\_lib.c@{UART\_lib.c}}
+\doxysubsubsection{\texorpdfstring{USART\_Init()}{USART\_Init()}}
+{\footnotesize\ttfamily void USART\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Инициализация USART канала 
+
+Выставленные параметры\+:
+\begin{DoxyItemize}
+\item Baud rate 115200
+\item Parity None
+\item Stop Bit 1
+\item Data Bits 8
+\item Выбранный канал -\/ USART1, TX -\/ PA9, RX -\/ PA10
+\item Включено прерывание по ошибке, при прерывании вызывается USART\+\_\+\+Reload() 
+\end{DoxyItemize}
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{_u_a_r_t__lib_8c_a5d2059c1bf523d392060e3428bbbe4cd}\label{_u_a_r_t__lib_8c_a5d2059c1bf523d392060e3428bbbe4cd} 
+\index{UART\_lib.c@{UART\_lib.c}!errorCounterUSART@{errorCounterUSART}}
+\index{errorCounterUSART@{errorCounterUSART}!UART\_lib.c@{UART\_lib.c}}
+\doxysubsubsection{\texorpdfstring{errorCounterUSART}{errorCounterUSART}}
+{\footnotesize\ttfamily uint8\+\_\+t error\+Counter\+USART = 0}
+
+Количество ошибок по USART каналу подряд 

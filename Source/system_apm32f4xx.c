@@ -1,35 +1,7 @@
-/*!
- * @file        system_apm32f4xx.c
- *
- * @brief       CMSIS Cortex-M4 Device Peripheral Access Layer System Source File
- *
- * @version     V1.0.2
- *
- * @date        2022-06-23
- *
- * @attention
- *
- *  Copyright (C) 2021-2022 Geehy Semiconductor
- *
- *  You may not use this file except in compliance with the
- *  GEEHY COPYRIGHT NOTICE (GEEHY SOFTWARE PACKAGE LICENSE).
- *
- *  The program is only for reference, which is distributed in the hope
- *  that it will be usefull and instructional for customers to develop
- *  their software. Unless required by applicable law or agreed to in
- *  writing, the program is distributed on an "AS IS" BASIS, WITHOUT
- *  ANY WARRANTY OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the GEEHY SOFTWARE PACKAGE LICENSE for the governing permissions
- *  and limitations under the License.
- */
-
 /* Includes */
 #include "apm32f4xx.h"
 #include "system_apm32f4xx.h"
 
-/** @addtogroup GeehyLib
-  @{
-  */
 
 
 /* Uncomment the following line if you need to use external SRAM as data memory  */
@@ -41,39 +13,20 @@
 /* Vector Table base offset field. This value must be a multiple of 0x200. */
 #define VECT_TAB_OFFSET  0x00
 
-/* PLL_VCO = (HSE_VALUE or HSI_VALUE / PLL_B) * PLL_A */
 #define PLL_B      8
 
-/* USB OTG FS, SDIO and RNG Clock =  PLL_VCO / PLL_D */
 #define PLL_D      7
 
 #define PLL_A      336
-/* SYSCLK = PLL_VCO / PLL_C */
+
 #define PLL_C      2
 
-/**@} end of group DAC_ADC_System_Macros*/
 
-/** @defgroup DAC_ADC_System_Variables System_Variables
-  @{
-*/
-
-/**
- * @brief    APM32F4xx_System_Private_Variables
- */
 
 uint32_t SystemCoreClock = 168000000;
 
 __I uint8_t AHBPrescTable[16] = {0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9};
 
-/**@} end of group DAC_ADC_System_Variables*/
-
-/** @defgroup DAC_ADC_System_Functions System_Functions
-  @{
-*/
-
-/**
- * @brief    APM32F4xx_System_Private_FunctionPrototypes
- */
 
 static void SystemClockConfig(void);
 
@@ -81,13 +34,7 @@ static void SystemClockConfig(void);
 static void SystemInit_ExtSRAM(void);
 #endif /* DATA_IN_ExtSRAM */
 
-/*!
- * @brief     Setup the microcontroller system
- *
- * @param     None
- *
- * @retval    None
- */
+
 void SystemInit(void)
 {
     /* FPU settings */
@@ -127,14 +74,6 @@ void SystemInit(void)
     #endif
 }
 
-/*!
- * @brief     Update SystemCoreClock variable according to Clock Register Values
- *            The SystemCoreClock variable contains the core clock (HCLK)
- *
- * @param     None
- *
- * @retval    None
- */
 void SystemCoreClockUpdate(void)
 {
     uint32_t sysClock, pllvco, pllc, pllClock, pllb;
@@ -183,14 +122,6 @@ void SystemCoreClockUpdate(void)
     SystemCoreClock >>= sysClock;
 }
 
-/*!
- * @brief     Configures the System clock source, PLL Multiplier and Divider factors,
- *            AHB/APBx prescalers and Flash settings
- *
- * @param     None
- *
- * @retval    None
- */
 static void SystemClockConfig(void)
 {
     __IO uint32_t i;
@@ -325,4 +256,3 @@ void SystemInit_ExtSRAM(void)
 }
 #endif /* DATA_IN_ExtSRAM */
 
-/**@} end of group GeehyLib */

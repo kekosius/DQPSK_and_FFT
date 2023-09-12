@@ -14,11 +14,14 @@ double AmlitudeAnalysis(double*, uint16_t);
 
 //Амплитуда колебаний, которая будет считаться как паразитный сигнал (помеха)
 
+/*! \cond */
+
 struct MinMaxStruct { 
 	double max;
 	double min;
 };
 struct MinMaxStruct PeriodAmplitude;
+/*! \endcond */
 
 void FlagsClear() {
 	TMR_ClearIntFlag(TMR2, TMR_INT_UPDATE);

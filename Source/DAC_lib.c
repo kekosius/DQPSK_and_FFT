@@ -1,4 +1,21 @@
+/*!
+ * @file        DAC_lib.c
+ *
+ * @brief       Функции для работы с ЦАП
+ *
+ * @version     V1.0.0
+ *
+ * @date        12-09-2023
+ */
+
 #include "DAC_lib.h"
+
+/*!
+ * @brief     Инициализация модуля ЦАП
+ *
+ * Выставленные параметры:
+ * - канал 1, пин PA4
+ */
 
 void DAC_Init()
 {
@@ -25,9 +42,17 @@ void DAC_Init()
     DAC_Enable(DAC_CHANNEL_1);
 }
 
+/*!
+* @brief     Установка High (3.3 V) уровня на ЦАП
+ */
+
 void DAC_SetHigh() {
 	DAC_ConfigChannel1Data(DAC_ALIGN_12BIT_R, 0x0FFF);
-}	
+}
+
+/*!
+* @brief     Установка Low (0 V) уровня на ЦАП
+ */
 	
 void DAC_SetLow() {
 	DAC_ConfigChannel1Data(DAC_ALIGN_12BIT_R, 0x0);

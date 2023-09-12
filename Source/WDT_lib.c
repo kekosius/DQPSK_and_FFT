@@ -1,3 +1,13 @@
+/*!
+ * @file        WDT_lib.c
+ *
+ * @brief       Функции для работы со сторожевым таймером
+ *
+ * @version     V1.0.0
+ *
+ * @date        12-09-2023
+ */
+
 #include "WDT_lib.h"
 
 volatile uint32_t TimingDelay = 0;
@@ -33,12 +43,25 @@ void IWDT_Update() {
 	IWDT_Refresh();
 }
 
+/*!
+ * @brief     Принудительная остановка работы программы.
+ *
+ *            Устройство сигнализирует о принудительной остановке следующим образом:
+ *            - Включение светодиодов LED2, LED3
+ *            - Заполнение LCD экрана красным цветом
+ *            - Отправка сообщения SYSTEM FATAL ERROR по USART
+ *            - Установка High уровня на ЦАП
+ *
+ */
+
 void Fatal_error() {
 	APM_MINI_LEDOn(LED2);
 	APM_MINI_LEDOn(LED3);
 	fillRectangle(0, 0, LCD_HEIGHT, LCD_WIDTH, RED);
+	USART_Tx_Char(USART, 13);
 	uint8_t fatal_message[18] = {'S', 'Y', 'S', 'T', 'E', 'M', ' ', 'F', 'A', 'T', 'A', 'L', ' ', 'E', 'R', 'R', 'O', 'R'};
 	USART_Write(USART, fatal_message, 18);
+	USART_Tx_Char(USART, 13);
 	DAC_SetHigh();
 	while(1) {};
 }

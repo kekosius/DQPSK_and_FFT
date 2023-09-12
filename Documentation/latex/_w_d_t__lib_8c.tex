@@ -1,0 +1,62 @@
+\doxysection{C\+:/\+Users/user/\+Documents/\+Keil/\+DQPSK\+\_\+plus\+\_\+\+Freq/\+Source/\+WDT\+\_\+lib.c File Reference}
+\hypertarget{_w_d_t__lib_8c}{}\label{_w_d_t__lib_8c}\index{C:/Users/user/Documents/Keil/DQPSK\_plus\_Freq/Source/WDT\_lib.c@{C:/Users/user/Documents/Keil/DQPSK\_plus\_Freq/Source/WDT\_lib.c}}
+
+
+Функции для работы со сторожевым таймером  
+
+
+{\ttfamily \#include \"{}WDT\+\_\+lib.\+h\"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{_w_d_t__lib_8c_a9f3c44f677b0fd5bcbf2859c7def88bc}\label{_w_d_t__lib_8c_a9f3c44f677b0fd5bcbf2859c7def88bc} 
+void {\bfseries IWDT\+\_\+\+Restart\+\_\+note} (void)
+\item 
+\Hypertarget{_w_d_t__lib_8c_a8b37ffedd7ce2b46299b64f5c1919238}\label{_w_d_t__lib_8c_a8b37ffedd7ce2b46299b64f5c1919238} 
+void {\bfseries IWDT\+\_\+init} ()
+\item 
+\Hypertarget{_w_d_t__lib_8c_a60778fdce755bfb3b9d709dd24e8f76f}\label{_w_d_t__lib_8c_a60778fdce755bfb3b9d709dd24e8f76f} 
+void {\bfseries IWDT\+\_\+\+Delay} (uint32\+\_\+t ms)
+\item 
+\Hypertarget{_w_d_t__lib_8c_a76ff7fd1bb597a54928c3ceab8c59e45}\label{_w_d_t__lib_8c_a76ff7fd1bb597a54928c3ceab8c59e45} 
+void {\bfseries IWDT\+\_\+\+Update} ()
+\item 
+void \mbox{\hyperlink{_w_d_t__lib_8c_a05bf696c2b52a3e4ec2549e8bdbde2bd}{Fatal\+\_\+error}} ()
+\begin{DoxyCompactList}\small\item\em Принудительная остановка работы программы. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{_w_d_t__lib_8c_a556f67f45f371839f1c08be84dd9af50}\label{_w_d_t__lib_8c_a556f67f45f371839f1c08be84dd9af50} 
+volatile uint32\+\_\+t {\bfseries Timing\+Delay} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Функции для работы со сторожевым таймером 
+
+\begin{DoxyVersion}{Version}
+V1.\+0.\+0
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+12-\/09-\/2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_w_d_t__lib_8c_a05bf696c2b52a3e4ec2549e8bdbde2bd}\label{_w_d_t__lib_8c_a05bf696c2b52a3e4ec2549e8bdbde2bd} 
+\index{WDT\_lib.c@{WDT\_lib.c}!Fatal\_error@{Fatal\_error}}
+\index{Fatal\_error@{Fatal\_error}!WDT\_lib.c@{WDT\_lib.c}}
+\doxysubsubsection{\texorpdfstring{Fatal\_error()}{Fatal\_error()}}
+{\footnotesize\ttfamily void Fatal\+\_\+error (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Принудительная остановка работы программы. 
+
+\begin{DoxyVerb}       Устройство сигнализирует о принудительной остановке следующим образом:
+       - Включение светодиодов LED2, LED3
+       - Заполнение LCD экрана красным цветом
+       - Отправка сообщения SYSTEM FATAL ERROR по USART
+       - Установка High уровня на ЦАП
+\end{DoxyVerb}
+ 

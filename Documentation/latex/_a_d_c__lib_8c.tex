@@ -1,0 +1,92 @@
+\doxysection{C\+:/\+Users/user/\+Documents/\+Keil/\+DQPSK\+\_\+plus\+\_\+\+Freq/\+Source/\+ADC\+\_\+lib.c File Reference}
+\hypertarget{_a_d_c__lib_8c}{}\label{_a_d_c__lib_8c}\index{C:/Users/user/Documents/Keil/DQPSK\_plus\_Freq/Source/ADC\_lib.c@{C:/Users/user/Documents/Keil/DQPSK\_plus\_Freq/Source/ADC\_lib.c}}
+
+
+Функции для работы с АЦП  
+
+
+{\ttfamily \#include \"{}ADC\+\_\+lib.\+h\"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_a_d_c__lib_8c_a3fdaf3b8949082abe85a7e7083087eb7}{ADC\+\_\+\+Init}} ()
+\begin{DoxyCompactList}\small\item\em Инициализация модуля АЦП \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{_a_d_c__lib_8c_aefac2e00e12a4d31bde8f7ee88c96c3d}{Get\+Real\+Voltage}} ()
+\begin{DoxyCompactList}\small\item\em Получение уровня напряжение с АЦП \end{DoxyCompactList}\item 
+\Hypertarget{_a_d_c__lib_8c_ad3c2b4dc1cb4620259c357207d1d899a}\label{_a_d_c__lib_8c_ad3c2b4dc1cb4620259c357207d1d899a} 
+void {\bfseries ADC\+\_\+\+Restart\+\_\+note} ()
+\begin{DoxyCompactList}\small\item\em Отправка сообщения по USART о перезагрузке АЦП \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_a_d_c__lib_8c_a5ac94dc8240ff443f277c0cd05523f92}{ADC\+\_\+\+Reload}} ()
+\begin{DoxyCompactList}\small\item\em Перезагрузка модуля АЦП, вызванная обработчиком ошибки \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_a_d_c__lib_8c_a507a5dce40d4476e8a27e3eda3bc300c}{error\+Counter\+ADC}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Функции для работы с АЦП 
+
+\begin{DoxyVersion}{Version}
+V1.\+0.\+0
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+12-\/09-\/2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_a_d_c__lib_8c_a3fdaf3b8949082abe85a7e7083087eb7}\label{_a_d_c__lib_8c_a3fdaf3b8949082abe85a7e7083087eb7} 
+\index{ADC\_lib.c@{ADC\_lib.c}!ADC\_Init@{ADC\_Init}}
+\index{ADC\_Init@{ADC\_Init}!ADC\_lib.c@{ADC\_lib.c}}
+\doxysubsubsection{\texorpdfstring{ADC\_Init()}{ADC\_Init()}}
+{\footnotesize\ttfamily void ADC\+\_\+\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Инициализация модуля АЦП 
+
+Выставленные параметры\+:
+\begin{DoxyItemize}
+\item разрешение 12 бит
+\item SAMPLE TIME 84 цикла измерений
+\item канал 1, пин PA0
+\item включено прерывание по перегрузке, при прерывании вызывается \doxylink{_a_d_c__lib_8c_a5ac94dc8240ff443f277c0cd05523f92}{ADC\+\_\+\+Reload()} 
+\end{DoxyItemize}\Hypertarget{_a_d_c__lib_8c_a5ac94dc8240ff443f277c0cd05523f92}\label{_a_d_c__lib_8c_a5ac94dc8240ff443f277c0cd05523f92} 
+\index{ADC\_lib.c@{ADC\_lib.c}!ADC\_Reload@{ADC\_Reload}}
+\index{ADC\_Reload@{ADC\_Reload}!ADC\_lib.c@{ADC\_lib.c}}
+\doxysubsubsection{\texorpdfstring{ADC\_Reload()}{ADC\_Reload()}}
+{\footnotesize\ttfamily void ADC\+\_\+\+Reload (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Перезагрузка модуля АЦП, вызванная обработчиком ошибки 
+
+Также отправляет информационное сообщение по USART о перезагрузке. Если не удалось принять значение через АЦП после пяти перезагрузок подряд, то вызывается функция принудительной остановки работы \doxylink{_w_d_t__lib_8c_a05bf696c2b52a3e4ec2549e8bdbde2bd}{Fatal\+\_\+error()} \Hypertarget{_a_d_c__lib_8c_aefac2e00e12a4d31bde8f7ee88c96c3d}\label{_a_d_c__lib_8c_aefac2e00e12a4d31bde8f7ee88c96c3d} 
+\index{ADC\_lib.c@{ADC\_lib.c}!GetRealVoltage@{GetRealVoltage}}
+\index{GetRealVoltage@{GetRealVoltage}!ADC\_lib.c@{ADC\_lib.c}}
+\doxysubsubsection{\texorpdfstring{GetRealVoltage()}{GetRealVoltage()}}
+{\footnotesize\ttfamily double Get\+Real\+Voltage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Получение уровня напряжение с АЦП 
+
+Подсчёт напряжения происходит в рассчете на то, что на вход приходит напряжение с добавленной константой \mbox{[}INPUT\+\_\+\+AMPLITUDE/2\mbox{]}, которую нужно игнорировать
+
+
+\begin{DoxyRetVals}{Return values}
+{\em Напряжение} & в милливольтах \\
+\hline
+\end{DoxyRetVals}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{_a_d_c__lib_8c_a507a5dce40d4476e8a27e3eda3bc300c}\label{_a_d_c__lib_8c_a507a5dce40d4476e8a27e3eda3bc300c} 
+\index{ADC\_lib.c@{ADC\_lib.c}!errorCounterADC@{errorCounterADC}}
+\index{errorCounterADC@{errorCounterADC}!ADC\_lib.c@{ADC\_lib.c}}
+\doxysubsubsection{\texorpdfstring{errorCounterADC}{errorCounterADC}}
+{\footnotesize\ttfamily uint8\+\_\+t error\+Counter\+ADC = 0}
+
+Количество ошибок по модулю АЦП подряд 

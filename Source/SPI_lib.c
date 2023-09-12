@@ -90,8 +90,6 @@ void SPI_Reload(SPI_T* SPI) {
 		SPI_Init();
 		errorCounterSPI++;
 		SPI_Restart_note();
-		if (SPI_I2S_ReadStatusFlag(SPI, SPI_FLAG_ME) == SET) USART_Tx_Char(USART, '2');
-		if (SPI_I2S_ReadStatusFlag(SPI, SPI_FLAG_OVR) == SET) USART_Tx_Char(USART, '3');
 		SPI_I2S_ClearStatusFlag(SPI, SPI_FLAG_ME);
 		SPI_I2S_ClearStatusFlag(SPI, SPI_FLAG_OVR);
 	}
