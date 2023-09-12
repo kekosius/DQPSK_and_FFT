@@ -5,7 +5,7 @@ void SpectrumAnalysis(double* FFT_Buff, uint8_t LowLevel) {
 	APM_MINI_LEDOn(LED3);
 	TMR_Disable(TMR3);
 	__disable_irq();
-	DAC_ConfigChannel1Data(DAC_ALIGN_12BIT_R, 0x0);
+	DAC_SetHigh();
 	 
 	/*
 	Параметры, использующийеся при выполнении Быстрого Преобразования Фурье (FFT)
@@ -40,7 +40,7 @@ void SpectrumAnalysis(double* FFT_Buff, uint8_t LowLevel) {
 	 
 	 if (result > 0) LCD_Freq_Result(result, AverageVoltage);
 	 
-	 DAC_ConfigChannel1Data(DAC_ALIGN_12BIT_R, 0x0FFF);
+	 DAC_SetLow();
 	 SpectrumVarReInit();
 	 TMR_Reset(TMR3);
 	 ADC_Init();

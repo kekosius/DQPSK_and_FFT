@@ -703,6 +703,26 @@
               <FileType>1</FileType>
               <FilePath>..\..\Source\PM.c</FilePath>
             </File>
+            <File>
+              <FileName>DAC_lib.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Source\DAC_lib.c</FilePath>
+            </File>
+            <File>
+              <FileName>DAC_lib.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\Include\DAC_lib.h</FilePath>
+            </File>
+            <File>
+              <FileName>KEY_lib.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\Include\KEY_lib.h</FilePath>
+            </File>
+            <File>
+              <FileName>KEY_lib.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Source\KEY_lib.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

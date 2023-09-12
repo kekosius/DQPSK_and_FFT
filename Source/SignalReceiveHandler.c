@@ -101,9 +101,7 @@ void ReceiveStop(double* VoltagesData, double* ZeroCrossTimings, uint16_t* EndOf
 	
 	APM_MINI_LEDOff(LED2);
 	APM_MINI_LEDOn(LED3);
-	
-	
-	DAC_ConfigChannel1Data(DAC_ALIGN_12BIT_R, 0x0FFF);
+	DAC_SetHigh();
 	
 	int8_t StartSign = GetStartSign();
 	ZeroCrossAnalysis(VoltagesData, ZeroCrossTimings, StartSign, EndOfSample);
@@ -141,6 +139,6 @@ void ReceiveStop(double* VoltagesData, double* ZeroCrossTimings, uint16_t* EndOf
 	TMR_Reset(TMR2);
 	ADC_Init();
 	TMR2_Init();
-	DAC_ConfigChannel1Data(DAC_ALIGN_12BIT_R, 0x0);
+	DAC_SetLow();
 	APM_MINI_LEDOff(LED3);
 }

@@ -3,6 +3,8 @@
 
 #include "main.h"
 
+extern uint8_t NoResultCounter;
+
 void TMR2_Init(void);
 void TMR3_Init(void);
 void TMR4_Init(void);
