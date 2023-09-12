@@ -57,9 +57,6 @@ uint8_t CatchPackageStart(double RealVoltage, double PrevVoltage, uint64_t* tick
 		if (RealVoltage > 0) StartSign = 1;
 		else StartSign = -1;
 		APM_MINI_LEDOn(LED2);
-		#ifdef DEEP_DEBUG
-		  USART_Tx_Number(USART, 228);
-		#endif
 		return 1;
 	}
 	return 0;
@@ -94,10 +91,6 @@ uint8_t GetStartSign() {
 }
 
 void ReceiveStop(double* VoltagesData, double* ZeroCrossTimings, uint16_t* EndOfSample){
-	
-	#ifdef DEEP_DEBUG
-		USART_Tx_Number(USART, 123);
-	#endif
 	
 	APM_MINI_LEDOff(LED2);
 	APM_MINI_LEDOn(LED3);

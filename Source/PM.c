@@ -2,12 +2,6 @@
 
 #define TICKS_NUM							 			(5376) 
 
-//#define MOVE_AVG
-
-//#define DEBUG
-//#define CALCULATION_DEBUG
-//#define SPEED_CODE_INSPECTOR
-
 double TimerFreq = 26785.714285;						//Частота таймера TIM2
 double TimerPeriod = 1/26785.714285;					//Период прерываний таймера
 const double pi = 3.14159265359;
@@ -24,33 +18,15 @@ uint16_t BauerToOrig(uint16_t, uint8_t*);
 uint16_t GoodCodeFinder(uint16_t*, uint8_t*);
 uint16_t SpeedLimit(uint16_t);
 
-#ifdef DEBUG
-	uint8_t AMessage[2] = {'A', ' '};
-	uint8_t BMessage[2] = {'B', ' '};
-	uint8_t CMessage[2] = {'C', ' '};
-	uint8_t DMessage[2] = {'D', ' '};
-	uint8_t EMessage[2] = {'E', ' '};
-	uint8_t FMessage[2] = {'F', ' '};
-#endif
-
 void AnalysisEnd(void);
 
 void ZeroCrossAnalysis(double* VoltagesData, double* ZeroCrossTimings, int8_t StartSign, uint16_t* EndOfSample){
 	for (int i = 1; i < TICKS_NUM; i++){
 		if ((VoltagesData[i]*StartSign < 0) && (VoltagesData[i-1]*StartSign > 0)) {
-			#ifdef DEBUG
-				USART_Write(USART, AMessage, 2);
-			#endif
 			if((i - PrevCrossTick) == 8) {
-				#ifdef DEBUG
-					USART_Write(USART, BMessage, 2);
-				#endif
 				ZeroCrossTimings[ThroughPeriodCount] = ((double) i - 1.0 + 0.5)*TimerPeriod;
 				ThroughPeriodCount++;
 				if (PeriodContinues == 0) {
-					#ifdef DEBUG
-						USART_Write(USART, CMessage, 2);
-					#endif
 					if (PeriodCount > 5) {
 						if (!FirstPer) {
 							SampleCounter++;
@@ -65,18 +41,12 @@ void ZeroCrossAnalysis(double* VoltagesData, double* ZeroCrossTimings, int8_t St
 						PeriodCount = 0;
 					}	
 					else {
-						#ifdef DEBUG
-							USART_Write(USART, DMessage, 2);
-						#endif
 						ThroughPeriodCount -= PeriodCount;
 						PeriodCount = 0;
 						PeriodContinues = 1;
 					}
 				} 
 				else {
-					#ifdef DEBUG
-						USART_Write(USART, EMessage, 2);
-					#endif
 					if (PeriodCount == 15) {
 						PeriodContinues = 0;
 					}
@@ -89,26 +59,12 @@ void ZeroCrossAnalysis(double* VoltagesData, double* ZeroCrossTimings, int8_t St
 		}
 		
 		if (ThroughPeriodCount > 700) {
-		#ifdef DEBUG
-			USART_Write(USART, FMessage, 2);
-		#endif
 		AnalysisEnd();
 		return;
 		}
 	}
 	SampleCounter++;
 	EndOfSample[SampleCounter] = ThroughPeriodCount;
-	#ifdef DEBUG
-	USART_Tx_Char(USART, 13);
-	for (int i = 0; i < 43; i++) USART_Tx_Number(USART, EndOfSample[i]);
-	USART_Tx_Char(USART, 13);
-	for (int i = 1; i < 43; i++) {
-		for (int j = EndOfSample[i-1]+1; j<=EndOfSample[i]; j++) {
-			USART_Tx_Float(USART, ZeroCrossTimings[j], 5);
-		}
-		USART_Tx_Char(USART, 13);
-	}
-	#endif
 	AnalysisEnd();
 	//
 	return;
@@ -146,11 +102,6 @@ uint8_t Demodulation(double* ZeroCrossTimings, uint16_t* EndOfSample, uint8_t* H
 	offsetTime = DiffPhaze[0]*T/(2*pi);
 	uint32_t pos = 1;
 	
-	#ifdef DEBUG		
-		USART_Tx_Float(USART, DiffPhaze[0], 3);
-		USART_Tx_Char(USART, 13);
-	#endif
-	
 	
 	for (uint16_t i = 2; i < 42; i++) {
 		sum = 0;
@@ -160,45 +111,17 @@ uint8_t Demodulation(double* ZeroCrossTimings, uint16_t* EndOfSample, uint8_t* H
 		uint8_t Phase_3pi_2 = 0;
 		
 		if (EndOfSample[i-1]+1 > EndOfSample[i]) break;
-		
-		#ifdef CALCULATION_DEBUG
-			uint8_t FirstMessage[2] = {'1', ' '};
-			uint8_t SecondMessage[2] = {'2', ' '};
-			uint8_t ThirdMessage[2] = {'3', ' '};
-		#endif
 
 		for (uint16_t j = EndOfSample[i-1]+1; j<=EndOfSample[i]; j++){
-			#ifdef CALCULATION_DEBUG
-				USART_Write(USART, FirstMessage, 2);
-				USART_Tx_Number(USART, i);
-				USART_Tx_Number(USART, EndOfSample[i-1]+1);
-				USART_Tx_Number(USART, EndOfSample[i]);
-			#endif
 			currentPhase = (ZeroCrossTimings[j] - offsetTime);
-			#ifdef CALCULATION_DEBUG
-				USART_Write(USART, SecondMessage, 1);
-			#endif
 			phase = fmod(currentPhase, T)*(2*pi)/T - pi;
-			#ifdef CALCULATION_DEBUG
-				USART_Write(USART, SecondMessage, 2);
-			#endif
 			
 			if (phase < 0) phase+=2*pi;
-			#ifdef DEBUG
-				USART_Tx_Float(USART, phase/pi, 3);
-			#endif
 			if ((phase < pi/4) || (phase >= 7*pi/4)) Phase_0pi++;
 			else if ((phase >= pi/4) && (phase < 3*pi/4)) Phase_pi_2++;
 			else if ((phase >= 3*pi/4) && (phase < 5*pi/4)) Phase_pi++;
 			else Phase_3pi_2++;
-			#ifdef CALCULATION_DEBUG
-				USART_Write(USART, ThirdMessage, 2);
-			#endif
 		}
-
-		#ifdef DEBUG		
-		USART_Tx_Char(USART, 13);
-		#endif
 		
 		if (Phase_0pi >= Phase_pi_2 && Phase_0pi > Phase_pi && Phase_0pi >= Phase_3pi_2) {
 			DiffPhaze[pos] = 0;
@@ -221,20 +144,6 @@ uint8_t Demodulation(double* ZeroCrossTimings, uint16_t* EndOfSample, uint8_t* H
 		offsetTime += DiffPhaze[pos]*T/(2*pi);
 		pos++;
 	}
-	
-	#ifdef DEBUG
-		for (int i = 0; i < 40; i++){
-			USART_Tx_Number(USART, HighBinData[i]);
-			if ((i+1)%4 == 0) USART_Tx_Char(USART, ' ');
-		}
-		USART_Tx_Char(USART, 13);
-		for (int i = 0; i < 40; i++){
-			USART_Tx_Number(USART, LowBinData[i]);
-			if ((i+1)%4 == 0) USART_Tx_Char(USART, ' ');
-		}
-		USART_Tx_Char(USART, 13);
-		//while(1);
-	#endif
 	
 	ExitCode = Decoding(HighBinData, LowBinData);
 	
@@ -313,23 +222,12 @@ uint8_t Decoding(uint8_t* High, uint8_t* Low){
 			
 			uint16_t GoodCode = 0;
 			GoodCode = Code/0x10 + (Code%0x10)*0x10;
-			
-			#ifndef SPEED_CODE_INSPECTOR
-				if ((GoodCode / 0x10) < 10) USART_Tx_Char(USART, '0' + GoodCode / 0x10);
-				else USART_Tx_Char(USART, 'A' + (GoodCode / 0x10) - 0x0A);
-				if ((GoodCode % 0x10) < 10) USART_Tx_Char(USART, '0' + GoodCode % 0x10);
-				else USART_Tx_Char(USART, 'A' + (GoodCode % 0x10) - 0x0A);	
-				USART_Tx_Char(USART, ' ');
-				USART_Tx_Char(USART, Counter + '0');
-			#endif
-			
-			#ifdef SPEED_CODE_INSPECTOR
-				USART_Tx_Char(USART, 13);
-				uint16_t speedCode = SpeedLimit(GoodCode);
-				USART_Tx_Number(USART, speedCode/100);
-				USART_Tx_Number(USART, speedCode%100);
-			#endif
-			
+			if ((GoodCode / 0x10) < 10) USART_Tx_Char(USART, '0' + GoodCode / 0x10);
+			else USART_Tx_Char(USART, 'A' + (GoodCode / 0x10) - 0x0A);
+			if ((GoodCode % 0x10) < 10) USART_Tx_Char(USART, '0' + GoodCode % 0x10);
+			else USART_Tx_Char(USART, 'A' + (GoodCode % 0x10) - 0x0A);	
+			USART_Tx_Char(USART, ' ');
+			USART_Tx_Char(USART, Counter + '0');			
 			uint16_t speedCode = SpeedLimit(GoodCode);
 			
 			LCD_DQPSK_Result(GoodCode, speedCode, AverageVoltage);

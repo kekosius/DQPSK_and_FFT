@@ -1,7 +1,6 @@
 #include "TIM_lib.h"
 
 //#define DEBUG
-//#define DEEP_DEBUG
 //#define FILTER_TEST
 
 uint8_t FalseActivation = 0;
@@ -144,9 +143,6 @@ void TMR2_EventCallback(void) {
 		FlagsClear();
 		
 		if (FalseActivation) {
-			#ifdef DEEP_DEBUG
-				USART_Tx_Number(USART, 777);
-			#endif
 			
 			#ifdef DEBUG
 				for(int i = 0; i < c; i++) {

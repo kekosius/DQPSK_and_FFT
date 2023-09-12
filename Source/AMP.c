@@ -2,6 +2,7 @@
 
 #define MOVE_AVG_NUM									(5)
 
+//#define MOVE_AVG
 #define SEND_AVG
 
 double AmlitudeAnalysis(double* Data, uint16_t length) {
