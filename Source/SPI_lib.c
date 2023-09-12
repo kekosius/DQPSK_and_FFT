@@ -97,7 +97,7 @@ void SPI_Reload(SPI_T* SPI) {
 	}
 		
 	if (errorCounterSPI >=5) {
-		while (1) {};
+		Fatal_error();
 	}
 }
 

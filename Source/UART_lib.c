@@ -192,6 +192,6 @@ void USART_Reload(USART_T* usart) {
 		USART_ClearStatusFlag(usart, USART_FLAG_OVRE);
 	}			
 	if (errorCounterUSART >=5) {
-		while (1) {};
+		Fatal_error();
 	}		
 }

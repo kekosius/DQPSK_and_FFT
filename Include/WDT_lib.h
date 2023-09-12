@@ -8,5 +8,6 @@ extern volatile uint32_t TimingDelay;
 
 void IWDT_init(void);
 void IWDT_Update(void);
+void Fatal_error(void);
 
 #endif

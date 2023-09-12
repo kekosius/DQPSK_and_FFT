@@ -32,3 +32,13 @@ void IWDT_Update() {
 	IWDT_Delay(300);
 	IWDT_Refresh();
 }
+
+void Fatal_error() {
+	APM_MINI_LEDOn(LED2);
+	APM_MINI_LEDOn(LED3);
+	fillRectangle(0, 0, LCD_HEIGHT, LCD_WIDTH, RED);
+	uint8_t fatal_message[18] = {'S', 'Y', 'S', 'T', 'E', 'M', ' ', 'F', 'A', 'T', 'A', 'L', ' ', 'E', 'R', 'R', 'O', 'R'};
+	USART_Write(USART, fatal_message, 18);
+	DAC_SetHigh();
+	while(1) {};
+}

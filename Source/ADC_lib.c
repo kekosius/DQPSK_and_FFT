@@ -63,6 +63,6 @@ void ADC_Reload() {
 	}
 	
 	if (errorCounterADC >=5) {
-		while (1) {};
+		Fatal_error();
 	}
 }
