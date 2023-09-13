@@ -96,23 +96,21 @@ $(document).ready(function(){initNavTree('_w_d_t__lib_8c.html',''); initResizabl
 </div><!--header-->
 <div class="contents">
 
-<p>Функции для работы со сторожевым таймером  
+<p>Функции для работы со сторожевым таймером IWDT.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;WDT_lib.h&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a9f3c44f677b0fd5bcbf2859c7def88bc"><td class="memItemLeft" align="right" valign="top"><a id="a9f3c44f677b0fd5bcbf2859c7def88bc" name="a9f3c44f677b0fd5bcbf2859c7def88bc"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>IWDT_Restart_note</b> (void)</td></tr>
-<tr class="separator:a9f3c44f677b0fd5bcbf2859c7def88bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b37ffedd7ce2b46299b64f5c1919238"><td class="memItemLeft" align="right" valign="top"><a id="a8b37ffedd7ce2b46299b64f5c1919238" name="a8b37ffedd7ce2b46299b64f5c1919238"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>IWDT_init</b> ()</td></tr>
+<tr class="memitem:ae7ef85bb830cb7bc13f93df631a35758"><td class="memItemLeft" align="right" valign="top"><a id="ae7ef85bb830cb7bc13f93df631a35758" name="ae7ef85bb830cb7bc13f93df631a35758"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>IWDT_Restart_note</b> ()</td></tr>
+<tr class="memdesc:ae7ef85bb830cb7bc13f93df631a35758"><td class="mdescLeft">&#160;</td><td class="mdescRight">Отправка сообщения по USART о перезагрузке системы, вызванной IWDT таймером <br /></td></tr>
+<tr class="separator:ae7ef85bb830cb7bc13f93df631a35758"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b37ffedd7ce2b46299b64f5c1919238"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_w_d_t__lib_8c.html#a8b37ffedd7ce2b46299b64f5c1919238">IWDT_init</a> ()</td></tr>
 <tr class="separator:a8b37ffedd7ce2b46299b64f5c1919238"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60778fdce755bfb3b9d709dd24e8f76f"><td class="memItemLeft" align="right" valign="top"><a id="a60778fdce755bfb3b9d709dd24e8f76f" name="a60778fdce755bfb3b9d709dd24e8f76f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>IWDT_Delay</b> (uint32_t ms)</td></tr>
+<tr class="memitem:a60778fdce755bfb3b9d709dd24e8f76f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_w_d_t__lib_8c.html#a60778fdce755bfb3b9d709dd24e8f76f">IWDT_Delay</a> (uint32_t ms)</td></tr>
 <tr class="separator:a60778fdce755bfb3b9d709dd24e8f76f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76ff7fd1bb597a54928c3ceab8c59e45"><td class="memItemLeft" align="right" valign="top"><a id="a76ff7fd1bb597a54928c3ceab8c59e45" name="a76ff7fd1bb597a54928c3ceab8c59e45"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>IWDT_Update</b> ()</td></tr>
+<tr class="memitem:a76ff7fd1bb597a54928c3ceab8c59e45"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_w_d_t__lib_8c.html#a76ff7fd1bb597a54928c3ceab8c59e45">IWDT_Update</a> ()</td></tr>
 <tr class="separator:a76ff7fd1bb597a54928c3ceab8c59e45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05bf696c2b52a3e4ec2549e8bdbde2bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_w_d_t__lib_8c.html#a05bf696c2b52a3e4ec2549e8bdbde2bd">Fatal_error</a> ()</td></tr>
 <tr class="memdesc:a05bf696c2b52a3e4ec2549e8bdbde2bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Принудительная остановка работы программы.  <br /></td></tr>
@@ -120,12 +118,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>IWDT_Update</b> ()</t
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a556f67f45f371839f1c08be84dd9af50"><td class="memItemLeft" align="right" valign="top"><a id="a556f67f45f371839f1c08be84dd9af50" name="a556f67f45f371839f1c08be84dd9af50"></a>
-volatile uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>TimingDelay</b> = 0</td></tr>
+<tr class="memitem:a556f67f45f371839f1c08be84dd9af50"><td class="memItemLeft" align="right" valign="top">volatile uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_w_d_t__lib_8c.html#a556f67f45f371839f1c08be84dd9af50">TimingDelay</a> = 0</td></tr>
 <tr class="separator:a556f67f45f371839f1c08be84dd9af50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Функции для работы со сторожевым таймером </p>
+<div class="textblock"><p>Функции для работы со сторожевым таймером IWDT. </p>
 <dl class="section version"><dt>Version</dt><dd>V1.0.0</dd></dl>
 <dl class="section date"><dt>Date</dt><dd>12-09-2023 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
@@ -151,6 +148,79 @@ volatile uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>TimingDe
        - Отправка сообщения SYSTEM FATAL ERROR по USART
        - Установка High уровня на ЦАП
 </pre> 
+</div>
+</div>
+<a id="a60778fdce755bfb3b9d709dd24e8f76f" name="a60778fdce755bfb3b9d709dd24e8f76f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60778fdce755bfb3b9d709dd24e8f76f">&#9670;&#160;</a></span>IWDT_Delay()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IWDT_Delay </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>ms</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Задержка между обновлениями сторожевого таймера </p>
+
+</div>
+</div>
+<a id="a8b37ffedd7ce2b46299b64f5c1919238" name="a8b37ffedd7ce2b46299b64f5c1919238"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b37ffedd7ce2b46299b64f5c1919238">&#9670;&#160;</a></span>IWDT_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IWDT_init </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Инициализация сторожевого таймера IWDT</p>
+<p>При отсутствии обновления в течении ~1000 ms инициируется перезагрузка системы </p>
+
+</div>
+</div>
+<a id="a76ff7fd1bb597a54928c3ceab8c59e45" name="a76ff7fd1bb597a54928c3ceab8c59e45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76ff7fd1bb597a54928c3ceab8c59e45">&#9670;&#160;</a></span>IWDT_Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IWDT_Update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Обновление сторожевого таймера через каждые 300 ms </p>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a556f67f45f371839f1c08be84dd9af50" name="a556f67f45f371839f1c08be84dd9af50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a556f67f45f371839f1c08be84dd9af50">&#9670;&#160;</a></span>TimingDelay</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint32_t TimingDelay = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>extern переменная, используется для задержки по сторожевому таймеру.</p>
+<p>TimingDelay уменьшается системным таймером в SysTick_Handler() </p>
+
 </div>
 </div>
 </div><!-- contents -->

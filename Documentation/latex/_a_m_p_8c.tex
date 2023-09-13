@@ -1,0 +1,133 @@
+\doxysection{C\+:/\+Users/user/\+Documents/\+Keil/\+DQPSK\+\_\+plus\+\_\+\+Freq/\+Source/\+AMP.c File Reference}
+\hypertarget{_a_m_p_8c}{}\label{_a_m_p_8c}\index{C:/Users/user/Documents/Keil/DQPSK\_plus\_Freq/Source/AMP.c@{C:/Users/user/Documents/Keil/DQPSK\_plus\_Freq/Source/AMP.c}}
+
+
+Функции для вычисления амплитуды входного сигнала  
+
+
+{\ttfamily \#include \"{}AMP.\+h\"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_a_m_p_8c_ac545a9fba18b4a4eb99e29abcd830365}{MOVE\+\_\+\+AVG\+\_\+\+NUM}}~(5)
+\item 
+\Hypertarget{_a_m_p_8c_a60e25b74deba2d7eba3ed0488ed30666}\label{_a_m_p_8c_a60e25b74deba2d7eba3ed0488ed30666} 
+\#define {\bfseries SEND\+\_\+\+AVG}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{_a_m_p_8c_adbea7f0464f380bf508408bb38fbb5a9}{Amlitude\+Analysis}} (double \texorpdfstring{$\ast$}{*}Data, uint16\+\_\+t length)
+\begin{DoxyCompactList}\small\item\em Подсчет средней амплитуды принятого сигнала \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{_a_m_p_8c_a34d5185ffc8f108f8315563b8190bbf1}{Moving\+Average}} (double avg)
+\begin{DoxyCompactList}\small\item\em Подсчет скользящей средней по амплитуде \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_a_m_p_8c_a0039df7ab0aa659c2d2b0654ce4fbef6}{Moving\+Average\+Clear}} ()
+\begin{DoxyCompactList}\small\item\em Обнуление кольцевого буфера \doxylink{_a_m_p_8c_a7acd4e354daad1b29926483f64ab999c}{avg\+Storage\mbox{[}\mbox{]}} и счётчика \doxylink{_a_m_p_8c_a338516706506c5857e22354cdb538f5a}{avg\+Counter}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{_a_m_p_8c_a977195e7cd71573763e6eacfdee484b1}{Average\+Voltage}} = 0
+\item 
+double \mbox{\hyperlink{_a_m_p_8c_a7acd4e354daad1b29926483f64ab999c}{avg\+Storage}} \mbox{[}\mbox{\hyperlink{_a_m_p_8c_ac545a9fba18b4a4eb99e29abcd830365}{MOVE\+\_\+\+AVG\+\_\+\+NUM}}\mbox{]} = \{0\}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{_a_m_p_8c_a338516706506c5857e22354cdb538f5a}{avg\+Counter}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Функции для вычисления амплитуды входного сигнала 
+
+\begin{DoxyVersion}{Version}
+V1.\+0.\+0
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+12-\/09-\/2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{_a_m_p_8c_ac545a9fba18b4a4eb99e29abcd830365}\label{_a_m_p_8c_ac545a9fba18b4a4eb99e29abcd830365} 
+\index{AMP.c@{AMP.c}!MOVE\_AVG\_NUM@{MOVE\_AVG\_NUM}}
+\index{MOVE\_AVG\_NUM@{MOVE\_AVG\_NUM}!AMP.c@{AMP.c}}
+\doxysubsubsection{\texorpdfstring{MOVE\_AVG\_NUM}{MOVE\_AVG\_NUM}}
+{\footnotesize\ttfamily \#define MOVE\+\_\+\+AVG\+\_\+\+NUM~(5)}
+
+Количество измерений, которые учитываются при подсчете скользящей средней 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_a_m_p_8c_adbea7f0464f380bf508408bb38fbb5a9}\label{_a_m_p_8c_adbea7f0464f380bf508408bb38fbb5a9} 
+\index{AMP.c@{AMP.c}!AmlitudeAnalysis@{AmlitudeAnalysis}}
+\index{AmlitudeAnalysis@{AmlitudeAnalysis}!AMP.c@{AMP.c}}
+\doxysubsubsection{\texorpdfstring{AmlitudeAnalysis()}{AmlitudeAnalysis()}}
+{\footnotesize\ttfamily double Amlitude\+Analysis (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}}]{Data,  }\item[{uint16\+\_\+t}]{length }\end{DoxyParamCaption})}
+
+
+
+Подсчет средней амплитуды принятого сигнала 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Data} & массив значений принятого сигнала в милливольтах \\
+\hline
+{\em length} & длинна массива \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Амплитуда} & средняя амплитуда сигнала в милливольтах\\
+\hline
+\end{DoxyRetVals}
+Если define MOVE\+\_\+\+AVG, то амплитуда входного сигнала заменяется скользящей средней
+
+Если define SEND\+\_\+\+AVG, то результат отправляется по USART \Hypertarget{_a_m_p_8c_a34d5185ffc8f108f8315563b8190bbf1}\label{_a_m_p_8c_a34d5185ffc8f108f8315563b8190bbf1} 
+\index{AMP.c@{AMP.c}!MovingAverage@{MovingAverage}}
+\index{MovingAverage@{MovingAverage}!AMP.c@{AMP.c}}
+\doxysubsubsection{\texorpdfstring{MovingAverage()}{MovingAverage()}}
+{\footnotesize\ttfamily double Moving\+Average (\begin{DoxyParamCaption}\item[{double}]{avg }\end{DoxyParamCaption})}
+
+
+
+Подсчет скользящей средней по амплитуде 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Текущее} & значение амплитуды \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Значение} & амплитуды с учётом предыдущих измерений \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{_a_m_p_8c_a0039df7ab0aa659c2d2b0654ce4fbef6}\label{_a_m_p_8c_a0039df7ab0aa659c2d2b0654ce4fbef6} 
+\index{AMP.c@{AMP.c}!MovingAverageClear@{MovingAverageClear}}
+\index{MovingAverageClear@{MovingAverageClear}!AMP.c@{AMP.c}}
+\doxysubsubsection{\texorpdfstring{MovingAverageClear()}{MovingAverageClear()}}
+{\footnotesize\ttfamily void Moving\+Average\+Clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Обнуление кольцевого буфера \doxylink{_a_m_p_8c_a7acd4e354daad1b29926483f64ab999c}{avg\+Storage\mbox{[}\mbox{]}} и счётчика \doxylink{_a_m_p_8c_a338516706506c5857e22354cdb538f5a}{avg\+Counter}. 
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{_a_m_p_8c_a977195e7cd71573763e6eacfdee484b1}\label{_a_m_p_8c_a977195e7cd71573763e6eacfdee484b1} 
+\index{AMP.c@{AMP.c}!AverageVoltage@{AverageVoltage}}
+\index{AverageVoltage@{AverageVoltage}!AMP.c@{AMP.c}}
+\doxysubsubsection{\texorpdfstring{AverageVoltage}{AverageVoltage}}
+{\footnotesize\ttfamily double Average\+Voltage = 0}
+
+extern переменная, передаётся в LCD\+\_\+\+DQPSK\+\_\+\+Result() и LCD\+\_\+\+Freq\+\_\+\+Result() для отображения напряжения сигнала на LCD экране \Hypertarget{_a_m_p_8c_a338516706506c5857e22354cdb538f5a}\label{_a_m_p_8c_a338516706506c5857e22354cdb538f5a} 
+\index{AMP.c@{AMP.c}!avgCounter@{avgCounter}}
+\index{avgCounter@{avgCounter}!AMP.c@{AMP.c}}
+\doxysubsubsection{\texorpdfstring{avgCounter}{avgCounter}}
+{\footnotesize\ttfamily uint16\+\_\+t avg\+Counter = 0}
+
+Позиция в \doxylink{_a_m_p_8c_a7acd4e354daad1b29926483f64ab999c}{avg\+Storage\mbox{[}avg\+Counter\mbox{]}}, куда будет записана текущая амплитуда \Hypertarget{_a_m_p_8c_a7acd4e354daad1b29926483f64ab999c}\label{_a_m_p_8c_a7acd4e354daad1b29926483f64ab999c} 
+\index{AMP.c@{AMP.c}!avgStorage@{avgStorage}}
+\index{avgStorage@{avgStorage}!AMP.c@{AMP.c}}
+\doxysubsubsection{\texorpdfstring{avgStorage}{avgStorage}}
+{\footnotesize\ttfamily double avg\+Storage\mbox{[}\mbox{\hyperlink{_a_m_p_8c_ac545a9fba18b4a4eb99e29abcd830365}{MOVE\+\_\+\+AVG\+\_\+\+NUM}}\mbox{]} = \{0\}}
+
+Кольцевой буфер для хранения предыдущих значений амплитуды 

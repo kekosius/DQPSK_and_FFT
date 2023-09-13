@@ -1,9 +1,31 @@
+/*!
+ * @file        AMP.c
+ *
+ * @brief       Функции для вычисления амплитуды входного сигнала
+ *
+ * @version     V1.0.0
+ *
+ * @date        12-09-2023
+ */
+
 #include "AMP.h"
 
-#define MOVE_AVG_NUM									(5)
+#define MOVE_AVG_NUM	(5)   /*!< Количество измерений, которые учитываются при подсчете скользящей средней*/
 
-//#define MOVE_AVG
-#define SEND_AVG
+//#define MOVE_AVG        
+#define SEND_AVG		
+
+/*!
+ * @brief     Подсчет средней амплитуды принятого сигнала
+ *
+ * @param	  Data массив значений принятого сигнала в милливольтах
+ * @param     length длинна массива
+ * @retval    Амплитуда средняя амплитуда сигнала в милливольтах
+ *
+ * Если define MOVE_AVG, то амплитуда входного сигнала заменяется скользящей средней
+ *
+ * Если define SEND_AVG, то результат отправляется по USART
+ */
 
 double AmlitudeAnalysis(double* Data, uint16_t length) {
 	double max = 0;
@@ -51,10 +73,22 @@ double AmlitudeAnalysis(double* Data, uint16_t length) {
 	return avg;
 }
 
-double AverageVoltage = 0;
 
-double avgStorage[MOVE_AVG_NUM] = {0};
-uint16_t avgCounter = 0;
+
+double AverageVoltage = 0; /*!< extern переменная, передаётся в [LCD_DQPSK_Result()](#LCD_DQPSK_Result) и 
+							* [LCD_Freq_Result()](#LCD_Freq_Result) для отображения напряжения сигнала на LCD экране
+							*/
+
+
+double avgStorage[MOVE_AVG_NUM] = {0}; /*!< Кольцевой буфер для хранения предыдущих значений амплитуды*/
+uint16_t avgCounter = 0;			   /*!< Позиция в [avgStorage[avgCounter]](#avgStorage), куда будет записана текущая амплитуда*/
+
+/*!
+ * @brief     Подсчет скользящей средней по амплитуде
+ *
+ * @param	  Текущее значение амплитуды
+ * @retval    Значение амплитуды с учётом предыдущих измерений
+ */
 
 double MovingAverage(double avg) {
 	avgStorage[avgCounter] = avg;
@@ -72,6 +106,11 @@ double MovingAverage(double avg) {
 	
 	return (avgSum/sumCounter);
 }
+
+/*!
+ * @brief     Обнуление кольцевого буфера [avgStorage[]](#avgStorage) и счётчика #avgCounter
+ *
+ */
 
 void MovingAverageClear() {
 	for (uint16_t i = 0; i < MOVE_AVG_NUM; i++) {

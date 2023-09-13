@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['main_0',['main',['../main_8c.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main.c']]]
+  ['highpassfilter_0',['HighPassFilter',['../_filter__lib_8c.html#a96f164d0c61f1be2b122a196b69dd4ea',1,'Filter_lib.c']]]
 ];

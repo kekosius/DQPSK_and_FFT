@@ -2,37 +2,33 @@
 \hypertarget{_w_d_t__lib_8c}{}\label{_w_d_t__lib_8c}\index{C:/Users/user/Documents/Keil/DQPSK\_plus\_Freq/Source/WDT\_lib.c@{C:/Users/user/Documents/Keil/DQPSK\_plus\_Freq/Source/WDT\_lib.c}}
 
 
-Функции для работы со сторожевым таймером  
+Функции для работы со сторожевым таймером IWDT.  
 
 
 {\ttfamily \#include \"{}WDT\+\_\+lib.\+h\"{}}\newline
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{_w_d_t__lib_8c_a9f3c44f677b0fd5bcbf2859c7def88bc}\label{_w_d_t__lib_8c_a9f3c44f677b0fd5bcbf2859c7def88bc} 
-void {\bfseries IWDT\+\_\+\+Restart\+\_\+note} (void)
+\Hypertarget{_w_d_t__lib_8c_ae7ef85bb830cb7bc13f93df631a35758}\label{_w_d_t__lib_8c_ae7ef85bb830cb7bc13f93df631a35758} 
+void {\bfseries IWDT\+\_\+\+Restart\+\_\+note} ()
+\begin{DoxyCompactList}\small\item\em Отправка сообщения по USART о перезагрузке системы, вызванной IWDT таймером \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_w_d_t__lib_8c_a8b37ffedd7ce2b46299b64f5c1919238}{IWDT\+\_\+init}} ()
 \item 
-\Hypertarget{_w_d_t__lib_8c_a8b37ffedd7ce2b46299b64f5c1919238}\label{_w_d_t__lib_8c_a8b37ffedd7ce2b46299b64f5c1919238} 
-void {\bfseries IWDT\+\_\+init} ()
+void \mbox{\hyperlink{_w_d_t__lib_8c_a60778fdce755bfb3b9d709dd24e8f76f}{IWDT\+\_\+\+Delay}} (uint32\+\_\+t ms)
 \item 
-\Hypertarget{_w_d_t__lib_8c_a60778fdce755bfb3b9d709dd24e8f76f}\label{_w_d_t__lib_8c_a60778fdce755bfb3b9d709dd24e8f76f} 
-void {\bfseries IWDT\+\_\+\+Delay} (uint32\+\_\+t ms)
-\item 
-\Hypertarget{_w_d_t__lib_8c_a76ff7fd1bb597a54928c3ceab8c59e45}\label{_w_d_t__lib_8c_a76ff7fd1bb597a54928c3ceab8c59e45} 
-void {\bfseries IWDT\+\_\+\+Update} ()
+void \mbox{\hyperlink{_w_d_t__lib_8c_a76ff7fd1bb597a54928c3ceab8c59e45}{IWDT\+\_\+\+Update}} ()
 \item 
 void \mbox{\hyperlink{_w_d_t__lib_8c_a05bf696c2b52a3e4ec2549e8bdbde2bd}{Fatal\+\_\+error}} ()
 \begin{DoxyCompactList}\small\item\em Принудительная остановка работы программы. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{_w_d_t__lib_8c_a556f67f45f371839f1c08be84dd9af50}\label{_w_d_t__lib_8c_a556f67f45f371839f1c08be84dd9af50} 
-volatile uint32\+\_\+t {\bfseries Timing\+Delay} = 0
+volatile uint32\+\_\+t \mbox{\hyperlink{_w_d_t__lib_8c_a556f67f45f371839f1c08be84dd9af50}{Timing\+Delay}} = 0
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Функции для работы со сторожевым таймером 
+Функции для работы со сторожевым таймером IWDT. 
 
 \begin{DoxyVersion}{Version}
 V1.\+0.\+0
@@ -59,4 +55,35 @@ V1.\+0.\+0
        - Отправка сообщения SYSTEM FATAL ERROR по USART
        - Установка High уровня на ЦАП
 \end{DoxyVerb}
- 
+ \Hypertarget{_w_d_t__lib_8c_a60778fdce755bfb3b9d709dd24e8f76f}\label{_w_d_t__lib_8c_a60778fdce755bfb3b9d709dd24e8f76f} 
+\index{WDT\_lib.c@{WDT\_lib.c}!IWDT\_Delay@{IWDT\_Delay}}
+\index{IWDT\_Delay@{IWDT\_Delay}!WDT\_lib.c@{WDT\_lib.c}}
+\doxysubsubsection{\texorpdfstring{IWDT\_Delay()}{IWDT\_Delay()}}
+{\footnotesize\ttfamily void IWDT\+\_\+\+Delay (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{ms }\end{DoxyParamCaption})}
+
+Задержка между обновлениями сторожевого таймера \Hypertarget{_w_d_t__lib_8c_a8b37ffedd7ce2b46299b64f5c1919238}\label{_w_d_t__lib_8c_a8b37ffedd7ce2b46299b64f5c1919238} 
+\index{WDT\_lib.c@{WDT\_lib.c}!IWDT\_init@{IWDT\_init}}
+\index{IWDT\_init@{IWDT\_init}!WDT\_lib.c@{WDT\_lib.c}}
+\doxysubsubsection{\texorpdfstring{IWDT\_init()}{IWDT\_init()}}
+{\footnotesize\ttfamily void IWDT\+\_\+init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Инициализация сторожевого таймера IWDT
+
+При отсутствии обновления в течении \texorpdfstring{$\sim$}{\string~}1000 ms инициируется перезагрузка системы \Hypertarget{_w_d_t__lib_8c_a76ff7fd1bb597a54928c3ceab8c59e45}\label{_w_d_t__lib_8c_a76ff7fd1bb597a54928c3ceab8c59e45} 
+\index{WDT\_lib.c@{WDT\_lib.c}!IWDT\_Update@{IWDT\_Update}}
+\index{IWDT\_Update@{IWDT\_Update}!WDT\_lib.c@{WDT\_lib.c}}
+\doxysubsubsection{\texorpdfstring{IWDT\_Update()}{IWDT\_Update()}}
+{\footnotesize\ttfamily void IWDT\+\_\+\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Обновление сторожевого таймера через каждые 300 ms 
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{_w_d_t__lib_8c_a556f67f45f371839f1c08be84dd9af50}\label{_w_d_t__lib_8c_a556f67f45f371839f1c08be84dd9af50} 
+\index{WDT\_lib.c@{WDT\_lib.c}!TimingDelay@{TimingDelay}}
+\index{TimingDelay@{TimingDelay}!WDT\_lib.c@{WDT\_lib.c}}
+\doxysubsubsection{\texorpdfstring{TimingDelay}{TimingDelay}}
+{\footnotesize\ttfamily volatile uint32\+\_\+t Timing\+Delay = 0}
+
+extern переменная, используется для задержки по сторожевому таймеру.
+
+Timing\+Delay уменьшается системным таймером в Sys\+Tick\+\_\+\+Handler() 

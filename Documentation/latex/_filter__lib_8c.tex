@@ -1,0 +1,108 @@
+\doxysection{C\+:/\+Users/user/\+Documents/\+Keil/\+DQPSK\+\_\+plus\+\_\+\+Freq/\+Source/\+Filter\+\_\+lib.c File Reference}
+\hypertarget{_filter__lib_8c}{}\label{_filter__lib_8c}\index{C:/Users/user/Documents/Keil/DQPSK\_plus\_Freq/Source/Filter\_lib.c@{C:/Users/user/Documents/Keil/DQPSK\_plus\_Freq/Source/Filter\_lib.c}}
+
+
+Функции для фильтрации паразитных частот, содержащихся во входном сигнале  
+
+
+{\ttfamily \#include \"{}Filter\+\_\+lib.\+h\"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_filter__lib_8c_a3731640f1207d9e47ad13ec12a1f5335}{FILTER\+\_\+\+ORDER}}~10
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{_filter__lib_8c_a96f164d0c61f1be2b122a196b69dd4ea}{High\+Pass\+Filter}} (double Input\+Voltage)
+\item 
+void \mbox{\hyperlink{_filter__lib_8c_a5cb6d2d95bfaff7e5cc819eff7bf3084}{Filter\+Wipe}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{_filter__lib_8c_a4be8d128fcd7d784755cbfd8b99cc06b}{filter\+\_\+cff}} \mbox{[}\mbox{\hyperlink{_filter__lib_8c_a3731640f1207d9e47ad13ec12a1f5335}{FILTER\+\_\+\+ORDER}}+1\mbox{]}
+\item 
+double \mbox{\hyperlink{_filter__lib_8c_a9bb34d6632ae9a7419fcd9c3450799c8}{prev\+States}} \mbox{[}\mbox{\hyperlink{_filter__lib_8c_a3731640f1207d9e47ad13ec12a1f5335}{FILTER\+\_\+\+ORDER}}\mbox{]} = \{0\}
+\item 
+int16\+\_\+t \mbox{\hyperlink{_filter__lib_8c_a03ac64a1e7bfa5197c10e3a59a6df806}{Buff}} = \mbox{\hyperlink{_filter__lib_8c_a3731640f1207d9e47ad13ec12a1f5335}{FILTER\+\_\+\+ORDER}} -\/ 1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Функции для фильтрации паразитных частот, содержащихся во входном сигнале 
+
+\begin{DoxyVersion}{Version}
+V1.\+0.\+0
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+12-\/09-\/2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{_filter__lib_8c_a3731640f1207d9e47ad13ec12a1f5335}\label{_filter__lib_8c_a3731640f1207d9e47ad13ec12a1f5335} 
+\index{Filter\_lib.c@{Filter\_lib.c}!FILTER\_ORDER@{FILTER\_ORDER}}
+\index{FILTER\_ORDER@{FILTER\_ORDER}!Filter\_lib.c@{Filter\_lib.c}}
+\doxysubsubsection{\texorpdfstring{FILTER\_ORDER}{FILTER\_ORDER}}
+{\footnotesize\ttfamily \#define FILTER\+\_\+\+ORDER~10}
+
+Порядок частотного фильтра 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_filter__lib_8c_a5cb6d2d95bfaff7e5cc819eff7bf3084}\label{_filter__lib_8c_a5cb6d2d95bfaff7e5cc819eff7bf3084} 
+\index{Filter\_lib.c@{Filter\_lib.c}!FilterWipe@{FilterWipe}}
+\index{FilterWipe@{FilterWipe}!Filter\_lib.c@{Filter\_lib.c}}
+\doxysubsubsection{\texorpdfstring{FilterWipe()}{FilterWipe()}}
+{\footnotesize\ttfamily void Filter\+Wipe (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Обнуление кольцевого буфера \doxylink{_filter__lib_8c_a9bb34d6632ae9a7419fcd9c3450799c8}{prev\+States\mbox{[}\mbox{]}} и присвоение \doxylink{_filter__lib_8c_a03ac64a1e7bfa5197c10e3a59a6df806}{Buff} дефолтного значения \Hypertarget{_filter__lib_8c_a96f164d0c61f1be2b122a196b69dd4ea}\label{_filter__lib_8c_a96f164d0c61f1be2b122a196b69dd4ea} 
+\index{Filter\_lib.c@{Filter\_lib.c}!HighPassFilter@{HighPassFilter}}
+\index{HighPassFilter@{HighPassFilter}!Filter\_lib.c@{Filter\_lib.c}}
+\doxysubsubsection{\texorpdfstring{HighPassFilter()}{HighPassFilter()}}
+{\footnotesize\ttfamily double High\+Pass\+Filter (\begin{DoxyParamCaption}\item[{double}]{Input\+Voltage }\end{DoxyParamCaption})}
+
+Реализация программного частотного фильтра
+
+
+\begin{DoxyParams}{Parameters}
+{\em Input\+Voltage} & входной сигнал в милливольтах \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Напряжение} & Отфильтрованный входной сигнал в милливольтах \\
+\hline
+\end{DoxyRetVals}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{_filter__lib_8c_a03ac64a1e7bfa5197c10e3a59a6df806}\label{_filter__lib_8c_a03ac64a1e7bfa5197c10e3a59a6df806} 
+\index{Filter\_lib.c@{Filter\_lib.c}!Buff@{Buff}}
+\index{Buff@{Buff}!Filter\_lib.c@{Filter\_lib.c}}
+\doxysubsubsection{\texorpdfstring{Buff}{Buff}}
+{\footnotesize\ttfamily int16\+\_\+t Buff = \mbox{\hyperlink{_filter__lib_8c_a3731640f1207d9e47ad13ec12a1f5335}{FILTER\+\_\+\+ORDER}} -\/ 1}
+
+Позиция для записи текущего значения в кольцевом буфере \Hypertarget{_filter__lib_8c_a4be8d128fcd7d784755cbfd8b99cc06b}\label{_filter__lib_8c_a4be8d128fcd7d784755cbfd8b99cc06b} 
+\index{Filter\_lib.c@{Filter\_lib.c}!filter\_cff@{filter\_cff}}
+\index{filter\_cff@{filter\_cff}!Filter\_lib.c@{Filter\_lib.c}}
+\doxysubsubsection{\texorpdfstring{filter\_cff}{filter\_cff}}
+{\footnotesize\ttfamily double filter\+\_\+cff\mbox{[}\mbox{\hyperlink{_filter__lib_8c_a3731640f1207d9e47ad13ec12a1f5335}{FILTER\+\_\+\+ORDER}}+1\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{0.610756766442843047,\ -\/0.589964143152525988,\ -\/0.273905886988929204,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/0.0697084231096051082,\ \ 0.0624288681984259547,\ 0.12607631896943805,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0.144535691178322656,\ 0.0996446362115575301,\ 0.0751365980279702222,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/0.043088989279420821,\ -\/0.141911422747041521\}}
+
+\end{DoxyCode}
+Коэффициенты частотного фильтра
+
+Частотный фильтр ослабляет амплитуду низких частот \texorpdfstring{$<$}{<}800 Гц и усиливает амплитуду частот в полосе пропускания 3200-\/4000 Гц \Hypertarget{_filter__lib_8c_a9bb34d6632ae9a7419fcd9c3450799c8}\label{_filter__lib_8c_a9bb34d6632ae9a7419fcd9c3450799c8} 
+\index{Filter\_lib.c@{Filter\_lib.c}!prevStates@{prevStates}}
+\index{prevStates@{prevStates}!Filter\_lib.c@{Filter\_lib.c}}
+\doxysubsubsection{\texorpdfstring{prevStates}{prevStates}}
+{\footnotesize\ttfamily double prev\+States\mbox{[}\mbox{\hyperlink{_filter__lib_8c_a3731640f1207d9e47ad13ec12a1f5335}{FILTER\+\_\+\+ORDER}}\mbox{]} = \{0\}}
+
+Кольцевой буфер, хранит предыдущие значения выхода фильтра 

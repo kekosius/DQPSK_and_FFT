@@ -1,0 +1,165 @@
+\doxysection{C\+:/\+Users/user/\+Documents/\+Keil/\+DQPSK\+\_\+plus\+\_\+\+Freq/\+Source/\+SPI\+\_\+lib.c File Reference}
+\hypertarget{_s_p_i__lib_8c}{}\label{_s_p_i__lib_8c}\index{C:/Users/user/Documents/Keil/DQPSK\_plus\_Freq/Source/SPI\_lib.c@{C:/Users/user/Documents/Keil/DQPSK\_plus\_Freq/Source/SPI\_lib.c}}
+
+
+Функции для работы с SPI.  
+
+
+{\ttfamily \#include \"{}SPI\+\_\+lib.\+h\"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_s_p_i__lib_8c_a9405ec7074e866a9c74f393f11f18ede}{SPI\+\_\+\+Init}} ()
+\begin{DoxyCompactList}\small\item\em Инициализация шины SPI. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_s_p_i__lib_8c_a645597db35e492d57f285d3eaf4fcb90}{SPI\+\_\+\+Clear\+Inpit\+Buffer}} (SPI\+\_\+T \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{main_8c_a01fd04b4785db2565ec59dd2463c402c}{SPI}})
+\begin{DoxyCompactList}\small\item\em Очистка буфера входных значений \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_s_p_i__lib_8c_aec203be0bab5ed192156e4f35bc6ae15}{SPI\+\_\+\+Tx\+\_\+\+Data}} (SPI\+\_\+T \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{main_8c_a01fd04b4785db2565ec59dd2463c402c}{SPI}}, uint8\+\_\+t \texorpdfstring{$\ast$}{*}buff, uint16\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em Отправка массива char по шине SPI. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_s_p_i__lib_8c_a8544f430adf32441c47f7493afe3f9f1}{SPI\+\_\+\+Rx\+\_\+\+Data}} (SPI\+\_\+T \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{main_8c_a01fd04b4785db2565ec59dd2463c402c}{SPI}}, uint8\+\_\+t \texorpdfstring{$\ast$}{*}buff, uint16\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em Получение массива char по шине SPI. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_s_p_i__lib_8c_a7c46b6e0115ba34ccfe22dccd0b4baa9}{SPI\+\_\+\+Tx\+Rx\+\_\+\+Data}} (SPI\+\_\+T \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{main_8c_a01fd04b4785db2565ec59dd2463c402c}{SPI}}, uint8\+\_\+t \texorpdfstring{$\ast$}{*}Tx\+\_\+buff, uint8\+\_\+t \texorpdfstring{$\ast$}{*}Rx\+\_\+buff, uint16\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em Общение в Full\+Duplex режиме по шине SPI. \end{DoxyCompactList}\item 
+\Hypertarget{_s_p_i__lib_8c_adbe2ce9601202c0d9956588085632a8f}\label{_s_p_i__lib_8c_adbe2ce9601202c0d9956588085632a8f} 
+void {\bfseries SPI\+\_\+\+Wait\+\_\+for\+\_\+termination} (SPI\+\_\+T \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{main_8c_a01fd04b4785db2565ec59dd2463c402c}{SPI}})
+\begin{DoxyCompactList}\small\item\em Ожидание готовности шины SPI для следующей отправки(приёма) \end{DoxyCompactList}\item 
+\Hypertarget{_s_p_i__lib_8c_ab2f83b78793e7e5e2790cfe6e94b5ce4}\label{_s_p_i__lib_8c_ab2f83b78793e7e5e2790cfe6e94b5ce4} 
+void {\bfseries SPI\+\_\+\+Restart\+\_\+note} ()
+\begin{DoxyCompactList}\small\item\em Отправка сообщения по USART о перезагрузке шины SPI. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_s_p_i__lib_8c_ad784c62ba7eb244455136d836b0d8b3a}{SPI\+\_\+\+Reload}} (SPI\+\_\+T \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{main_8c_a01fd04b4785db2565ec59dd2463c402c}{SPI}})
+\begin{DoxyCompactList}\small\item\em Перезагрузка SPI шины, вызванная обработчиком ошибки \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_s_p_i__lib_8c_ad8c4af9711edae67ee50e7aa13b49b48}{error\+Counter\+SPI}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Функции для работы с SPI. 
+
+\begin{DoxyVersion}{Version}
+V1.\+0.\+0
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+12-\/09-\/2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_s_p_i__lib_8c_a645597db35e492d57f285d3eaf4fcb90}\label{_s_p_i__lib_8c_a645597db35e492d57f285d3eaf4fcb90} 
+\index{SPI\_lib.c@{SPI\_lib.c}!SPI\_ClearInpitBuffer@{SPI\_ClearInpitBuffer}}
+\index{SPI\_ClearInpitBuffer@{SPI\_ClearInpitBuffer}!SPI\_lib.c@{SPI\_lib.c}}
+\doxysubsubsection{\texorpdfstring{SPI\_ClearInpitBuffer()}{SPI\_ClearInpitBuffer()}}
+{\footnotesize\ttfamily void SPI\+\_\+\+Clear\+Inpit\+Buffer (\begin{DoxyParamCaption}\item[{SPI\+\_\+T \texorpdfstring{$\ast$}{*}}]{SPI }\end{DoxyParamCaption})}
+
+
+
+Очистка буфера входных значений 
+
+
+\begin{DoxyParams}{Parameters}
+{\em SPI} & ссылка на SPI структуру\\
+\hline
+\end{DoxyParams}
+Функцию необходимо использовать, когда контроллер только принимает по SPI, потому как если входной буфер не очищается, регестрируется ошибка Overrun \Hypertarget{_s_p_i__lib_8c_a9405ec7074e866a9c74f393f11f18ede}\label{_s_p_i__lib_8c_a9405ec7074e866a9c74f393f11f18ede} 
+\index{SPI\_lib.c@{SPI\_lib.c}!SPI\_Init@{SPI\_Init}}
+\index{SPI\_Init@{SPI\_Init}!SPI\_lib.c@{SPI\_lib.c}}
+\doxysubsubsection{\texorpdfstring{SPI\_Init()}{SPI\_Init()}}
+{\footnotesize\ttfamily void SPI\+\_\+\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Инициализация шины SPI. 
+
+Выставленные параметры\+:
+\begin{DoxyItemize}
+\item Direction -\/ Full\+Duplex
+\item Mode -\/ Master
+\item Data Bits -\/ 8
+\item Polarity -\/ Low
+\item Phase -\/ Leading Edge
+\item Slave Select -\/ Soft
+\item Baud\+Rate -\/ 42 mbit/s (DIV = 2)
+\item First Bit -\/ MSB
+\item CRC -\/ Disable
+\item Выбранный канал -\/ SPI1, SCK=PA5, MISO=PA6, MOSI=PA7
+\item Включено прерывание по ошибке, при прерывании вызывается \doxylink{_s_p_i__lib_8c_ad784c62ba7eb244455136d836b0d8b3a}{SPI\+\_\+\+Reload()} 
+\end{DoxyItemize}\Hypertarget{_s_p_i__lib_8c_ad784c62ba7eb244455136d836b0d8b3a}\label{_s_p_i__lib_8c_ad784c62ba7eb244455136d836b0d8b3a} 
+\index{SPI\_lib.c@{SPI\_lib.c}!SPI\_Reload@{SPI\_Reload}}
+\index{SPI\_Reload@{SPI\_Reload}!SPI\_lib.c@{SPI\_lib.c}}
+\doxysubsubsection{\texorpdfstring{SPI\_Reload()}{SPI\_Reload()}}
+{\footnotesize\ttfamily void SPI\+\_\+\+Reload (\begin{DoxyParamCaption}\item[{SPI\+\_\+T \texorpdfstring{$\ast$}{*}}]{SPI }\end{DoxyParamCaption})}
+
+
+
+Перезагрузка SPI шины, вызванная обработчиком ошибки 
+
+Также отправляет информационное сообщение по USART о перезагрузке. Если не удалось отправить char по SPI после пяти перезагрузок подряд, то вызывается функция принудительной остановки работы \doxylink{_w_d_t__lib_8c_a05bf696c2b52a3e4ec2549e8bdbde2bd}{Fatal\+\_\+error()} \Hypertarget{_s_p_i__lib_8c_a8544f430adf32441c47f7493afe3f9f1}\label{_s_p_i__lib_8c_a8544f430adf32441c47f7493afe3f9f1} 
+\index{SPI\_lib.c@{SPI\_lib.c}!SPI\_Rx\_Data@{SPI\_Rx\_Data}}
+\index{SPI\_Rx\_Data@{SPI\_Rx\_Data}!SPI\_lib.c@{SPI\_lib.c}}
+\doxysubsubsection{\texorpdfstring{SPI\_Rx\_Data()}{SPI\_Rx\_Data()}}
+{\footnotesize\ttfamily void SPI\+\_\+\+Rx\+\_\+\+Data (\begin{DoxyParamCaption}\item[{SPI\+\_\+T \texorpdfstring{$\ast$}{*}}]{SPI,  }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{buff,  }\item[{uint16\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+
+
+Получение массива char по шине SPI. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em SPI} & ссылка на SPI структуру \\
+\hline
+\mbox{\texttt{ out}}  & {\em buff} & массив для приёма \\
+\hline
+\mbox{\texttt{ in}}  & {\em len} & длинна массива \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_s_p_i__lib_8c_aec203be0bab5ed192156e4f35bc6ae15}\label{_s_p_i__lib_8c_aec203be0bab5ed192156e4f35bc6ae15} 
+\index{SPI\_lib.c@{SPI\_lib.c}!SPI\_Tx\_Data@{SPI\_Tx\_Data}}
+\index{SPI\_Tx\_Data@{SPI\_Tx\_Data}!SPI\_lib.c@{SPI\_lib.c}}
+\doxysubsubsection{\texorpdfstring{SPI\_Tx\_Data()}{SPI\_Tx\_Data()}}
+{\footnotesize\ttfamily void SPI\+\_\+\+Tx\+\_\+\+Data (\begin{DoxyParamCaption}\item[{SPI\+\_\+T \texorpdfstring{$\ast$}{*}}]{SPI,  }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{buff,  }\item[{uint16\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+
+
+Отправка массива char по шине SPI. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em SPI} & ссылка на SPI структуру \\
+\hline
+{\em buff} & массив для отправки \\
+\hline
+{\em len} & длинна массива \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_s_p_i__lib_8c_a7c46b6e0115ba34ccfe22dccd0b4baa9}\label{_s_p_i__lib_8c_a7c46b6e0115ba34ccfe22dccd0b4baa9} 
+\index{SPI\_lib.c@{SPI\_lib.c}!SPI\_TxRx\_Data@{SPI\_TxRx\_Data}}
+\index{SPI\_TxRx\_Data@{SPI\_TxRx\_Data}!SPI\_lib.c@{SPI\_lib.c}}
+\doxysubsubsection{\texorpdfstring{SPI\_TxRx\_Data()}{SPI\_TxRx\_Data()}}
+{\footnotesize\ttfamily void SPI\+\_\+\+Tx\+Rx\+\_\+\+Data (\begin{DoxyParamCaption}\item[{SPI\+\_\+T \texorpdfstring{$\ast$}{*}}]{SPI,  }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{Tx\+\_\+buff,  }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{Rx\+\_\+buff,  }\item[{uint16\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+
+
+Общение в Full\+Duplex режиме по шине SPI. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em SPI} & ссылка на SPI структуру \\
+\hline
+\mbox{\texttt{ in}}  & {\em Tx\+\_\+buff} & массив для отправки \\
+\hline
+\mbox{\texttt{ out}}  & {\em Rx\+\_\+buff} & массив для приёма \\
+\hline
+\mbox{\texttt{ in}}  & {\em len} & длинна массивов\\
+\hline
+\end{DoxyParams}
+Одновременная отправка и приём сообщений одинаковой длинны 
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{_s_p_i__lib_8c_ad8c4af9711edae67ee50e7aa13b49b48}\label{_s_p_i__lib_8c_ad8c4af9711edae67ee50e7aa13b49b48} 
+\index{SPI\_lib.c@{SPI\_lib.c}!errorCounterSPI@{errorCounterSPI}}
+\index{errorCounterSPI@{errorCounterSPI}!SPI\_lib.c@{SPI\_lib.c}}
+\doxysubsubsection{\texorpdfstring{errorCounterSPI}{errorCounterSPI}}
+{\footnotesize\ttfamily uint8\+\_\+t error\+Counter\+SPI = 0}
+
+Количество ошибок по шине SPI подряд 

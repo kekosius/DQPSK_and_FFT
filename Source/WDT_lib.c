@@ -1,7 +1,7 @@
 /*!
  * @file        WDT_lib.c
  *
- * @brief       Функции для работы со сторожевым таймером
+ * @brief       Функции для работы со сторожевым таймером IWDT
  *
  * @version     V1.0.0
  *
@@ -10,12 +10,20 @@
 
 #include "WDT_lib.h"
 
-volatile uint32_t TimingDelay = 0;
+volatile uint32_t TimingDelay = 0;		 /*!< extern переменная, используется для задержки по сторожевому таймеру.
+										  *
+										  * TimingDelay уменьшается системным таймером в [SysTick_Handler()](#SysTick_Handler)
+										  */
 
 void IWDT_Restart_note(void);
 
+/*! Инициализация сторожевого таймера IWDT
+*
+* При отсутствии обновления в течении ~1000 ms инициируется перезагрузка системы
+*/
+
 void IWDT_init() {
-	SysTick_Config(16000000/1000);			//1 тик = 1 ms
+	SysTick_Config(16000000/1000);			//1 тик ~= 1 ms
 	IWDT_Restart_note();
 	IWDT_EnableWriteAccess();
 	IWDT_ConfigDivider(IWDT_DIVIDER_32);
@@ -24,10 +32,23 @@ void IWDT_init() {
 	IWDT_Enable();
 }
 
+/*! Задержка между обновлениями сторожевого таймера*/
+
 void IWDT_Delay(uint32_t ms) {
 	TimingDelay = 0;
     while(TimingDelay < ms);
 }
+
+/*! Обновление сторожевого таймера через каждые 300 ms*/
+
+void IWDT_Update() {
+	IWDT_Delay(300);
+	IWDT_Refresh();
+}
+
+/*!
+ * @brief     Отправка сообщения по USART о перезагрузке системы, вызванной IWDT таймером
+ */
 
 void IWDT_Restart_note() {
 	if (RCM_ReadStatusFlag(RCM_FLAG_IWDTRST) == SET) {
@@ -38,11 +59,6 @@ void IWDT_Restart_note() {
 	}
 }
 
-void IWDT_Update() {
-	IWDT_Delay(300);
-	IWDT_Refresh();
-}
-
 /*!
  * @brief     Принудительная остановка работы программы.
  *
@@ -51,7 +67,6 @@ void IWDT_Update() {
  *            - Заполнение LCD экрана красным цветом
  *            - Отправка сообщения SYSTEM FATAL ERROR по USART
  *            - Установка High уровня на ЦАП
- *
  */
 
 void Fatal_error() {

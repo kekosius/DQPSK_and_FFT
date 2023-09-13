@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['main_0',['main',['../main_8c.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main.c']]],
-  ['main_2ec_1',['main.c',['../main_8c.html',1,'']]]
+  ['getrealvoltage_0',['GetRealVoltage',['../_a_d_c__lib_8c.html#aefac2e00e12a4d31bde8f7ee88c96c3d',1,'ADC_lib.c']]]
 ];

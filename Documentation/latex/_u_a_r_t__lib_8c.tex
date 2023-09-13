@@ -17,30 +17,23 @@ void \mbox{\hyperlink{_u_a_r_t__lib_8c_a20679ea811a6b044d089823921d1c77b}{Delay}
 \begin{DoxyCompactList}\small\item\em Задержка выполнения основной программы \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_u_a_r_t__lib_8c_aba398ef6d2b9f80899b2d65ca9a0fe7d}{USART\+\_\+\+Init}} (void)
 \begin{DoxyCompactList}\small\item\em Инициализация USART канала \end{DoxyCompactList}\item 
-\Hypertarget{_u_a_r_t__lib_8c_a61d5578fc535674d517c49cf357889bf}\label{_u_a_r_t__lib_8c_a61d5578fc535674d517c49cf357889bf} 
-void {\bfseries USART\+\_\+\+Write} (USART\+\_\+T \texorpdfstring{$\ast$}{*}usart, uint8\+\_\+t \texorpdfstring{$\ast$}{*}dat, uint32\+\_\+t count)
-\item 
-\Hypertarget{_u_a_r_t__lib_8c_a3a0ba1bbec83df96f5b277a4ced7e553}\label{_u_a_r_t__lib_8c_a3a0ba1bbec83df96f5b277a4ced7e553} 
-void {\bfseries USART\+\_\+\+Tx\+\_\+\+Char} (USART\+\_\+T \texorpdfstring{$\ast$}{*}usart, uint8\+\_\+t data)
-\item 
-\Hypertarget{_u_a_r_t__lib_8c_a3485da353570be73acdf9debb409f2eb}\label{_u_a_r_t__lib_8c_a3485da353570be73acdf9debb409f2eb} 
-void {\bfseries USART\+\_\+\+Tx\+\_\+\+Number} (USART\+\_\+T \texorpdfstring{$\ast$}{*}usart, int64\+\_\+t num)
-\item 
-\Hypertarget{_u_a_r_t__lib_8c_a70f288762161a11b7cd1e6d89a3b8451}\label{_u_a_r_t__lib_8c_a70f288762161a11b7cd1e6d89a3b8451} 
-void {\bfseries USART\+\_\+\+Tx\+\_\+\+Number\+But\+No\+Space} (USART\+\_\+T \texorpdfstring{$\ast$}{*}usart, int64\+\_\+t num)
-\item 
-\Hypertarget{_u_a_r_t__lib_8c_a95a9a3bc419664e01812c6eb81e6483c}\label{_u_a_r_t__lib_8c_a95a9a3bc419664e01812c6eb81e6483c} 
-void {\bfseries USART\+\_\+\+Tx\+\_\+\+Float} (USART\+\_\+T \texorpdfstring{$\ast$}{*}usart, double num, uint16\+\_\+t accuracy)
-\item 
-\Hypertarget{_u_a_r_t__lib_8c_abe26c3fc64cc782d9a6931cbff3af5c2}\label{_u_a_r_t__lib_8c_abe26c3fc64cc782d9a6931cbff3af5c2} 
-void {\bfseries USART\+\_\+\+Tx\+\_\+\+Specrum\+\_\+\+Result} (USART\+\_\+T \texorpdfstring{$\ast$}{*}usart, double Fp, double freq)
-\item 
+void \mbox{\hyperlink{_u_a_r_t__lib_8c_a61d5578fc535674d517c49cf357889bf}{USART\+\_\+\+Write}} (USART\+\_\+T \texorpdfstring{$\ast$}{*}usart, uint8\+\_\+t \texorpdfstring{$\ast$}{*}dat, uint32\+\_\+t count)
+\begin{DoxyCompactList}\small\item\em Отправка массива char по USART. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_u_a_r_t__lib_8c_a3a0ba1bbec83df96f5b277a4ced7e553}{USART\+\_\+\+Tx\+\_\+\+Char}} (USART\+\_\+T \texorpdfstring{$\ast$}{*}usart, uint8\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em Отправка char по USART. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_u_a_r_t__lib_8c_a70f288762161a11b7cd1e6d89a3b8451}{USART\+\_\+\+Tx\+\_\+\+Number\+But\+No\+Space}} (USART\+\_\+T \texorpdfstring{$\ast$}{*}usart, int64\+\_\+t num)
+\begin{DoxyCompactList}\small\item\em Отправка int по USART без пробела в конце \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_u_a_r_t__lib_8c_a3485da353570be73acdf9debb409f2eb}{USART\+\_\+\+Tx\+\_\+\+Number}} (USART\+\_\+T \texorpdfstring{$\ast$}{*}usart, int64\+\_\+t num)
+\begin{DoxyCompactList}\small\item\em Отправка int по USART. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_u_a_r_t__lib_8c_a95a9a3bc419664e01812c6eb81e6483c}{USART\+\_\+\+Tx\+\_\+\+Float}} (USART\+\_\+T \texorpdfstring{$\ast$}{*}usart, double num, uint16\+\_\+t accuracy)
+\begin{DoxyCompactList}\small\item\em Отправка double по USART. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_u_a_r_t__lib_8c_abe26c3fc64cc782d9a6931cbff3af5c2}{USART\+\_\+\+Tx\+\_\+\+Specrum\+\_\+\+Result}} (USART\+\_\+T \texorpdfstring{$\ast$}{*}usart, double Fp, double freq)
+\begin{DoxyCompactList}\small\item\em Отправка результата спектрального анализа по USART. \end{DoxyCompactList}\item 
 \Hypertarget{_u_a_r_t__lib_8c_ad13f450f207565219abd37499531e215}\label{_u_a_r_t__lib_8c_ad13f450f207565219abd37499531e215} 
 void {\bfseries USART\+\_\+\+Restart\+\_\+note} ()
-\item 
-\Hypertarget{_u_a_r_t__lib_8c_afd1260a2b489660843bfd65452dbc9a6}\label{_u_a_r_t__lib_8c_afd1260a2b489660843bfd65452dbc9a6} 
-void {\bfseries USART\+\_\+\+Reload} (USART\+\_\+T \texorpdfstring{$\ast$}{*}usart)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Отправка сообщения по USART о перезагрузке модуля USART. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_u_a_r_t__lib_8c_afd1260a2b489660843bfd65452dbc9a6}{USART\+\_\+\+Reload}} (USART\+\_\+T \texorpdfstring{$\ast$}{*}usart)
+\begin{DoxyCompactList}\small\item\em Перезагрузка USART канала, вызванная обработчиком ошибки \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -90,13 +83,131 @@ V1.\+0.\+0
 
 Выставленные параметры\+:
 \begin{DoxyItemize}
-\item Baud rate 115200
-\item Parity None
-\item Stop Bit 1
-\item Data Bits 8
+\item Baud rate -\/ 115200
+\item Parity -\/ None
+\item Stop Bit -\/ 1
+\item Data Bits -\/ 8
 \item Выбранный канал -\/ USART1, TX -\/ PA9, RX -\/ PA10
-\item Включено прерывание по ошибке, при прерывании вызывается USART\+\_\+\+Reload() 
-\end{DoxyItemize}
+\item Включено прерывание по ошибке, при прерывании вызывается \doxylink{_u_a_r_t__lib_8c_afd1260a2b489660843bfd65452dbc9a6}{USART\+\_\+\+Reload()} 
+\end{DoxyItemize}\Hypertarget{_u_a_r_t__lib_8c_afd1260a2b489660843bfd65452dbc9a6}\label{_u_a_r_t__lib_8c_afd1260a2b489660843bfd65452dbc9a6} 
+\index{UART\_lib.c@{UART\_lib.c}!USART\_Reload@{USART\_Reload}}
+\index{USART\_Reload@{USART\_Reload}!UART\_lib.c@{UART\_lib.c}}
+\doxysubsubsection{\texorpdfstring{USART\_Reload()}{USART\_Reload()}}
+{\footnotesize\ttfamily void USART\+\_\+\+Reload (\begin{DoxyParamCaption}\item[{USART\+\_\+T \texorpdfstring{$\ast$}{*}}]{usart }\end{DoxyParamCaption})}
+
+
+
+Перезагрузка USART канала, вызванная обработчиком ошибки 
+
+Также отправляет информационное сообщение по USART о перезагрузке. Если не удалось отправить char по USART после пяти перезагрузок подряд, то вызывается функция принудительной остановки работы \doxylink{_w_d_t__lib_8c_a05bf696c2b52a3e4ec2549e8bdbde2bd}{Fatal\+\_\+error()} \Hypertarget{_u_a_r_t__lib_8c_a3a0ba1bbec83df96f5b277a4ced7e553}\label{_u_a_r_t__lib_8c_a3a0ba1bbec83df96f5b277a4ced7e553} 
+\index{UART\_lib.c@{UART\_lib.c}!USART\_Tx\_Char@{USART\_Tx\_Char}}
+\index{USART\_Tx\_Char@{USART\_Tx\_Char}!UART\_lib.c@{UART\_lib.c}}
+\doxysubsubsection{\texorpdfstring{USART\_Tx\_Char()}{USART\_Tx\_Char()}}
+{\footnotesize\ttfamily void USART\+\_\+\+Tx\+\_\+\+Char (\begin{DoxyParamCaption}\item[{USART\+\_\+T \texorpdfstring{$\ast$}{*}}]{usart,  }\item[{uint8\+\_\+t}]{data }\end{DoxyParamCaption})}
+
+
+
+Отправка char по USART. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em usart} & ссылка на USART структуру \\
+\hline
+{\em data} & char для отправки \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_u_a_r_t__lib_8c_a95a9a3bc419664e01812c6eb81e6483c}\label{_u_a_r_t__lib_8c_a95a9a3bc419664e01812c6eb81e6483c} 
+\index{UART\_lib.c@{UART\_lib.c}!USART\_Tx\_Float@{USART\_Tx\_Float}}
+\index{USART\_Tx\_Float@{USART\_Tx\_Float}!UART\_lib.c@{UART\_lib.c}}
+\doxysubsubsection{\texorpdfstring{USART\_Tx\_Float()}{USART\_Tx\_Float()}}
+{\footnotesize\ttfamily void USART\+\_\+\+Tx\+\_\+\+Float (\begin{DoxyParamCaption}\item[{USART\+\_\+T \texorpdfstring{$\ast$}{*}}]{usart,  }\item[{double}]{num,  }\item[{uint16\+\_\+t}]{accuracy }\end{DoxyParamCaption})}
+
+
+
+Отправка double по USART. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em usart} & ссылка на USART структуру \\
+\hline
+{\em num} & double для отправки \\
+\hline
+{\em accuracy} & точность, количество знаков после запятой\\
+\hline
+\end{DoxyParams}
+Отправляет число как совокупность char и пробел в конце \Hypertarget{_u_a_r_t__lib_8c_a3485da353570be73acdf9debb409f2eb}\label{_u_a_r_t__lib_8c_a3485da353570be73acdf9debb409f2eb} 
+\index{UART\_lib.c@{UART\_lib.c}!USART\_Tx\_Number@{USART\_Tx\_Number}}
+\index{USART\_Tx\_Number@{USART\_Tx\_Number}!UART\_lib.c@{UART\_lib.c}}
+\doxysubsubsection{\texorpdfstring{USART\_Tx\_Number()}{USART\_Tx\_Number()}}
+{\footnotesize\ttfamily void USART\+\_\+\+Tx\+\_\+\+Number (\begin{DoxyParamCaption}\item[{USART\+\_\+T \texorpdfstring{$\ast$}{*}}]{usart,  }\item[{int64\+\_\+t}]{num }\end{DoxyParamCaption})}
+
+
+
+Отправка int по USART. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em usart} & ссылка на USART структуру \\
+\hline
+{\em num} & int для отправки\\
+\hline
+\end{DoxyParams}
+Отправляет число как совокупность char и пробел в конце \Hypertarget{_u_a_r_t__lib_8c_a70f288762161a11b7cd1e6d89a3b8451}\label{_u_a_r_t__lib_8c_a70f288762161a11b7cd1e6d89a3b8451} 
+\index{UART\_lib.c@{UART\_lib.c}!USART\_Tx\_NumberButNoSpace@{USART\_Tx\_NumberButNoSpace}}
+\index{USART\_Tx\_NumberButNoSpace@{USART\_Tx\_NumberButNoSpace}!UART\_lib.c@{UART\_lib.c}}
+\doxysubsubsection{\texorpdfstring{USART\_Tx\_NumberButNoSpace()}{USART\_Tx\_NumberButNoSpace()}}
+{\footnotesize\ttfamily void USART\+\_\+\+Tx\+\_\+\+Number\+But\+No\+Space (\begin{DoxyParamCaption}\item[{USART\+\_\+T \texorpdfstring{$\ast$}{*}}]{usart,  }\item[{int64\+\_\+t}]{num }\end{DoxyParamCaption})}
+
+
+
+Отправка int по USART без пробела в конце 
+
+
+\begin{DoxyParams}{Parameters}
+{\em usart} & ссылка на USART структуру \\
+\hline
+{\em num} & int для отправки\\
+\hline
+\end{DoxyParams}
+Отправляет число как совокупность char \Hypertarget{_u_a_r_t__lib_8c_abe26c3fc64cc782d9a6931cbff3af5c2}\label{_u_a_r_t__lib_8c_abe26c3fc64cc782d9a6931cbff3af5c2} 
+\index{UART\_lib.c@{UART\_lib.c}!USART\_Tx\_Specrum\_Result@{USART\_Tx\_Specrum\_Result}}
+\index{USART\_Tx\_Specrum\_Result@{USART\_Tx\_Specrum\_Result}!UART\_lib.c@{UART\_lib.c}}
+\doxysubsubsection{\texorpdfstring{USART\_Tx\_Specrum\_Result()}{USART\_Tx\_Specrum\_Result()}}
+{\footnotesize\ttfamily void USART\+\_\+\+Tx\+\_\+\+Specrum\+\_\+\+Result (\begin{DoxyParamCaption}\item[{USART\+\_\+T \texorpdfstring{$\ast$}{*}}]{usart,  }\item[{double}]{Fp,  }\item[{double}]{freq }\end{DoxyParamCaption})}
+
+
+
+Отправка результата спектрального анализа по USART. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em usart} & ссылка на USART структуру \\
+\hline
+{\em Fp} & амплитуда в процентах \\
+\hline
+{\em freq} & частота сигнала, которому соответсвует амплитуда \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_u_a_r_t__lib_8c_a61d5578fc535674d517c49cf357889bf}\label{_u_a_r_t__lib_8c_a61d5578fc535674d517c49cf357889bf} 
+\index{UART\_lib.c@{UART\_lib.c}!USART\_Write@{USART\_Write}}
+\index{USART\_Write@{USART\_Write}!UART\_lib.c@{UART\_lib.c}}
+\doxysubsubsection{\texorpdfstring{USART\_Write()}{USART\_Write()}}
+{\footnotesize\ttfamily void USART\+\_\+\+Write (\begin{DoxyParamCaption}\item[{USART\+\_\+T \texorpdfstring{$\ast$}{*}}]{usart,  }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{dat,  }\item[{uint32\+\_\+t}]{count }\end{DoxyParamCaption})}
+
+
+
+Отправка массива char по USART. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em usart} & ссылка на USART структуру \\
+\hline
+{\em dat} & массив для отправки \\
+\hline
+{\em count} & длинна массива \\
+\hline
+\end{DoxyParams}
+
 
 \doxysubsection{Variable Documentation}
 \Hypertarget{_u_a_r_t__lib_8c_a5d2059c1bf523d392060e3428bbbe4cd}\label{_u_a_r_t__lib_8c_a5d2059c1bf523d392060e3428bbbe4cd} 

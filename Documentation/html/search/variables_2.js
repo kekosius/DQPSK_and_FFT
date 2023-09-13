@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['usart_0',['USART',['../main_8c.html#ab2830991e969160289bfc3f0ca59bf51',1,'main.c']]]
+  ['errorcounteradc_0',['errorCounterADC',['../_a_d_c__lib_8c.html#a507a5dce40d4476e8a27e3eda3bc300c',1,'ADC_lib.c']]],
+  ['errorcounterspi_1',['errorCounterSPI',['../_s_p_i__lib_8c.html#ad8c4af9711edae67ee50e7aa13b49b48',1,'SPI_lib.c']]],
+  ['errorcounterusart_2',['errorCounterUSART',['../_u_a_r_t__lib_8c.html#a5d2059c1bf523d392060e3428bbbe4cd',1,'UART_lib.c']]]
 ];

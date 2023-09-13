@@ -59,10 +59,10 @@ void Delay(uint32_t count){
 * @brief     Инициализация USART канала
  *
  * Выставленные параметры:
- * - Baud rate			115200
- * - Parity				None
- * - Stop Bit			1
- * - Data Bits			8
+ * - Baud rate -		115200
+ * - Parity -			None
+ * - Stop Bit -			1
+ * - Data Bits -		8
  * - Выбранный канал - USART1, TX - PA9, RX - PA10
  * - Включено прерывание по ошибке, при прерывании вызывается [USART_Reload()](#USART_Reload)
  */
@@ -88,6 +88,14 @@ void USART_Init(void) {
     NVIC_EnableIRQRequest(USART1_IRQn, 0, 0);
 }
 
+/*!
+ * @brief     Отправка массива char по USART
+ *
+ * @param     usart ссылка на USART структуру
+ * @param     dat массив для отправки
+ * @param     count длинна массива
+ */
+
 void USART_Write(USART_T* usart,uint8_t *dat, uint32_t count) {
     while(count--){
         while(USART_ReadStatusFlag(usart, USART_FLAG_TXBE) == RESET);
@@ -95,43 +103,27 @@ void USART_Write(USART_T* usart,uint8_t *dat, uint32_t count) {
     }
 }
 
+/*!
+ * @brief     Отправка char по USART
+ *
+ * @param     usart ссылка на USART структуру
+ * @param     data char для отправки
+ */
+
 void USART_Tx_Char(USART_T* usart, uint8_t data) {
 	while(USART_ReadStatusFlag(usart, USART_FLAG_TXBE) == RESET);
 	USART_TxData(usart, data);
 	errorCounterUSART = 0;
 }
 
-void USART_Tx_Number(USART_T* usart, int64_t num) {
-    uint32_t reverse = 0;
-    uint8_t zero_trig = 0;
-	
-	if (num < 0) {
-		USART_Tx_Char(usart, '-');
-		num *= -1;
-	}
-	
-	if (num == 0) USART_Tx_Char(usart, '0');
-
-    while(num) {
-        reverse = reverse*10 + num%10;
-        if (!(reverse || num%10)) zero_trig++; //check for amount of 0 digits in the end of number
-        num /= 10;
-    }
-
-    while(reverse) {
-        USART_Tx_Char(usart, reverse%10 + '0');
-        reverse /= 10;
-    }
-
-    while (zero_trig) {
-        USART_Tx_Char(usart, '0');
-        zero_trig--;
-    }
-
-    USART_Tx_Char(usart, ' ');
-}
-
-
+/*!
+* @brief     Отправка int по USART без пробела в конце
+ *
+ * @param     usart ссылка на USART структуру
+ * @param     num int для отправки
+ *
+ * Отправляет число как совокупность char
+ */
 
 void USART_Tx_NumberButNoSpace(USART_T* usart, int64_t num) {
     uint32_t reverse = 0;
@@ -146,7 +138,7 @@ void USART_Tx_NumberButNoSpace(USART_T* usart, int64_t num) {
 
     while(num){
         reverse = reverse*10 + num%10;
-        if (!(reverse || num%10)) zero_trig++; //check for amount of 0 digits in the end of number
+        if (!(reverse || num%10)) zero_trig++; //Количество нулей на конце числа
         num /= 10;
     }
 
@@ -160,6 +152,30 @@ void USART_Tx_NumberButNoSpace(USART_T* usart, int64_t num) {
         zero_trig--;
     }
 }
+
+/*!
+ * @brief     Отправка int по USART
+ *
+ * @param     usart ссылка на USART структуру
+ * @param     num int для отправки
+ *
+ * Отправляет число как совокупность char и пробел в конце
+ */
+
+void USART_Tx_Number(USART_T* usart, int64_t num) {
+    USART_Tx_NumberButNoSpace(usart, num);
+    USART_Tx_Char(usart, ' ');
+}
+
+/*!
+ * @brief     Отправка double по USART
+ *
+ * @param     usart ссылка на USART структуру
+ * @param     num double для отправки
+ * @param     accuracy точность, количество знаков после запятой
+ *
+ * Отправляет число как совокупность char и пробел в конце
+ */
 
 void USART_Tx_Float(USART_T* usart, double num, uint16_t accuracy){
 	int64_t IntegerPart = (int) num;
@@ -190,6 +206,14 @@ void USART_Tx_Float(USART_T* usart, double num, uint16_t accuracy){
 
 uint8_t SpectrumResultMessageFreq[6] = {'H', 'z', ' ', '-', '>', ' '};
 
+/*!
+ * @brief     Отправка результата спектрального анализа по USART
+ *
+ * @param     usart ссылка на USART структуру
+ * @param     Fp амплитуда в процентах
+ * @param     freq частота сигнала, которому соответсвует амплитуда
+ */
+
 void USART_Tx_Specrum_Result(USART_T* usart, double Fp, double freq) {
 	USART_Tx_Float(usart, freq, 0);
 	USART_Write(usart, SpectrumResultMessageFreq, 6);
@@ -204,12 +228,24 @@ void USART_Tx_Specrum_Result(USART_T* usart, double Fp, double freq) {
 	USART_Tx_Char(usart, 13);
 }
 
+/*!
+ * @brief     Отправка сообщения по USART о перезагрузке модуля USART
+ */
+
 void USART_Restart_note() {
 	USART_Tx_Char(USART, 13);
 	uint8_t restart_message[17] = {'U', 'S', 'A', 'R', 'T', ' ', 'E', 'R', 'R', 'O', 'R', ' ','R', 'E', 'S', 'E', 'T'};
 	USART_Write(USART, restart_message, 17);
 	USART_Tx_Char(USART, 13);
 }
+
+/*!
+* @brief     Перезагрузка USART канала, вызванная обработчиком ошибки
+ *
+ * Также отправляет информационное сообщение по USART о перезагрузке.
+ * Если не удалось отправить char по USART после пяти перезагрузок подряд,
+ * то вызывается функция принудительной остановки работы [Fatal_error()](#Fatal_error)
+ */
 
 void USART_Reload(USART_T* usart) {
 	if ((USART_ReadStatusFlag(usart, USART_FLAG_FE) == SET) || 
