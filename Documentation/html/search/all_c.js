@@ -1,14 +1,13 @@
 var searchData=
 [
-  ['uart_5flib_2ec_0',['UART_lib.c',['../_u_a_r_t__lib_8c.html',1,'']]],
-  ['usart_1',['USART',['../main_8c.html#ab2830991e969160289bfc3f0ca59bf51',1,'main.c']]],
-  ['usart_5finit_2',['USART_Init',['../_u_a_r_t__lib_8c.html#aba398ef6d2b9f80899b2d65ca9a0fe7d',1,'UART_lib.c']]],
-  ['usart_5freload_3',['USART_Reload',['../_u_a_r_t__lib_8c.html#afd1260a2b489660843bfd65452dbc9a6',1,'UART_lib.c']]],
-  ['usart_5frestart_5fnote_4',['USART_Restart_note',['../_u_a_r_t__lib_8c.html#ad13f450f207565219abd37499531e215',1,'UART_lib.c']]],
-  ['usart_5ftx_5fchar_5',['USART_Tx_Char',['../_u_a_r_t__lib_8c.html#a3a0ba1bbec83df96f5b277a4ced7e553',1,'UART_lib.c']]],
-  ['usart_5ftx_5ffloat_6',['USART_Tx_Float',['../_u_a_r_t__lib_8c.html#a95a9a3bc419664e01812c6eb81e6483c',1,'UART_lib.c']]],
-  ['usart_5ftx_5fnumber_7',['USART_Tx_Number',['../_u_a_r_t__lib_8c.html#a3485da353570be73acdf9debb409f2eb',1,'UART_lib.c']]],
-  ['usart_5ftx_5fnumberbutnospace_8',['USART_Tx_NumberButNoSpace',['../_u_a_r_t__lib_8c.html#a70f288762161a11b7cd1e6d89a3b8451',1,'UART_lib.c']]],
-  ['usart_5ftx_5fspecrum_5fresult_9',['USART_Tx_Specrum_Result',['../_u_a_r_t__lib_8c.html#abe26c3fc64cc782d9a6931cbff3af5c2',1,'UART_lib.c']]],
-  ['usart_5fwrite_10',['USART_Write',['../_u_a_r_t__lib_8c.html#a61d5578fc535674d517c49cf357889bf',1,'UART_lib.c']]]
+  ['spi_0',['SPI',['../main_8c.html#a01fd04b4785db2565ec59dd2463c402c',1,'main.c']]],
+  ['spi_5fclearinpitbuffer_1',['SPI_ClearInpitBuffer',['../_s_p_i__lib_8c.html#a645597db35e492d57f285d3eaf4fcb90',1,'SPI_lib.c']]],
+  ['spi_5finit_2',['SPI_Init',['../_s_p_i__lib_8c.html#a9405ec7074e866a9c74f393f11f18ede',1,'SPI_lib.c']]],
+  ['spi_5flib_2ec_3',['SPI_lib.c',['../_s_p_i__lib_8c.html',1,'']]],
+  ['spi_5freload_4',['SPI_Reload',['../_s_p_i__lib_8c.html#ad784c62ba7eb244455136d836b0d8b3a',1,'SPI_lib.c']]],
+  ['spi_5frestart_5fnote_5',['SPI_Restart_note',['../_s_p_i__lib_8c.html#ab2f83b78793e7e5e2790cfe6e94b5ce4',1,'SPI_lib.c']]],
+  ['spi_5frx_5fdata_6',['SPI_Rx_Data',['../_s_p_i__lib_8c.html#a8544f430adf32441c47f7493afe3f9f1',1,'SPI_lib.c']]],
+  ['spi_5ftx_5fdata_7',['SPI_Tx_Data',['../_s_p_i__lib_8c.html#aec203be0bab5ed192156e4f35bc6ae15',1,'SPI_lib.c']]],
+  ['spi_5ftxrx_5fdata_8',['SPI_TxRx_Data',['../_s_p_i__lib_8c.html#a7c46b6e0115ba34ccfe22dccd0b4baa9',1,'SPI_lib.c']]],
+  ['spi_5fwait_5ffor_5ftermination_9',['SPI_Wait_for_termination',['../_s_p_i__lib_8c.html#adbe2ce9601202c0d9956588085632a8f',1,'SPI_lib.c']]]
 ];

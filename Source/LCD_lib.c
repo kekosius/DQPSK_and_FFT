@@ -1,6 +1,14 @@
-#include "LCD_lib.h"
+/*!
+ * @file        LCD_lib.c
+ *
+ * @brief       Функции для работы с LCD экраном
+ *
+ * @version     V1.0.0
+ *
+ * @date        12-09-2023
+ */
 
-#define DELAY 0
+#include "LCD_lib.h"
 
 uint8_t MSG_Start_1[7][3] = {"Н", "А", "Ж", "М", "И", "Т", "Е"};
 uint8_t MSG_Start_2[4][3] = {"К", "Е", "У", "1"};
@@ -12,6 +20,13 @@ uint8_t MSG_DQPSK_4[4][3] = {"С", "Р", "Ц", ":"};
 uint8_t MSG_DQPSK_5[4][3] = {"А", "М", "П", ":"};
 
 void LCD_Voltage_Result(uint16_t, uint16_t, double);
+
+/*!
+ * @brief     Запускает LCD экран
+ *
+ * Вызывает [LCD_GPIO_Config()](#LCD_GPIO_Config), [initLCD()](#initLCD),
+ * закрашивает экран в белый, выводит на экран стартовое сообщение (MSG_Start_1, MSG_Start_2)
+ */
 
 void LCD_Start() {
 	LCD_GPIO_Config();
@@ -240,7 +255,6 @@ void fillRectangle(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16_t 
 	
 	DC_SET;
 	CS_RESET;
-	Delay(DELAY);
 	for(int y=0; y<LCD_HEIGHT; y++) 
 		SPI_Tx_Data(SPI, buf, LCD_WIDTH * 2);
 		SPI_Wait_for_termination(SPI);
@@ -335,7 +349,6 @@ struct Symbol drawChar(uint16_t x, uint16_t y, uint8_t* c, uint16_t color, uint1
 		CS_RESET;
 		SPI_Tx_Data(SPI, buf, 16*symb.width/8);
 		SPI_Wait_for_termination(SPI);
-		Delay(DELAY);
 		CS_SET;
 	}
 	
@@ -463,21 +476,15 @@ void offLCD(void){
 void writeCmdLCD(uint8_t cmd){
 	DC_RESET;
 	CS_RESET;
-	Delay(DELAY);
 	SPI_Tx_Data(SPI, &cmd, 1);
 	SPI_Wait_for_termination(SPI);
-	Delay(DELAY);
 	CS_SET;
-	Delay(DELAY);
 }
 
 void writeDataLCD(uint8_t data){
 	DC_SET;
 	CS_RESET;
-	Delay(DELAY);
 	SPI_Tx_Data(SPI, &data, 1);
 	SPI_Wait_for_termination(SPI);
-	Delay(DELAY);
 	CS_SET;
-	Delay(DELAY);
 }

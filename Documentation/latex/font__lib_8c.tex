@@ -1,0 +1,90 @@
+\doxysection{C\+:/\+Users/user/\+Documents/\+Keil/\+DQPSK\+\_\+plus\+\_\+\+Freq/\+Source/font\+\_\+lib.c File Reference}
+\hypertarget{font__lib_8c}{}\label{font__lib_8c}\index{C:/Users/user/Documents/Keil/DQPSK\_plus\_Freq/Source/font\_lib.c@{C:/Users/user/Documents/Keil/DQPSK\_plus\_Freq/Source/font\_lib.c}}
+
+
+Функции для работы со шрифтом  
+
+
+{\ttfamily \#include \"{}font\+\_\+lib.\+h\"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+struct Symbol \mbox{\hyperlink{font__lib_8c_a9babcbfe804efab81f10a42e488dbe73}{get\+Offset}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}sym)
+\begin{DoxyCompactList}\small\item\em Определение элемента char\+\_\+map\mbox{[}\mbox{]}, который соответсвует принятому символу \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{font__lib_8c_a4044ca3cc0853b3123f6ff2b57b2e90b}{Char\+To\+UChar}} (char \texorpdfstring{$\ast$}{*}str, uint8\+\_\+t \texorpdfstring{$\ast$}{*}anw)
+\begin{DoxyCompactList}\small\item\em Конвертация char к uint8\+\_\+t. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{font__lib_8c_ab6e26e34b03fa2ed8bf17e53df9775cb}{to\+String}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}str, uint16\+\_\+t sym)
+\begin{DoxyCompactList}\small\item\em Конвертация hex числа в UTF-\/8 символ в формате uint8\+\_\+t\mbox{[}3\mbox{]}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Функции для работы со шрифтом 
+
+\begin{DoxyVersion}{Version}
+V1.\+0.\+0
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+12-\/09-\/2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{font__lib_8c_a4044ca3cc0853b3123f6ff2b57b2e90b}\label{font__lib_8c_a4044ca3cc0853b3123f6ff2b57b2e90b} 
+\index{font\_lib.c@{font\_lib.c}!CharToUChar@{CharToUChar}}
+\index{CharToUChar@{CharToUChar}!font\_lib.c@{font\_lib.c}}
+\doxysubsubsection{\texorpdfstring{CharToUChar()}{CharToUChar()}}
+{\footnotesize\ttfamily void Char\+To\+UChar (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{str,  }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{anw }\end{DoxyParamCaption})}
+
+
+
+Конвертация char к uint8\+\_\+t. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em str} & char\mbox{[}3\mbox{]} символ в кодировке UTF-\/8, например \"{}\+F\"{} \\
+\hline
+\mbox{\texttt{ out}}  & {\em anw} & uchar\mbox{[}3\mbox{]} символ UTF-\/8 в формате uint8\+\_\+t\\
+\hline
+\end{DoxyParams}
+Функция переводит char\mbox{[}3\mbox{]} в uchar\mbox{[}3\mbox{]}. Сами значения, по сути, не изменяются, потому как элементы str всегда положительные.
+
+Используется для перевода hex в UTF-\/8 в \doxylink{font__lib_8c_ab6e26e34b03fa2ed8bf17e53df9775cb}{to\+String()} \Hypertarget{font__lib_8c_a9babcbfe804efab81f10a42e488dbe73}\label{font__lib_8c_a9babcbfe804efab81f10a42e488dbe73} 
+\index{font\_lib.c@{font\_lib.c}!getOffset@{getOffset}}
+\index{getOffset@{getOffset}!font\_lib.c@{font\_lib.c}}
+\doxysubsubsection{\texorpdfstring{getOffset()}{getOffset()}}
+{\footnotesize\ttfamily struct Symbol get\+Offset (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{sym }\end{DoxyParamCaption})}
+
+
+
+Определение элемента char\+\_\+map\mbox{[}\mbox{]}, который соответсвует принятому символу 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sym} & char\mbox{[}3\mbox{]} символ в кодировке UTF-\/8, например \"{}\+F\"{}\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Symbol} & структура, содержащая информацию о ширине символа в пикселях, сдвиг начала символа относительно gameplay\+\_\+glyph\+\_\+bitmap\mbox{[}0\mbox{]} (массив, содержащий шрифт) и количество пустых пикселей на конце символа (для обеспечения равного пространства между всеми символами)\\
+\hline
+\end{DoxyRetVals}
+Функция находит соответсвие между sym и элементами char\+\_\+map, где находятся следующие символы\+:
+
+\mbox{[}SPACE\mbox{]}!\textquotesingle{}()-\/./0123456789\+:;?DFxАБВГДЕЖЗИКЛМНОПРСТУФХЦЧШЫЭЮЯ \Hypertarget{font__lib_8c_ab6e26e34b03fa2ed8bf17e53df9775cb}\label{font__lib_8c_ab6e26e34b03fa2ed8bf17e53df9775cb} 
+\index{font\_lib.c@{font\_lib.c}!toString@{toString}}
+\index{toString@{toString}!font\_lib.c@{font\_lib.c}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily void to\+String (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{str,  }\item[{uint16\+\_\+t}]{sym }\end{DoxyParamCaption})}
+
+
+
+Конвертация hex числа в UTF-\/8 символ в формате uint8\+\_\+t\mbox{[}3\mbox{]}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em str} & UTF-\/8 символ в формате uint8\+\_\+t\mbox{[}3\mbox{]} \\
+\hline
+\mbox{\texttt{ in}}  & {\em sym} & hex число, 1 цифра\\
+\hline
+\end{DoxyParams}
+Функция переводит hex число (1 цифра) в UTF-\/8 символ, по которому идёт обращение к шрифту через \doxylink{font__lib_8c_a9babcbfe804efab81f10a42e488dbe73}{get\+Offset()} 

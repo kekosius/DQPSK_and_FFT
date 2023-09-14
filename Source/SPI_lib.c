@@ -28,6 +28,8 @@ uint8_t errorCounterSPI = 0;		/*!< Количество ошибок по шин
  * - CRC -				Disable
  * - Выбранный канал - SPI1, SCK=PA5, MISO=PA6, MOSI=PA7
  * - Включено прерывание по ошибке, при прерывании вызывается [SPI_Reload()](#SPI_Reload)
+ *
+ * На скоростях, ниже выставленной (baudrateDiv > SPI_BAUDRATE_DIV_2), нормально не будет работать. 
  */
 
 void SPI_Init()

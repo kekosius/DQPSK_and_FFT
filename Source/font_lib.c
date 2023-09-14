@@ -1,4 +1,29 @@
+/*!
+ * @file        font_lib.c
+ *
+ * @brief       Функции для работы со шрифтом
+ *
+ * @version     V1.0.0
+ *
+ * @date        12-09-2023
+ */
+
 #include "font_lib.h"
+
+/*!
+ * @brief     Определение элемента char_map[], который соответсвует принятому символу
+ *
+ * @param     sym char[3] символ в кодировке UTF-8, например "F"
+ *
+ * @retval    Symbol структура, содержащая информацию о ширине символа в пикселях,
+ * сдвиг начала символа относительно gameplay_glyph_bitmap[0] (массив, содержащий шрифт)
+ * и количество пустых пикселей на конце символа (для обеспечения равного пространства
+ * между всеми символами)
+ * 
+ * Функция находит соответсвие между sym и элементами char_map, где находятся следующие символы:
+ *
+ * [SPACE]!'()-./0123456789:;?DFxАБВГДЕЖЗИКЛМНОПРСТУФХЦЧШЫЭЮЯ
+ */
 
 struct Symbol getOffset(uint8_t* sym) {
 	uint32_t code = sym[0]*1000000 + sym[1]*1000 + sym[2];
@@ -114,10 +139,32 @@ struct Symbol getOffset(uint8_t* sym) {
 	}
 }
 
+/*!
+ * @brief     Конвертация char к uint8_t 
+ *
+ * @param[in]     str char[3] символ в кодировке UTF-8, например "F"
+ * @param[out]    anw uchar[3] символ UTF-8 в формате uint8_t
+ * 
+ * Функция переводит char[3] в uchar[3]. Сами значения, по сути, не изменяются,
+ * потому как элементы str всегда положительные. 
+ * 
+ * Используется для перевода hex в UTF-8 в [toString()](#toString)
+ */
+
 void CharToUChar(char* str, uint8_t* anw) {
 	for (uint8_t i = 0; i < 3; i++) anw[i] = abs(str[i]);
 	return;
 }
+
+/*!
+ * @brief     Конвертация hex числа в UTF-8 символ в формате uint8_t[3]
+ *
+ * @param[out]     str UTF-8 символ в формате uint8_t[3]
+ * @param[in]      sym hex число, 1 цифра
+ * 
+ * Функция переводит hex число (1 цифра) в UTF-8 символ, по которому идёт
+ * обращение к шрифту через [getOffset()](#getOffset)
+ */
 
 void toString (uint8_t* str, uint16_t sym) {
 	switch (sym) {

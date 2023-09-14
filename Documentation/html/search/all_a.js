@@ -1,13 +1,8 @@
 var searchData=
 [
-  ['spi_0',['SPI',['../main_8c.html#a01fd04b4785db2565ec59dd2463c402c',1,'main.c']]],
-  ['spi_5fclearinpitbuffer_1',['SPI_ClearInpitBuffer',['../_s_p_i__lib_8c.html#a645597db35e492d57f285d3eaf4fcb90',1,'SPI_lib.c']]],
-  ['spi_5finit_2',['SPI_Init',['../_s_p_i__lib_8c.html#a9405ec7074e866a9c74f393f11f18ede',1,'SPI_lib.c']]],
-  ['spi_5flib_2ec_3',['SPI_lib.c',['../_s_p_i__lib_8c.html',1,'']]],
-  ['spi_5freload_4',['SPI_Reload',['../_s_p_i__lib_8c.html#ad784c62ba7eb244455136d836b0d8b3a',1,'SPI_lib.c']]],
-  ['spi_5frestart_5fnote_5',['SPI_Restart_note',['../_s_p_i__lib_8c.html#ab2f83b78793e7e5e2790cfe6e94b5ce4',1,'SPI_lib.c']]],
-  ['spi_5frx_5fdata_6',['SPI_Rx_Data',['../_s_p_i__lib_8c.html#a8544f430adf32441c47f7493afe3f9f1',1,'SPI_lib.c']]],
-  ['spi_5ftx_5fdata_7',['SPI_Tx_Data',['../_s_p_i__lib_8c.html#aec203be0bab5ed192156e4f35bc6ae15',1,'SPI_lib.c']]],
-  ['spi_5ftxrx_5fdata_8',['SPI_TxRx_Data',['../_s_p_i__lib_8c.html#a7c46b6e0115ba34ccfe22dccd0b4baa9',1,'SPI_lib.c']]],
-  ['spi_5fwait_5ffor_5ftermination_9',['SPI_Wait_for_termination',['../_s_p_i__lib_8c.html#adbe2ce9601202c0d9956588085632a8f',1,'SPI_lib.c']]]
+  ['main_0',['main',['../main_8c.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main.c']]],
+  ['main_2ec_1',['main.c',['../main_8c.html',1,'']]],
+  ['move_5favg_5fnum_2',['MOVE_AVG_NUM',['../_a_m_p_8c.html#ac545a9fba18b4a4eb99e29abcd830365',1,'AMP.c']]],
+  ['movingaverage_3',['MovingAverage',['../_a_m_p_8c.html#a34d5185ffc8f108f8315563b8190bbf1',1,'AMP.c']]],
+  ['movingaverageclear_4',['MovingAverageClear',['../_a_m_p_8c.html#a0039df7ab0aa659c2d2b0654ce4fbef6',1,'AMP.c']]]
 ];

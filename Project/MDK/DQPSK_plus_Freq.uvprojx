@@ -589,39 +589,14 @@
               <FilePath>..\..\Source\ADC_lib.c</FilePath>
             </File>
             <File>
-              <FileName>font_lib.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\Source\font_lib.c</FilePath>
-            </File>
-            <File>
-              <FileName>LCD_lib.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\Source\LCD_lib.c</FilePath>
-            </File>
-            <File>
-              <FileName>SignalReceiveHandler.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\Source\SignalReceiveHandler.c</FilePath>
-            </File>
-            <File>
-              <FileName>SPI_lib.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\Source\SPI_lib.c</FilePath>
-            </File>
-            <File>
-              <FileName>TIM_lib.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\Source\TIM_lib.c</FilePath>
-            </File>
-            <File>
-              <FileName>UART_lib.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\Source\UART_lib.c</FilePath>
-            </File>
-            <File>
               <FileName>ADC_lib.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\..\Include\ADC_lib.h</FilePath>
+            </File>
+            <File>
+              <FileName>font_lib.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Source\font_lib.c</FilePath>
             </File>
             <File>
               <FileName>font_lib.h</FileName>
@@ -629,9 +604,19 @@
               <FilePath>..\..\Include\font_lib.h</FilePath>
             </File>
             <File>
+              <FileName>LCD_lib.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Source\LCD_lib.c</FilePath>
+            </File>
+            <File>
               <FileName>LCD_lib.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\..\Include\LCD_lib.h</FilePath>
+            </File>
+            <File>
+              <FileName>SignalReceiveHandler.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Source\SignalReceiveHandler.c</FilePath>
             </File>
             <File>
               <FileName>SignalReceiveHandler.h</FileName>
@@ -639,9 +624,19 @@
               <FilePath>..\..\Include\SignalReceiveHandler.h</FilePath>
             </File>
             <File>
+              <FileName>SPI_lib.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Source\SPI_lib.c</FilePath>
+            </File>
+            <File>
               <FileName>SPI_lib.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\..\Include\SPI_lib.h</FilePath>
+            </File>
+            <File>
+              <FileName>TIM_lib.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Source\TIM_lib.c</FilePath>
             </File>
             <File>
               <FileName>TIM_lib.h</FileName>
@@ -649,19 +644,24 @@
               <FilePath>..\..\Include\TIM_lib.h</FilePath>
             </File>
             <File>
+              <FileName>UART_lib.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Source\UART_lib.c</FilePath>
+            </File>
+            <File>
               <FileName>UART_lib.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\..\Include\UART_lib.h</FilePath>
             </File>
             <File>
-              <FileName>Filter_lib.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\..\Include\Filter_lib.h</FilePath>
-            </File>
-            <File>
               <FileName>Filter_lib.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\Source\Filter_lib.c</FilePath>
+            </File>
+            <File>
+              <FileName>Filter_lib.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\Include\Filter_lib.h</FilePath>
             </File>
             <File>
               <FileName>WDT_lib.c</FileName>
@@ -674,14 +674,14 @@
               <FilePath>..\..\Include\WDT_lib.h</FilePath>
             </File>
             <File>
-              <FileName>FM.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\..\Include\FM.h</FilePath>
-            </File>
-            <File>
               <FileName>FM.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\Source\FM.c</FilePath>
+            </File>
+            <File>
+              <FileName>FM.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\Include\FM.h</FilePath>
             </File>
             <File>
               <FileName>AMP.c</FileName>
@@ -694,14 +694,14 @@
               <FilePath>..\..\Include\AMP.h</FilePath>
             </File>
             <File>
-              <FileName>PM.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\..\Include\PM.h</FilePath>
-            </File>
-            <File>
               <FileName>PM.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\Source\PM.c</FilePath>
+            </File>
+            <File>
+              <FileName>PM.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\Include\PM.h</FilePath>
             </File>
             <File>
               <FileName>DAC_lib.c</FileName>
@@ -714,14 +714,14 @@
               <FilePath>..\..\Include\DAC_lib.h</FilePath>
             </File>
             <File>
-              <FileName>KEY_lib.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\..\Include\KEY_lib.h</FilePath>
-            </File>
-            <File>
               <FileName>KEY_lib.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\Source\KEY_lib.c</FilePath>
+            </File>
+            <File>
+              <FileName>KEY_lib.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\Include\KEY_lib.h</FilePath>
             </File>
           </Files>
         </Group>

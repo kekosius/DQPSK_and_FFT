@@ -1,0 +1,146 @@
+\doxysection{C\+:/\+Users/user/\+Documents/\+Keil/\+DQPSK\+\_\+plus\+\_\+\+Freq/\+Source/\+LCD\+\_\+lib.c File Reference}
+\hypertarget{_l_c_d__lib_8c}{}\label{_l_c_d__lib_8c}\index{C:/Users/user/Documents/Keil/DQPSK\_plus\_Freq/Source/LCD\_lib.c@{C:/Users/user/Documents/Keil/DQPSK\_plus\_Freq/Source/LCD\_lib.c}}
+
+
+Функции для работы с LCD экраном  
+
+
+{\ttfamily \#include \"{}LCD\+\_\+lib.\+h\"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{_l_c_d__lib_8c_a30aae21399b9798c8a1b0032a3e4d151}\label{_l_c_d__lib_8c_a30aae21399b9798c8a1b0032a3e4d151} 
+void {\bfseries LCD\+\_\+\+Voltage\+\_\+\+Result} (uint16\+\_\+t, uint16\+\_\+t, double)
+\item 
+void \mbox{\hyperlink{_l_c_d__lib_8c_a5ef93ea663540adb55fb253fa41478c9}{LCD\+\_\+\+Start}} ()
+\begin{DoxyCompactList}\small\item\em Запускает LCD экран \end{DoxyCompactList}\item 
+\Hypertarget{_l_c_d__lib_8c_ab589cadffbb3a4300057f868e30a910f}\label{_l_c_d__lib_8c_ab589cadffbb3a4300057f868e30a910f} 
+void {\bfseries LCD\+\_\+\+DQPSK\+\_\+mode} ()
+\item 
+\Hypertarget{_l_c_d__lib_8c_a67d65e7546dc387e220507035c7c4346}\label{_l_c_d__lib_8c_a67d65e7546dc387e220507035c7c4346} 
+void {\bfseries LCD\+\_\+\+DQPSK\+\_\+\+Result} (uint16\+\_\+t code, uint16\+\_\+t speed, double AvgV)
+\item 
+\Hypertarget{_l_c_d__lib_8c_a84301f23dd4c003654d6c44781b4017e}\label{_l_c_d__lib_8c_a84301f23dd4c003654d6c44781b4017e} 
+void {\bfseries LCD\+\_\+\+Freq\+\_\+mode} ()
+\item 
+\Hypertarget{_l_c_d__lib_8c_a9d046a321b80f763b5cdf78b26c0fbe2}\label{_l_c_d__lib_8c_a9d046a321b80f763b5cdf78b26c0fbe2} 
+void {\bfseries LCD\+\_\+\+Freq\+\_\+\+Result} (uint16\+\_\+t freq, double AvgV)
+\item 
+\Hypertarget{_l_c_d__lib_8c_ad4fcbc10f1d0f8b3738d929d33386ccc}\label{_l_c_d__lib_8c_ad4fcbc10f1d0f8b3738d929d33386ccc} 
+void {\bfseries LCD\+\_\+\+Show\+\_\+\+No\+\_\+\+Result} ()
+\item 
+\Hypertarget{_l_c_d__lib_8c_ac649c9a194e457f7a19801c035932848}\label{_l_c_d__lib_8c_ac649c9a194e457f7a19801c035932848} 
+void {\bfseries LCD\+\_\+\+Result\+\_\+\+Reset} ()
+\item 
+\Hypertarget{_l_c_d__lib_8c_a83784927feb59f3a527130ac4b016fac}\label{_l_c_d__lib_8c_a83784927feb59f3a527130ac4b016fac} 
+void {\bfseries LCD\+\_\+\+GPIO\+\_\+\+Config} ()
+\item 
+\Hypertarget{_l_c_d__lib_8c_ab707bc0094d1ca14242bff04487554d3}\label{_l_c_d__lib_8c_ab707bc0094d1ca14242bff04487554d3} 
+void {\bfseries fill\+Rectangle} (uint16\+\_\+t x0, uint16\+\_\+t y0, uint16\+\_\+t x1, uint16\+\_\+t y1, uint16\+\_\+t color)
+\item 
+\Hypertarget{_l_c_d__lib_8c_a69f8a72ddcde36584c0e0f7fc70afeac}\label{_l_c_d__lib_8c_a69f8a72ddcde36584c0e0f7fc70afeac} 
+void {\bfseries draw\+Picture} (uint16\+\_\+t x0, uint16\+\_\+t y0, const uint16\+\_\+t \texorpdfstring{$\ast$}{*}img)
+\item 
+\Hypertarget{_l_c_d__lib_8c_aef7cb8fcade6bcf4d819c03368dfe239}\label{_l_c_d__lib_8c_aef7cb8fcade6bcf4d819c03368dfe239} 
+void {\bfseries draw\+String} (uint16\+\_\+t x0, uint16\+\_\+t y0, uint16\+\_\+t color, uint16\+\_\+t Background, uint8\+\_\+t str\mbox{[}$\,$\mbox{]}\mbox{[}3\mbox{]}, uint8\+\_\+t len)
+\item 
+\Hypertarget{_l_c_d__lib_8c_a5bcfb20df057ac3e00c58fe98224e7ca}\label{_l_c_d__lib_8c_a5bcfb20df057ac3e00c58fe98224e7ca} 
+void {\bfseries draw\+Float\+Mono\+Width} (uint16\+\_\+t x0, uint16\+\_\+t y0, uint16\+\_\+t color, uint16\+\_\+t Background, uint8\+\_\+t str\mbox{[}$\,$\mbox{]}\mbox{[}3\mbox{]}, uint8\+\_\+t len)
+\item 
+\Hypertarget{_l_c_d__lib_8c_a9f668ffb29a5a9c9d80c6f1607486acb}\label{_l_c_d__lib_8c_a9f668ffb29a5a9c9d80c6f1607486acb} 
+struct Symbol {\bfseries draw\+Char} (uint16\+\_\+t x, uint16\+\_\+t y, uint8\+\_\+t \texorpdfstring{$\ast$}{*}c, uint16\+\_\+t color, uint16\+\_\+t Background)
+\item 
+\Hypertarget{_l_c_d__lib_8c_a942a6990076b55062fa3686509ede8fb}\label{_l_c_d__lib_8c_a942a6990076b55062fa3686509ede8fb} 
+void {\bfseries set\+Draw\+Window} (uint16\+\_\+t x1, uint16\+\_\+t y1, uint16\+\_\+t x2, uint16\+\_\+t y2)
+\item 
+\Hypertarget{_l_c_d__lib_8c_a182a54305d5aab1df13015a69aef5e3c}\label{_l_c_d__lib_8c_a182a54305d5aab1df13015a69aef5e3c} 
+void {\bfseries init\+LCD} (void)
+\item 
+\Hypertarget{_l_c_d__lib_8c_aa6a149ffc7e5d86e8956ce99913378c0}\label{_l_c_d__lib_8c_aa6a149ffc7e5d86e8956ce99913378c0} 
+void {\bfseries hw\+Reset\+LCD} (void)
+\item 
+\Hypertarget{_l_c_d__lib_8c_ab82572385c650de496f697c0afa2d7cc}\label{_l_c_d__lib_8c_ab82572385c650de496f697c0afa2d7cc} 
+void {\bfseries sw\+Reset\+LCD} (void)
+\item 
+\Hypertarget{_l_c_d__lib_8c_aabad06e989a5bc1992d5d136d02dc6cb}\label{_l_c_d__lib_8c_aabad06e989a5bc1992d5d136d02dc6cb} 
+void {\bfseries on\+LCD} (void)
+\item 
+\Hypertarget{_l_c_d__lib_8c_a58da74816ca00e0067c30b4faaefc366}\label{_l_c_d__lib_8c_a58da74816ca00e0067c30b4faaefc366} 
+void {\bfseries off\+LCD} (void)
+\item 
+\Hypertarget{_l_c_d__lib_8c_a3a4fcfdf4679d8219ab6281e3a7d637b}\label{_l_c_d__lib_8c_a3a4fcfdf4679d8219ab6281e3a7d637b} 
+void {\bfseries write\+Cmd\+LCD} (uint8\+\_\+t cmd)
+\item 
+\Hypertarget{_l_c_d__lib_8c_abe8aedbfc99ec82625d07c7e027ef5bd}\label{_l_c_d__lib_8c_abe8aedbfc99ec82625d07c7e027ef5bd} 
+void {\bfseries write\+Data\+LCD} (uint8\+\_\+t data)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{_l_c_d__lib_8c_a1e6fddd7ada8e93fa228d12fc03a4a99}\label{_l_c_d__lib_8c_a1e6fddd7ada8e93fa228d12fc03a4a99} 
+uint8\+\_\+t {\bfseries MSG\+\_\+\+Start\+\_\+1} \mbox{[}7\mbox{]}\mbox{[}3\mbox{]} = \{\"{}Н\"{}, \"{}А\"{}, \"{}Ж\"{}, \"{}М\"{}, \"{}И\"{}, \"{}Т\"{}, \"{}Е\"{}\}
+\item 
+\Hypertarget{_l_c_d__lib_8c_ab6b7c41c9e16462bf69ac623195045de}\label{_l_c_d__lib_8c_ab6b7c41c9e16462bf69ac623195045de} 
+uint8\+\_\+t {\bfseries MSG\+\_\+\+Start\+\_\+2} \mbox{[}4\mbox{]}\mbox{[}3\mbox{]} = \{\"{}К\"{}, \"{}Е\"{}, \"{}У\"{}, \"{}1\"{}\}
+\item 
+\Hypertarget{_l_c_d__lib_8c_a49201d9f82bd728b8347e21ce7622841}\label{_l_c_d__lib_8c_a49201d9f82bd728b8347e21ce7622841} 
+uint8\+\_\+t {\bfseries MSG\+\_\+\+DQPSK\+\_\+1} \mbox{[}4\mbox{]}\mbox{[}3\mbox{]} = \{\"{}А\"{}, \"{}Р\"{}, \"{}С\"{}, \"{}Ф\"{}\}
+\item 
+\Hypertarget{_l_c_d__lib_8c_a275590b7c08195db7ed41dd75ea2f51d}\label{_l_c_d__lib_8c_a275590b7c08195db7ed41dd75ea2f51d} 
+uint8\+\_\+t {\bfseries MSG\+\_\+\+DQPSK\+\_\+2} \mbox{[}4\mbox{]}\mbox{[}3\mbox{]} = \{\"{}К\"{}, \"{}О\"{}, \"{}Д\"{}, \"{}\+:\"{}\}
+\item 
+\Hypertarget{_l_c_d__lib_8c_a4161c803bfec47485624ccf99dc02dc8}\label{_l_c_d__lib_8c_a4161c803bfec47485624ccf99dc02dc8} 
+uint8\+\_\+t {\bfseries MSG\+\_\+\+DQPSK\+\_\+3} \mbox{[}4\mbox{]}\mbox{[}3\mbox{]} = \{\"{}К\"{}, \"{}Р\"{}, \"{}Ц\"{}, \"{}\+:\"{}\}
+\item 
+\Hypertarget{_l_c_d__lib_8c_aa97463b01ee1ca9a841a7a8e9d6c52ea}\label{_l_c_d__lib_8c_aa97463b01ee1ca9a841a7a8e9d6c52ea} 
+uint8\+\_\+t {\bfseries MSG\+\_\+\+DQPSK\+\_\+4} \mbox{[}4\mbox{]}\mbox{[}3\mbox{]} = \{\"{}С\"{}, \"{}Р\"{}, \"{}Ц\"{}, \"{}\+:\"{}\}
+\item 
+\Hypertarget{_l_c_d__lib_8c_a1512ca89a90c98f801bf4929a7fa4a5e}\label{_l_c_d__lib_8c_a1512ca89a90c98f801bf4929a7fa4a5e} 
+uint8\+\_\+t {\bfseries MSG\+\_\+\+DQPSK\+\_\+5} \mbox{[}4\mbox{]}\mbox{[}3\mbox{]} = \{\"{}А\"{}, \"{}М\"{}, \"{}П\"{}, \"{}\+:\"{}\}
+\item 
+\Hypertarget{_l_c_d__lib_8c_a426b1bbba3f5653febf394936df25a58}\label{_l_c_d__lib_8c_a426b1bbba3f5653febf394936df25a58} 
+uint16\+\_\+t {\bfseries prev\+Code} = 0x999
+\item 
+\Hypertarget{_l_c_d__lib_8c_ac24684fc351237f8c32cad80903246bc}\label{_l_c_d__lib_8c_ac24684fc351237f8c32cad80903246bc} 
+uint8\+\_\+t {\bfseries No\+Result\+State} = 0
+\item 
+\Hypertarget{_l_c_d__lib_8c_a8414fee3c222c507a19fcc0c45a78ce6}\label{_l_c_d__lib_8c_a8414fee3c222c507a19fcc0c45a78ce6} 
+uint8\+\_\+t {\bfseries MSG\+\_\+\+Freq\+\_\+1} \mbox{[}3\mbox{]}\mbox{[}3\mbox{]} = \{\"{}А\"{}, \"{}Р\"{}, \"{}С\"{}\}
+\item 
+\Hypertarget{_l_c_d__lib_8c_a39afe69a6767afdb305e55063402e3bf}\label{_l_c_d__lib_8c_a39afe69a6767afdb305e55063402e3bf} 
+uint8\+\_\+t {\bfseries MSG\+\_\+\+Freq\+\_\+2} \mbox{[}4\mbox{]}\mbox{[}3\mbox{]} = \{\"{}К\"{}, \"{}О\"{}, \"{}Д\"{}, \"{}\+:\"{}\}
+\item 
+\Hypertarget{_l_c_d__lib_8c_a26d95aa5493baa88f0fb144d869909e4}\label{_l_c_d__lib_8c_a26d95aa5493baa88f0fb144d869909e4} 
+uint8\+\_\+t {\bfseries MSG\+\_\+\+Freq\+\_\+3} \mbox{[}4\mbox{]}\mbox{[}3\mbox{]} = \{\"{}К\"{}, \"{}Р\"{}, \"{}Ц\"{}, \"{}\+:\"{}\}
+\item 
+\Hypertarget{_l_c_d__lib_8c_a998aedff24650478e4c94c9f49ca0753}\label{_l_c_d__lib_8c_a998aedff24650478e4c94c9f49ca0753} 
+uint8\+\_\+t {\bfseries MSG\+\_\+\+Freq\+\_\+6} \mbox{[}4\mbox{]}\mbox{[}3\mbox{]} = \{\"{}А\"{}, \"{}М\"{}, \"{}П\"{}, \"{}\+:\"{}\}
+\item 
+\Hypertarget{_l_c_d__lib_8c_a5f071743f113001f88bdc3771ee01a93}\label{_l_c_d__lib_8c_a5f071743f113001f88bdc3771ee01a93} 
+uint8\+\_\+t {\bfseries buf} \mbox{[}LCD\+\_\+\+WIDTH \texorpdfstring{$\ast$}{*}2\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Функции для работы с LCD экраном 
+
+\begin{DoxyVersion}{Version}
+V1.\+0.\+0
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+12-\/09-\/2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_l_c_d__lib_8c_a5ef93ea663540adb55fb253fa41478c9}\label{_l_c_d__lib_8c_a5ef93ea663540adb55fb253fa41478c9} 
+\index{LCD\_lib.c@{LCD\_lib.c}!LCD\_Start@{LCD\_Start}}
+\index{LCD\_Start@{LCD\_Start}!LCD\_lib.c@{LCD\_lib.c}}
+\doxysubsubsection{\texorpdfstring{LCD\_Start()}{LCD\_Start()}}
+{\footnotesize\ttfamily void LCD\+\_\+\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Запускает LCD экран 
+
+Вызывает LCD\+\_\+\+GPIO\+\_\+\+Config(), init\+LCD(), закрашивает экран в белый, выводит на экран стартовое сообщение (MSG\+\_\+\+Start\+\_\+1, MSG\+\_\+\+Start\+\_\+2) 

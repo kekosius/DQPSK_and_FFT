@@ -83,8 +83,10 @@ V1.\+0.\+0
 \item First Bit -\/ MSB
 \item CRC -\/ Disable
 \item Выбранный канал -\/ SPI1, SCK=PA5, MISO=PA6, MOSI=PA7
-\item Включено прерывание по ошибке, при прерывании вызывается \doxylink{_s_p_i__lib_8c_ad784c62ba7eb244455136d836b0d8b3a}{SPI\+\_\+\+Reload()} 
-\end{DoxyItemize}\Hypertarget{_s_p_i__lib_8c_ad784c62ba7eb244455136d836b0d8b3a}\label{_s_p_i__lib_8c_ad784c62ba7eb244455136d836b0d8b3a} 
+\item Включено прерывание по ошибке, при прерывании вызывается \doxylink{_s_p_i__lib_8c_ad784c62ba7eb244455136d836b0d8b3a}{SPI\+\_\+\+Reload()}
+\end{DoxyItemize}
+
+На скоростях, ниже выставленной (baudrate\+Div \texorpdfstring{$>$}{>} SPI\+\_\+\+BAUDRATE\+\_\+\+DIV\+\_\+2), нормально не будет работать. \Hypertarget{_s_p_i__lib_8c_ad784c62ba7eb244455136d836b0d8b3a}\label{_s_p_i__lib_8c_ad784c62ba7eb244455136d836b0d8b3a} 
 \index{SPI\_lib.c@{SPI\_lib.c}!SPI\_Reload@{SPI\_Reload}}
 \index{SPI\_Reload@{SPI\_Reload}!SPI\_lib.c@{SPI\_lib.c}}
 \doxysubsubsection{\texorpdfstring{SPI\_Reload()}{SPI\_Reload()}}
