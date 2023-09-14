@@ -9,6 +9,7 @@ uint16_t adcData = 0;
 uint16_t fft_pos = 0;
 uint16_t EndOfSample[8*5+2+1] = {0};
 uint64_t tick = 0;
+uint16_t voltageBuffCounter = 0;
 
 #ifdef DEBUG
 double VoltageTestArray[6000] = {0};
@@ -28,6 +29,8 @@ double VirtualZero = INPUT_AMPLITUDE/2;
 double RealVoltage = 0;
 double PrevVoltage = 0;
 double FFT_Buff[FFT_N] = {0};
+double voltageBuff[VOL_BUF_LEN] = {0};
+
 
 void VarReInit(void);
 void SpectrumVarReInit(void);
@@ -164,14 +167,20 @@ void TMR2_EventCallback(void) {
    }
  }
 
+ 
+ 
  void TMR3_EventCallback(void) {
 	 if(TMR_ReadIntFlag(TMR3, TMR_INT_UPDATE) == SET) {
 		 if (ADC_ReadStatusFlag(ADC1, ADC_FLAG_EOC)) {
 			 RealVoltage = GetRealVoltage();
 			 if (LowLevel && (RealVoltage > 500)) LowLevel = 0;
-			 FFT_Buff[fft_pos] = RealVoltage;
-			 fft_pos++;
-			 if (fft_pos == FFT_N) SpectrumAnalysis(FFT_Buff, LowLevel);
+			 voltageBuff[voltageBuffCounter] = RealVoltage;
+			 voltageBuffCounter++;
+			 if (voltageBuffCounter >= VOL_BUF_LEN-256) {
+				 FFT_Buff[fft_pos] = RealVoltage;
+				 fft_pos++;
+			 }
+			 if (fft_pos == FFT_N) SpectrumAnalysis(FFT_Buff, LowLevel, voltageBuff);
 		 }
 	 }
 	 FlagsClear();
@@ -192,6 +201,8 @@ void TMR2_EventCallback(void) {
  
  void SpectrumVarReInit() {
 	 for (uint16_t i = 0; i < FFT_N; i++) FFT_Buff[i] = 0;
+	 for (uint16_t i = 0; i < VOL_BUF_LEN; i++) voltageBuff[i] = 0;
+	 voltageBuffCounter = 0;
 	 fft_pos = 0;
 	 LowLevel = 1;
  }

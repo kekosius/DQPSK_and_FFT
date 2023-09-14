@@ -1,6 +1,6 @@
 #include "FM.h"
 
-void SpectrumAnalysis(double* FFT_Buff, uint8_t LowLevel) {
+void SpectrumAnalysis(double* FFT_Buff, uint8_t LowLevel, double* voltageBuff) {
 	double freqPerc[6] = {0};
 	APM_MINI_LEDOff(LED2);
 	APM_MINI_LEDOn(LED3);
@@ -20,7 +20,7 @@ void SpectrumAnalysis(double* FFT_Buff, uint8_t LowLevel) {
 												значениям частот 0-df-2df-...-Nyq)
 	*/	 
 	 
-	 AverageVoltage = AmlitudeAnalysis(FFT_Buff, 256);
+	 AverageVoltage = AmlitudeAnalysis(voltageBuff, VOL_BUF_LEN);
 	 
 	 fftM(FFT_Buff, freqPerc);
 	 

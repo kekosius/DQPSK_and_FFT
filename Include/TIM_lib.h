@@ -3,6 +3,8 @@
 
 #include "main.h"
 
+#define VOL_BUF_LEN			(4096)
+
 extern uint8_t NoResultCounter;
 
 void TMR2_Init(void);

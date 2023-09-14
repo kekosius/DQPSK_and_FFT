@@ -95,10 +95,7 @@ void LCD_Freq_Result(uint16_t freq, double AvgV) {
 	
 	LCD_Voltage_Result(180, 300, AvgV);
 
-	if (freq == prevCode) {
-		Delay(10000000);
-		return;
-	}
+	if (freq == prevCode) return;
 	prevCode = freq;
 	if (prevCode != 0x999) fillRectangle(155, 100, LCD_HEIGHT, LCD_HEIGHT, WHITE);
 	uint8_t MSG_Freq_4[3][3] = {" ", " ", " "};

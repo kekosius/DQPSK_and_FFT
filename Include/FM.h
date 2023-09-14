@@ -3,6 +3,6 @@
 
 #include "main.h"
 
-void SpectrumAnalysis(double*, uint8_t);
+void SpectrumAnalysis(double*, uint8_t, double*);
 
 #endif
