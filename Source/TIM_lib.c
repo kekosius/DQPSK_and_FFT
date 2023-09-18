@@ -23,7 +23,6 @@ uint32_t q = 0;
 double time = 0;
 double ZeroCrossTimings[700] = {0};
 double VoltagesData[(32+5*8*16)*8] = {0};
-double OrigVoltage[(32+5*8*16)*8] = {0};
 double adcVoltage = 0;
 double VirtualZero = INPUT_AMPLITUDE/2;	
 double RealVoltage = 0;
@@ -75,8 +74,6 @@ void TMR3_Init() {
     TMR_Enable(TMR3);
 }
 
-uint8_t NoResultCounter = 2;
-
 void TMR4_Init() {
 	
     TMR_BaseConfig_T TMR_BaseConfigStruct;
@@ -104,7 +101,7 @@ void TMR2_EventCallback(void) {
 	if(TMR_ReadIntFlag(TMR2, TMR_INT_UPDATE) == SET) {		
 		if (ADC_ReadStatusFlag(ADC1, ADC_FLAG_EOC)) {
 			RealVoltage = GetRealVoltage();
-			OrigVoltage[tick] = RealVoltage;
+			if (tick < VOL_BUF_LEN) voltageBuff[tick] = RealVoltage;
 			RealVoltage = HighPassFilter(RealVoltage);
 			
 			#ifdef FILTER_TEST
@@ -160,7 +157,7 @@ void TMR2_EventCallback(void) {
 		
 		if (tick == TICKS_NUM) {
 			__disable_irq();
-			AverageVoltage = AmlitudeAnalysis(OrigVoltage, 5000);
+			AverageVoltage = AmlitudeAnalysis(voltageBuff, VOL_BUF_LEN);
 			ReceiveStop(VoltagesData, ZeroCrossTimings, EndOfSample);
 			__enable_irq();
 		}
@@ -211,16 +208,10 @@ void VarReInit() {
 	tick = 0;
 	PrevVoltage = 0;
 	FalseActivation = 0;
-	for (int i = 0; i < 600; i++){
-		ZeroCrossTimings[i] = 0;
-	}
-	for (int i = 0; i < 42; i++){
-		EndOfSample[i] = 0;
-	}
-	for (int i = 0; i < 5376; i++) {
-		VoltagesData[i] = 0;
-		OrigVoltage[i] = 0;
-	}
+	for (int i = 0; i < 600; i++) 			ZeroCrossTimings[i] = 0;
+	for (int i = 0; i < 42; i++)			EndOfSample[i] = 0;
+	for (int i = 0; i < 5376; i++)			VoltagesData[i] = 0;
+	for (int i = 0; i < VOL_BUF_LEN; i++)	voltageBuff[i] = 0;
 	HandlerVarReInit();
 	#ifdef DEBUG
 		USART_Tx_Char(USART, 13);

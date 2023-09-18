@@ -10,7 +10,6 @@ uint16_t ExitCounter = 0;
 int8_t StartSign = 0;
 
 double InterferenceAmplitude = (INPUT_AMPLITUDE/2)*0.5;
-double AmlitudeAnalysis(double*, uint16_t);
 
 //Амплитуда колебаний, которая будет считаться как паразитный сигнал (помеха)
 

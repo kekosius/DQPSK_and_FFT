@@ -39,6 +39,8 @@
 #define GREENYELLOW 0xAFE5
 #define PINK        0xF81F
 
+extern uint8_t NoResultCounter;
+
 //tools
 void LCD_Start(void);
 void LCD_DQPSK_mode(void);

@@ -36,6 +36,13 @@ void LCD_Start() {
 	drawString(85, 250, BLACK, WHITE, MSG_Start_2, 4);
 }
 
+/*!
+ * @brief     Переводит LCD экран в режим отображения АРСФ кодов
+ *
+ * Закрашивает экран в белый, выводит на экран обозначение режима работы (MSG_DQPSK_1) и поля
+ * для отображения результатов АРС декодирования (MSG_DQPSK_2, MSG_DQPSK_3, MSG_DQPSK_4, MSG_DQPSK_5)
+ */
+
 void LCD_DQPSK_mode() {
 	fillRectangle(0, 0, LCD_HEIGHT, LCD_WIDTH, WHITE);
 	drawString(85, 5, RED, WHITE, MSG_DQPSK_1, 4);
@@ -43,13 +50,32 @@ void LCD_DQPSK_mode() {
 	drawString(5, 200, BLACK, WHITE, MSG_DQPSK_3, 4);
 	drawString(5, 300, BLACK, WHITE, MSG_DQPSK_4, 4);
 	drawString(5, 400, BLACK, WHITE, MSG_DQPSK_5, 4);
+	NoResultCounter = 2;
 }
 
-uint16_t prevCode = 0x999;
-uint8_t NoResultState = 0;
+uint16_t prevCode = 0x999;      /*!< Содержит значение предыдущего принятого кода.
+								 * 0x999 - невозможное значение, поэтому является default*/
+
+uint8_t NoResultCounter = 2;	/*!< Зависит от количества безрезультатных (сигнал не удалось декодировать) приёмов сигнала подряд.
+								 * extern переменная, уменьшается в [TMR4_EventCallback()](#TMR4_EventCallback) с периодом 500ms.
+								 * Если NoResultCounter = 0 (т.е. в течении ~1 секунды не произошло удачного декодирования),
+								 * то вызывается [LCD_Show_No_Result()](#LCD_Show_No_Result)*/
+
+uint8_t NoResultState = 0;		/*!< Индикация отсутсвия отображения кода на LCD экране. 0 - код на экране примутсвует,
+								 * 1 - кода нет*/
+
+/*!
+ * @brief     Отображения результата декодирования АРСФ на LCD экране
+ * 
+ * @param     code декодированный hex код
+ * @param	  speed разрешённая на участке скорость в формате десятеричного числа[XXYY],
+ * где XX - разрешенная скорость на КРЦ, YY - разрешенная скорость на СРЦ
+ * @param	  AvgV средняя амплитуда принятого сигнала
+ * Вызывает [LCD_GPIO_Config()](#LCD_GPIO_Config), [initLCD()](#initLCD),
+ * закрашивает экран в белый, выводит на экран стартовое сообщение (MSG_Start_1, MSG_Start_2)
+ */
 
 void LCD_DQPSK_Result(uint16_t code, uint16_t speed, double AvgV) {
-	__disable_irq();
 	if (NoResultState) {
 		prevCode = 0x999;
 		TMR_Enable(TMR4);
@@ -81,8 +107,6 @@ void LCD_DQPSK_Result(uint16_t code, uint16_t speed, double AvgV) {
 	toString(MSG_DQPSK_5[0], (speed % 100) / 10);
 	toString(MSG_DQPSK_5[1], speed % 10);
 	drawString(220, 300, BLACK, WHITE, MSG_DQPSK_5, 2);
-	
-	__enable_irq();
 }
 
 uint8_t MSG_Freq_1[3][3] = {"А", "Р", "С"};
@@ -96,6 +120,7 @@ void LCD_Freq_mode() {
 	drawString(5, 100, BLACK, WHITE, MSG_Freq_2, 4);
 	drawString(5, 200, BLACK, WHITE, MSG_Freq_3, 4);
 	drawString(5, 300, BLACK, WHITE, MSG_Freq_6, 4);
+	NoResultCounter = 2;
 }
 
 void LCD_Freq_Result(uint16_t freq, double AvgV) {
