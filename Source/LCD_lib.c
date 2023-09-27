@@ -57,7 +57,7 @@ void LCD_DQPSK_mode() {
 uint16_t prevCode = 0x999;      /*!< Содержит значение предыдущего принятого кода.
 								 * 0x999 - невозможное значение, поэтому является default*/
 
-uint8_t NoResultCounter = 2;	/*!< Зависит от количества безрезультатных (сигнал не удалось декодировать) приёмов сигнала подряд.
+uint8_t NoResultCounter = 3;	/*!< Зависит от количества безрезультатных (сигнал не удалось декодировать) приёмов сигнала подряд.
 								 * extern переменная, уменьшается в [TMR4_EventCallback()](#TMR4_EventCallback) с периодом 500ms.
 								 * Если NoResultCounter = 0 (т.е. в течении ~1 секунды не произошло удачного декодирования),
 								 * то вызывается [LCD_Show_No_Result()](#LCD_Show_No_Result)*/
@@ -83,7 +83,7 @@ void LCD_DQPSK_Result(uint16_t code, uint16_t speed, double AvgV) {
 		prevCode = 0x999;
 		TMR_Enable(TMR4);
 	}
-	NoResultCounter = 2;
+	NoResultCounter = 3;
 	NoResultState = 0;
 	
 	if (prevCode == 0x999) fillRectangle(155, 100, LCD_WIDTH, LCD_WIDTH, WHITE);
@@ -219,6 +219,16 @@ void LCD_Freq_Result(uint16_t freq, double AvgV) {
 	Delay(100000);
 }
 
+/*!
+ * @brief     Отображение результата анализа амлитуды принятого сигнала на LCD экране
+ * 
+ * @param     x_pos точка начала отрисовки по оси х
+ * @param	  y_pos точка начала отрисовки по оси y
+ * @param	  AvgV средняя амплитуда принятого сигнала
+ *
+ * Выводит на на белом фоне в заданной позиции double с точностью два знака после запятой в формате X.XX
+ */
+
 void LCD_Voltage_Result(uint16_t x_pos, uint16_t y_pos, double AvgV) {
 	uint8_t MSG_Voltage_1[4][3] = {"0", ".", "0", "0"};
 	AvgV += 5;												//Округление по предпоследнему знаку
@@ -230,6 +240,16 @@ void LCD_Voltage_Result(uint16_t x_pos, uint16_t y_pos, double AvgV) {
 	
 	drawFloatMonoWidth(x_pos, y_pos, BLACK, WHITE, MSG_Voltage_1, 4);
 }
+
+/*!
+ * @brief     Отображение состояния 
+ * 
+ * @param     x_pos точка начала отрисовки по оси х
+ * @param	  y_pos точка начала отрисовки по оси y
+ * @param	  AvgV средняя амплитуда принятого сигнала
+ *
+ * Выводит на на белом фоне в заданной позиции double с точностью два знака после запятой в формате X.XX
+ */
 
 void LCD_Show_No_Result() {
 	if (WorkStatus == 0) {
@@ -254,11 +274,27 @@ void LCD_Show_No_Result() {
 	}
 }
 
+/*!
+ * @brief     Очищает информацию о предыдущих полученных результатах
+ *
+ * Функция возвращает переменные #prevCode, #NoResultState и #NoResultCounter к дефолтным значениям
+ */
+
 void LCD_Result_Reset() {
 	prevCode = 0x999;
 	NoResultState = 0;
 	NoResultCounter = 2;
 }
+
+/*!
+ * @brief     Инициализация GPIO ножек для работы с LCD экраном
+ *
+ * Дефолтные значения пинов:
+ * - PC4 (LCD_BL) - High
+ * - PC5 (LCD_RST) - High
+ * - PB0 (LCD_DC) - Low
+ * - PB1 (LCD_CS) - Low
+ */
 
 void LCD_GPIO_Config() {
 	GPIO_Config_T GPIO_InitStructure;
@@ -288,7 +324,19 @@ void LCD_GPIO_Config() {
 	Delay(10000);
 }
 
-uint8_t buf[LCD_WIDTH * 2];
+uint8_t buf[LCD_WIDTH * 2]; /*!< Содержит данные, передаваемые контроллеру ILI9488 по SPI*/
+
+/*!
+ * @brief     Отрисовка прямоугольника с заливкой на LCD экране
+ * 
+ * @param     x0 точка начала отрисовки по оси х
+ * @param	  y0 точка начала отрисовки по оси y
+ * @param     x1 точка конца отрисовки по оси х
+ * @param	  y1 точка конца отрисовки по оси y
+ * @param	  color цвет заливки в формате RGB565
+ *
+ * Выводит на экран прямоугольник с заливкой в заданной позиции.
+ */
 
 void fillRectangle(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16_t color){
 	for(int i=0; i<(LCD_WIDTH * 2); i+=2)
@@ -307,6 +355,16 @@ void fillRectangle(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16_t 
 		SPI_Wait_for_termination(SPI);
 	CS_SET;
 }
+
+/*!
+* @brief     Отрисовка изображения на LCD экране
+ * 
+ * @param     x0 точка начала отрисовки по оси х
+ * @param	  y0 точка начала отрисовки по оси y
+ * @param	  img ссылка на массив, содержащий изображение для отрисовки.
+ *
+ * Выводит на экран изображение в заданной позиции.
+ */
 
 void drawPicture(uint16_t x0, uint16_t y0, const uint16_t* img){
 	uint16_t w = img[0];
@@ -332,6 +390,19 @@ void drawPicture(uint16_t x0, uint16_t y0, const uint16_t* img){
 	CS_SET;
 }
 
+/*!
+ * @brief     Вывод на экран строки символов
+ * 
+ * @param     x0 точка начала отрисовки по оси х
+ * @param	  y0 точка начала отрисовки по оси y
+ * @param	  color цвет заливки символов в формате RGB565
+ * @param	  Background цвет заливки фона в формате RGB565
+ * @param     str массив символов-строк в формате UTF-8, образующий отрисовываемую строку
+ * @param	  len количество символов-строк, образующих отрисовываемую строку
+ *
+ * Выводит на экран строку символов с постоянным расстоянием (8 пикселей) между символами
+ */
+
 void drawString(uint16_t x0, uint16_t y0, uint16_t color, uint16_t Background, uint8_t str[][3], uint8_t len){
 	uint8_t index = 0;
 	uint16_t carr_shif = 0;
@@ -343,6 +414,19 @@ void drawString(uint16_t x0, uint16_t y0, uint16_t color, uint16_t Background, u
 		index++;
 	}
 }
+
+/*!
+ * @brief     Вывод на экран дробного числа
+ * 
+ * @param     x0 точка начала отрисовки по оси х
+ * @param	  y0 точка начала отрисовки по оси y
+ * @param	  color цвет заливки символов в формате RGB565
+ * @param	  Background цвет заливки фона в формате RGB565
+ * @param     str массив символов-строк в формате UTF-8, образующий отрисовываемую строку
+ * @param	  len количество символов-строк, образующих отрисовываемую строку
+ *
+ * Выводит на экран дробное число в формате X.XX, которое всегда будет одинаковой ширины
+ */
 
 void drawFloatMonoWidth(uint16_t x0, uint16_t y0, uint16_t color, uint16_t Background, uint8_t str[][3], uint8_t len) {
 	uint8_t index = 0;
@@ -363,6 +447,20 @@ void drawFloatMonoWidth(uint16_t x0, uint16_t y0, uint16_t color, uint16_t Backg
 	}
 	drawChar(x0 + carr_shif, y0, space, color, Background);
 }
+
+/*!
+ * @brief     Вывод на экран дробного числа
+ * 
+ * @param     x0 точка начала отрисовки по оси х
+ * @param	  y0 точка начала отрисовки по оси y
+ * @param	  с символов-строка в формате UTF-8
+ * @param	  color цвет заливки символов в формате RGB565
+ * @param	  Background цвет заливки фона в формате RGB565
+ *
+ * @return    Symbol symbol структура, описывающая отрисованный символ. Подробнее описана в #getOffset
+ *
+ * Выводит на экран символ с заданным цветом color, закрашивает фон цветом Background
+ */
 
 struct Symbol drawChar(uint16_t x, uint16_t y, uint8_t* c, uint16_t color, uint16_t Background){
 	struct Symbol symb = getOffset(c);
@@ -402,6 +500,19 @@ struct Symbol drawChar(uint16_t x, uint16_t y, uint8_t* c, uint16_t color, uint1
 	return symb;
 }
 
+/*!
+ * @brief     Установка окна для отрисовки на LCD экране
+ * 
+ * @param     x1 точка начала отрисовки по оси х
+ * @param	  y1 точка начала отрисовки по оси y
+ * @param     x2 точка конца отрисовки по оси х
+ * @param	  y2 точка конца отрисовки по оси y
+ *
+ * Устанавливает прямоугольную область для отрисовки. Выход за пределы области в лучшем случае
+ * повлияет только на время отрисовки, в худшем вызовет графические артефакты, но не остановит 
+ * выполнение программы.
+ */
+
 void setDrawWindow(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2){
 	//column
 	writeCmdLCD(0x2A);
@@ -419,86 +530,100 @@ void setDrawWindow(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2){
 	writeCmdLCD(0x2C);
 }
 
-void initLCD(void){
+/*!
+ * @brief     Инициализация LCD экрана
+ *
+ * Функция отправляет команды на чип ILI9488 по шине SPI для установки необходимого
+ * режима работы LCD экрана
+ */
+
+void initLCD(){
 	hwResetLCD();
-	//positive gamma
-	writeCmdLCD(0xE0);
+	
+	writeCmdLCD(0xE0);  //positive gamma
 	writeDataLCD(0x00);
-	writeDataLCD(0x07);
-	writeDataLCD(0x10);
-	writeDataLCD(0x09);
-	writeDataLCD(0x17);
+	writeDataLCD(0x2C);
+	writeDataLCD(0x2C);
 	writeDataLCD(0x0B);
-	writeDataLCD(0x40);
-	writeDataLCD(0x8A);
-	writeDataLCD(0x4B);
-	writeDataLCD(0x0A);
-	writeDataLCD(0x0D);
-	writeDataLCD(0x0F);
-	writeDataLCD(0x15);
-	writeDataLCD(0x16);
-	writeDataLCD(0x0F);
-	//negative gamma
-	writeCmdLCD(0xE1);
+	writeDataLCD(0x0C);
+	writeDataLCD(0x04);
+	writeDataLCD(0x4C);
+	writeDataLCD(0x64);
+	writeDataLCD(0x36);
+	writeDataLCD(0x03);
+	writeDataLCD(0x0E);
+	writeDataLCD(0x01);
+	writeDataLCD(0x10);
+	writeDataLCD(0x01);
 	writeDataLCD(0x00);
-	writeDataLCD(0x1A);
-	writeDataLCD(0x1B);
-	writeDataLCD(0x02);
-	writeDataLCD(0x0D);
+	
+	writeCmdLCD(0xE1);  //negative gamma
+	writeDataLCD(0x0F);
+	writeDataLCD(0x37);
+	writeDataLCD(0x37);
+	writeDataLCD(0x0C);
+	writeDataLCD(0x0F);
 	writeDataLCD(0x05);
-	writeDataLCD(0x30);
-	writeDataLCD(0x35);
-	writeDataLCD(0x43);
-	writeDataLCD(0x02);
-	writeDataLCD(0x0A);
-	writeDataLCD(0x09);
+	writeDataLCD(0x50);
 	writeDataLCD(0x32);
 	writeDataLCD(0x36);
+	writeDataLCD(0x04);
+	writeDataLCD(0x0B);
+	writeDataLCD(0x00);
+	writeDataLCD(0x19);
+	writeDataLCD(0x14);
 	writeDataLCD(0x0F);
-	//frame rate
-	writeCmdLCD(0xB1);
+	
+	writeCmdLCD(0xB1);  //frame rate
 	writeDataLCD(0xA0); //60Hz
-	//display inversion control
-	writeCmdLCD(0xB4);
+	
+	writeCmdLCD(0xB4);  //display inversion control
 	writeDataLCD(0x02); //2-dot
-	//power control 1
-	writeCmdLCD(0xC0);
+	
+	writeCmdLCD(0xC0);  //power control 1
 	writeDataLCD(0x17); //Vreg1out
 	writeDataLCD(0x15); //Vreg2out
-	//power control 2
-	writeCmdLCD(0xC1);
+	
+	writeCmdLCD(0xC1);  //power control 2
 	writeDataLCD(0x41); //VGH, VGL
-	//VCOM
-	writeCmdLCD(0xC5);
+	
+	writeCmdLCD(0xC5);  //VCOM
 	writeDataLCD(0x00);
 	writeDataLCD(0x0A);
 	writeDataLCD(0x80);
-	//rgb/mcu interface control
-	writeCmdLCD(0xB6);
+	
+	writeCmdLCD(0xB6);  //rgb/mcu interface control
 	writeDataLCD(0x02); //mcu
-	//Memory access
-	writeCmdLCD(0x36);
+	
+	writeCmdLCD(0x36);  //Memory access
 	writeDataLCD(0x48); //album or portreit || 0xF8
-	//Interface pixel format
-	writeCmdLCD(0x3A);
-	writeDataLCD(0x55); //0x55-18bit //16-bit serial mode
-	//set image function
-	writeCmdLCD(0xE9);
+	
+	writeCmdLCD(0x3A);  //Interface pixel format
+	writeDataLCD(0x55); //0x55-18bit
+	
+	writeCmdLCD(0xE9);  //set image function
 	writeDataLCD(0x00); //disable 24-bit data
-	//adjust control
-	writeCmdLCD(0xF7);
+	
+	writeCmdLCD(0xF7);  //adjust control
 	writeDataLCD(0xA9);
 	writeDataLCD(0x51);
 	writeDataLCD(0x2C);
 	writeDataLCD(0x82); //D7 stream loose
-	//exit sleep
-	writeCmdLCD(0x11);
-	Delay(120*168*1000);
-	//display on
-	writeCmdLCD(0x29);
+	
+	writeCmdLCD(0x11);  //exit sleep
+	Delay(120*168*1000);//required delay
+	
+	writeCmdLCD(0x29);  //display on
 
 	onLCD();
 }
+
+/*!
+ * @brief     hardware перезагрузка LCD экрана
+ *
+ * Функция устанавливает уровень Low на линии LCD_RST и после некоторой задержки
+ * выставляет уровень High, что вызывает hardware перезагрузку LCD экрана.
+ */
 
 void hwResetLCD(void){
 	RST_RESET;
@@ -507,18 +632,45 @@ void hwResetLCD(void){
 	Delay(500000);
 }
 
+/*!
+ * @brief     software перезагрузка LCD экрана
+ *
+ * Функция отправляет команду 0x01 по шине SPI, что вызывает software перезагрузку LCD экрана.
+ * Также, согласно документации, после перезагрузки необходимо обеспечить задержку выполнения
+ * остальных функций (установлена ~120 мс).
+ */
+
 void swResetLCD(void){
 	writeCmdLCD(0x01);
 	Delay(120*168*1000);
 }
 
+/*!
+ * @brief     Включение LCD экрана
+ *
+ * Функция выставляет High уровень на линии LCD_BL
+ */
+
 void onLCD(void){
 	BL_SET;
 }
 
+/*!
+ * @brief     Выключение LCD экрана
+ *
+ * Функция выставляет Low уровень на линии LCD_BL
+ */
+
 void offLCD(void){
 	BL_RESET;
 }
+
+/*!
+ * @brief     Отправка команды на контроллер LCD экрана ILI9488
+ *
+ * Функция выставляет Low уровень на линии LCD_CS и линии LCD_DC, после чего выполняет отправку 
+ * команды по SPI. Далее для соблюдения протокола функция выставляет High уровень на линии LCD_CS
+ */
 
 void writeCmdLCD(uint8_t cmd){
 	DC_RESET;
@@ -527,6 +679,13 @@ void writeCmdLCD(uint8_t cmd){
 	SPI_Wait_for_termination(SPI);
 	CS_SET;
 }
+
+/*!
+ * @brief     Отправка данных (параметров команд) на контроллер LCD экрана ILI9488
+ *
+ * Поведение аналогично (writeCmdLCD())[#writeCmdLCD], за исключением того, что при отправке
+ * данных на линии LCD_DC устонавливается High уровень.
+ */
 
 void writeDataLCD(uint8_t data){
 	DC_SET;

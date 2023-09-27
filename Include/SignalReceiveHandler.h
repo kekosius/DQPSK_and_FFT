@@ -14,11 +14,9 @@
 #include "fftM_terminate.h"
 #include "rt_nonfinite.h"
 
-void FlagsClear(void);
 uint8_t ReadyToStartReceive(double);
 uint8_t CatchPackageStart(double, double, uint64_t*);
 void FasleActivationCatch(double, double, uint8_t*);
-void FirstPeriodInit(double, double);
 void HandlerVarReInit(void);
 uint8_t GetStartSign(void);
 void ReceiveStop(double*, double*, uint16_t*);

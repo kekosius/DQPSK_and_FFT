@@ -28,8 +28,8 @@ int main(void)
 	SPI_Init();
 	LCD_Start();
 	APM_MINI_PBInit(BUTTON_KEY1, BUTTON_MODE_EINT);
-	IWDT_init();
-	while (1) IWDT_Update();
+	//IWDT_init();
+	while (1) {} //IWDT_Update();
 }
 
 /*! @mainpage 

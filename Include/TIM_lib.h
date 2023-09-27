@@ -13,5 +13,6 @@ void TMR3_EventCallback(void);
 void TMR4_EventCallback(void);
 void SpectrumVarReInit(void);
 void VarReInit(void);
+void FlagsClear(void);
 
 #endif /* MY_LIB_TIM_LIB_H_ */

@@ -22,7 +22,7 @@
 #include "apm32f4xx_rcm.h"
 #include "apm32f4xx_misc.h"
 #include "apm32f4xx_spi.h"
-#include "apm32f4xx_dac.h"
+#include "apm32f4xx_dma.h"
 
 #include "PM.h"
 #include "FM.h"

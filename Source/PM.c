@@ -2,6 +2,8 @@
 
 #define TICKS_NUM							 			(5376) 
 
+//#define DEBUG
+
 double TimerFreq = 26785.714285;						//Частота таймера TIM2
 double TimerPeriod = 1/26785.714285;					//Период прерываний таймера
 const double pi = 3.14159265359;
@@ -65,6 +67,20 @@ void ZeroCrossAnalysis(double* VoltagesData, double* ZeroCrossTimings, int8_t St
 	}
 	SampleCounter++;
 	EndOfSample[SampleCounter] = ThroughPeriodCount;
+	
+	#ifdef DEBUG
+	USART_Tx_Char(USART, 13);
+	for (int i = 0; i < 43; i++) USART_Tx_Number(USART, EndOfSample[i]);
+	USART_Tx_Char(USART, 13);
+	for (int i = 1; i < 43; i++) {
+		for (int j = EndOfSample[i-1]+1; j<=EndOfSample[i]; j++) {
+			USART_Tx_Float(USART, ZeroCrossTimings[j], 5);
+		}
+		USART_Tx_Char(USART, 13);
+	}
+	#endif
+
+	
 	AnalysisEnd();
 	//
 	return;
@@ -89,7 +105,6 @@ uint8_t Demodulation(double* ZeroCrossTimings, uint16_t* EndOfSample, uint8_t* H
 	
 	uint8_t ExitCode = 0;
 	TMR_Disable(TMR2);
-	__disable_irq();
 	uint8_t HighBinData[40] = {0};
 	uint8_t LowBinData[40] = {0};
 	USART_Tx_Char(USART, 13);
@@ -145,14 +160,28 @@ uint8_t Demodulation(double* ZeroCrossTimings, uint16_t* EndOfSample, uint8_t* H
 		pos++;
 	}
 	
+	#ifdef DEBUG
+	for (int i = 0; i < 40; i++){
+		USART_Tx_Number(USART, HighBinData[i]);
+		if ((i+1)%4 == 0) USART_Tx_Char(USART, ' ');
+	}
+	USART_Tx_Char(USART, 13);
+	for (int i = 0; i < 40; i++){
+		USART_Tx_Number(USART, LowBinData[i]);
+		if ((i+1)%4 == 0) USART_Tx_Char(USART, ' ');
+	}
+	USART_Tx_Char(USART, 13);
+	//while(1);
+	#endif
+
+	
 	ExitCode = Decoding(HighBinData, LowBinData);
 	
 	for (uint8_t i = 0; i < 40; i++) {
 		High[i] = HighBinData[i];
 		Low[i] = LowBinData[i];
 	}
-
-	__enable_irq();
+	
 	return ExitCode;
 }
  

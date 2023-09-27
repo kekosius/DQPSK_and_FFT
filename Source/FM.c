@@ -1,5 +1,7 @@
 #include "FM.h"
 
+//#define DEBUG
+
 void SpectrumAnalysis(double* FFT_Buff, uint8_t LowLevel, double* voltageBuff) {
 	double freqPerc[6] = {0};
 	APM_MINI_LEDOff(LED2);
@@ -40,6 +42,11 @@ void SpectrumAnalysis(double* FFT_Buff, uint8_t LowLevel, double* voltageBuff) {
 	 
 	 
 	 if (result > 0) LCD_Freq_Result(result, AverageVoltage);
+	 
+	 #ifdef DEBUG
+	 for (int i = 0; i < VOL_BUF_LEN; i++) USART_Tx_Float(USART, voltageBuff[i], 3);
+	 USART_Tx_Char(USART, 13);
+	 #endif
 	 
 	 DAC_SetLow();
 	 SpectrumVarReInit();

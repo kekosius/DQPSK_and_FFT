@@ -93,7 +93,7 @@ void TMR4_Init() {
     TMR_EnableInterrupt(TMR4, TMR_INT_UPDATE);
     NVIC_EnableIRQRequest(TMR4_IRQn, 1, 0);
 
-	NoResultCounter = 2;
+	NoResultCounter = 3;
     TMR_Enable(TMR4);
 }
 
@@ -226,3 +226,8 @@ void VarReInit() {
 	#endif
 }
 
+void FlagsClear() {
+	TMR_ClearIntFlag(TMR2, TMR_INT_UPDATE);
+	TMR_ClearIntFlag(TMR3, TMR_INT_UPDATE);
+	ADC_ClearStatusFlag(ADC1, ADC_FLAG_EOC);
+}

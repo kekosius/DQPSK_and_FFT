@@ -9,9 +9,8 @@
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{_l_c_d__lib_8c_a30aae21399b9798c8a1b0032a3e4d151}\label{_l_c_d__lib_8c_a30aae21399b9798c8a1b0032a3e4d151} 
-void {\bfseries LCD\+\_\+\+Voltage\+\_\+\+Result} (uint16\+\_\+t, uint16\+\_\+t, double)
-\item 
+void \mbox{\hyperlink{_l_c_d__lib_8c_affd4a185dd859d8f300c9acd37b65115}{LCD\+\_\+\+Voltage\+\_\+\+Result}} (uint16\+\_\+t x\+\_\+pos, uint16\+\_\+t y\+\_\+pos, double AvgV)
+\begin{DoxyCompactList}\small\item\em Отображение результата анализа амлитуды принятого сигнала на LCD экране \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_l_c_d__lib_8c_a5ef93ea663540adb55fb253fa41478c9}{LCD\+\_\+\+Start}} ()
 \begin{DoxyCompactList}\small\item\em Запускает LCD экран \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_l_c_d__lib_8c_ab589cadffbb3a4300057f868e30a910f}{LCD\+\_\+\+DQPSK\+\_\+mode}} ()
@@ -22,54 +21,38 @@ void \mbox{\hyperlink{_l_c_d__lib_8c_a84301f23dd4c003654d6c44781b4017e}{LCD\+\_\
 \begin{DoxyCompactList}\small\item\em Переводит LCD экран в режим отображения АРС кодов \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_l_c_d__lib_8c_a9d046a321b80f763b5cdf78b26c0fbe2}{LCD\+\_\+\+Freq\+\_\+\+Result}} (uint16\+\_\+t freq, double AvgV)
 \begin{DoxyCompactList}\small\item\em Отображения результата декодирования АРС на LCD экране \end{DoxyCompactList}\item 
-\Hypertarget{_l_c_d__lib_8c_ad4fcbc10f1d0f8b3738d929d33386ccc}\label{_l_c_d__lib_8c_ad4fcbc10f1d0f8b3738d929d33386ccc} 
-void {\bfseries LCD\+\_\+\+Show\+\_\+\+No\+\_\+\+Result} ()
-\item 
-\Hypertarget{_l_c_d__lib_8c_ac649c9a194e457f7a19801c035932848}\label{_l_c_d__lib_8c_ac649c9a194e457f7a19801c035932848} 
-void {\bfseries LCD\+\_\+\+Result\+\_\+\+Reset} ()
-\item 
-\Hypertarget{_l_c_d__lib_8c_a83784927feb59f3a527130ac4b016fac}\label{_l_c_d__lib_8c_a83784927feb59f3a527130ac4b016fac} 
-void {\bfseries LCD\+\_\+\+GPIO\+\_\+\+Config} ()
-\item 
-\Hypertarget{_l_c_d__lib_8c_ab707bc0094d1ca14242bff04487554d3}\label{_l_c_d__lib_8c_ab707bc0094d1ca14242bff04487554d3} 
-void {\bfseries fill\+Rectangle} (uint16\+\_\+t x0, uint16\+\_\+t y0, uint16\+\_\+t x1, uint16\+\_\+t y1, uint16\+\_\+t color)
-\item 
-\Hypertarget{_l_c_d__lib_8c_a69f8a72ddcde36584c0e0f7fc70afeac}\label{_l_c_d__lib_8c_a69f8a72ddcde36584c0e0f7fc70afeac} 
-void {\bfseries draw\+Picture} (uint16\+\_\+t x0, uint16\+\_\+t y0, const uint16\+\_\+t \texorpdfstring{$\ast$}{*}img)
-\item 
-\Hypertarget{_l_c_d__lib_8c_aef7cb8fcade6bcf4d819c03368dfe239}\label{_l_c_d__lib_8c_aef7cb8fcade6bcf4d819c03368dfe239} 
-void {\bfseries draw\+String} (uint16\+\_\+t x0, uint16\+\_\+t y0, uint16\+\_\+t color, uint16\+\_\+t Background, uint8\+\_\+t str\mbox{[}$\,$\mbox{]}\mbox{[}3\mbox{]}, uint8\+\_\+t len)
-\item 
-\Hypertarget{_l_c_d__lib_8c_a5bcfb20df057ac3e00c58fe98224e7ca}\label{_l_c_d__lib_8c_a5bcfb20df057ac3e00c58fe98224e7ca} 
-void {\bfseries draw\+Float\+Mono\+Width} (uint16\+\_\+t x0, uint16\+\_\+t y0, uint16\+\_\+t color, uint16\+\_\+t Background, uint8\+\_\+t str\mbox{[}$\,$\mbox{]}\mbox{[}3\mbox{]}, uint8\+\_\+t len)
-\item 
-\Hypertarget{_l_c_d__lib_8c_a9f668ffb29a5a9c9d80c6f1607486acb}\label{_l_c_d__lib_8c_a9f668ffb29a5a9c9d80c6f1607486acb} 
-struct Symbol {\bfseries draw\+Char} (uint16\+\_\+t x, uint16\+\_\+t y, uint8\+\_\+t \texorpdfstring{$\ast$}{*}c, uint16\+\_\+t color, uint16\+\_\+t Background)
-\item 
-\Hypertarget{_l_c_d__lib_8c_a942a6990076b55062fa3686509ede8fb}\label{_l_c_d__lib_8c_a942a6990076b55062fa3686509ede8fb} 
-void {\bfseries set\+Draw\+Window} (uint16\+\_\+t x1, uint16\+\_\+t y1, uint16\+\_\+t x2, uint16\+\_\+t y2)
-\item 
-\Hypertarget{_l_c_d__lib_8c_a182a54305d5aab1df13015a69aef5e3c}\label{_l_c_d__lib_8c_a182a54305d5aab1df13015a69aef5e3c} 
-void {\bfseries init\+LCD} (void)
-\item 
-\Hypertarget{_l_c_d__lib_8c_aa6a149ffc7e5d86e8956ce99913378c0}\label{_l_c_d__lib_8c_aa6a149ffc7e5d86e8956ce99913378c0} 
-void {\bfseries hw\+Reset\+LCD} (void)
-\item 
-\Hypertarget{_l_c_d__lib_8c_ab82572385c650de496f697c0afa2d7cc}\label{_l_c_d__lib_8c_ab82572385c650de496f697c0afa2d7cc} 
-void {\bfseries sw\+Reset\+LCD} (void)
-\item 
-\Hypertarget{_l_c_d__lib_8c_aabad06e989a5bc1992d5d136d02dc6cb}\label{_l_c_d__lib_8c_aabad06e989a5bc1992d5d136d02dc6cb} 
-void {\bfseries on\+LCD} (void)
-\item 
-\Hypertarget{_l_c_d__lib_8c_a58da74816ca00e0067c30b4faaefc366}\label{_l_c_d__lib_8c_a58da74816ca00e0067c30b4faaefc366} 
-void {\bfseries off\+LCD} (void)
-\item 
-\Hypertarget{_l_c_d__lib_8c_a3a4fcfdf4679d8219ab6281e3a7d637b}\label{_l_c_d__lib_8c_a3a4fcfdf4679d8219ab6281e3a7d637b} 
-void {\bfseries write\+Cmd\+LCD} (uint8\+\_\+t cmd)
-\item 
-\Hypertarget{_l_c_d__lib_8c_abe8aedbfc99ec82625d07c7e027ef5bd}\label{_l_c_d__lib_8c_abe8aedbfc99ec82625d07c7e027ef5bd} 
-void {\bfseries write\+Data\+LCD} (uint8\+\_\+t data)
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{_l_c_d__lib_8c_ad4fcbc10f1d0f8b3738d929d33386ccc}{LCD\+\_\+\+Show\+\_\+\+No\+\_\+\+Result}} ()
+\begin{DoxyCompactList}\small\item\em Отображение состояния \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d__lib_8c_ac649c9a194e457f7a19801c035932848}{LCD\+\_\+\+Result\+\_\+\+Reset}} ()
+\begin{DoxyCompactList}\small\item\em Очищает информацию о предыдущих полученных результатах \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d__lib_8c_a83784927feb59f3a527130ac4b016fac}{LCD\+\_\+\+GPIO\+\_\+\+Config}} ()
+\begin{DoxyCompactList}\small\item\em Инициализация GPIO ножек для работы с LCD экраном \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d__lib_8c_ab707bc0094d1ca14242bff04487554d3}{fill\+Rectangle}} (uint16\+\_\+t x0, uint16\+\_\+t y0, uint16\+\_\+t x1, uint16\+\_\+t y1, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Отрисовка прямоугольника с заливкой на LCD экране \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d__lib_8c_a69f8a72ddcde36584c0e0f7fc70afeac}{draw\+Picture}} (uint16\+\_\+t x0, uint16\+\_\+t y0, const uint16\+\_\+t \texorpdfstring{$\ast$}{*}img)
+\begin{DoxyCompactList}\small\item\em Отрисовка изображения на LCD экране \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d__lib_8c_aef7cb8fcade6bcf4d819c03368dfe239}{draw\+String}} (uint16\+\_\+t x0, uint16\+\_\+t y0, uint16\+\_\+t color, uint16\+\_\+t Background, uint8\+\_\+t str\mbox{[}$\,$\mbox{]}\mbox{[}3\mbox{]}, uint8\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em Вывод на экран строки символов \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d__lib_8c_a5bcfb20df057ac3e00c58fe98224e7ca}{draw\+Float\+Mono\+Width}} (uint16\+\_\+t x0, uint16\+\_\+t y0, uint16\+\_\+t color, uint16\+\_\+t Background, uint8\+\_\+t str\mbox{[}$\,$\mbox{]}\mbox{[}3\mbox{]}, uint8\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em Вывод на экран дробного числа \end{DoxyCompactList}\item 
+struct Symbol \mbox{\hyperlink{_l_c_d__lib_8c_a9f668ffb29a5a9c9d80c6f1607486acb}{draw\+Char}} (uint16\+\_\+t x, uint16\+\_\+t y, uint8\+\_\+t \texorpdfstring{$\ast$}{*}c, uint16\+\_\+t color, uint16\+\_\+t Background)
+\begin{DoxyCompactList}\small\item\em Вывод на экран дробного числа \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d__lib_8c_a942a6990076b55062fa3686509ede8fb}{set\+Draw\+Window}} (uint16\+\_\+t x1, uint16\+\_\+t y1, uint16\+\_\+t x2, uint16\+\_\+t y2)
+\begin{DoxyCompactList}\small\item\em Установка окна для отрисовки на LCD экране \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d__lib_8c_a08529d00f32f8441dc7669b1a1d3783c}{init\+LCD}} ()
+\begin{DoxyCompactList}\small\item\em Инициализация LCD экрана \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d__lib_8c_aa6a149ffc7e5d86e8956ce99913378c0}{hw\+Reset\+LCD}} (void)
+\begin{DoxyCompactList}\small\item\em hardware перезагрузка LCD экрана \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d__lib_8c_ab82572385c650de496f697c0afa2d7cc}{sw\+Reset\+LCD}} (void)
+\begin{DoxyCompactList}\small\item\em software перезагрузка LCD экрана \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d__lib_8c_aabad06e989a5bc1992d5d136d02dc6cb}{on\+LCD}} (void)
+\begin{DoxyCompactList}\small\item\em Включение LCD экрана \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d__lib_8c_a58da74816ca00e0067c30b4faaefc366}{off\+LCD}} (void)
+\begin{DoxyCompactList}\small\item\em Выключение LCD экрана \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d__lib_8c_a3a4fcfdf4679d8219ab6281e3a7d637b}{write\+Cmd\+LCD}} (uint8\+\_\+t cmd)
+\begin{DoxyCompactList}\small\item\em Отправка команды на контроллер LCD экрана ILI9488. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d__lib_8c_abe8aedbfc99ec82625d07c7e027ef5bd}{write\+Data\+LCD}} (uint8\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em Отправка данных (параметров команд) на контроллер LCD экрана ILI9488. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -96,7 +79,7 @@ uint8\+\_\+t {\bfseries MSG\+\_\+\+DQPSK\+\_\+5} \mbox{[}4\mbox{]}\mbox{[}3\mbox
 \item 
 uint16\+\_\+t \mbox{\hyperlink{_l_c_d__lib_8c_a426b1bbba3f5653febf394936df25a58}{prev\+Code}} = 0x999
 \item 
-uint8\+\_\+t \mbox{\hyperlink{_l_c_d__lib_8c_a0efe09d8a193aa45418e4c33c4f420c2}{No\+Result\+Counter}} = 2
+uint8\+\_\+t \mbox{\hyperlink{_l_c_d__lib_8c_a0efe09d8a193aa45418e4c33c4f420c2}{No\+Result\+Counter}} = 3
 \item 
 uint8\+\_\+t \mbox{\hyperlink{_l_c_d__lib_8c_ac24684fc351237f8c32cad80903246bc}{No\+Result\+State}} = 0
 \item 
@@ -112,8 +95,7 @@ uint8\+\_\+t {\bfseries MSG\+\_\+\+Freq\+\_\+3} \mbox{[}4\mbox{]}\mbox{[}3\mbox{
 \Hypertarget{_l_c_d__lib_8c_a998aedff24650478e4c94c9f49ca0753}\label{_l_c_d__lib_8c_a998aedff24650478e4c94c9f49ca0753} 
 uint8\+\_\+t {\bfseries MSG\+\_\+\+Freq\+\_\+6} \mbox{[}4\mbox{]}\mbox{[}3\mbox{]} = \{\"{}А\"{}, \"{}М\"{}, \"{}П\"{}, \"{}\+:\"{}\}
 \item 
-\Hypertarget{_l_c_d__lib_8c_a5f071743f113001f88bdc3771ee01a93}\label{_l_c_d__lib_8c_a5f071743f113001f88bdc3771ee01a93} 
-uint8\+\_\+t {\bfseries buf} \mbox{[}LCD\+\_\+\+WIDTH \texorpdfstring{$\ast$}{*}2\mbox{]}
+uint8\+\_\+t \mbox{\hyperlink{_l_c_d__lib_8c_a5f071743f113001f88bdc3771ee01a93}{buf}} \mbox{[}LCD\+\_\+\+WIDTH \texorpdfstring{$\ast$}{*}2\mbox{]}
 \end{DoxyCompactItemize}
 
 
@@ -129,7 +111,145 @@ V1.\+0.\+0
 
 
 \doxysubsection{Function Documentation}
-\Hypertarget{_l_c_d__lib_8c_ab589cadffbb3a4300057f868e30a910f}\label{_l_c_d__lib_8c_ab589cadffbb3a4300057f868e30a910f} 
+\Hypertarget{_l_c_d__lib_8c_a9f668ffb29a5a9c9d80c6f1607486acb}\label{_l_c_d__lib_8c_a9f668ffb29a5a9c9d80c6f1607486acb} 
+\index{LCD\_lib.c@{LCD\_lib.c}!drawChar@{drawChar}}
+\index{drawChar@{drawChar}!LCD\_lib.c@{LCD\_lib.c}}
+\doxysubsubsection{\texorpdfstring{drawChar()}{drawChar()}}
+{\footnotesize\ttfamily struct Symbol draw\+Char (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x,  }\item[{uint16\+\_\+t}]{y,  }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{c,  }\item[{uint16\+\_\+t}]{color,  }\item[{uint16\+\_\+t}]{Background }\end{DoxyParamCaption})}
+
+
+
+Вывод на экран дробного числа 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x0} & точка начала отрисовки по оси х \\
+\hline
+{\em y0} & точка начала отрисовки по оси y \\
+\hline
+{\em с} & символов-\/строка в формате UTF-\/8 \\
+\hline
+{\em color} & цвет заливки символов в формате RGB565 \\
+\hline
+{\em Background} & цвет заливки фона в формате RGB565\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Symbol symbol структура, описывающая отрисованный символ. Подробнее описана в \doxylink{font__lib_8c_a9babcbfe804efab81f10a42e488dbe73}{get\+Offset}
+\end{DoxyReturn}
+Выводит на экран символ с заданным цветом color, закрашивает фон цветом Background \Hypertarget{_l_c_d__lib_8c_a5bcfb20df057ac3e00c58fe98224e7ca}\label{_l_c_d__lib_8c_a5bcfb20df057ac3e00c58fe98224e7ca} 
+\index{LCD\_lib.c@{LCD\_lib.c}!drawFloatMonoWidth@{drawFloatMonoWidth}}
+\index{drawFloatMonoWidth@{drawFloatMonoWidth}!LCD\_lib.c@{LCD\_lib.c}}
+\doxysubsubsection{\texorpdfstring{drawFloatMonoWidth()}{drawFloatMonoWidth()}}
+{\footnotesize\ttfamily void draw\+Float\+Mono\+Width (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x0,  }\item[{uint16\+\_\+t}]{y0,  }\item[{uint16\+\_\+t}]{color,  }\item[{uint16\+\_\+t}]{Background,  }\item[{uint8\+\_\+t}]{str\mbox{[}$\,$\mbox{]}\mbox{[}3\mbox{]},  }\item[{uint8\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+
+
+Вывод на экран дробного числа 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x0} & точка начала отрисовки по оси х \\
+\hline
+{\em y0} & точка начала отрисовки по оси y \\
+\hline
+{\em color} & цвет заливки символов в формате RGB565 \\
+\hline
+{\em Background} & цвет заливки фона в формате RGB565 \\
+\hline
+{\em str} & массив символов-\/строк в формате UTF-\/8, образующий отрисовываемую строку \\
+\hline
+{\em len} & количество символов-\/строк, образующих отрисовываемую строку\\
+\hline
+\end{DoxyParams}
+Выводит на экран дробное число в формате X.\+XX, которое всегда будет одинаковой ширины \Hypertarget{_l_c_d__lib_8c_a69f8a72ddcde36584c0e0f7fc70afeac}\label{_l_c_d__lib_8c_a69f8a72ddcde36584c0e0f7fc70afeac} 
+\index{LCD\_lib.c@{LCD\_lib.c}!drawPicture@{drawPicture}}
+\index{drawPicture@{drawPicture}!LCD\_lib.c@{LCD\_lib.c}}
+\doxysubsubsection{\texorpdfstring{drawPicture()}{drawPicture()}}
+{\footnotesize\ttfamily void draw\+Picture (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x0,  }\item[{uint16\+\_\+t}]{y0,  }\item[{const uint16\+\_\+t \texorpdfstring{$\ast$}{*}}]{img }\end{DoxyParamCaption})}
+
+
+
+Отрисовка изображения на LCD экране 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x0} & точка начала отрисовки по оси х \\
+\hline
+{\em y0} & точка начала отрисовки по оси y \\
+\hline
+{\em img} & ссылка на массив, содержащий изображение для отрисовки.\\
+\hline
+\end{DoxyParams}
+Выводит на экран изображение в заданной позиции. \Hypertarget{_l_c_d__lib_8c_aef7cb8fcade6bcf4d819c03368dfe239}\label{_l_c_d__lib_8c_aef7cb8fcade6bcf4d819c03368dfe239} 
+\index{LCD\_lib.c@{LCD\_lib.c}!drawString@{drawString}}
+\index{drawString@{drawString}!LCD\_lib.c@{LCD\_lib.c}}
+\doxysubsubsection{\texorpdfstring{drawString()}{drawString()}}
+{\footnotesize\ttfamily void draw\+String (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x0,  }\item[{uint16\+\_\+t}]{y0,  }\item[{uint16\+\_\+t}]{color,  }\item[{uint16\+\_\+t}]{Background,  }\item[{uint8\+\_\+t}]{str\mbox{[}$\,$\mbox{]}\mbox{[}3\mbox{]},  }\item[{uint8\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+
+
+Вывод на экран строки символов 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x0} & точка начала отрисовки по оси х \\
+\hline
+{\em y0} & точка начала отрисовки по оси y \\
+\hline
+{\em color} & цвет заливки символов в формате RGB565 \\
+\hline
+{\em Background} & цвет заливки фона в формате RGB565 \\
+\hline
+{\em str} & массив символов-\/строк в формате UTF-\/8, образующий отрисовываемую строку \\
+\hline
+{\em len} & количество символов-\/строк, образующих отрисовываемую строку\\
+\hline
+\end{DoxyParams}
+Выводит на экран строку символов с постоянным расстоянием (8 пикселей) между символами \Hypertarget{_l_c_d__lib_8c_ab707bc0094d1ca14242bff04487554d3}\label{_l_c_d__lib_8c_ab707bc0094d1ca14242bff04487554d3} 
+\index{LCD\_lib.c@{LCD\_lib.c}!fillRectangle@{fillRectangle}}
+\index{fillRectangle@{fillRectangle}!LCD\_lib.c@{LCD\_lib.c}}
+\doxysubsubsection{\texorpdfstring{fillRectangle()}{fillRectangle()}}
+{\footnotesize\ttfamily void fill\+Rectangle (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x0,  }\item[{uint16\+\_\+t}]{y0,  }\item[{uint16\+\_\+t}]{x1,  }\item[{uint16\+\_\+t}]{y1,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Отрисовка прямоугольника с заливкой на LCD экране 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x0} & точка начала отрисовки по оси х \\
+\hline
+{\em y0} & точка начала отрисовки по оси y \\
+\hline
+{\em x1} & точка конца отрисовки по оси х \\
+\hline
+{\em y1} & точка конца отрисовки по оси y \\
+\hline
+{\em color} & цвет заливки в формате RGB565\\
+\hline
+\end{DoxyParams}
+Выводит на экран прямоугольник с заливкой в заданной позиции. \Hypertarget{_l_c_d__lib_8c_aa6a149ffc7e5d86e8956ce99913378c0}\label{_l_c_d__lib_8c_aa6a149ffc7e5d86e8956ce99913378c0} 
+\index{LCD\_lib.c@{LCD\_lib.c}!hwResetLCD@{hwResetLCD}}
+\index{hwResetLCD@{hwResetLCD}!LCD\_lib.c@{LCD\_lib.c}}
+\doxysubsubsection{\texorpdfstring{hwResetLCD()}{hwResetLCD()}}
+{\footnotesize\ttfamily void hw\+Reset\+LCD (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+hardware перезагрузка LCD экрана 
+
+Функция устанавливает уровень Low на линии LCD\+\_\+\+RST и после некоторой задержки выставляет уровень High, что вызывает hardware перезагрузку LCD экрана. \Hypertarget{_l_c_d__lib_8c_a08529d00f32f8441dc7669b1a1d3783c}\label{_l_c_d__lib_8c_a08529d00f32f8441dc7669b1a1d3783c} 
+\index{LCD\_lib.c@{LCD\_lib.c}!initLCD@{initLCD}}
+\index{initLCD@{initLCD}!LCD\_lib.c@{LCD\_lib.c}}
+\doxysubsubsection{\texorpdfstring{initLCD()}{initLCD()}}
+{\footnotesize\ttfamily void init\+LCD (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Инициализация LCD экрана 
+
+Функция отправляет команды на чип ILI9488 по шине SPI для установки необходимого режима работы LCD экрана \Hypertarget{_l_c_d__lib_8c_ab589cadffbb3a4300057f868e30a910f}\label{_l_c_d__lib_8c_ab589cadffbb3a4300057f868e30a910f} 
 \index{LCD\_lib.c@{LCD\_lib.c}!LCD\_DQPSK\_mode@{LCD\_DQPSK\_mode}}
 \index{LCD\_DQPSK\_mode@{LCD\_DQPSK\_mode}!LCD\_lib.c@{LCD\_lib.c}}
 \doxysubsubsection{\texorpdfstring{LCD\_DQPSK\_mode()}{LCD\_DQPSK\_mode()}}
@@ -189,7 +309,52 @@ V1.\+0.\+0
 \end{DoxyParams}
 Если code код равен \doxylink{_l_c_d__lib_8c_a426b1bbba3f5653febf394936df25a58}{prev\+Code}, то выводит только AvgV (предыдущие показания freq остаются на экране).
 
-Также при каждом вызове обновляет счетчик \doxylink{_l_c_d__lib_8c_a0efe09d8a193aa45418e4c33c4f420c2}{No\+Result\+Counter} \Hypertarget{_l_c_d__lib_8c_a5ef93ea663540adb55fb253fa41478c9}\label{_l_c_d__lib_8c_a5ef93ea663540adb55fb253fa41478c9} 
+Также при каждом вызове обновляет счетчик \doxylink{_l_c_d__lib_8c_a0efe09d8a193aa45418e4c33c4f420c2}{No\+Result\+Counter} \Hypertarget{_l_c_d__lib_8c_a83784927feb59f3a527130ac4b016fac}\label{_l_c_d__lib_8c_a83784927feb59f3a527130ac4b016fac} 
+\index{LCD\_lib.c@{LCD\_lib.c}!LCD\_GPIO\_Config@{LCD\_GPIO\_Config}}
+\index{LCD\_GPIO\_Config@{LCD\_GPIO\_Config}!LCD\_lib.c@{LCD\_lib.c}}
+\doxysubsubsection{\texorpdfstring{LCD\_GPIO\_Config()}{LCD\_GPIO\_Config()}}
+{\footnotesize\ttfamily void LCD\+\_\+\+GPIO\+\_\+\+Config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Инициализация GPIO ножек для работы с LCD экраном 
+
+Дефолтные значения пинов\+:
+\begin{DoxyItemize}
+\item PC4 (LCD\+\_\+\+BL) -\/ High
+\item PC5 (LCD\+\_\+\+RST) -\/ High
+\item PB0 (LCD\+\_\+\+DC) -\/ Low
+\item PB1 (LCD\+\_\+\+CS) -\/ Low 
+\end{DoxyItemize}\Hypertarget{_l_c_d__lib_8c_ac649c9a194e457f7a19801c035932848}\label{_l_c_d__lib_8c_ac649c9a194e457f7a19801c035932848} 
+\index{LCD\_lib.c@{LCD\_lib.c}!LCD\_Result\_Reset@{LCD\_Result\_Reset}}
+\index{LCD\_Result\_Reset@{LCD\_Result\_Reset}!LCD\_lib.c@{LCD\_lib.c}}
+\doxysubsubsection{\texorpdfstring{LCD\_Result\_Reset()}{LCD\_Result\_Reset()}}
+{\footnotesize\ttfamily void LCD\+\_\+\+Result\+\_\+\+Reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Очищает информацию о предыдущих полученных результатах 
+
+Функция возвращает переменные \doxylink{_l_c_d__lib_8c_a426b1bbba3f5653febf394936df25a58}{prev\+Code}, \doxylink{_l_c_d__lib_8c_ac24684fc351237f8c32cad80903246bc}{No\+Result\+State} и \doxylink{_l_c_d__lib_8c_a0efe09d8a193aa45418e4c33c4f420c2}{No\+Result\+Counter} к дефолтным значениям \Hypertarget{_l_c_d__lib_8c_ad4fcbc10f1d0f8b3738d929d33386ccc}\label{_l_c_d__lib_8c_ad4fcbc10f1d0f8b3738d929d33386ccc} 
+\index{LCD\_lib.c@{LCD\_lib.c}!LCD\_Show\_No\_Result@{LCD\_Show\_No\_Result}}
+\index{LCD\_Show\_No\_Result@{LCD\_Show\_No\_Result}!LCD\_lib.c@{LCD\_lib.c}}
+\doxysubsubsection{\texorpdfstring{LCD\_Show\_No\_Result()}{LCD\_Show\_No\_Result()}}
+{\footnotesize\ttfamily void LCD\+\_\+\+Show\+\_\+\+No\+\_\+\+Result (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Отображение состояния 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+\_\+pos} & точка начала отрисовки по оси х \\
+\hline
+{\em y\+\_\+pos} & точка начала отрисовки по оси y \\
+\hline
+{\em AvgV} & средняя амплитуда принятого сигнала\\
+\hline
+\end{DoxyParams}
+Выводит на на белом фоне в заданной позиции double с точностью два знака после запятой в формате X.\+XX \Hypertarget{_l_c_d__lib_8c_a5ef93ea663540adb55fb253fa41478c9}\label{_l_c_d__lib_8c_a5ef93ea663540adb55fb253fa41478c9} 
 \index{LCD\_lib.c@{LCD\_lib.c}!LCD\_Start@{LCD\_Start}}
 \index{LCD\_Start@{LCD\_Start}!LCD\_lib.c@{LCD\_lib.c}}
 \doxysubsubsection{\texorpdfstring{LCD\_Start()}{LCD\_Start()}}
@@ -199,16 +364,112 @@ V1.\+0.\+0
 
 Запускает LCD экран 
 
-Вызывает LCD\+\_\+\+GPIO\+\_\+\+Config(), init\+LCD(), закрашивает экран в белый, выводит на экран стартовое сообщение (MSG\+\_\+\+Start\+\_\+1, MSG\+\_\+\+Start\+\_\+2) 
+Вызывает \doxylink{_l_c_d__lib_8c_a83784927feb59f3a527130ac4b016fac}{LCD\+\_\+\+GPIO\+\_\+\+Config()}, \doxylink{_l_c_d__lib_8c_a08529d00f32f8441dc7669b1a1d3783c}{init\+LCD()}, закрашивает экран в белый, выводит на экран стартовое сообщение (MSG\+\_\+\+Start\+\_\+1, MSG\+\_\+\+Start\+\_\+2) \Hypertarget{_l_c_d__lib_8c_affd4a185dd859d8f300c9acd37b65115}\label{_l_c_d__lib_8c_affd4a185dd859d8f300c9acd37b65115} 
+\index{LCD\_lib.c@{LCD\_lib.c}!LCD\_Voltage\_Result@{LCD\_Voltage\_Result}}
+\index{LCD\_Voltage\_Result@{LCD\_Voltage\_Result}!LCD\_lib.c@{LCD\_lib.c}}
+\doxysubsubsection{\texorpdfstring{LCD\_Voltage\_Result()}{LCD\_Voltage\_Result()}}
+{\footnotesize\ttfamily void LCD\+\_\+\+Voltage\+\_\+\+Result (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x\+\_\+pos,  }\item[{uint16\+\_\+t}]{y\+\_\+pos,  }\item[{double}]{AvgV }\end{DoxyParamCaption})}
+
+
+
+Отображение результата анализа амлитуды принятого сигнала на LCD экране 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+\_\+pos} & точка начала отрисовки по оси х \\
+\hline
+{\em y\+\_\+pos} & точка начала отрисовки по оси y \\
+\hline
+{\em AvgV} & средняя амплитуда принятого сигнала\\
+\hline
+\end{DoxyParams}
+Выводит на на белом фоне в заданной позиции double с точностью два знака после запятой в формате X.\+XX \Hypertarget{_l_c_d__lib_8c_a58da74816ca00e0067c30b4faaefc366}\label{_l_c_d__lib_8c_a58da74816ca00e0067c30b4faaefc366} 
+\index{LCD\_lib.c@{LCD\_lib.c}!offLCD@{offLCD}}
+\index{offLCD@{offLCD}!LCD\_lib.c@{LCD\_lib.c}}
+\doxysubsubsection{\texorpdfstring{offLCD()}{offLCD()}}
+{\footnotesize\ttfamily void off\+LCD (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Выключение LCD экрана 
+
+Функция выставляет Low уровень на линии LCD\+\_\+\+BL \Hypertarget{_l_c_d__lib_8c_aabad06e989a5bc1992d5d136d02dc6cb}\label{_l_c_d__lib_8c_aabad06e989a5bc1992d5d136d02dc6cb} 
+\index{LCD\_lib.c@{LCD\_lib.c}!onLCD@{onLCD}}
+\index{onLCD@{onLCD}!LCD\_lib.c@{LCD\_lib.c}}
+\doxysubsubsection{\texorpdfstring{onLCD()}{onLCD()}}
+{\footnotesize\ttfamily void on\+LCD (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Включение LCD экрана 
+
+Функция выставляет High уровень на линии LCD\+\_\+\+BL \Hypertarget{_l_c_d__lib_8c_a942a6990076b55062fa3686509ede8fb}\label{_l_c_d__lib_8c_a942a6990076b55062fa3686509ede8fb} 
+\index{LCD\_lib.c@{LCD\_lib.c}!setDrawWindow@{setDrawWindow}}
+\index{setDrawWindow@{setDrawWindow}!LCD\_lib.c@{LCD\_lib.c}}
+\doxysubsubsection{\texorpdfstring{setDrawWindow()}{setDrawWindow()}}
+{\footnotesize\ttfamily void set\+Draw\+Window (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x1,  }\item[{uint16\+\_\+t}]{y1,  }\item[{uint16\+\_\+t}]{x2,  }\item[{uint16\+\_\+t}]{y2 }\end{DoxyParamCaption})}
+
+
+
+Установка окна для отрисовки на LCD экране 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x1} & точка начала отрисовки по оси х \\
+\hline
+{\em y1} & точка начала отрисовки по оси y \\
+\hline
+{\em x2} & точка конца отрисовки по оси х \\
+\hline
+{\em y2} & точка конца отрисовки по оси y\\
+\hline
+\end{DoxyParams}
+Устанавливает прямоугольную область для отрисовки. Выход за пределы области в лучшем случае повлияет только на время отрисовки, в худшем вызовет графические артефакты, но не остановит выполнение программы. \Hypertarget{_l_c_d__lib_8c_ab82572385c650de496f697c0afa2d7cc}\label{_l_c_d__lib_8c_ab82572385c650de496f697c0afa2d7cc} 
+\index{LCD\_lib.c@{LCD\_lib.c}!swResetLCD@{swResetLCD}}
+\index{swResetLCD@{swResetLCD}!LCD\_lib.c@{LCD\_lib.c}}
+\doxysubsubsection{\texorpdfstring{swResetLCD()}{swResetLCD()}}
+{\footnotesize\ttfamily void sw\+Reset\+LCD (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+software перезагрузка LCD экрана 
+
+Функция отправляет команду 0x01 по шине SPI, что вызывает software перезагрузку LCD экрана. Также, согласно документации, после перезагрузки необходимо обеспечить задержку выполнения остальных функций (установлена \texorpdfstring{$\sim$}{\string~}120 мс). \Hypertarget{_l_c_d__lib_8c_a3a4fcfdf4679d8219ab6281e3a7d637b}\label{_l_c_d__lib_8c_a3a4fcfdf4679d8219ab6281e3a7d637b} 
+\index{LCD\_lib.c@{LCD\_lib.c}!writeCmdLCD@{writeCmdLCD}}
+\index{writeCmdLCD@{writeCmdLCD}!LCD\_lib.c@{LCD\_lib.c}}
+\doxysubsubsection{\texorpdfstring{writeCmdLCD()}{writeCmdLCD()}}
+{\footnotesize\ttfamily void write\+Cmd\+LCD (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{cmd }\end{DoxyParamCaption})}
+
+
+
+Отправка команды на контроллер LCD экрана ILI9488. 
+
+Функция выставляет Low уровень на линии LCD\+\_\+\+CS и линии LCD\+\_\+\+DC, после чего выполняет отправку команды по SPI. Далее для соблюдения протокола функция выставляет High уровень на линии LCD\+\_\+\+CS \Hypertarget{_l_c_d__lib_8c_abe8aedbfc99ec82625d07c7e027ef5bd}\label{_l_c_d__lib_8c_abe8aedbfc99ec82625d07c7e027ef5bd} 
+\index{LCD\_lib.c@{LCD\_lib.c}!writeDataLCD@{writeDataLCD}}
+\index{writeDataLCD@{writeDataLCD}!LCD\_lib.c@{LCD\_lib.c}}
+\doxysubsubsection{\texorpdfstring{writeDataLCD()}{writeDataLCD()}}
+{\footnotesize\ttfamily void write\+Data\+LCD (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{data }\end{DoxyParamCaption})}
+
+
+
+Отправка данных (параметров команд) на контроллер LCD экрана ILI9488. 
+
+Поведение аналогично (\doxylink{_l_c_d__lib_8c_a3a4fcfdf4679d8219ab6281e3a7d637b}{write\+Cmd\+LCD()})\mbox{[}\doxylink{_l_c_d__lib_8c_a3a4fcfdf4679d8219ab6281e3a7d637b}{write\+Cmd\+LCD}\mbox{]}, за исключением того, что при отправке данных на линии LCD\+\_\+\+DC устонавливается High уровень. 
 
 \doxysubsection{Variable Documentation}
-\Hypertarget{_l_c_d__lib_8c_a0efe09d8a193aa45418e4c33c4f420c2}\label{_l_c_d__lib_8c_a0efe09d8a193aa45418e4c33c4f420c2} 
+\Hypertarget{_l_c_d__lib_8c_a5f071743f113001f88bdc3771ee01a93}\label{_l_c_d__lib_8c_a5f071743f113001f88bdc3771ee01a93} 
+\index{LCD\_lib.c@{LCD\_lib.c}!buf@{buf}}
+\index{buf@{buf}!LCD\_lib.c@{LCD\_lib.c}}
+\doxysubsubsection{\texorpdfstring{buf}{buf}}
+{\footnotesize\ttfamily uint8\+\_\+t buf\mbox{[}LCD\+\_\+\+WIDTH \texorpdfstring{$\ast$}{*}2\mbox{]}}
+
+Содержит данные, передаваемые контроллеру ILI9488 по SPI \Hypertarget{_l_c_d__lib_8c_a0efe09d8a193aa45418e4c33c4f420c2}\label{_l_c_d__lib_8c_a0efe09d8a193aa45418e4c33c4f420c2} 
 \index{LCD\_lib.c@{LCD\_lib.c}!NoResultCounter@{NoResultCounter}}
 \index{NoResultCounter@{NoResultCounter}!LCD\_lib.c@{LCD\_lib.c}}
 \doxysubsubsection{\texorpdfstring{NoResultCounter}{NoResultCounter}}
-{\footnotesize\ttfamily uint8\+\_\+t No\+Result\+Counter = 2}
+{\footnotesize\ttfamily uint8\+\_\+t No\+Result\+Counter = 3}
 
-Зависит от количества безрезультатных (сигнал не удалось декодировать) приёмов сигнала подряд. extern переменная, уменьшается в TMR4\+\_\+\+Event\+Callback() с периодом 500ms. Если No\+Result\+Counter = 0 (т.\+е. в течении \texorpdfstring{$\sim$}{\string~}1 секунды не произошло удачного декодирования), то вызывается LCD\+\_\+\+Show\+\_\+\+No\+\_\+\+Result() \Hypertarget{_l_c_d__lib_8c_ac24684fc351237f8c32cad80903246bc}\label{_l_c_d__lib_8c_ac24684fc351237f8c32cad80903246bc} 
+Зависит от количества безрезультатных (сигнал не удалось декодировать) приёмов сигнала подряд. extern переменная, уменьшается в TMR4\+\_\+\+Event\+Callback() с периодом 500ms. Если No\+Result\+Counter = 0 (т.\+е. в течении \texorpdfstring{$\sim$}{\string~}1 секунды не произошло удачного декодирования), то вызывается \doxylink{_l_c_d__lib_8c_ad4fcbc10f1d0f8b3738d929d33386ccc}{LCD\+\_\+\+Show\+\_\+\+No\+\_\+\+Result()} \Hypertarget{_l_c_d__lib_8c_ac24684fc351237f8c32cad80903246bc}\label{_l_c_d__lib_8c_ac24684fc351237f8c32cad80903246bc} 
 \index{LCD\_lib.c@{LCD\_lib.c}!NoResultState@{NoResultState}}
 \index{NoResultState@{NoResultState}!LCD\_lib.c@{LCD\_lib.c}}
 \doxysubsubsection{\texorpdfstring{NoResultState}{NoResultState}}

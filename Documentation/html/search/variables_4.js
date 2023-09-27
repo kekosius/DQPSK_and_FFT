@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['noresultcounter_0',['NoResultCounter',['../_l_c_d__lib_8c.html#a0efe09d8a193aa45418e4c33c4f420c2',1,'LCD_lib.c']]],
-  ['noresultstate_1',['NoResultState',['../_l_c_d__lib_8c.html#ac24684fc351237f8c32cad80903246bc',1,'LCD_lib.c']]]
+  ['interferenceamplitude_0',['InterferenceAmplitude',['../_signal_receive_handler_8c.html#a3e876acb51d4c8c85631726a9f862879',1,'SignalReceiveHandler.c']]]
 ];

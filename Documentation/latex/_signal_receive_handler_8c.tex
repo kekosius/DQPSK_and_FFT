@@ -1,0 +1,205 @@
+\doxysection{Documents/\+Keil/\+DQPSK\+\_\+plus\+\_\+\+Freq/\+Source/\+Signal\+Receive\+Handler.c File Reference}
+\hypertarget{_signal_receive_handler_8c}{}\label{_signal_receive_handler_8c}\index{Documents/Keil/DQPSK\_plus\_Freq/Source/SignalReceiveHandler.c@{Documents/Keil/DQPSK\_plus\_Freq/Source/SignalReceiveHandler.c}}
+
+
+Функции, обеспечивающие приём АРСФ пакетов (обнаружение пакетов, регистрация и обработка ложных срабатываний)  
+
+
+{\ttfamily \#include \"{}Signal\+Receive\+Handler.\+h\"{}}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_min_max_struct}{Min\+Max\+Struct}}
+\begin{DoxyCompactList}\small\item\em Содержит информацию о максимальном и минимальном уровне сигнала \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_signal_receive_handler_8c_aefeec6db79e536a31f0d889d4b39b64e}{Ready\+To\+Start\+Receive}} (double Real\+Voltage)
+\begin{DoxyCompactList}\small\item\em Определяет готовность системы к приёму нового АРСФ пакета \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{_signal_receive_handler_8c_afb21728292519ac5322ab0709ed8a987}{Catch\+Package\+Start}} (double Real\+Voltage, double Prev\+Voltage, uint64\+\_\+t \texorpdfstring{$\ast$}{*}tick)
+\begin{DoxyCompactList}\small\item\em Определяет начало нового АРСФ пакета \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_signal_receive_handler_8c_aa7a4e39e588af7e90209b4822d951e60}{Fasle\+Activation\+Catch}} (double Real\+Voltage, double Prev\+Voltage, uint8\+\_\+t \texorpdfstring{$\ast$}{*}False\+Activation)
+\begin{DoxyCompactList}\small\item\em Определяет ложный приём пакета \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_signal_receive_handler_8c_a77eede80ed2cacdccb407546376b853b}{Handler\+Var\+Re\+Init}} ()
+\begin{DoxyCompactList}\small\item\em Обнуляет перемнные, определяющие приём АРСФ пакетов \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_signal_receive_handler_8c_ab53fdddca3f5eb3f9d44cdb67de13707}{Receive\+Stop}} (double \texorpdfstring{$\ast$}{*}Voltages\+Data, double \texorpdfstring{$\ast$}{*}Zero\+Cross\+Timings, uint16\+\_\+t \texorpdfstring{$\ast$}{*}End\+Of\+Sample)
+\begin{DoxyCompactList}\small\item\em Окончание приёма пакета. Демодуляция и обнуление переменных \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_signal_receive_handler_8c_a63c2b2968cbf2952a6dac9a9b17a0e42}{Zero\+Voltage\+Counter}} = 0
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_signal_receive_handler_8c_a7e1a09181947ee04920a8f958ae531aa}{Receive\+Started}} = 0
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_signal_receive_handler_8c_a73130ca0e9d359a0998e44b1dd8ed08c}{Receiver\+Ready}} = 0
+\item 
+uint16\+\_\+t \mbox{\hyperlink{_signal_receive_handler_8c_abd8d6e98d25271815b6769dcc69b3e6a}{Exit\+Counter}} = 0
+\item 
+int8\+\_\+t \mbox{\hyperlink{_signal_receive_handler_8c_acb44ab2601e211bf879fb56de0ab915d}{Start\+Sign}} = 0
+\item 
+double \mbox{\hyperlink{_signal_receive_handler_8c_a3e876acb51d4c8c85631726a9f862879}{Interference\+Amplitude}} = (INPUT\+\_\+\+AMPLITUDE/2)\texorpdfstring{$\ast$}{*}0.\+5
+\item 
+struct \mbox{\hyperlink{struct_min_max_struct}{Min\+Max\+Struct}} \mbox{\hyperlink{_signal_receive_handler_8c_a0cd301468aca751a088dd22aa8977aec}{Period\+Amplitude}}
+\begin{DoxyCompactList}\small\item\em Содержит информацию об амплитуде принимаемого сигнала \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Функции, обеспечивающие приём АРСФ пакетов (обнаружение пакетов, регистрация и обработка ложных срабатываний) 
+
+\begin{DoxyVersion}{Version}
+V1.\+0.\+0
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+12-\/09-\/2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_signal_receive_handler_8c_afb21728292519ac5322ab0709ed8a987}\label{_signal_receive_handler_8c_afb21728292519ac5322ab0709ed8a987} 
+\index{SignalReceiveHandler.c@{SignalReceiveHandler.c}!CatchPackageStart@{CatchPackageStart}}
+\index{CatchPackageStart@{CatchPackageStart}!SignalReceiveHandler.c@{SignalReceiveHandler.c}}
+\doxysubsubsection{\texorpdfstring{CatchPackageStart()}{CatchPackageStart()}}
+{\footnotesize\ttfamily uint8\+\_\+t Catch\+Package\+Start (\begin{DoxyParamCaption}\item[{double}]{Real\+Voltage,  }\item[{double}]{Prev\+Voltage,  }\item[{uint64\+\_\+t \texorpdfstring{$\ast$}{*}}]{tick }\end{DoxyParamCaption})}
+
+
+
+Определяет начало нового АРСФ пакета 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Real\+Voltage} & Напряжение с поправкой на добавленную константу (см. \doxylink{_a_d_c__lib_8c_aefac2e00e12a4d31bde8f7ee88c96c3d}{Get\+Real\+Voltage}) \\
+\hline
+\mbox{\texttt{ in}}  & {\em Prev\+Voltage} & Предыдущее значение принятого напряжение \\
+\hline
+\mbox{\texttt{ out}}  & {\em tick} & Ссылка на значение текущего тика таймера\\
+\hline
+\end{DoxyParams}
+Если на линии присутсвует сигнал, превышающий Interference\+Amplitude, то этот момент считается за начало пакета (заведомо известно, что на линии достаточно продолжительное время отсутсвует сигнал помех или полезный сигнал, т.\+е. \doxylink{_signal_receive_handler_8c_a73130ca0e9d359a0998e44b1dd8ed08c}{Receiver\+Ready} == 1). Функция сигнализирует об определении начала приёма новго пакета путём присваивания \doxylink{_signal_receive_handler_8c_a7e1a09181947ee04920a8f958ae531aa}{Receive\+Started} = 1. Функция также обнуляет tick и определяет \doxylink{_signal_receive_handler_8c_acb44ab2601e211bf879fb56de0ab915d}{Start\+Sign} \Hypertarget{_signal_receive_handler_8c_aa7a4e39e588af7e90209b4822d951e60}\label{_signal_receive_handler_8c_aa7a4e39e588af7e90209b4822d951e60} 
+\index{SignalReceiveHandler.c@{SignalReceiveHandler.c}!FasleActivationCatch@{FasleActivationCatch}}
+\index{FasleActivationCatch@{FasleActivationCatch}!SignalReceiveHandler.c@{SignalReceiveHandler.c}}
+\doxysubsubsection{\texorpdfstring{FasleActivationCatch()}{FasleActivationCatch()}}
+{\footnotesize\ttfamily void Fasle\+Activation\+Catch (\begin{DoxyParamCaption}\item[{double}]{Real\+Voltage,  }\item[{double}]{Prev\+Voltage,  }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{False\+Activation }\end{DoxyParamCaption})}
+
+
+
+Определяет ложный приём пакета 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Real\+Voltage} & Напряжение с поправкой на добавленную константу (см. \doxylink{_a_d_c__lib_8c_aefac2e00e12a4d31bde8f7ee88c96c3d}{Get\+Real\+Voltage}) \\
+\hline
+\mbox{\texttt{ in}}  & {\em Prev\+Voltage} & Предыдущее значение принятого напряжение \\
+\hline
+\mbox{\texttt{ out}}  & {\em False\+Activation} & Ссылка на переменную False\+Activation\\
+\hline
+\end{DoxyParams}
+Если на линии продолжительное время (32 измерения) отсутсвует сигнал, превышающий Interference\+Amplitude, то текущий приём считается ложным (система срагировала на случайный всплеск на линии или на паразитный сигнал). Функция сигнализирует о ложном срабатывании путём присваивания False\+Activation = 1 \Hypertarget{_signal_receive_handler_8c_a77eede80ed2cacdccb407546376b853b}\label{_signal_receive_handler_8c_a77eede80ed2cacdccb407546376b853b} 
+\index{SignalReceiveHandler.c@{SignalReceiveHandler.c}!HandlerVarReInit@{HandlerVarReInit}}
+\index{HandlerVarReInit@{HandlerVarReInit}!SignalReceiveHandler.c@{SignalReceiveHandler.c}}
+\doxysubsubsection{\texorpdfstring{HandlerVarReInit()}{HandlerVarReInit()}}
+{\footnotesize\ttfamily void Handler\+Var\+Re\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Обнуляет перемнные, определяющие приём АРСФ пакетов 
+
+Используется при окончании приёма (\doxylink{_signal_receive_handler_8c_ab53fdddca3f5eb3f9d44cdb67de13707}{Receive\+Stop}) и обнаружении ложного приёма (\doxylink{_signal_receive_handler_8c_aa7a4e39e588af7e90209b4822d951e60}{Fasle\+Activation\+Catch})
+
+Обнуляемые переменные\+:
+\begin{DoxyItemize}
+\item \doxylink{_signal_receive_handler_8c_a73130ca0e9d359a0998e44b1dd8ed08c}{Receiver\+Ready}
+\item \doxylink{_signal_receive_handler_8c_a7e1a09181947ee04920a8f958ae531aa}{Receive\+Started}
+\item \doxylink{_signal_receive_handler_8c_abd8d6e98d25271815b6769dcc69b3e6a}{Exit\+Counter}
+\item \doxylink{_signal_receive_handler_8c_a63c2b2968cbf2952a6dac9a9b17a0e42}{Zero\+Voltage\+Counter}
+\item \doxylink{_signal_receive_handler_8c_a0cd301468aca751a088dd22aa8977aec}{Period\+Amplitude} 
+\end{DoxyItemize}\Hypertarget{_signal_receive_handler_8c_aefeec6db79e536a31f0d889d4b39b64e}\label{_signal_receive_handler_8c_aefeec6db79e536a31f0d889d4b39b64e} 
+\index{SignalReceiveHandler.c@{SignalReceiveHandler.c}!ReadyToStartReceive@{ReadyToStartReceive}}
+\index{ReadyToStartReceive@{ReadyToStartReceive}!SignalReceiveHandler.c@{SignalReceiveHandler.c}}
+\doxysubsubsection{\texorpdfstring{ReadyToStartReceive()}{ReadyToStartReceive()}}
+{\footnotesize\ttfamily uint8\+\_\+t Ready\+To\+Start\+Receive (\begin{DoxyParamCaption}\item[{double}]{Real\+Voltage }\end{DoxyParamCaption})}
+
+
+
+Определяет готовность системы к приёму нового АРСФ пакета 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Real\+Voltage} & Напряжение с поправкой на добавленную константу (см. \doxylink{_a_d_c__lib_8c_aefac2e00e12a4d31bde8f7ee88c96c3d}{Get\+Real\+Voltage})\\
+\hline
+\end{DoxyParams}
+Если на линии отсутсвует полезный сигнал (\texorpdfstring{$\vert$}{|}\+Real\+Voltage\texorpdfstring{$\vert$}{|} \texorpdfstring{$<$}{<} Interference\+Amplitude) на протяжении достаточно продолжительного времени (16 измерений), то считается, что система готова к приёму АРСФ пакета (\doxylink{_signal_receive_handler_8c_a73130ca0e9d359a0998e44b1dd8ed08c}{Receiver\+Ready} = 1). Такой метод необходим для того, чтобы не начать приём и обработку пакета с его середины или конца. Если в текущий момент времени производится приём нового АРСФ пакета (\doxylink{_signal_receive_handler_8c_a7e1a09181947ee04920a8f958ae531aa}{Receive\+Started} == 1), то проверка готовности системы к приёму нового пакета не производится. \Hypertarget{_signal_receive_handler_8c_ab53fdddca3f5eb3f9d44cdb67de13707}\label{_signal_receive_handler_8c_ab53fdddca3f5eb3f9d44cdb67de13707} 
+\index{SignalReceiveHandler.c@{SignalReceiveHandler.c}!ReceiveStop@{ReceiveStop}}
+\index{ReceiveStop@{ReceiveStop}!SignalReceiveHandler.c@{SignalReceiveHandler.c}}
+\doxysubsubsection{\texorpdfstring{ReceiveStop()}{ReceiveStop()}}
+{\footnotesize\ttfamily void Receive\+Stop (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}}]{Voltages\+Data,  }\item[{double \texorpdfstring{$\ast$}{*}}]{Zero\+Cross\+Timings,  }\item[{uint16\+\_\+t \texorpdfstring{$\ast$}{*}}]{End\+Of\+Sample }\end{DoxyParamCaption})}
+
+
+
+Окончание приёма пакета. Демодуляция и обнуление переменных 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Voltages\+Data} & Массив, содержащий значения напряжений для всего принятого пакета \\
+\hline
+\mbox{\texttt{ out}}  & {\em Zero\+Cross\+Timings} & Массив, в который записываются значения времени, когда несущий сигнал пересекает 0 V снизу \\
+\hline
+\mbox{\texttt{ out}}  & {\em End\+Of\+Sample} & Массив, в который записываются временные промежутки для всех фазовых переходов\\
+\hline
+\end{DoxyParams}
+Функция вызывается при определении конца текущего пакета. Описание последовательности работы\+:
+\begin{DoxyItemize}
+\item Переключение светодиодов (LED2 -\/ off, LED3 -\/ on), выставляется High напряжение на ЦАП (для визуального и сигнального информирования о состоянии системы)
+\item Вызывается Zero\+Cross\+Analysis()
+\item Заполненные Zero\+Cross\+Timings и End\+Of\+Sample используются в Demodulation()
+\item Обнуление (возврат к значениям при инициализации) всех переменных и переинициализация используемой перефирии
+\item Отключение LED3, выставляется Low напряжение на ЦАП 
+\end{DoxyItemize}
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{_signal_receive_handler_8c_abd8d6e98d25271815b6769dcc69b3e6a}\label{_signal_receive_handler_8c_abd8d6e98d25271815b6769dcc69b3e6a} 
+\index{SignalReceiveHandler.c@{SignalReceiveHandler.c}!ExitCounter@{ExitCounter}}
+\index{ExitCounter@{ExitCounter}!SignalReceiveHandler.c@{SignalReceiveHandler.c}}
+\doxysubsubsection{\texorpdfstring{ExitCounter}{ExitCounter}}
+{\footnotesize\ttfamily uint16\+\_\+t Exit\+Counter = 0}
+
+Содержит информацию о количестве принятых \"{}помех\"{} (уровень принятого сигнала меньше \doxylink{_signal_receive_handler_8c_a3e876acb51d4c8c85631726a9f862879}{Interference\+Amplitude}) подряд. Значение Exit\+Counter определяется в \doxylink{_signal_receive_handler_8c_aa7a4e39e588af7e90209b4822d951e60}{Fasle\+Activation\+Catch()}. При Exit\+Counter = 32 система инициирует сброс приёма (см. False\+Activation) \Hypertarget{_signal_receive_handler_8c_a3e876acb51d4c8c85631726a9f862879}\label{_signal_receive_handler_8c_a3e876acb51d4c8c85631726a9f862879} 
+\index{SignalReceiveHandler.c@{SignalReceiveHandler.c}!InterferenceAmplitude@{InterferenceAmplitude}}
+\index{InterferenceAmplitude@{InterferenceAmplitude}!SignalReceiveHandler.c@{SignalReceiveHandler.c}}
+\doxysubsubsection{\texorpdfstring{InterferenceAmplitude}{InterferenceAmplitude}}
+{\footnotesize\ttfamily double Interference\+Amplitude = (INPUT\+\_\+\+AMPLITUDE/2)\texorpdfstring{$\ast$}{*}0.\+5}
+
+Амплитуда колебаний, которая будет считаться как паразитный сигнал (помеха) \Hypertarget{_signal_receive_handler_8c_a0cd301468aca751a088dd22aa8977aec}\label{_signal_receive_handler_8c_a0cd301468aca751a088dd22aa8977aec} 
+\index{SignalReceiveHandler.c@{SignalReceiveHandler.c}!PeriodAmplitude@{PeriodAmplitude}}
+\index{PeriodAmplitude@{PeriodAmplitude}!SignalReceiveHandler.c@{SignalReceiveHandler.c}}
+\doxysubsubsection{\texorpdfstring{PeriodAmplitude}{PeriodAmplitude}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_min_max_struct}{Min\+Max\+Struct}} Period\+Amplitude}
+
+
+
+Содержит информацию об амплитуде принимаемого сигнала 
+
+Информация об амплитуде сигнала используется в \doxylink{_signal_receive_handler_8c_afb21728292519ac5322ab0709ed8a987}{Catch\+Package\+Start()} для определения начала пакета, а также в \doxylink{_signal_receive_handler_8c_aa7a4e39e588af7e90209b4822d951e60}{Fasle\+Activation\+Catch()} для определения ложного срабатывания приёма \Hypertarget{_signal_receive_handler_8c_a73130ca0e9d359a0998e44b1dd8ed08c}\label{_signal_receive_handler_8c_a73130ca0e9d359a0998e44b1dd8ed08c} 
+\index{SignalReceiveHandler.c@{SignalReceiveHandler.c}!ReceiverReady@{ReceiverReady}}
+\index{ReceiverReady@{ReceiverReady}!SignalReceiveHandler.c@{SignalReceiveHandler.c}}
+\doxysubsubsection{\texorpdfstring{ReceiverReady}{ReceiverReady}}
+{\footnotesize\ttfamily uint8\+\_\+t Receiver\+Ready = 0}
+
+Содержит информацию о том, что система готова к приёму нового АРСФ пакета. Значение 1 соответсвует готовности к приёму нового пакета. Значение 0 соответсвует занятости линии приёма (система не готова к приёму пакета). Значение Receiver\+Ready определяется в \doxylink{_signal_receive_handler_8c_aefeec6db79e536a31f0d889d4b39b64e}{Ready\+To\+Start\+Receive()} \Hypertarget{_signal_receive_handler_8c_a7e1a09181947ee04920a8f958ae531aa}\label{_signal_receive_handler_8c_a7e1a09181947ee04920a8f958ae531aa} 
+\index{SignalReceiveHandler.c@{SignalReceiveHandler.c}!ReceiveStarted@{ReceiveStarted}}
+\index{ReceiveStarted@{ReceiveStarted}!SignalReceiveHandler.c@{SignalReceiveHandler.c}}
+\doxysubsubsection{\texorpdfstring{ReceiveStarted}{ReceiveStarted}}
+{\footnotesize\ttfamily uint8\+\_\+t Receive\+Started = 0}
+
+Содержит информацию о том, что система в данный момент принимает новый АРСФ пакет. Значение 1 соответсвует приёму нового пакета в настоящий момент. Значение 0 соответсвует отсутсвию приёма пакета в настоящий момент. Значение Receive\+Started определяется в \doxylink{_signal_receive_handler_8c_afb21728292519ac5322ab0709ed8a987}{Catch\+Package\+Start()} \Hypertarget{_signal_receive_handler_8c_acb44ab2601e211bf879fb56de0ab915d}\label{_signal_receive_handler_8c_acb44ab2601e211bf879fb56de0ab915d} 
+\index{SignalReceiveHandler.c@{SignalReceiveHandler.c}!StartSign@{StartSign}}
+\index{StartSign@{StartSign}!SignalReceiveHandler.c@{SignalReceiveHandler.c}}
+\doxysubsubsection{\texorpdfstring{StartSign}{StartSign}}
+{\footnotesize\ttfamily int8\+\_\+t Start\+Sign = 0}
+
+Содержит информацию о стартовом напрявлении входного сигнала. То есть, значение -\/1 сообтветсвует стартовому периоду, который находится ниже нуля, значение +1 сообтветсвует стартовому периоду, который находится выше нуля. Значение Start\+Sign определяется в \doxylink{_signal_receive_handler_8c_afb21728292519ac5322ab0709ed8a987}{Catch\+Package\+Start()}. Используется для анализа принятого пакета в Zero\+Cross\+Analysis() \Hypertarget{_signal_receive_handler_8c_a63c2b2968cbf2952a6dac9a9b17a0e42}\label{_signal_receive_handler_8c_a63c2b2968cbf2952a6dac9a9b17a0e42} 
+\index{SignalReceiveHandler.c@{SignalReceiveHandler.c}!ZeroVoltageCounter@{ZeroVoltageCounter}}
+\index{ZeroVoltageCounter@{ZeroVoltageCounter}!SignalReceiveHandler.c@{SignalReceiveHandler.c}}
+\doxysubsubsection{\texorpdfstring{ZeroVoltageCounter}{ZeroVoltageCounter}}
+{\footnotesize\ttfamily uint8\+\_\+t Zero\+Voltage\+Counter = 0}
+
+Содержит информацию о количестве приёмов слабого (\texorpdfstring{$\vert$}{|}\+Real\+Voltage\texorpdfstring{$\vert$}{|} \texorpdfstring{$<$}{<} Interference\+Amplitude) сигнала подряд. Значение Zero\+Voltage\+Counter определяется в \doxylink{_signal_receive_handler_8c_aefeec6db79e536a31f0d889d4b39b64e}{Ready\+To\+Start\+Receive()}. При достижении Zero\+Voltage\+Counter определённого значения (16) считается, что система готова к приёму нового АРСФ пакета (\doxylink{_signal_receive_handler_8c_a73130ca0e9d359a0998e44b1dd8ed08c}{Receiver\+Ready} = 1) 
