@@ -15,14 +15,14 @@
 \begin{DoxyCompactItemize}
 \item 
 double \mbox{\hyperlink{_filter__lib_8c_a96f164d0c61f1be2b122a196b69dd4ea}{High\+Pass\+Filter}} (double Input\+Voltage)
-\item 
+\begin{DoxyCompactList}\small\item\em Реализация программного частотного фильтра \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_filter__lib_8c_a5cb6d2d95bfaff7e5cc819eff7bf3084}{Filter\+Wipe}} ()
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
 double \mbox{\hyperlink{_filter__lib_8c_a4be8d128fcd7d784755cbfd8b99cc06b}{filter\+\_\+cff}} \mbox{[}\mbox{\hyperlink{_filter__lib_8c_a3731640f1207d9e47ad13ec12a1f5335}{FILTER\+\_\+\+ORDER}}+1\mbox{]}
-\item 
+\begin{DoxyCompactList}\small\item\em Коэффициенты частотного фильтра \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{_filter__lib_8c_a9bb34d6632ae9a7419fcd9c3450799c8}{prev\+States}} \mbox{[}\mbox{\hyperlink{_filter__lib_8c_a3731640f1207d9e47ad13ec12a1f5335}{FILTER\+\_\+\+ORDER}}\mbox{]} = \{0\}
 \item 
 int16\+\_\+t \mbox{\hyperlink{_filter__lib_8c_a03ac64a1e7bfa5197c10e3a59a6df806}{Buff}} = \mbox{\hyperlink{_filter__lib_8c_a3731640f1207d9e47ad13ec12a1f5335}{FILTER\+\_\+\+ORDER}} -\/ 1
@@ -62,7 +62,9 @@ V1.\+0.\+0
 \doxysubsubsection{\texorpdfstring{HighPassFilter()}{HighPassFilter()}}
 {\footnotesize\ttfamily double High\+Pass\+Filter (\begin{DoxyParamCaption}\item[{double}]{Input\+Voltage }\end{DoxyParamCaption})}
 
-Реализация программного частотного фильтра
+
+
+Реализация программного частотного фильтра 
 
 
 \begin{DoxyParams}{Parameters}
@@ -97,7 +99,9 @@ V1.\+0.\+0
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/0.043088989279420821,\ -\/0.141911422747041521\}}
 
 \end{DoxyCode}
-Коэффициенты частотного фильтра
+
+
+Коэффициенты частотного фильтра 
 
 Частотный фильтр ослабляет амплитуду низких частот \texorpdfstring{$<$}{<}800 Гц и усиливает амплитуду частот в полосе пропускания 3200-\/4000 Гц \Hypertarget{_filter__lib_8c_a9bb34d6632ae9a7419fcd9c3450799c8}\label{_filter__lib_8c_a9bb34d6632ae9a7419fcd9c3450799c8} 
 \index{Filter\_lib.c@{Filter\_lib.c}!prevStates@{prevStates}}

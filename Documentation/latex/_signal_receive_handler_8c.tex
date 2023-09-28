@@ -14,15 +14,15 @@ struct \mbox{\hyperlink{struct_min_max_struct}{Min\+Max\+Struct}}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-uint8\+\_\+t \mbox{\hyperlink{_signal_receive_handler_8c_aefeec6db79e536a31f0d889d4b39b64e}{Ready\+To\+Start\+Receive}} (double Real\+Voltage)
+uint8\+\_\+t \mbox{\hyperlink{_signal_receive_handler_8c_aefeec6db79e536a31f0d889d4b39b64e}{Ready\+To\+Start\+Receive}} (double \mbox{\hyperlink{_t_i_m__lib_8c_a2093496d4e94f2686e755b4836a9586f}{Real\+Voltage}})
 \begin{DoxyCompactList}\small\item\em Определяет готовность системы к приёму нового АРСФ пакета \end{DoxyCompactList}\item 
-uint8\+\_\+t \mbox{\hyperlink{_signal_receive_handler_8c_afb21728292519ac5322ab0709ed8a987}{Catch\+Package\+Start}} (double Real\+Voltage, double Prev\+Voltage, uint64\+\_\+t \texorpdfstring{$\ast$}{*}tick)
+uint8\+\_\+t \mbox{\hyperlink{_signal_receive_handler_8c_afb21728292519ac5322ab0709ed8a987}{Catch\+Package\+Start}} (double \mbox{\hyperlink{_t_i_m__lib_8c_a2093496d4e94f2686e755b4836a9586f}{Real\+Voltage}}, double \mbox{\hyperlink{_t_i_m__lib_8c_a0c8f21a03cfb93d09d39d6afb04fbf5a}{Prev\+Voltage}}, uint64\+\_\+t \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{_t_i_m__lib_8c_a2c38447b8253c8df855e3131c95941a1}{tick}})
 \begin{DoxyCompactList}\small\item\em Определяет начало нового АРСФ пакета \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{_signal_receive_handler_8c_aa7a4e39e588af7e90209b4822d951e60}{Fasle\+Activation\+Catch}} (double Real\+Voltage, double Prev\+Voltage, uint8\+\_\+t \texorpdfstring{$\ast$}{*}False\+Activation)
+void \mbox{\hyperlink{_signal_receive_handler_8c_aa7a4e39e588af7e90209b4822d951e60}{Fasle\+Activation\+Catch}} (double \mbox{\hyperlink{_t_i_m__lib_8c_a2093496d4e94f2686e755b4836a9586f}{Real\+Voltage}}, double \mbox{\hyperlink{_t_i_m__lib_8c_a0c8f21a03cfb93d09d39d6afb04fbf5a}{Prev\+Voltage}}, uint8\+\_\+t \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{_t_i_m__lib_8c_a65abd7c55078faafaee66951c6aa38e2}{False\+Activation}})
 \begin{DoxyCompactList}\small\item\em Определяет ложный приём пакета \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_signal_receive_handler_8c_a77eede80ed2cacdccb407546376b853b}{Handler\+Var\+Re\+Init}} ()
 \begin{DoxyCompactList}\small\item\em Обнуляет перемнные, определяющие приём АРСФ пакетов \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{_signal_receive_handler_8c_ab53fdddca3f5eb3f9d44cdb67de13707}{Receive\+Stop}} (double \texorpdfstring{$\ast$}{*}Voltages\+Data, double \texorpdfstring{$\ast$}{*}Zero\+Cross\+Timings, uint16\+\_\+t \texorpdfstring{$\ast$}{*}End\+Of\+Sample)
+void \mbox{\hyperlink{_signal_receive_handler_8c_ab53fdddca3f5eb3f9d44cdb67de13707}{Receive\+Stop}} (double \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{_t_i_m__lib_8c_a7558533ab0553c6f22905cb4a83f93c3}{Voltages\+Data}}, double \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{_t_i_m__lib_8c_a43d2c695c558f49cb2df8c0745c28531}{Zero\+Cross\+Timings}}, uint16\+\_\+t \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{_t_i_m__lib_8c_ad14650db362e7e1e1d34b5a4084cc9f1}{End\+Of\+Sample}})
 \begin{DoxyCompactList}\small\item\em Окончание приёма пакета. Демодуляция и обнуление переменных \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
@@ -90,10 +90,10 @@ V1.\+0.\+0
 \hline
 \mbox{\texttt{ in}}  & {\em Prev\+Voltage} & Предыдущее значение принятого напряжение \\
 \hline
-\mbox{\texttt{ out}}  & {\em False\+Activation} & Ссылка на переменную False\+Activation\\
+\mbox{\texttt{ out}}  & {\em False\+Activation} & Ссылка на переменную \doxylink{_t_i_m__lib_8c_a65abd7c55078faafaee66951c6aa38e2}{False\+Activation}\\
 \hline
 \end{DoxyParams}
-Если на линии продолжительное время (32 измерения) отсутсвует сигнал, превышающий Interference\+Amplitude, то текущий приём считается ложным (система срагировала на случайный всплеск на линии или на паразитный сигнал). Функция сигнализирует о ложном срабатывании путём присваивания False\+Activation = 1 \Hypertarget{_signal_receive_handler_8c_a77eede80ed2cacdccb407546376b853b}\label{_signal_receive_handler_8c_a77eede80ed2cacdccb407546376b853b} 
+Если на линии продолжительное время (32 измерения) отсутсвует сигнал, превышающий Interference\+Amplitude, то текущий приём считается ложным (система срагировала на случайный всплеск на линии или на паразитный сигнал). Функция сигнализирует о ложном срабатывании путём присваивания \doxylink{_t_i_m__lib_8c_a65abd7c55078faafaee66951c6aa38e2}{False\+Activation} = 1 \Hypertarget{_signal_receive_handler_8c_a77eede80ed2cacdccb407546376b853b}\label{_signal_receive_handler_8c_a77eede80ed2cacdccb407546376b853b} 
 \index{SignalReceiveHandler.c@{SignalReceiveHandler.c}!HandlerVarReInit@{HandlerVarReInit}}
 \index{HandlerVarReInit@{HandlerVarReInit}!SignalReceiveHandler.c@{SignalReceiveHandler.c}}
 \doxysubsubsection{\texorpdfstring{HandlerVarReInit()}{HandlerVarReInit()}}
@@ -150,7 +150,7 @@ V1.\+0.\+0
 \begin{DoxyItemize}
 \item Переключение светодиодов (LED2 -\/ off, LED3 -\/ on), выставляется High напряжение на ЦАП (для визуального и сигнального информирования о состоянии системы)
 \item Вызывается Zero\+Cross\+Analysis()
-\item Заполненные Zero\+Cross\+Timings и End\+Of\+Sample используются в Demodulation()
+\item Заполненные \doxylink{_t_i_m__lib_8c_a43d2c695c558f49cb2df8c0745c28531}{Zero\+Cross\+Timings} и \doxylink{_t_i_m__lib_8c_ad14650db362e7e1e1d34b5a4084cc9f1}{End\+Of\+Sample} используются в Demodulation()
 \item Обнуление (возврат к значениям при инициализации) всех переменных и переинициализация используемой перефирии
 \item Отключение LED3, выставляется Low напряжение на ЦАП 
 \end{DoxyItemize}
@@ -162,7 +162,7 @@ V1.\+0.\+0
 \doxysubsubsection{\texorpdfstring{ExitCounter}{ExitCounter}}
 {\footnotesize\ttfamily uint16\+\_\+t Exit\+Counter = 0}
 
-Содержит информацию о количестве принятых \"{}помех\"{} (уровень принятого сигнала меньше \doxylink{_signal_receive_handler_8c_a3e876acb51d4c8c85631726a9f862879}{Interference\+Amplitude}) подряд. Значение Exit\+Counter определяется в \doxylink{_signal_receive_handler_8c_aa7a4e39e588af7e90209b4822d951e60}{Fasle\+Activation\+Catch()}. При Exit\+Counter = 32 система инициирует сброс приёма (см. False\+Activation) \Hypertarget{_signal_receive_handler_8c_a3e876acb51d4c8c85631726a9f862879}\label{_signal_receive_handler_8c_a3e876acb51d4c8c85631726a9f862879} 
+Содержит информацию о количестве принятых \"{}помех\"{} (уровень принятого сигнала меньше \doxylink{_signal_receive_handler_8c_a3e876acb51d4c8c85631726a9f862879}{Interference\+Amplitude}) подряд. Значение Exit\+Counter определяется в \doxylink{_signal_receive_handler_8c_aa7a4e39e588af7e90209b4822d951e60}{Fasle\+Activation\+Catch()}. При Exit\+Counter = 32 система инициирует сброс приёма (см. \doxylink{_t_i_m__lib_8c_a65abd7c55078faafaee66951c6aa38e2}{False\+Activation}) \Hypertarget{_signal_receive_handler_8c_a3e876acb51d4c8c85631726a9f862879}\label{_signal_receive_handler_8c_a3e876acb51d4c8c85631726a9f862879} 
 \index{SignalReceiveHandler.c@{SignalReceiveHandler.c}!InterferenceAmplitude@{InterferenceAmplitude}}
 \index{InterferenceAmplitude@{InterferenceAmplitude}!SignalReceiveHandler.c@{SignalReceiveHandler.c}}
 \doxysubsubsection{\texorpdfstring{InterferenceAmplitude}{InterferenceAmplitude}}

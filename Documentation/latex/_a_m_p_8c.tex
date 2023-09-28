@@ -11,8 +11,7 @@
 \item 
 \#define \mbox{\hyperlink{_a_m_p_8c_ac545a9fba18b4a4eb99e29abcd830365}{MOVE\+\_\+\+AVG\+\_\+\+NUM}}~(5)
 \item 
-\Hypertarget{_a_m_p_8c_a60e25b74deba2d7eba3ed0488ed30666}\label{_a_m_p_8c_a60e25b74deba2d7eba3ed0488ed30666} 
-\#define {\bfseries SEND\+\_\+\+AVG}
+\#define \mbox{\hyperlink{_a_m_p_8c_a60e25b74deba2d7eba3ed0488ed30666}{SEND\+\_\+\+AVG}}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
@@ -52,7 +51,13 @@ V1.\+0.\+0
 \doxysubsubsection{\texorpdfstring{MOVE\_AVG\_NUM}{MOVE\_AVG\_NUM}}
 {\footnotesize\ttfamily \#define MOVE\+\_\+\+AVG\+\_\+\+NUM~(5)}
 
-Количество измерений, которые учитываются при подсчете скользящей средней 
+Количество измерений, которые учитываются при подсчете скользящей средней \Hypertarget{_a_m_p_8c_a60e25b74deba2d7eba3ed0488ed30666}\label{_a_m_p_8c_a60e25b74deba2d7eba3ed0488ed30666} 
+\index{AMP.c@{AMP.c}!SEND\_AVG@{SEND\_AVG}}
+\index{SEND\_AVG@{SEND\_AVG}!AMP.c@{AMP.c}}
+\doxysubsubsection{\texorpdfstring{SEND\_AVG}{SEND\_AVG}}
+{\footnotesize\ttfamily \#define SEND\+\_\+\+AVG}
+
+Если SEND\+\_\+\+AVG define, то система отправляет значение напряжения \doxylink{_a_m_p_8c_a977195e7cd71573763e6eacfdee484b1}{Average\+Voltage} по USART 
 
 \doxysubsection{Function Documentation}
 \Hypertarget{_a_m_p_8c_adbea7f0464f380bf508408bb38fbb5a9}\label{_a_m_p_8c_adbea7f0464f380bf508408bb38fbb5a9} 
@@ -93,12 +98,12 @@ V1.\+0.\+0
 
 
 \begin{DoxyParams}{Parameters}
-{\em Текущее} & значение амплитуды \\
+{\em avg} & Текущее значение амплитуды \\
 \hline
 \end{DoxyParams}
 
 \begin{DoxyRetVals}{Return values}
-{\em Значение} & амплитуды с учётом предыдущих измерений \\
+{\em moving\+Avg} & Значение амплитуды с учётом предыдущих измерений \\
 \hline
 \end{DoxyRetVals}
 \Hypertarget{_a_m_p_8c_a0039df7ab0aa659c2d2b0654ce4fbef6}\label{_a_m_p_8c_a0039df7ab0aa659c2d2b0654ce4fbef6} 

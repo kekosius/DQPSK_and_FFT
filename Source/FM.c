@@ -7,7 +7,6 @@ void SpectrumAnalysis(double* FFT_Buff, uint8_t LowLevel, double* voltageBuff) {
 	APM_MINI_LEDOff(LED2);
 	APM_MINI_LEDOn(LED3);
 	TMR_Disable(TMR3);
-	__disable_irq();
 	DAC_SetHigh();
 	 
 	/*
@@ -55,5 +54,4 @@ void SpectrumAnalysis(double* FFT_Buff, uint8_t LowLevel, double* voltageBuff) {
 	 TMR3_Init();
 	 APM_MINI_LEDOn(LED2);
 	 APM_MINI_LEDOff(LED3);	 
-	 __enable_irq();
 }

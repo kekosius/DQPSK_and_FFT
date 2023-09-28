@@ -1,6 +1,7 @@
 var _a_m_p_8c =
 [
     [ "MOVE_AVG_NUM", "_a_m_p_8c.html#ac545a9fba18b4a4eb99e29abcd830365", null ],
+    [ "SEND_AVG", "_a_m_p_8c.html#a60e25b74deba2d7eba3ed0488ed30666", null ],
     [ "AmlitudeAnalysis", "_a_m_p_8c.html#adbea7f0464f380bf508408bb38fbb5a9", null ],
     [ "MovingAverage", "_a_m_p_8c.html#a34d5185ffc8f108f8315563b8190bbf1", null ],
     [ "MovingAverageClear", "_a_m_p_8c.html#a0039df7ab0aa659c2d2b0654ce4fbef6", null ],

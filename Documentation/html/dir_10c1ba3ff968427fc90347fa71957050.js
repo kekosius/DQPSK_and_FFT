@@ -9,6 +9,7 @@ var dir_10c1ba3ff968427fc90347fa71957050 =
     [ "main.c", "main_8c.html", "main_8c" ],
     [ "SignalReceiveHandler.c", "_signal_receive_handler_8c.html", "_signal_receive_handler_8c" ],
     [ "SPI_lib.c", "_s_p_i__lib_8c.html", "_s_p_i__lib_8c" ],
+    [ "TIM_lib.c", "_t_i_m__lib_8c.html", "_t_i_m__lib_8c" ],
     [ "UART_lib.c", "_u_a_r_t__lib_8c.html", "_u_a_r_t__lib_8c" ],
     [ "WDT_lib.c", "_w_d_t__lib_8c.html", "_w_d_t__lib_8c" ]
 ];

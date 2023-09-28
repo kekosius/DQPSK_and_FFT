@@ -259,7 +259,7 @@ hardware перезагрузка LCD экрана
 
 Переводит LCD экран в режим отображения АРСФ кодов 
 
-Закрашивает экран в белый, выводит на экран обозначение режима работы (MSG\+\_\+\+DQPSK\+\_\+1) и поля для отображения результатов АРСФ декодирования (MSG\+\_\+\+DQPSK\+\_\+2, MSG\+\_\+\+DQPSK\+\_\+3, MSG\+\_\+\+DQPSK\+\_\+4, MSG\+\_\+\+DQPSK\+\_\+5). Также сбрасывает счётчик \doxylink{_l_c_d__lib_8c_a0efe09d8a193aa45418e4c33c4f420c2}{No\+Result\+Counter} таймера TIM4. \Hypertarget{_l_c_d__lib_8c_a67d65e7546dc387e220507035c7c4346}\label{_l_c_d__lib_8c_a67d65e7546dc387e220507035c7c4346} 
+Закрашивает экран в белый, выводит на экран обозначение режима работы (MSG\+\_\+\+DQPSK\+\_\+1) и поля для отображения результатов АРСФ декодирования (MSG\+\_\+\+DQPSK\+\_\+2, MSG\+\_\+\+DQPSK\+\_\+3, MSG\+\_\+\+DQPSK\+\_\+4, MSG\+\_\+\+DQPSK\+\_\+5). Также сбрасывает счётчик \doxylink{_l_c_d__lib_8c_a0efe09d8a193aa45418e4c33c4f420c2}{No\+Result\+Counter} таймера \doxylink{_t_i_m__lib_8c_aaebebda4c5e39aee196bc2573f9a705f}{TIM4}. \Hypertarget{_l_c_d__lib_8c_a67d65e7546dc387e220507035c7c4346}\label{_l_c_d__lib_8c_a67d65e7546dc387e220507035c7c4346} 
 \index{LCD\_lib.c@{LCD\_lib.c}!LCD\_DQPSK\_Result@{LCD\_DQPSK\_Result}}
 \index{LCD\_DQPSK\_Result@{LCD\_DQPSK\_Result}!LCD\_lib.c@{LCD\_lib.c}}
 \doxysubsubsection{\texorpdfstring{LCD\_DQPSK\_Result()}{LCD\_DQPSK\_Result()}}
@@ -290,7 +290,7 @@ hardware перезагрузка LCD экрана
 
 Переводит LCD экран в режим отображения АРС кодов 
 
-Закрашивает экран в белый, выводит на экран обозначение режима работы (MSG\+\_\+\+Freq\+\_\+1) и поля для отображения результатов АРС декодирования (MSG\+\_\+\+Freq\+\_\+2, MSG\+\_\+\+Freq\+\_\+3, MSG\+\_\+\+Freq\+\_\+6). Также сбрасывает счётчик \doxylink{_l_c_d__lib_8c_a0efe09d8a193aa45418e4c33c4f420c2}{No\+Result\+Counter} таймера TIM4. \Hypertarget{_l_c_d__lib_8c_a9d046a321b80f763b5cdf78b26c0fbe2}\label{_l_c_d__lib_8c_a9d046a321b80f763b5cdf78b26c0fbe2} 
+Закрашивает экран в белый, выводит на экран обозначение режима работы (MSG\+\_\+\+Freq\+\_\+1) и поля для отображения результатов АРС декодирования (MSG\+\_\+\+Freq\+\_\+2, MSG\+\_\+\+Freq\+\_\+3, MSG\+\_\+\+Freq\+\_\+6). Также сбрасывает счётчик \doxylink{_l_c_d__lib_8c_a0efe09d8a193aa45418e4c33c4f420c2}{No\+Result\+Counter} таймера \doxylink{_t_i_m__lib_8c_aaebebda4c5e39aee196bc2573f9a705f}{TIM4}. \Hypertarget{_l_c_d__lib_8c_a9d046a321b80f763b5cdf78b26c0fbe2}\label{_l_c_d__lib_8c_a9d046a321b80f763b5cdf78b26c0fbe2} 
 \index{LCD\_lib.c@{LCD\_lib.c}!LCD\_Freq\_Result@{LCD\_Freq\_Result}}
 \index{LCD\_Freq\_Result@{LCD\_Freq\_Result}!LCD\_lib.c@{LCD\_lib.c}}
 \doxysubsubsection{\texorpdfstring{LCD\_Freq\_Result()}{LCD\_Freq\_Result()}}
@@ -469,7 +469,7 @@ software перезагрузка LCD экрана
 \doxysubsubsection{\texorpdfstring{NoResultCounter}{NoResultCounter}}
 {\footnotesize\ttfamily uint8\+\_\+t No\+Result\+Counter = 3}
 
-Зависит от количества безрезультатных (сигнал не удалось декодировать) приёмов сигнала подряд. extern переменная, уменьшается в TMR4\+\_\+\+Event\+Callback() с периодом 500ms. Если No\+Result\+Counter = 0 (т.\+е. в течении \texorpdfstring{$\sim$}{\string~}1 секунды не произошло удачного декодирования), то вызывается \doxylink{_l_c_d__lib_8c_ad4fcbc10f1d0f8b3738d929d33386ccc}{LCD\+\_\+\+Show\+\_\+\+No\+\_\+\+Result()} \Hypertarget{_l_c_d__lib_8c_ac24684fc351237f8c32cad80903246bc}\label{_l_c_d__lib_8c_ac24684fc351237f8c32cad80903246bc} 
+Зависит от количества безрезультатных (сигнал не удалось декодировать) приёмов сигнала подряд. extern переменная, уменьшается в \doxylink{_t_i_m__lib_8c_aaebebda4c5e39aee196bc2573f9a705f}{TMR4\+\_\+\+Event\+Callback()} с периодом 500ms. Если No\+Result\+Counter = 0 (т.\+е. в течении \texorpdfstring{$\sim$}{\string~}1 секунды не произошло удачного декодирования), то вызывается \doxylink{_l_c_d__lib_8c_ad4fcbc10f1d0f8b3738d929d33386ccc}{LCD\+\_\+\+Show\+\_\+\+No\+\_\+\+Result()} \Hypertarget{_l_c_d__lib_8c_ac24684fc351237f8c32cad80903246bc}\label{_l_c_d__lib_8c_ac24684fc351237f8c32cad80903246bc} 
 \index{LCD\_lib.c@{LCD\_lib.c}!NoResultState@{NoResultState}}
 \index{NoResultState@{NoResultState}!LCD\_lib.c@{LCD\_lib.c}}
 \doxysubsubsection{\texorpdfstring{NoResultState}{NoResultState}}

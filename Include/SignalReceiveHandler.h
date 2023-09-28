@@ -6,7 +6,7 @@
 #define POWER_SUPPLY				(3300)  //3300 mV напряжение питания
 #define INPUT_AMPLITUDE				(3000)	//Амплитуда входного сигнала
 #define TICKS_NUM					(5376)  //(32 + 5*8*16)*8 - количество тактов таймера на каждую ФРМ послыку
-#define FFT_N						(256)
+#define FFT_N						(256)	//Количество данных, используемых при БПФ
 
 #include "main.h"
 
@@ -18,7 +18,6 @@ uint8_t ReadyToStartReceive(double);
 uint8_t CatchPackageStart(double, double, uint64_t*);
 void FasleActivationCatch(double, double, uint8_t*);
 void HandlerVarReInit(void);
-uint8_t GetStartSign(void);
 void ReceiveStop(double*, double*, uint16_t*);
 
 #endif

@@ -1,0 +1,302 @@
+\doxysection{Documents/\+Keil/\+DQPSK\+\_\+plus\+\_\+\+Freq/\+Source/\+TIM\+\_\+lib.c File Reference}
+\hypertarget{_t_i_m__lib_8c}{}\label{_t_i_m__lib_8c}\index{Documents/Keil/DQPSK\_plus\_Freq/Source/TIM\_lib.c@{Documents/Keil/DQPSK\_plus\_Freq/Source/TIM\_lib.c}}
+
+
+Функции для работы с прерываниями таймеров  
+
+
+{\ttfamily \#include \"{}TIM\+\_\+lib.\+h\"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_t_i_m__lib_8c_ad4667872eeecb6411675ef94133723fd}{TMR2\+\_\+\+Init}} ()
+\begin{DoxyCompactList}\small\item\em Инициализация таймера TIM2. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_t_i_m__lib_8c_a9d47a34e2c52ccf4c024d63bf7172903}{TMR3\+\_\+\+Init}} ()
+\begin{DoxyCompactList}\small\item\em Инициализация таймера TIM3. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_t_i_m__lib_8c_aa6fb208c5073bb9ca92da2606a78df00}{TMR4\+\_\+\+Init}} ()
+\begin{DoxyCompactList}\small\item\em Инициализация таймера TIM4. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_t_i_m__lib_8c_a8a79c36e2eef10dc903cea4c011028b3}{TMR2\+\_\+\+Event\+Callback}} ()
+\begin{DoxyCompactList}\small\item\em Прерывание таймера TIM2. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_t_i_m__lib_8c_ae928af867d4f146922f1cb3af9bbf017}{TMR3\+\_\+\+Event\+Callback}} (void)
+\begin{DoxyCompactList}\small\item\em Прерывание таймера TIM3. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_t_i_m__lib_8c_aaebebda4c5e39aee196bc2573f9a705f}{TMR4\+\_\+\+Event\+Callback}} (void)
+\begin{DoxyCompactList}\small\item\em Прерывание таймера TIM4. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_t_i_m__lib_8c_ab3a65c2b73922e31541ebbd6beeded46}{Spectrum\+Var\+Re\+Init}} ()
+\begin{DoxyCompactList}\small\item\em Обнуление переменных и массивов, используемых в АРС режиме \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_t_i_m__lib_8c_a2f9bd7b9273ce18ca6275e4a3f943eda}{Var\+Re\+Init}} ()
+\begin{DoxyCompactList}\small\item\em Обнуление переменных и массивов, используемых в АРСФ режиме \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_t_i_m__lib_8c_a7b9e5342fe44b8cef1b6c3fbfba6eaac}{Flags\+Clear}} ()
+\begin{DoxyCompactList}\small\item\em Очистка флагов перефирии \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_t_i_m__lib_8c_a65abd7c55078faafaee66951c6aa38e2}{False\+Activation}} = 0
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_t_i_m__lib_8c_a06d87010c135671bee571365d31ba043}{Low\+Level}} = 1
+\item 
+uint16\+\_\+t \mbox{\hyperlink{_t_i_m__lib_8c_af7eacd3464df86c7d1cfc2f6435e76b8}{fft\+\_\+pos}} = 0
+\item 
+uint16\+\_\+t \mbox{\hyperlink{_t_i_m__lib_8c_ad14650db362e7e1e1d34b5a4084cc9f1}{End\+Of\+Sample}} \mbox{[}8 \texorpdfstring{$\ast$}{*}5+2+1\mbox{]} = \{0\}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{_t_i_m__lib_8c_a2c38447b8253c8df855e3131c95941a1}{tick}} = 0
+\item 
+uint16\+\_\+t \mbox{\hyperlink{_t_i_m__lib_8c_a74adc192bb0536a83f57a129efa1400f}{voltage\+Buff\+Counter}} = 0
+\item 
+double \mbox{\hyperlink{_t_i_m__lib_8c_a43d2c695c558f49cb2df8c0745c28531}{Zero\+Cross\+Timings}} \mbox{[}700\mbox{]} = \{0\}
+\item 
+double \mbox{\hyperlink{_t_i_m__lib_8c_a7558533ab0553c6f22905cb4a83f93c3}{Voltages\+Data}} \mbox{[}(32+5 \texorpdfstring{$\ast$}{*}8 \texorpdfstring{$\ast$}{*}16) \texorpdfstring{$\ast$}{*}8\mbox{]} = \{0\}
+\item 
+double \mbox{\hyperlink{_t_i_m__lib_8c_a2093496d4e94f2686e755b4836a9586f}{Real\+Voltage}} = 0
+\item 
+double \mbox{\hyperlink{_t_i_m__lib_8c_a0c8f21a03cfb93d09d39d6afb04fbf5a}{Prev\+Voltage}} = 0
+\item 
+double \mbox{\hyperlink{_t_i_m__lib_8c_a023d44daad4b1ebc1b7dfe8ed37cc27b}{FFT\+\_\+\+Buff}} \mbox{[}FFT\+\_\+N\mbox{]} = \{0\}
+\item 
+double \mbox{\hyperlink{_t_i_m__lib_8c_a42489e419158b2e29f4d5ab5631ebc1f}{voltage\+Buff}} \mbox{[}VOL\+\_\+\+BUF\+\_\+\+LEN\mbox{]} = \{0\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Функции для работы с прерываниями таймеров 
+
+\begin{DoxyVersion}{Version}
+V1.\+0.\+0
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+12-\/09-\/2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_t_i_m__lib_8c_a7b9e5342fe44b8cef1b6c3fbfba6eaac}\label{_t_i_m__lib_8c_a7b9e5342fe44b8cef1b6c3fbfba6eaac} 
+\index{TIM\_lib.c@{TIM\_lib.c}!FlagsClear@{FlagsClear}}
+\index{FlagsClear@{FlagsClear}!TIM\_lib.c@{TIM\_lib.c}}
+\doxysubsubsection{\texorpdfstring{FlagsClear()}{FlagsClear()}}
+{\footnotesize\ttfamily void Flags\+Clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Очистка флагов перефирии 
+
+Очищает флаги прерываний таймеров TIM2 и TIM3, а также флаг готовности АЦП к передачи текущего принятого значения напряжения \Hypertarget{_t_i_m__lib_8c_ab3a65c2b73922e31541ebbd6beeded46}\label{_t_i_m__lib_8c_ab3a65c2b73922e31541ebbd6beeded46} 
+\index{TIM\_lib.c@{TIM\_lib.c}!SpectrumVarReInit@{SpectrumVarReInit}}
+\index{SpectrumVarReInit@{SpectrumVarReInit}!TIM\_lib.c@{TIM\_lib.c}}
+\doxysubsubsection{\texorpdfstring{SpectrumVarReInit()}{SpectrumVarReInit()}}
+{\footnotesize\ttfamily void Spectrum\+Var\+Re\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Обнуление переменных и массивов, используемых в АРС режиме 
+
+Обнуляемые переменные и массивы\+:
+\begin{DoxyItemize}
+\item \doxylink{_t_i_m__lib_8c_a023d44daad4b1ebc1b7dfe8ed37cc27b}{FFT\+\_\+\+Buff}
+\item \doxylink{_t_i_m__lib_8c_a42489e419158b2e29f4d5ab5631ebc1f}{voltage\+Buff}
+\item \doxylink{_t_i_m__lib_8c_a74adc192bb0536a83f57a129efa1400f}{voltage\+Buff\+Counter}
+\item \doxylink{_t_i_m__lib_8c_af7eacd3464df86c7d1cfc2f6435e76b8}{fft\+\_\+pos}
+\item \doxylink{_t_i_m__lib_8c_a06d87010c135671bee571365d31ba043}{Low\+Level}
+\end{DoxyItemize}
+
+Используется в KEY1\+\_\+\+IRQHandler() при переключении режимов работы устройства и в Spectrum\+Analysis() после окончания приёма АРС сигнала \Hypertarget{_t_i_m__lib_8c_a8a79c36e2eef10dc903cea4c011028b3}\label{_t_i_m__lib_8c_a8a79c36e2eef10dc903cea4c011028b3} 
+\index{TIM\_lib.c@{TIM\_lib.c}!TMR2\_EventCallback@{TMR2\_EventCallback}}
+\index{TMR2\_EventCallback@{TMR2\_EventCallback}!TIM\_lib.c@{TIM\_lib.c}}
+\doxysubsubsection{\texorpdfstring{TMR2\_EventCallback()}{TMR2\_EventCallback()}}
+{\footnotesize\ttfamily void TMR2\+\_\+\+Event\+Callback (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Прерывание таймера TIM2. 
+
+Прерывание таймера TIM2 обеспечивает приём АРСФ пакетов и запуск демодуляции полученного пакета.
+
+Принцип работы функции следующий\+:
+\begin{DoxyItemize}
+\item Считывется текущее значение \"{}подлинного\"{} напряжения на линии АЦП (см. \doxylink{_a_d_c__lib_8c_aefac2e00e12a4d31bde8f7ee88c96c3d}{Get\+Real\+Voltage})
+\item Производится проверка готовности системы к приёму нового АРСФ пакета (см. \doxylink{_signal_receive_handler_8c_aefeec6db79e536a31f0d889d4b39b64e}{Ready\+To\+Start\+Receive}). Если в настоящий момент прозводится приём пакета, то проверка не произвоится
+\item Определение текущего момента времени на соответсвие началу нового АРСФ пакета (см. \doxylink{_signal_receive_handler_8c_afb21728292519ac5322ab0709ed8a987}{Catch\+Package\+Start}). Если в настоящий момент прозводится приём пакета, то определение начала пакета не производится
+\item Если предыдущие проверки не инициировали выход из функции прерывания, то считается, что в настоящий момент производится приём АРСФ пакета. В действительности, это не всегда так, поэтому производится проверка текущего приёма на ложное срабатывание (см. \doxylink{_signal_receive_handler_8c_aa7a4e39e588af7e90209b4822d951e60}{Fasle\+Activation\+Catch})
+\item Если в течении заданного времени (5376 тиков или 201 мс), что соответсвует полному АРСФ пакету, не был определён ложный приём, то функция инициирует анализ принятого пакета. Полученные в течении времени приёма данные в \doxylink{_t_i_m__lib_8c_a7558533ab0553c6f22905cb4a83f93c3}{Voltages\+Data} используются для анализа амплитуды в \doxylink{_a_m_p_8c_adbea7f0464f380bf508408bb38fbb5a9}{Amlitude\+Analysis()} и для демодуляции сигнала в \doxylink{_signal_receive_handler_8c_ab53fdddca3f5eb3f9d44cdb67de13707}{Receive\+Stop()} 
+\end{DoxyItemize}\Hypertarget{_t_i_m__lib_8c_ad4667872eeecb6411675ef94133723fd}\label{_t_i_m__lib_8c_ad4667872eeecb6411675ef94133723fd} 
+\index{TIM\_lib.c@{TIM\_lib.c}!TMR2\_Init@{TMR2\_Init}}
+\index{TMR2\_Init@{TMR2\_Init}!TIM\_lib.c@{TIM\_lib.c}}
+\doxysubsubsection{\texorpdfstring{TMR2\_Init()}{TMR2\_Init()}}
+{\footnotesize\ttfamily void TMR2\+\_\+\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Инициализация таймера TIM2. 
+
+Прерывание таймера TIM2 используется для приёма АРСФ пакетов. Таймер инициализируется со следующими параметрами\+:
+\begin{DoxyItemize}
+\item Частота 26785,71 Гц
+\item Период 3,7(3)е-\/5 с
+\end{DoxyItemize}
+
+Частота таймера выбрана таким образом, чтобы на каждый период принимаемой АРСФ несущей приходилось ровно 8 прерываний таймера Так, частота АРСФ несущей равна 3348,21 тогда количество прерываний на период\+: 26785,71/3348,21 = 8,00001. Такая частота таймера была выбрана как оптимальное значение из рассчета на количество измерений на период и вероятности возникновения ошибки т.\+е. остатка от деления частоты таймера на частоту несущей. Например, при выборе частоты, десятикратно превышающей несущую т.\+е. 10 прерываний на период, мы путём подбора делителя сможем достигнуть наиближайшей к 3348,21 \texorpdfstring{$\ast$}{*} 10 частоте в 33492,82 Гц. Тогда 33492,82/3348,21 = 10,003. Остаток отделения заметно больше, значит вероятность \"{}перескока\"{} гораздо выше. Под \"{}перескоком\"{} подразумевается ситуация, когда измерения по текущему периоду происходят таким образом, что на период приходится на одно измерение больше, чем подразумевается. Происходит это из-\/за неточной кратности частоты и приводит к возникновению подобий фазовых переходов в местах, где их быть не должно.
+
+На количество прерываний на период завязана, по большей части, вся демодуляция АРСФ пакетов и их приём. \Hypertarget{_t_i_m__lib_8c_ae928af867d4f146922f1cb3af9bbf017}\label{_t_i_m__lib_8c_ae928af867d4f146922f1cb3af9bbf017} 
+\index{TIM\_lib.c@{TIM\_lib.c}!TMR3\_EventCallback@{TMR3\_EventCallback}}
+\index{TMR3\_EventCallback@{TMR3\_EventCallback}!TIM\_lib.c@{TIM\_lib.c}}
+\doxysubsubsection{\texorpdfstring{TMR3\_EventCallback()}{TMR3\_EventCallback()}}
+{\footnotesize\ttfamily void TMR3\+\_\+\+Event\+Callback (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Прерывание таймера TIM3. 
+
+Прерывание таймера TIM3 обеспечивает приём АРС сигнала и запуск частотного анализа полученного сигнала.
+
+Принцип работы функции следующий\+:
+\begin{DoxyItemize}
+\item Считывется текущее значение \"{}подлинного\"{} напряжения на линии АЦП (см. \doxylink{_a_d_c__lib_8c_aefac2e00e12a4d31bde8f7ee88c96c3d}{Get\+Real\+Voltage})
+\item Производится проверка полученного сигнала на соответсвие сигналу высокого уровня (см. \doxylink{_t_i_m__lib_8c_a06d87010c135671bee571365d31ba043}{Low\+Level})
+\item Заполнение массивов \doxylink{_t_i_m__lib_8c_a42489e419158b2e29f4d5ab5631ebc1f}{voltage\+Buff} и \doxylink{_t_i_m__lib_8c_a023d44daad4b1ebc1b7dfe8ed37cc27b}{FFT\+\_\+\+Buff}
+\item После приёма VOL\+\_\+\+BUF\+\_\+\+LEN значений, функция инициирует спектральный анализ полученного сигнала (см. Spectrum\+Analysis) 
+\end{DoxyItemize}\Hypertarget{_t_i_m__lib_8c_a9d47a34e2c52ccf4c024d63bf7172903}\label{_t_i_m__lib_8c_a9d47a34e2c52ccf4c024d63bf7172903} 
+\index{TIM\_lib.c@{TIM\_lib.c}!TMR3\_Init@{TMR3\_Init}}
+\index{TMR3\_Init@{TMR3\_Init}!TIM\_lib.c@{TIM\_lib.c}}
+\doxysubsubsection{\texorpdfstring{TMR3\_Init()}{TMR3\_Init()}}
+{\footnotesize\ttfamily void TMR3\+\_\+\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Инициализация таймера TIM3. 
+
+Прерывание таймера TIM3 используется для приёма АРС сигнала. Таймер инициализируется со следующими параметрами\+:
+\begin{DoxyItemize}
+\item Частота 6399,51 Гц
+\item Период 1,563е-\/4 с
+\end{DoxyItemize}
+
+Частота таймера выбрана в согласовании с размером буфера \doxylink{_t_i_m__lib_8c_a023d44daad4b1ebc1b7dfe8ed37cc27b}{FFT\+\_\+\+Buff} таким образом, чтобы шаг частоты частотного анализа составлял 25 Гц. Благодаря этому, устройство может чётко отличить АРС код 75 Гц и 125 Гц, где разница в частотах составляет 50 Гц (справедливо и для других соседних кодов) \Hypertarget{_t_i_m__lib_8c_aaebebda4c5e39aee196bc2573f9a705f}\label{_t_i_m__lib_8c_aaebebda4c5e39aee196bc2573f9a705f} 
+\index{TIM\_lib.c@{TIM\_lib.c}!TMR4\_EventCallback@{TMR4\_EventCallback}}
+\index{TMR4\_EventCallback@{TMR4\_EventCallback}!TIM\_lib.c@{TIM\_lib.c}}
+\doxysubsubsection{\texorpdfstring{TMR4\_EventCallback()}{TMR4\_EventCallback()}}
+{\footnotesize\ttfamily void TMR4\+\_\+\+Event\+Callback (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Прерывание таймера TIM4. 
+
+Прерывание таймера TIM4 обеспечивает информирование системы об отсутсвии приёма сигнала на линии.
+
+Принцип работы функции следующий\+:
+\begin{DoxyItemize}
+\item Если \doxylink{_l_c_d__lib_8c_a0efe09d8a193aa45418e4c33c4f420c2}{No\+Result\+Counter} == 0, то инициируется отображение отсутсвия приёма на LCD экране (см. \doxylink{_l_c_d__lib_8c_ad4fcbc10f1d0f8b3738d929d33386ccc}{LCD\+\_\+\+Show\+\_\+\+No\+\_\+\+Result})
+\item Если \doxylink{_l_c_d__lib_8c_a0efe09d8a193aa45418e4c33c4f420c2}{No\+Result\+Counter} != 0, то \doxylink{_l_c_d__lib_8c_a0efe09d8a193aa45418e4c33c4f420c2}{No\+Result\+Counter} уменьшается на единицу
+\end{DoxyItemize}
+
+При каждом новом успешном приёме сигнала (АРС или АРСФ), переменной \doxylink{_l_c_d__lib_8c_a0efe09d8a193aa45418e4c33c4f420c2}{No\+Result\+Counter} присваевается значение 3, происходит это в \doxylink{_l_c_d__lib_8c_a67d65e7546dc387e220507035c7c4346}{LCD\+\_\+\+DQPSK\+\_\+\+Result} и \doxylink{_l_c_d__lib_8c_a9d046a321b80f763b5cdf78b26c0fbe2}{LCD\+\_\+\+Freq\+\_\+\+Result} для АРСФ и АРС режимов соответсвенно. Таким образом, если в течении трёх стабатываний прерывания таймера TMR4 не было произведено удачного приёма, то вызывается \doxylink{_l_c_d__lib_8c_ad4fcbc10f1d0f8b3738d929d33386ccc}{LCD\+\_\+\+Show\+\_\+\+No\+\_\+\+Result()} \Hypertarget{_t_i_m__lib_8c_aa6fb208c5073bb9ca92da2606a78df00}\label{_t_i_m__lib_8c_aa6fb208c5073bb9ca92da2606a78df00} 
+\index{TIM\_lib.c@{TIM\_lib.c}!TMR4\_Init@{TMR4\_Init}}
+\index{TMR4\_Init@{TMR4\_Init}!TIM\_lib.c@{TIM\_lib.c}}
+\doxysubsubsection{\texorpdfstring{TMR4\_Init()}{TMR4\_Init()}}
+{\footnotesize\ttfamily void TMR4\+\_\+\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Инициализация таймера TIM4. 
+
+Прерывание таймера TIM4 используется для определения времени без приёма АРСФ пакета или АРС сигнала.
+
+Таймер инициализируется со следующими параметрами\+:
+\begin{DoxyItemize}
+\item Частота 2 Гц
+\item Период 0,5 с 
+\end{DoxyItemize}\Hypertarget{_t_i_m__lib_8c_a2f9bd7b9273ce18ca6275e4a3f943eda}\label{_t_i_m__lib_8c_a2f9bd7b9273ce18ca6275e4a3f943eda} 
+\index{TIM\_lib.c@{TIM\_lib.c}!VarReInit@{VarReInit}}
+\index{VarReInit@{VarReInit}!TIM\_lib.c@{TIM\_lib.c}}
+\doxysubsubsection{\texorpdfstring{VarReInit()}{VarReInit()}}
+{\footnotesize\ttfamily void Var\+Re\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Обнуление переменных и массивов, используемых в АРСФ режиме 
+
+Обнуляемые переменные и массивы\+:
+\begin{DoxyItemize}
+\item \doxylink{_t_i_m__lib_8c_a2c38447b8253c8df855e3131c95941a1}{tick}
+\item \doxylink{_t_i_m__lib_8c_a0c8f21a03cfb93d09d39d6afb04fbf5a}{Prev\+Voltage}
+\item \doxylink{_t_i_m__lib_8c_a65abd7c55078faafaee66951c6aa38e2}{False\+Activation}
+\item \doxylink{_t_i_m__lib_8c_af7eacd3464df86c7d1cfc2f6435e76b8}{fft\+\_\+pos}
+\item \doxylink{_t_i_m__lib_8c_a43d2c695c558f49cb2df8c0745c28531}{Zero\+Cross\+Timings}
+\item \doxylink{_t_i_m__lib_8c_ad14650db362e7e1e1d34b5a4084cc9f1}{End\+Of\+Sample}
+\item \doxylink{_t_i_m__lib_8c_a7558533ab0553c6f22905cb4a83f93c3}{Voltages\+Data}
+\item \doxylink{_t_i_m__lib_8c_a42489e419158b2e29f4d5ab5631ebc1f}{voltage\+Buff}
+\end{DoxyItemize}
+
+Также запускает \doxylink{_signal_receive_handler_8c_a77eede80ed2cacdccb407546376b853b}{Handler\+Var\+Re\+Init()}. Используется в KEY1\+\_\+\+IRQHandler() при переключении режимов работы устройства и в \doxylink{_signal_receive_handler_8c_ab53fdddca3f5eb3f9d44cdb67de13707}{Receive\+Stop()} после окончания приёма АРСФ пакетов 
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{_t_i_m__lib_8c_ad14650db362e7e1e1d34b5a4084cc9f1}\label{_t_i_m__lib_8c_ad14650db362e7e1e1d34b5a4084cc9f1} 
+\index{TIM\_lib.c@{TIM\_lib.c}!EndOfSample@{EndOfSample}}
+\index{EndOfSample@{EndOfSample}!TIM\_lib.c@{TIM\_lib.c}}
+\doxysubsubsection{\texorpdfstring{EndOfSample}{EndOfSample}}
+{\footnotesize\ttfamily uint16\+\_\+t End\+Of\+Sample\mbox{[}8 \texorpdfstring{$\ast$}{*}5+2+1\mbox{]} = \{0\}}
+
+Содержит информацию о временных промежутках (в тиках таймера), которые соотвутсвуют началу и концу найденных фазовых переходов (конец предыдущего -\/ начало следующего). Значения элементов End\+Of\+Sample определяются в Zero\+Cross\+Analysis() и используются в Demodulation() \Hypertarget{_t_i_m__lib_8c_a65abd7c55078faafaee66951c6aa38e2}\label{_t_i_m__lib_8c_a65abd7c55078faafaee66951c6aa38e2} 
+\index{TIM\_lib.c@{TIM\_lib.c}!FalseActivation@{FalseActivation}}
+\index{FalseActivation@{FalseActivation}!TIM\_lib.c@{TIM\_lib.c}}
+\doxysubsubsection{\texorpdfstring{FalseActivation}{FalseActivation}}
+{\footnotesize\ttfamily uint8\+\_\+t False\+Activation = 0}
+
+Содержит информацию о том, что текущий приём пакета был определён как ложный (см. \doxylink{_signal_receive_handler_8c_aa7a4e39e588af7e90209b4822d951e60}{Fasle\+Activation\+Catch}) \Hypertarget{_t_i_m__lib_8c_a023d44daad4b1ebc1b7dfe8ed37cc27b}\label{_t_i_m__lib_8c_a023d44daad4b1ebc1b7dfe8ed37cc27b} 
+\index{TIM\_lib.c@{TIM\_lib.c}!FFT\_Buff@{FFT\_Buff}}
+\index{FFT\_Buff@{FFT\_Buff}!TIM\_lib.c@{TIM\_lib.c}}
+\doxysubsubsection{\texorpdfstring{FFT\_Buff}{FFT\_Buff}}
+{\footnotesize\ttfamily double FFT\+\_\+\+Buff\mbox{[}FFT\+\_\+N\mbox{]} = \{0\}}
+
+Массив, хранящий выборку данных для частотного анализа АРС пакета. Заполняется в прерывании таймера \doxylink{_t_i_m__lib_8c_ae928af867d4f146922f1cb3af9bbf017}{TMR3\+\_\+\+Event\+Callback}. Подробнее в Spectrum\+Analysis \Hypertarget{_t_i_m__lib_8c_af7eacd3464df86c7d1cfc2f6435e76b8}\label{_t_i_m__lib_8c_af7eacd3464df86c7d1cfc2f6435e76b8} 
+\index{TIM\_lib.c@{TIM\_lib.c}!fft\_pos@{fft\_pos}}
+\index{fft\_pos@{fft\_pos}!TIM\_lib.c@{TIM\_lib.c}}
+\doxysubsubsection{\texorpdfstring{fft\_pos}{fft\_pos}}
+{\footnotesize\ttfamily uint16\+\_\+t fft\+\_\+pos = 0}
+
+Счётчик позиции текущего элемента для записи в \doxylink{_t_i_m__lib_8c_a023d44daad4b1ebc1b7dfe8ed37cc27b}{FFT\+\_\+\+Buff}. Изменяется и используется в \doxylink{_t_i_m__lib_8c_ae928af867d4f146922f1cb3af9bbf017}{TMR3\+\_\+\+Event\+Callback} \Hypertarget{_t_i_m__lib_8c_a06d87010c135671bee571365d31ba043}\label{_t_i_m__lib_8c_a06d87010c135671bee571365d31ba043} 
+\index{TIM\_lib.c@{TIM\_lib.c}!LowLevel@{LowLevel}}
+\index{LowLevel@{LowLevel}!TIM\_lib.c@{TIM\_lib.c}}
+\doxysubsubsection{\texorpdfstring{LowLevel}{LowLevel}}
+{\footnotesize\ttfamily uint8\+\_\+t Low\+Level = 1}
+
+Содержит информацию о том, что текущий приём АРС сигнала некачественный (сигнал низкого уровня). Значение Low\+Level = 1 соответсвует сигналу низкого уровня. Значение Low\+Level = 0 соответсвует сигналу высокого уровня. Значение Low\+Level определяется в \doxylink{_t_i_m__lib_8c_ae928af867d4f146922f1cb3af9bbf017}{TMR3\+\_\+\+Event\+Callback} и используется при определении частоты принятого АРС сигнала (см. Spectrum\+Analysis) \Hypertarget{_t_i_m__lib_8c_a0c8f21a03cfb93d09d39d6afb04fbf5a}\label{_t_i_m__lib_8c_a0c8f21a03cfb93d09d39d6afb04fbf5a} 
+\index{TIM\_lib.c@{TIM\_lib.c}!PrevVoltage@{PrevVoltage}}
+\index{PrevVoltage@{PrevVoltage}!TIM\_lib.c@{TIM\_lib.c}}
+\doxysubsubsection{\texorpdfstring{PrevVoltage}{PrevVoltage}}
+{\footnotesize\ttfamily double Prev\+Voltage = 0}
+
+Предыдущее значение напряжения (полученное при предшествующем прерывании таймера \doxylink{_t_i_m__lib_8c_a8a79c36e2eef10dc903cea4c011028b3}{TMR2\+\_\+\+Event\+Callback}) \Hypertarget{_t_i_m__lib_8c_a2093496d4e94f2686e755b4836a9586f}\label{_t_i_m__lib_8c_a2093496d4e94f2686e755b4836a9586f} 
+\index{TIM\_lib.c@{TIM\_lib.c}!RealVoltage@{RealVoltage}}
+\index{RealVoltage@{RealVoltage}!TIM\_lib.c@{TIM\_lib.c}}
+\doxysubsubsection{\texorpdfstring{RealVoltage}{RealVoltage}}
+{\footnotesize\ttfamily double Real\+Voltage = 0}
+
+Текущее значение полученного на АЦП \"{}действительного\"{} напряжения в милливольтах. Подробнее в \doxylink{_a_d_c__lib_8c_aefac2e00e12a4d31bde8f7ee88c96c3d}{Get\+Real\+Voltage} \Hypertarget{_t_i_m__lib_8c_a2c38447b8253c8df855e3131c95941a1}\label{_t_i_m__lib_8c_a2c38447b8253c8df855e3131c95941a1} 
+\index{TIM\_lib.c@{TIM\_lib.c}!tick@{tick}}
+\index{tick@{tick}!TIM\_lib.c@{TIM\_lib.c}}
+\doxysubsubsection{\texorpdfstring{tick}{tick}}
+{\footnotesize\ttfamily uint64\+\_\+t tick = 0}
+
+Значение тика таймера (счётчик срабатываний прерывания) с начала приёма текщуего АРСФ пакета \Hypertarget{_t_i_m__lib_8c_a42489e419158b2e29f4d5ab5631ebc1f}\label{_t_i_m__lib_8c_a42489e419158b2e29f4d5ab5631ebc1f} 
+\index{TIM\_lib.c@{TIM\_lib.c}!voltageBuff@{voltageBuff}}
+\index{voltageBuff@{voltageBuff}!TIM\_lib.c@{TIM\_lib.c}}
+\doxysubsubsection{\texorpdfstring{voltageBuff}{voltageBuff}}
+{\footnotesize\ttfamily double voltage\+Buff\mbox{[}VOL\+\_\+\+BUF\+\_\+\+LEN\mbox{]} = \{0\}}
+
+Массив, хранящий данные о принятом АРС сигнале в виде значений напряжения. Заполняется в прерывании таймера \doxylink{_t_i_m__lib_8c_ae928af867d4f146922f1cb3af9bbf017}{TMR3\+\_\+\+Event\+Callback}. Используется для определения амплитуды принятого АРС сигнала в \doxylink{_a_m_p_8c_adbea7f0464f380bf508408bb38fbb5a9}{Amlitude\+Analysis} \Hypertarget{_t_i_m__lib_8c_a74adc192bb0536a83f57a129efa1400f}\label{_t_i_m__lib_8c_a74adc192bb0536a83f57a129efa1400f} 
+\index{TIM\_lib.c@{TIM\_lib.c}!voltageBuffCounter@{voltageBuffCounter}}
+\index{voltageBuffCounter@{voltageBuffCounter}!TIM\_lib.c@{TIM\_lib.c}}
+\doxysubsubsection{\texorpdfstring{voltageBuffCounter}{voltageBuffCounter}}
+{\footnotesize\ttfamily uint16\+\_\+t voltage\+Buff\+Counter = 0}
+
+Счётчик позиции текущего элемента для записи в \doxylink{_t_i_m__lib_8c_a42489e419158b2e29f4d5ab5631ebc1f}{voltage\+Buff}. Используется для определения уровня напряжения для текущего приёма АРС сигнала. Изменяется и используется в \doxylink{_t_i_m__lib_8c_ae928af867d4f146922f1cb3af9bbf017}{TMR3\+\_\+\+Event\+Callback} \Hypertarget{_t_i_m__lib_8c_a7558533ab0553c6f22905cb4a83f93c3}\label{_t_i_m__lib_8c_a7558533ab0553c6f22905cb4a83f93c3} 
+\index{TIM\_lib.c@{TIM\_lib.c}!VoltagesData@{VoltagesData}}
+\index{VoltagesData@{VoltagesData}!TIM\_lib.c@{TIM\_lib.c}}
+\doxysubsubsection{\texorpdfstring{VoltagesData}{VoltagesData}}
+{\footnotesize\ttfamily double Voltages\+Data\mbox{[}(32+5 \texorpdfstring{$\ast$}{*}8 \texorpdfstring{$\ast$}{*}16) \texorpdfstring{$\ast$}{*}8\mbox{]} = \{0\}}
+
+Содержит данные по принятом пакете в виде значений напряжения, полученное при каждом прерывании таймера \doxylink{_t_i_m__lib_8c_a8a79c36e2eef10dc903cea4c011028b3}{TMR2\+\_\+\+Event\+Callback}. Используется для демодуляции полученного АРСФ пакета. Также используется в \doxylink{_a_m_p_8c_adbea7f0464f380bf508408bb38fbb5a9}{Amlitude\+Analysis} для определения амплитуды полученного пакета \Hypertarget{_t_i_m__lib_8c_a43d2c695c558f49cb2df8c0745c28531}\label{_t_i_m__lib_8c_a43d2c695c558f49cb2df8c0745c28531} 
+\index{TIM\_lib.c@{TIM\_lib.c}!ZeroCrossTimings@{ZeroCrossTimings}}
+\index{ZeroCrossTimings@{ZeroCrossTimings}!TIM\_lib.c@{TIM\_lib.c}}
+\doxysubsubsection{\texorpdfstring{ZeroCrossTimings}{ZeroCrossTimings}}
+{\footnotesize\ttfamily double Zero\+Cross\+Timings\mbox{[}700\mbox{]} = \{0\}}
+
+Содержит время переходов сигнала через 0V (снизу). Подробнее в Zero\+Cross\+Analysis 

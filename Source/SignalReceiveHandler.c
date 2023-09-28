@@ -11,7 +11,8 @@
 
 #include "SignalReceiveHandler.h"
 
-//#define DEBUG
+//#define DEBUG 						//Разкомментить для отправки по USART информации о процессе анализа принятого пакета
+										//(EndOfSample, ZeroVoltageCounter, High/LowBinData)
 
 uint8_t ZeroVoltageCounter = 0;			/*!< Содержит информацию о количестве приёмов слабого (|RealVoltage| < InterferenceAmplitude) сигнала
 										 *   подряд. Значение ZeroVoltageCounter определяется в [ReadyToStartReceive()](#ReadyToStartReceive).
@@ -193,8 +194,8 @@ void ReceiveStop(double* VoltagesData, double* ZeroCrossTimings, uint16_t* EndOf
 	
 	ZeroCrossAnalysis(VoltagesData, ZeroCrossTimings, StartSign, EndOfSample);
 	
-	uint8_t HighBinData[40] = {0};
-	uint8_t LowBinData[40] = {0};
+	uint8_t HighBinData[40] = {0};			//Декодированный исходный код (старшая тетрада)
+	uint8_t LowBinData[40] = {0};			//Декодированный исходный код (младшая тетрада)
 	
 	if(Demodulation(ZeroCrossTimings, EndOfSample, HighBinData, LowBinData)){
 		#ifdef DEBUG

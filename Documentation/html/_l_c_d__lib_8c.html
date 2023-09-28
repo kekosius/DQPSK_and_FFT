@@ -571,7 +571,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>MSG_Freq_6</b> [4]
 </div><div class="memdoc">
 
 <p>Переводит LCD экран в режим отображения АРСФ кодов </p>
-<p>Закрашивает экран в белый, выводит на экран обозначение режима работы (MSG_DQPSK_1) и поля для отображения результатов АРСФ декодирования (MSG_DQPSK_2, MSG_DQPSK_3, MSG_DQPSK_4, MSG_DQPSK_5). Также сбрасывает счётчик <a class="el" href="_l_c_d__lib_8c.html#a0efe09d8a193aa45418e4c33c4f420c2">NoResultCounter</a> таймера TIM4. </p>
+<p>Закрашивает экран в белый, выводит на экран обозначение режима работы (MSG_DQPSK_1) и поля для отображения результатов АРСФ декодирования (MSG_DQPSK_2, MSG_DQPSK_3, MSG_DQPSK_4, MSG_DQPSK_5). Также сбрасывает счётчик <a class="el" href="_l_c_d__lib_8c.html#a0efe09d8a193aa45418e4c33c4f420c2">NoResultCounter</a> таймера <a class="el" href="_t_i_m__lib_8c.html#aaebebda4c5e39aee196bc2573f9a705f">TIM4</a>. </p>
 
 </div>
 </div>
@@ -637,7 +637,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>MSG_Freq_6</b> [4]
 </div><div class="memdoc">
 
 <p>Переводит LCD экран в режим отображения АРС кодов </p>
-<p>Закрашивает экран в белый, выводит на экран обозначение режима работы (MSG_Freq_1) и поля для отображения результатов АРС декодирования (MSG_Freq_2, MSG_Freq_3, MSG_Freq_6). Также сбрасывает счётчик <a class="el" href="_l_c_d__lib_8c.html#a0efe09d8a193aa45418e4c33c4f420c2">NoResultCounter</a> таймера TIM4. </p>
+<p>Закрашивает экран в белый, выводит на экран обозначение режима работы (MSG_Freq_1) и поля для отображения результатов АРС декодирования (MSG_Freq_2, MSG_Freq_3, MSG_Freq_6). Также сбрасывает счётчик <a class="el" href="_l_c_d__lib_8c.html#a0efe09d8a193aa45418e4c33c4f420c2">NoResultCounter</a> таймера <a class="el" href="_t_i_m__lib_8c.html#aaebebda4c5e39aee196bc2573f9a705f">TIM4</a>. </p>
 
 </div>
 </div>
@@ -1002,7 +1002,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>MSG_Freq_6</b> [4]
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Зависит от количества безрезультатных (сигнал не удалось декодировать) приёмов сигнала подряд. extern переменная, уменьшается в TMR4_EventCallback() с периодом 500ms. Если NoResultCounter = 0 (т.е. в течении ~1 секунды не произошло удачного декодирования), то вызывается <a class="el" href="_l_c_d__lib_8c.html#ad4fcbc10f1d0f8b3738d929d33386ccc">LCD_Show_No_Result()</a> </p>
+<p>Зависит от количества безрезультатных (сигнал не удалось декодировать) приёмов сигнала подряд. extern переменная, уменьшается в <a class="el" href="_t_i_m__lib_8c.html#aaebebda4c5e39aee196bc2573f9a705f">TMR4_EventCallback()</a> с периодом 500ms. Если NoResultCounter = 0 (т.е. в течении ~1 секунды не произошло удачного декодирования), то вызывается <a class="el" href="_l_c_d__lib_8c.html#ad4fcbc10f1d0f8b3738d929d33386ccc">LCD_Show_No_Result()</a> </p>
 
 </div>
 </div>
