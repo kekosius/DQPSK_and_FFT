@@ -1,0 +1,266 @@
+\doxysection{Documents/\+Keil/\+DQPSK\+\_\+plus\+\_\+\+Freq/\+Source/\+PM.c File Reference}
+\hypertarget{_p_m_8c}{}\label{_p_m_8c}\index{Documents/Keil/DQPSK\_plus\_Freq/Source/PM.c@{Documents/Keil/DQPSK\_plus\_Freq/Source/PM.c}}
+
+
+Обработка АРСФ пакетов  
+
+
+{\ttfamily \#include \"{}PM.\+h\"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{_p_m_8c_a344fb96b570c7c0c1e6f6d81e418ec82}\label{_p_m_8c_a344fb96b570c7c0c1e6f6d81e418ec82} 
+\#define {\bfseries TICKS\+\_\+\+NUM}~(5376)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_p_m_8c_ad2390af362a4e67b648e37d8f4203f8e}{Decoding}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}High, uint8\+\_\+t \texorpdfstring{$\ast$}{*}Low)
+\begin{DoxyCompactList}\small\item\em Декодирование демодулированной последовательности \end{DoxyCompactList}\item 
+\Hypertarget{_p_m_8c_a07e8b6a4cdeef470118ad55376066044}\label{_p_m_8c_a07e8b6a4cdeef470118ad55376066044} 
+uint16\+\_\+t {\bfseries Bauer\+To\+Orig} (uint16\+\_\+t, uint8\+\_\+t \texorpdfstring{$\ast$}{*})
+\item 
+\Hypertarget{_p_m_8c_a7bfcc90b9b76cd251c217ca9909e581d}\label{_p_m_8c_a7bfcc90b9b76cd251c217ca9909e581d} 
+uint16\+\_\+t {\bfseries Good\+Code\+Finder} (uint16\+\_\+t \texorpdfstring{$\ast$}{*}, uint8\+\_\+t \texorpdfstring{$\ast$}{*})
+\item 
+\Hypertarget{_p_m_8c_a4f218322d7ab616d2233574903b6959a}\label{_p_m_8c_a4f218322d7ab616d2233574903b6959a} 
+uint16\+\_\+t {\bfseries Speed\+Limit} (uint16\+\_\+t)
+\item 
+void \mbox{\hyperlink{_p_m_8c_ad661cb7c42214740f919cf580a37ffec}{Analysis\+End}} ()
+\begin{DoxyCompactList}\small\item\em Присвоение идентификаторам дефолтных значений \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_p_m_8c_a9f059a669299ce6cdba20cf4efbd6186}{Zero\+Cross\+Analysis}} (double \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{_t_i_m__lib_8c_a7558533ab0553c6f22905cb4a83f93c3}{Voltages\+Data}}, double \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{_t_i_m__lib_8c_a43d2c695c558f49cb2df8c0745c28531}{Zero\+Cross\+Timings}}, int8\+\_\+t \mbox{\hyperlink{_signal_receive_handler_8c_acb44ab2601e211bf879fb56de0ab915d}{Start\+Sign}}, uint16\+\_\+t \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{_t_i_m__lib_8c_ad14650db362e7e1e1d34b5a4084cc9f1}{End\+Of\+Sample}})
+\begin{DoxyCompactList}\small\item\em Обработка АРСФ пакета, определение переходов через 0, временных промежутков между фазовыми переходами \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{_p_m_8c_aa92798f5c24b17ca3e65c262581731f5}{Demodulation}} (double \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{_t_i_m__lib_8c_a43d2c695c558f49cb2df8c0745c28531}{Zero\+Cross\+Timings}}, uint16\+\_\+t \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{_t_i_m__lib_8c_ad14650db362e7e1e1d34b5a4084cc9f1}{End\+Of\+Sample}}, uint8\+\_\+t \texorpdfstring{$\ast$}{*}High, uint8\+\_\+t \texorpdfstring{$\ast$}{*}Low)
+\begin{DoxyCompactList}\small\item\em Демодуляцмя АРСФ пакета \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{_p_m_8c_a6def050aeb552326bca23e18bb543253}{Code\+Search}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}High, uint8\+\_\+t \texorpdfstring{$\ast$}{*}Low, uint8\+\_\+t \texorpdfstring{$\ast$}{*}Bad\+State, uint8\+\_\+t \texorpdfstring{$\ast$}{*}Counter)
+\begin{DoxyCompactList}\small\item\em Поиск кода в демодулированных последовательностях (старшая и младшая тетрада) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_p_m_8c_a6b128c019f76d2ce6ef40889be713f9c}{Array\+Shift}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}High, uint8\+\_\+t \texorpdfstring{$\ast$}{*}Low, uint8\+\_\+t \texorpdfstring{$\ast$}{*}New\+High, uint8\+\_\+t \texorpdfstring{$\ast$}{*}New\+Low, uint16\+\_\+t Length, uint16\+\_\+t Shift)
+\begin{DoxyCompactList}\small\item\em Сдвиг массива на Shift позиций вправо \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{_p_m_8c_a9034567489c62c060cb0fd75598562b3}{Timer\+Freq}} = 26785.\+714285
+\item 
+double \mbox{\hyperlink{_p_m_8c_a26426600f7e0c2d26c771d54a94405ab}{Timer\+Period}} = 1/26785.\+714285
+\item 
+const double \mbox{\hyperlink{_p_m_8c_a43016d873124d39034edb8cd164794db}{pi}} = 3.\+14159265359
+\item 
+\Hypertarget{_p_m_8c_a2d367e6594b0578aa29b017d6763095f}\label{_p_m_8c_a2d367e6594b0578aa29b017d6763095f} 
+uint16\+\_\+t {\bfseries Period\+Count} = 0
+\item 
+uint16\+\_\+t \mbox{\hyperlink{_p_m_8c_a073bdb7c297960b4d9332ce4d89d1eca}{Through\+Period\+Count}} = 0
+\item 
+uint16\+\_\+t \mbox{\hyperlink{_p_m_8c_af8f9b9688782071d739af704c71a1718}{Prev\+Cross\+Tick}} = 0
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_p_m_8c_a9f189c2f26f1ad1b9de5ec6d79fe514a}{Sample\+Counter}} = 0
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_p_m_8c_a1f945a1b7b1640ec42ad649537247fa2}{Period\+Continues}} = 0
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_p_m_8c_a862b08c0eb6b711fc9a9f23353ad9244}{First\+Per}} = 1
+\item 
+\Hypertarget{_p_m_8c_a6436cc5b6507336f1333b5d2c6073bb3}\label{_p_m_8c_a6436cc5b6507336f1333b5d2c6073bb3} 
+uint8\+\_\+t {\bfseries Error\+Message} \mbox{[}3\mbox{]} = \{\textquotesingle{}B\textquotesingle{}, \textquotesingle{}A\textquotesingle{}, \textquotesingle{}D\textquotesingle{}\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Обработка АРСФ пакетов 
+
+\begin{DoxyVersion}{Version}
+V1.\+0.\+0
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+12-\/09-\/2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_p_m_8c_ad661cb7c42214740f919cf580a37ffec}\label{_p_m_8c_ad661cb7c42214740f919cf580a37ffec} 
+\index{PM.c@{PM.c}!AnalysisEnd@{AnalysisEnd}}
+\index{AnalysisEnd@{AnalysisEnd}!PM.c@{PM.c}}
+\doxysubsubsection{\texorpdfstring{AnalysisEnd()}{AnalysisEnd()}}
+{\footnotesize\ttfamily void Analysis\+End (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Присвоение идентификаторам дефолтных значений 
+
+Функция возвращает переменные, используемые в \doxylink{_p_m_8c_a9f059a669299ce6cdba20cf4efbd6186}{Zero\+Cross\+Analysis()} к значениям при инициализации для нормального анализа следующего пакета \Hypertarget{_p_m_8c_a6b128c019f76d2ce6ef40889be713f9c}\label{_p_m_8c_a6b128c019f76d2ce6ef40889be713f9c} 
+\index{PM.c@{PM.c}!ArrayShift@{ArrayShift}}
+\index{ArrayShift@{ArrayShift}!PM.c@{PM.c}}
+\doxysubsubsection{\texorpdfstring{ArrayShift()}{ArrayShift()}}
+{\footnotesize\ttfamily void Array\+Shift (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{High,  }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{Low,  }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{New\+High,  }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{New\+Low,  }\item[{uint16\+\_\+t}]{Length,  }\item[{uint16\+\_\+t}]{Shift }\end{DoxyParamCaption})}
+
+
+
+Сдвиг массива на Shift позиций вправо 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em High} & Последовательность исходного кода (старшая тетрада) \\
+\hline
+\mbox{\texttt{ in}}  & {\em Low} & Последовательнось исходного кода (младшая тетрада) \\
+\hline
+\mbox{\texttt{ out}}  & {\em New\+High} & Последовательность со сдвигом (старшая тетрада) \\
+\hline
+\mbox{\texttt{ out}}  & {\em New\+Low} & Последовательность со сдвигом (младшая тетрада) \\
+\hline
+\mbox{\texttt{ in}}  & {\em Length} & Длинна массивов \\
+\hline
+\mbox{\texttt{ in}}  & {\em Shift} & Сдвиг\\
+\hline
+\end{DoxyParams}
+Сдвиг принятых массивов High и Low на Shift позиций вправо. Используется в \doxylink{_p_m_8c_ad2390af362a4e67b648e37d8f4203f8e}{Decoding} для поиска АРСФ кода. Необходимо потому, что \doxylink{_p_m_8c_a9f059a669299ce6cdba20cf4efbd6186}{Zero\+Cross\+Analysis} может не точно определять начало АРСФ пакета, поэтому возможна случайная комбинация кодов в начале High и Low последовательностей. Чтобы это устранить была сделана система сдвига этих массивов, в результате чего при 8 вызовах Array\+Shift с Shift = 1, 2..8 мы сможем перебрать все возможные комбинации кодов. \Hypertarget{_p_m_8c_a6def050aeb552326bca23e18bb543253}\label{_p_m_8c_a6def050aeb552326bca23e18bb543253} 
+\index{PM.c@{PM.c}!CodeSearch@{CodeSearch}}
+\index{CodeSearch@{CodeSearch}!PM.c@{PM.c}}
+\doxysubsubsection{\texorpdfstring{CodeSearch()}{CodeSearch()}}
+{\footnotesize\ttfamily uint16\+\_\+t Code\+Search (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{High,  }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{Low,  }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{Bad\+State,  }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{Counter }\end{DoxyParamCaption})}
+
+
+
+Поиск кода в демодулированных последовательностях (старшая и младшая тетрада) 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em High} & Последовательность исходного кода (старшая тетрада) \\
+\hline
+\mbox{\texttt{ in}}  & {\em Low} & Последовательнось исходного кода (младшая тетрада) \\
+\hline
+\mbox{\texttt{ out}}  & {\em Bad\+State} & Идентификатор невозможности декодировать входные данные \\
+\hline
+\mbox{\texttt{ out}}  & {\em Counter} & Количество удачно найденных кодов\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Good\+Code} & Полученный hex АРСФ код\\
+\hline
+\end{DoxyRetVals}
+Для переданной последовательности (High, Low) производит поиск АРСФ кода, используя табличные значения (см. Bauer\+To\+Orig). АРСФ код считается правдоподобным, если количество одинаковых кодов больше или равно единицы (Counter \texorpdfstring{$>$}{>} 1) \Hypertarget{_p_m_8c_ad2390af362a4e67b648e37d8f4203f8e}\label{_p_m_8c_ad2390af362a4e67b648e37d8f4203f8e} 
+\index{PM.c@{PM.c}!Decoding@{Decoding}}
+\index{Decoding@{Decoding}!PM.c@{PM.c}}
+\doxysubsubsection{\texorpdfstring{Decoding()}{Decoding()}}
+{\footnotesize\ttfamily uint8\+\_\+t Decoding (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{High,  }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{Low }\end{DoxyParamCaption})}
+
+
+
+Декодирование демодулированной последовательности 
+
+Содержит информацию о том, что текущий фазовый переход первый\Hypertarget{_p_m_8c_aa92798f5c24b17ca3e65c262581731f5}\label{_p_m_8c_aa92798f5c24b17ca3e65c262581731f5} 
+\index{PM.c@{PM.c}!Demodulation@{Demodulation}}
+\index{Demodulation@{Demodulation}!PM.c@{PM.c}}
+\doxysubsubsection{\texorpdfstring{Demodulation()}{Demodulation()}}
+{\footnotesize\ttfamily uint8\+\_\+t Demodulation (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}}]{Zero\+Cross\+Timings,  }\item[{uint16\+\_\+t \texorpdfstring{$\ast$}{*}}]{End\+Of\+Sample,  }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{High,  }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{Low }\end{DoxyParamCaption})}
+
+
+
+Демодуляцмя АРСФ пакета 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Zero\+Cross\+Timings} & Значения времени при переходах через 0. \\
+\hline
+\mbox{\texttt{ in}}  & {\em End\+Of\+Sample} & Значения временных промежутков для каждого фазового перехода. \\
+\hline
+\mbox{\texttt{ out}}  & {\em High} & Декодированный исходный код (старшая тетрада) \\
+\hline
+\mbox{\texttt{ out}}  & {\em Low} & Декодированный исходный код (младшая тетрада)\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Exit\+Code} & идентификатор удачной демодуляции\\
+\hline
+\end{DoxyRetVals}
+По полученным из \doxylink{_t_i_m__lib_8c_a43d2c695c558f49cb2df8c0745c28531}{Zero\+Cross\+Timings} данным находим бинарный код, путём подсчёта фазовых сдвигов. Фазовые сдвиги определяются исходя из времени переходов через ноль внутри фазовых переходов.
+
+Логика демодуляции следующая\+:
+\begin{DoxyItemize}
+\item Считается нулевая фаза, т.\+е. фаза, относительно которой будут подсчитаны фазовые сдвиги. Фаза считается как остаток от деления времени перехода через 0 на период колебаний несущей, далее находится их среднее арифметическое, что и считается за нулевую фазу
+\item Для остальных фазовых переходов фазовый находится как наиболее распространённое значение. Другими словами, среднее арифметическое заменяется на количество фаз, попадающих в промежуток. Например, если будут получены фазы 0 0 pi pi/2, то результатом будет 0, а не pi/2
+\item По полученному фазовому сдвигу находится бинарный код, которому этот фазовый переход соответсвует. Так фазовый переход 0 соответсвует коду 00, pi/2 -\/ 10, pi -\/ 11, -\/pi/2 -\/ 01. Полученный результат суммируется с нулевой фазой и используется как нулевая фаза для следующего фазового перехода
+\item После демодуляции всех 40 фазовых переходов, запускается поиск АРСФ кода \doxylink{_p_m_8c_ad2390af362a4e67b648e37d8f4203f8e}{Decoding} 
+\end{DoxyItemize}\Hypertarget{_p_m_8c_a9f059a669299ce6cdba20cf4efbd6186}\label{_p_m_8c_a9f059a669299ce6cdba20cf4efbd6186} 
+\index{PM.c@{PM.c}!ZeroCrossAnalysis@{ZeroCrossAnalysis}}
+\index{ZeroCrossAnalysis@{ZeroCrossAnalysis}!PM.c@{PM.c}}
+\doxysubsubsection{\texorpdfstring{ZeroCrossAnalysis()}{ZeroCrossAnalysis()}}
+{\footnotesize\ttfamily void Zero\+Cross\+Analysis (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}}]{Voltages\+Data,  }\item[{double \texorpdfstring{$\ast$}{*}}]{Zero\+Cross\+Timings,  }\item[{int8\+\_\+t}]{Start\+Sign,  }\item[{uint16\+\_\+t \texorpdfstring{$\ast$}{*}}]{End\+Of\+Sample }\end{DoxyParamCaption})}
+
+
+
+Обработка АРСФ пакета, определение переходов через 0, временных промежутков между фазовыми переходами 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Voltages\+Data} & Значения напряжения \\
+\hline
+\mbox{\texttt{ out}}  & {\em Zero\+Cross\+Timings} & Полученные значения времени при переходах через 0. Используется при демодуляции пакета в \doxylink{_p_m_8c_aa92798f5c24b17ca3e65c262581731f5}{Demodulation()} \\
+\hline
+\mbox{\texttt{ in}}  & {\em Start\+Sign} & Стартовое напрявление полученного сигнала \\
+\hline
+\mbox{\texttt{ out}}  & {\em End\+Of\+Sample} & Полученные значения временных промежутков для каждого фазового перехода. Используется при демодуляции пакета в \doxylink{_p_m_8c_aa92798f5c24b17ca3e65c262581731f5}{Demodulation()}\\
+\hline
+\end{DoxyParams}
+Функция находит в принятом сигнале переходы через 0 \doxylink{_t_i_m__lib_8c_a43d2c695c558f49cb2df8c0745c28531}{Zero\+Cross\+Timings} и использует эту информацию для заполнения \doxylink{_t_i_m__lib_8c_ad14650db362e7e1e1d34b5a4084cc9f1}{End\+Of\+Sample}
+
+Логика анализа следующая\+:
+\begin{DoxyItemize}
+\item Определяется переход через ноль (его тик, т.\+е. временной эквивалент)
+\item Если между текущим и прошлым переходом через 0 ровно 8 тиков, то считается что измерения происходят внутри одного фазового перехода, увеличивается \doxylink{_p_m_8c_a073bdb7c297960b4d9332ce4d89d1eca}{Through\+Period\+Count}
+\item Проверка на \doxylink{_p_m_8c_a1f945a1b7b1640ec42ad649537247fa2}{Period\+Continues}\+: если Period\+Continues == 0, то есть период не продолжается (или другими словами, предыдущий фазовый переход закончился), тогда, если пройдена проверка, информация о фазовом переходе записывается в \doxylink{_t_i_m__lib_8c_ad14650db362e7e1e1d34b5a4084cc9f1}{End\+Of\+Sample}, увеличивается \doxylink{_p_m_8c_a9f189c2f26f1ad1b9de5ec6d79fe514a}{Sample\+Counter}. Проверка заключается в определении Period\+Count для текущего фазового перехода. Учитывая, что в фазовом переходе должно быть 16 периодов, то можно предположить, что при Period\+Count \texorpdfstring{$<$}{<} 6 анализ был произведён неверно, текущий фазовый переход ложный. В таком случае, информация о Period\+Count удаляется из \doxylink{_p_m_8c_a073bdb7c297960b4d9332ce4d89d1eca}{Through\+Period\+Count}
+\item Если в течении 15 периодов не был обнаружен фазовый переход, то считается, что он произошел с нулевым изменением фазы
+\item Если между текущим и прошлым переходом через 0 не 8 тиков, то считается, что текущий фазовый переход завершился, \doxylink{_p_m_8c_a1f945a1b7b1640ec42ad649537247fa2}{Period\+Continues} = 0
+\item Когда \doxylink{_p_m_8c_a9f189c2f26f1ad1b9de5ec6d79fe514a}{Sample\+Counter} \texorpdfstring{$>$}{>} 43 или \doxylink{_p_m_8c_a073bdb7c297960b4d9332ce4d89d1eca}{Through\+Period\+Count} \texorpdfstring{$>$}{>} 700, функция заканчивает работу и вызывает \doxylink{_p_m_8c_ad661cb7c42214740f919cf580a37ffec}{Analysis\+End()}
+\item Если за время анализа \doxylink{_t_i_m__lib_8c_a7558533ab0553c6f22905cb4a83f93c3}{Voltages\+Data} предыдущий пункт не выполнился, то последняя точка \doxylink{_t_i_m__lib_8c_a7558533ab0553c6f22905cb4a83f93c3}{Voltages\+Data} считается за конец последнего фазового перехода, вызывается \doxylink{_p_m_8c_ad661cb7c42214740f919cf580a37ffec}{Analysis\+End()} 
+\end{DoxyItemize}
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{_p_m_8c_a862b08c0eb6b711fc9a9f23353ad9244}\label{_p_m_8c_a862b08c0eb6b711fc9a9f23353ad9244} 
+\index{PM.c@{PM.c}!FirstPer@{FirstPer}}
+\index{FirstPer@{FirstPer}!PM.c@{PM.c}}
+\doxysubsubsection{\texorpdfstring{FirstPer}{FirstPer}}
+{\footnotesize\ttfamily uint8\+\_\+t First\+Per = 1}
+
+Содержит информацию о том, что текущий фазовый переход продолжается \Hypertarget{_p_m_8c_a1f945a1b7b1640ec42ad649537247fa2}\label{_p_m_8c_a1f945a1b7b1640ec42ad649537247fa2} 
+\index{PM.c@{PM.c}!PeriodContinues@{PeriodContinues}}
+\index{PeriodContinues@{PeriodContinues}!PM.c@{PM.c}}
+\doxysubsubsection{\texorpdfstring{PeriodContinues}{PeriodContinues}}
+{\footnotesize\ttfamily uint8\+\_\+t Period\+Continues = 0}
+
+Количество принятых фазовых переходов \Hypertarget{_p_m_8c_a43016d873124d39034edb8cd164794db}\label{_p_m_8c_a43016d873124d39034edb8cd164794db} 
+\index{PM.c@{PM.c}!pi@{pi}}
+\index{pi@{pi}!PM.c@{PM.c}}
+\doxysubsubsection{\texorpdfstring{pi}{pi}}
+{\footnotesize\ttfamily const double pi = 3.\+14159265359}
+
+Число пи \Hypertarget{_p_m_8c_af8f9b9688782071d739af704c71a1718}\label{_p_m_8c_af8f9b9688782071d739af704c71a1718} 
+\index{PM.c@{PM.c}!PrevCrossTick@{PrevCrossTick}}
+\index{PrevCrossTick@{PrevCrossTick}!PM.c@{PM.c}}
+\doxysubsubsection{\texorpdfstring{PrevCrossTick}{PrevCrossTick}}
+{\footnotesize\ttfamily uint16\+\_\+t Prev\+Cross\+Tick = 0}
+
+Общее количество периодов несущей, принятых для АРСФ пакета \Hypertarget{_p_m_8c_a9f189c2f26f1ad1b9de5ec6d79fe514a}\label{_p_m_8c_a9f189c2f26f1ad1b9de5ec6d79fe514a} 
+\index{PM.c@{PM.c}!SampleCounter@{SampleCounter}}
+\index{SampleCounter@{SampleCounter}!PM.c@{PM.c}}
+\doxysubsubsection{\texorpdfstring{SampleCounter}{SampleCounter}}
+{\footnotesize\ttfamily uint8\+\_\+t Sample\+Counter = 0}
+
+Общее количество периодов несущей, принятых для АРСФ пакета \Hypertarget{_p_m_8c_a073bdb7c297960b4d9332ce4d89d1eca}\label{_p_m_8c_a073bdb7c297960b4d9332ce4d89d1eca} 
+\index{PM.c@{PM.c}!ThroughPeriodCount@{ThroughPeriodCount}}
+\index{ThroughPeriodCount@{ThroughPeriodCount}!PM.c@{PM.c}}
+\doxysubsubsection{\texorpdfstring{ThroughPeriodCount}{ThroughPeriodCount}}
+{\footnotesize\ttfamily uint16\+\_\+t Through\+Period\+Count = 0}
+
+Количество периодов несущей, принятых для текущего фазового перехода \Hypertarget{_p_m_8c_a9034567489c62c060cb0fd75598562b3}\label{_p_m_8c_a9034567489c62c060cb0fd75598562b3} 
+\index{PM.c@{PM.c}!TimerFreq@{TimerFreq}}
+\index{TimerFreq@{TimerFreq}!PM.c@{PM.c}}
+\doxysubsubsection{\texorpdfstring{TimerFreq}{TimerFreq}}
+{\footnotesize\ttfamily double Timer\+Freq = 26785.\+714285}
+
+Частота таймера TIM2 (см. \doxylink{_t_i_m__lib_8c_ad4667872eeecb6411675ef94133723fd}{TMR2\+\_\+\+Init}) \Hypertarget{_p_m_8c_a26426600f7e0c2d26c771d54a94405ab}\label{_p_m_8c_a26426600f7e0c2d26c771d54a94405ab} 
+\index{PM.c@{PM.c}!TimerPeriod@{TimerPeriod}}
+\index{TimerPeriod@{TimerPeriod}!PM.c@{PM.c}}
+\doxysubsubsection{\texorpdfstring{TimerPeriod}{TimerPeriod}}
+{\footnotesize\ttfamily double Timer\+Period = 1/26785.\+714285}
+
+Период таймера TIM2 (см. \doxylink{_t_i_m__lib_8c_ad4667872eeecb6411675ef94133723fd}{TMR2\+\_\+\+Init}) 

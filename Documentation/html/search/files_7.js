@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['uart_5flib_2ec_0',['UART_lib.c',['../_u_a_r_t__lib_8c.html',1,'']]]
+  ['tim_5flib_2ec_0',['TIM_lib.c',['../_t_i_m__lib_8c.html',1,'']]]
 ];

@@ -11,7 +11,7 @@
 
 #include "SignalReceiveHandler.h"
 
-//#define DEBUG 						//Разкомментить для отправки по USART информации о процессе анализа принятого пакета
+//#define DEBUG 						//Раскомментировать для отправки по USART информации о процессе анализа принятого пакета
 										//(EndOfSample, ZeroVoltageCounter, High/LowBinData)
 
 uint8_t ZeroVoltageCounter = 0;			/*!< Содержит информацию о количестве приёмов слабого (|RealVoltage| < InterferenceAmplitude) сигнала

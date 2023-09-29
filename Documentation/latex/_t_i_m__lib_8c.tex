@@ -97,7 +97,7 @@ V1.\+0.\+0
 \item \doxylink{_t_i_m__lib_8c_a06d87010c135671bee571365d31ba043}{Low\+Level}
 \end{DoxyItemize}
 
-Используется в KEY1\+\_\+\+IRQHandler() при переключении режимов работы устройства и в Spectrum\+Analysis() после окончания приёма АРС сигнала \Hypertarget{_t_i_m__lib_8c_a8a79c36e2eef10dc903cea4c011028b3}\label{_t_i_m__lib_8c_a8a79c36e2eef10dc903cea4c011028b3} 
+Используется в KEY1\+\_\+\+IRQHandler() при переключении режимов работы устройства и в \doxylink{_f_m_8c_a60ea4451e858f4a0ba3026c54783648c}{Spectrum\+Analysis()} после окончания приёма АРС сигнала \Hypertarget{_t_i_m__lib_8c_a8a79c36e2eef10dc903cea4c011028b3}\label{_t_i_m__lib_8c_a8a79c36e2eef10dc903cea4c011028b3} 
 \index{TIM\_lib.c@{TIM\_lib.c}!TMR2\_EventCallback@{TMR2\_EventCallback}}
 \index{TMR2\_EventCallback@{TMR2\_EventCallback}!TIM\_lib.c@{TIM\_lib.c}}
 \doxysubsubsection{\texorpdfstring{TMR2\_EventCallback()}{TMR2\_EventCallback()}}
@@ -151,7 +151,7 @@ V1.\+0.\+0
 \item Считывется текущее значение \"{}подлинного\"{} напряжения на линии АЦП (см. \doxylink{_a_d_c__lib_8c_aefac2e00e12a4d31bde8f7ee88c96c3d}{Get\+Real\+Voltage})
 \item Производится проверка полученного сигнала на соответсвие сигналу высокого уровня (см. \doxylink{_t_i_m__lib_8c_a06d87010c135671bee571365d31ba043}{Low\+Level})
 \item Заполнение массивов \doxylink{_t_i_m__lib_8c_a42489e419158b2e29f4d5ab5631ebc1f}{voltage\+Buff} и \doxylink{_t_i_m__lib_8c_a023d44daad4b1ebc1b7dfe8ed37cc27b}{FFT\+\_\+\+Buff}
-\item После приёма VOL\+\_\+\+BUF\+\_\+\+LEN значений, функция инициирует спектральный анализ полученного сигнала (см. Spectrum\+Analysis) 
+\item После приёма VOL\+\_\+\+BUF\+\_\+\+LEN значений, функция инициирует спектральный анализ полученного сигнала (см. \doxylink{_f_m_8c_a60ea4451e858f4a0ba3026c54783648c}{Spectrum\+Analysis}) 
 \end{DoxyItemize}\Hypertarget{_t_i_m__lib_8c_a9d47a34e2c52ccf4c024d63bf7172903}\label{_t_i_m__lib_8c_a9d47a34e2c52ccf4c024d63bf7172903} 
 \index{TIM\_lib.c@{TIM\_lib.c}!TMR3\_Init@{TMR3\_Init}}
 \index{TMR3\_Init@{TMR3\_Init}!TIM\_lib.c@{TIM\_lib.c}}
@@ -233,7 +233,7 @@ V1.\+0.\+0
 \doxysubsubsection{\texorpdfstring{EndOfSample}{EndOfSample}}
 {\footnotesize\ttfamily uint16\+\_\+t End\+Of\+Sample\mbox{[}8 \texorpdfstring{$\ast$}{*}5+2+1\mbox{]} = \{0\}}
 
-Содержит информацию о временных промежутках (в тиках таймера), которые соотвутсвуют началу и концу найденных фазовых переходов (конец предыдущего -\/ начало следующего). Значения элементов End\+Of\+Sample определяются в Zero\+Cross\+Analysis() и используются в Demodulation() \Hypertarget{_t_i_m__lib_8c_a65abd7c55078faafaee66951c6aa38e2}\label{_t_i_m__lib_8c_a65abd7c55078faafaee66951c6aa38e2} 
+Содержит информацию о временных промежутках (в тиках таймера), которые соотвутсвуют началу и концу найденных фазовых переходов (конец предыдущего -\/ начало следующего). Значения элементов End\+Of\+Sample определяются в \doxylink{_p_m_8c_a9f059a669299ce6cdba20cf4efbd6186}{Zero\+Cross\+Analysis()} и используются в \doxylink{_p_m_8c_aa92798f5c24b17ca3e65c262581731f5}{Demodulation()} \Hypertarget{_t_i_m__lib_8c_a65abd7c55078faafaee66951c6aa38e2}\label{_t_i_m__lib_8c_a65abd7c55078faafaee66951c6aa38e2} 
 \index{TIM\_lib.c@{TIM\_lib.c}!FalseActivation@{FalseActivation}}
 \index{FalseActivation@{FalseActivation}!TIM\_lib.c@{TIM\_lib.c}}
 \doxysubsubsection{\texorpdfstring{FalseActivation}{FalseActivation}}
@@ -245,7 +245,7 @@ V1.\+0.\+0
 \doxysubsubsection{\texorpdfstring{FFT\_Buff}{FFT\_Buff}}
 {\footnotesize\ttfamily double FFT\+\_\+\+Buff\mbox{[}FFT\+\_\+N\mbox{]} = \{0\}}
 
-Массив, хранящий выборку данных для частотного анализа АРС пакета. Заполняется в прерывании таймера \doxylink{_t_i_m__lib_8c_ae928af867d4f146922f1cb3af9bbf017}{TMR3\+\_\+\+Event\+Callback}. Подробнее в Spectrum\+Analysis \Hypertarget{_t_i_m__lib_8c_af7eacd3464df86c7d1cfc2f6435e76b8}\label{_t_i_m__lib_8c_af7eacd3464df86c7d1cfc2f6435e76b8} 
+Массив, хранящий выборку данных для частотного анализа АРС пакета. Заполняется в прерывании таймера \doxylink{_t_i_m__lib_8c_ae928af867d4f146922f1cb3af9bbf017}{TMR3\+\_\+\+Event\+Callback}. Подробнее в \doxylink{_f_m_8c_a60ea4451e858f4a0ba3026c54783648c}{Spectrum\+Analysis} \Hypertarget{_t_i_m__lib_8c_af7eacd3464df86c7d1cfc2f6435e76b8}\label{_t_i_m__lib_8c_af7eacd3464df86c7d1cfc2f6435e76b8} 
 \index{TIM\_lib.c@{TIM\_lib.c}!fft\_pos@{fft\_pos}}
 \index{fft\_pos@{fft\_pos}!TIM\_lib.c@{TIM\_lib.c}}
 \doxysubsubsection{\texorpdfstring{fft\_pos}{fft\_pos}}
@@ -257,7 +257,7 @@ V1.\+0.\+0
 \doxysubsubsection{\texorpdfstring{LowLevel}{LowLevel}}
 {\footnotesize\ttfamily uint8\+\_\+t Low\+Level = 1}
 
-Содержит информацию о том, что текущий приём АРС сигнала некачественный (сигнал низкого уровня). Значение Low\+Level = 1 соответсвует сигналу низкого уровня. Значение Low\+Level = 0 соответсвует сигналу высокого уровня. Значение Low\+Level определяется в \doxylink{_t_i_m__lib_8c_ae928af867d4f146922f1cb3af9bbf017}{TMR3\+\_\+\+Event\+Callback} и используется при определении частоты принятого АРС сигнала (см. Spectrum\+Analysis) \Hypertarget{_t_i_m__lib_8c_a0c8f21a03cfb93d09d39d6afb04fbf5a}\label{_t_i_m__lib_8c_a0c8f21a03cfb93d09d39d6afb04fbf5a} 
+Содержит информацию о том, что текущий приём АРС сигнала некачественный (сигнал низкого уровня). Значение Low\+Level = 1 соответсвует сигналу низкого уровня. Значение Low\+Level = 0 соответсвует сигналу высокого уровня. Значение Low\+Level определяется в \doxylink{_t_i_m__lib_8c_ae928af867d4f146922f1cb3af9bbf017}{TMR3\+\_\+\+Event\+Callback} и используется при определении частоты принятого АРС сигнала (см. \doxylink{_f_m_8c_a60ea4451e858f4a0ba3026c54783648c}{Spectrum\+Analysis}) \Hypertarget{_t_i_m__lib_8c_a0c8f21a03cfb93d09d39d6afb04fbf5a}\label{_t_i_m__lib_8c_a0c8f21a03cfb93d09d39d6afb04fbf5a} 
 \index{TIM\_lib.c@{TIM\_lib.c}!PrevVoltage@{PrevVoltage}}
 \index{PrevVoltage@{PrevVoltage}!TIM\_lib.c@{TIM\_lib.c}}
 \doxysubsubsection{\texorpdfstring{PrevVoltage}{PrevVoltage}}
@@ -299,4 +299,4 @@ V1.\+0.\+0
 \doxysubsubsection{\texorpdfstring{ZeroCrossTimings}{ZeroCrossTimings}}
 {\footnotesize\ttfamily double Zero\+Cross\+Timings\mbox{[}700\mbox{]} = \{0\}}
 
-Содержит время переходов сигнала через 0V (снизу). Подробнее в Zero\+Cross\+Analysis 
+Содержит время переходов сигнала через 0V (снизу). Подробнее в \doxylink{_p_m_8c_a9f059a669299ce6cdba20cf4efbd6186}{Zero\+Cross\+Analysis} 

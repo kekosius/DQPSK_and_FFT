@@ -205,7 +205,7 @@ Variables</h2></td></tr>
 <li><a class="el" href="_t_i_m__lib_8c.html#af7eacd3464df86c7d1cfc2f6435e76b8">fft_pos</a></li>
 <li><a class="el" href="_t_i_m__lib_8c.html#a06d87010c135671bee571365d31ba043">LowLevel</a></li>
 </ul>
-<p>Используется в KEY1_IRQHandler() при переключении режимов работы устройства и в SpectrumAnalysis() после окончания приёма АРС сигнала </p>
+<p>Используется в KEY1_IRQHandler() при переключении режимов работы устройства и в <a class="el" href="_f_m_8c.html#a60ea4451e858f4a0ba3026c54783648c">SpectrumAnalysis()</a> после окончания приёма АРС сигнала </p>
 
 </div>
 </div>
@@ -283,7 +283,7 @@ Variables</h2></td></tr>
 <li>Считывется текущее значение "подлинного" напряжения на линии АЦП (см. <a class="el" href="_a_d_c__lib_8c.html#aefac2e00e12a4d31bde8f7ee88c96c3d" title="Получение уровня напряжение с АЦП">GetRealVoltage</a>)</li>
 <li>Производится проверка полученного сигнала на соответсвие сигналу высокого уровня (см. <a class="el" href="_t_i_m__lib_8c.html#a06d87010c135671bee571365d31ba043">LowLevel</a>)</li>
 <li>Заполнение массивов <a class="el" href="_t_i_m__lib_8c.html#a42489e419158b2e29f4d5ab5631ebc1f">voltageBuff</a> и <a class="el" href="_t_i_m__lib_8c.html#a023d44daad4b1ebc1b7dfe8ed37cc27b">FFT_Buff</a></li>
-<li>После приёма VOL_BUF_LEN значений, функция инициирует спектральный анализ полученного сигнала (см. SpectrumAnalysis) </li>
+<li>После приёма VOL_BUF_LEN значений, функция инициирует спектральный анализ полученного сигнала (см. <a class="el" href="_f_m_8c.html#a60ea4451e858f4a0ba3026c54783648c" title="Спектральный и амплитудный анализ АРС сигнала">SpectrumAnalysis</a>) </li>
 </ul>
 
 </div>
@@ -404,7 +404,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Содержит информацию о временных промежутках (в тиках таймера), которые соотвутсвуют началу и концу найденных фазовых переходов (конец предыдущего - начало следующего). Значения элементов EndOfSample определяются в ZeroCrossAnalysis() и используются в Demodulation() </p>
+<p>Содержит информацию о временных промежутках (в тиках таймера), которые соотвутсвуют началу и концу найденных фазовых переходов (конец предыдущего - начало следующего). Значения элементов EndOfSample определяются в <a class="el" href="_p_m_8c.html#a9f059a669299ce6cdba20cf4efbd6186">ZeroCrossAnalysis()</a> и используются в <a class="el" href="_p_m_8c.html#aa92798f5c24b17ca3e65c262581731f5">Demodulation()</a> </p>
 
 </div>
 </div>
@@ -434,7 +434,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Массив, хранящий выборку данных для частотного анализа АРС пакета. Заполняется в прерывании таймера <a class="el" href="_t_i_m__lib_8c.html#ae928af867d4f146922f1cb3af9bbf017" title="Прерывание таймера TIM3.">TMR3_EventCallback</a>. Подробнее в SpectrumAnalysis </p>
+<p>Массив, хранящий выборку данных для частотного анализа АРС пакета. Заполняется в прерывании таймера <a class="el" href="_t_i_m__lib_8c.html#ae928af867d4f146922f1cb3af9bbf017" title="Прерывание таймера TIM3.">TMR3_EventCallback</a>. Подробнее в <a class="el" href="_f_m_8c.html#a60ea4451e858f4a0ba3026c54783648c" title="Спектральный и амплитудный анализ АРС сигнала">SpectrumAnalysis</a> </p>
 
 </div>
 </div>
@@ -464,7 +464,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Содержит информацию о том, что текущий приём АРС сигнала некачественный (сигнал низкого уровня). Значение LowLevel = 1 соответсвует сигналу низкого уровня. Значение LowLevel = 0 соответсвует сигналу высокого уровня. Значение LowLevel определяется в <a class="el" href="_t_i_m__lib_8c.html#ae928af867d4f146922f1cb3af9bbf017" title="Прерывание таймера TIM3.">TMR3_EventCallback</a> и используется при определении частоты принятого АРС сигнала (см. SpectrumAnalysis) </p>
+<p>Содержит информацию о том, что текущий приём АРС сигнала некачественный (сигнал низкого уровня). Значение LowLevel = 1 соответсвует сигналу низкого уровня. Значение LowLevel = 0 соответсвует сигналу высокого уровня. Значение LowLevel определяется в <a class="el" href="_t_i_m__lib_8c.html#ae928af867d4f146922f1cb3af9bbf017" title="Прерывание таймера TIM3.">TMR3_EventCallback</a> и используется при определении частоты принятого АРС сигнала (см. <a class="el" href="_f_m_8c.html#a60ea4451e858f4a0ba3026c54783648c" title="Спектральный и амплитудный анализ АРС сигнала">SpectrumAnalysis</a>) </p>
 
 </div>
 </div>
@@ -569,7 +569,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Содержит время переходов сигнала через 0V (снизу). Подробнее в ZeroCrossAnalysis </p>
+<p>Содержит время переходов сигнала через 0V (снизу). Подробнее в <a class="el" href="_p_m_8c.html#a9f059a669299ce6cdba20cf4efbd6186" title="Обработка АРСФ пакета, определение переходов через 0, временных промежутков между фазовыми переходами">ZeroCrossAnalysis</a> </p>
 
 </div>
 </div>

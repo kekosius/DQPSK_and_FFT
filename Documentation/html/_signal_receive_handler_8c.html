@@ -335,8 +335,8 @@ Variables</h2></td></tr>
 </dl>
 <p>Функция вызывается при определении конца текущего пакета. Описание последовательности работы:</p><ul>
 <li>Переключение светодиодов (LED2 - off, LED3 - on), выставляется High напряжение на ЦАП (для визуального и сигнального информирования о состоянии системы)</li>
-<li>Вызывается ZeroCrossAnalysis()</li>
-<li>Заполненные <a class="el" href="_t_i_m__lib_8c.html#a43d2c695c558f49cb2df8c0745c28531">ZeroCrossTimings</a> и <a class="el" href="_t_i_m__lib_8c.html#ad14650db362e7e1e1d34b5a4084cc9f1">EndOfSample</a> используются в Demodulation()</li>
+<li>Вызывается <a class="el" href="_p_m_8c.html#a9f059a669299ce6cdba20cf4efbd6186">ZeroCrossAnalysis()</a></li>
+<li>Заполненные <a class="el" href="_t_i_m__lib_8c.html#a43d2c695c558f49cb2df8c0745c28531">ZeroCrossTimings</a> и <a class="el" href="_t_i_m__lib_8c.html#ad14650db362e7e1e1d34b5a4084cc9f1">EndOfSample</a> используются в <a class="el" href="_p_m_8c.html#aa92798f5c24b17ca3e65c262581731f5">Demodulation()</a></li>
 <li>Обнуление (возврат к значениям при инициализации) всех переменных и переинициализация используемой перефирии</li>
 <li>Отключение LED3, выставляется Low напряжение на ЦАП </li>
 </ul>
@@ -432,7 +432,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Содержит информацию о стартовом напрявлении входного сигнала. То есть, значение -1 сообтветсвует стартовому периоду, который находится ниже нуля, значение +1 сообтветсвует стартовому периоду, который находится выше нуля. Значение StartSign определяется в <a class="el" href="_signal_receive_handler_8c.html#afb21728292519ac5322ab0709ed8a987">CatchPackageStart()</a>. Используется для анализа принятого пакета в ZeroCrossAnalysis() </p>
+<p>Содержит информацию о стартовом напрявлении входного сигнала. То есть, значение -1 сообтветсвует стартовому периоду, который находится ниже нуля, значение +1 сообтветсвует стартовому периоду, который находится выше нуля. Значение StartSign определяется в <a class="el" href="_signal_receive_handler_8c.html#afb21728292519ac5322ab0709ed8a987">CatchPackageStart()</a>. Используется для анализа принятого пакета в <a class="el" href="_p_m_8c.html#a9f059a669299ce6cdba20cf4efbd6186">ZeroCrossAnalysis()</a> </p>
 
 </div>
 </div>

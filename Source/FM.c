@@ -1,6 +1,33 @@
+/*!
+ * @file        FM.c
+ *
+ * @brief       Обработка АРС сигнала
+ *
+ * @version     V1.0.0
+ *
+ * @date        12-09-2023
+ */
+
 #include "FM.h"
 
-//#define DEBUG
+//#define DEBUG			//Раскомментировать для отправки по USART информации о принятом сигнале в виде значений напряжения
+
+/*!
+ * @brief     Спектральный и амплитудный анализ АРС сигнала
+ *
+ * Функция обеспечивает анализ АРС сигнала и корректное завершение приёма
+ *
+ * Принцип работы функции следующий: 
+ * - Переключение светодиодов (LED2 - off, LED3 - on), выставляется High напряжение
+ *   на ЦАП (для визуального и сигнального информирования о состоянии системы)
+ * - Амплитудный анализ полученного сигнала (см. #AmlitudeAnalysis)
+ * - Быстрое преобразование Фурье (спектральный анализ). БПФ реализована при помощи 
+ *   MATLAB Coder, исходные файлы содержит библиотека FFT_lib
+ * - Отправка результатов спектрального анализа по USART и на LCD (см. #LCD_Freq_Result)
+ * - Обнуление (возврат к значениям при инициализации) всех переменных и 
+ *   переинициализация используемой перефирии
+ * - Отключение LED3, выставляется Low напряжение на ЦАП
+ */
 
 void SpectrumAnalysis(double* FFT_Buff, uint8_t LowLevel, double* voltageBuff) {
 	double freqPerc[6] = {0};
@@ -47,11 +74,11 @@ void SpectrumAnalysis(double* FFT_Buff, uint8_t LowLevel, double* voltageBuff) {
 	 USART_Tx_Char(USART, 13);
 	 #endif
 	 
-	 DAC_SetLow();
 	 SpectrumVarReInit();
 	 TMR_Reset(TMR3);
 	 ADC_Init();
 	 TMR3_Init();
 	 APM_MINI_LEDOn(LED2);
-	 APM_MINI_LEDOff(LED3);	 
+	 APM_MINI_LEDOff(LED3);
+	 DAC_SetLow();	 
 }

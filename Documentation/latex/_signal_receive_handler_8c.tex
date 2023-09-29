@@ -149,8 +149,8 @@ V1.\+0.\+0
 Функция вызывается при определении конца текущего пакета. Описание последовательности работы\+:
 \begin{DoxyItemize}
 \item Переключение светодиодов (LED2 -\/ off, LED3 -\/ on), выставляется High напряжение на ЦАП (для визуального и сигнального информирования о состоянии системы)
-\item Вызывается Zero\+Cross\+Analysis()
-\item Заполненные \doxylink{_t_i_m__lib_8c_a43d2c695c558f49cb2df8c0745c28531}{Zero\+Cross\+Timings} и \doxylink{_t_i_m__lib_8c_ad14650db362e7e1e1d34b5a4084cc9f1}{End\+Of\+Sample} используются в Demodulation()
+\item Вызывается \doxylink{_p_m_8c_a9f059a669299ce6cdba20cf4efbd6186}{Zero\+Cross\+Analysis()}
+\item Заполненные \doxylink{_t_i_m__lib_8c_a43d2c695c558f49cb2df8c0745c28531}{Zero\+Cross\+Timings} и \doxylink{_t_i_m__lib_8c_ad14650db362e7e1e1d34b5a4084cc9f1}{End\+Of\+Sample} используются в \doxylink{_p_m_8c_aa92798f5c24b17ca3e65c262581731f5}{Demodulation()}
 \item Обнуление (возврат к значениям при инициализации) всех переменных и переинициализация используемой перефирии
 \item Отключение LED3, выставляется Low напряжение на ЦАП 
 \end{DoxyItemize}
@@ -196,7 +196,7 @@ V1.\+0.\+0
 \doxysubsubsection{\texorpdfstring{StartSign}{StartSign}}
 {\footnotesize\ttfamily int8\+\_\+t Start\+Sign = 0}
 
-Содержит информацию о стартовом напрявлении входного сигнала. То есть, значение -\/1 сообтветсвует стартовому периоду, который находится ниже нуля, значение +1 сообтветсвует стартовому периоду, который находится выше нуля. Значение Start\+Sign определяется в \doxylink{_signal_receive_handler_8c_afb21728292519ac5322ab0709ed8a987}{Catch\+Package\+Start()}. Используется для анализа принятого пакета в Zero\+Cross\+Analysis() \Hypertarget{_signal_receive_handler_8c_a63c2b2968cbf2952a6dac9a9b17a0e42}\label{_signal_receive_handler_8c_a63c2b2968cbf2952a6dac9a9b17a0e42} 
+Содержит информацию о стартовом напрявлении входного сигнала. То есть, значение -\/1 сообтветсвует стартовому периоду, который находится ниже нуля, значение +1 сообтветсвует стартовому периоду, который находится выше нуля. Значение Start\+Sign определяется в \doxylink{_signal_receive_handler_8c_afb21728292519ac5322ab0709ed8a987}{Catch\+Package\+Start()}. Используется для анализа принятого пакета в \doxylink{_p_m_8c_a9f059a669299ce6cdba20cf4efbd6186}{Zero\+Cross\+Analysis()} \Hypertarget{_signal_receive_handler_8c_a63c2b2968cbf2952a6dac9a9b17a0e42}\label{_signal_receive_handler_8c_a63c2b2968cbf2952a6dac9a9b17a0e42} 
 \index{SignalReceiveHandler.c@{SignalReceiveHandler.c}!ZeroVoltageCounter@{ZeroVoltageCounter}}
 \index{ZeroVoltageCounter@{ZeroVoltageCounter}!SignalReceiveHandler.c@{SignalReceiveHandler.c}}
 \doxysubsubsection{\texorpdfstring{ZeroVoltageCounter}{ZeroVoltageCounter}}

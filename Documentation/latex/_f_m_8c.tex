@@ -1,0 +1,48 @@
+\doxysection{Documents/\+Keil/\+DQPSK\+\_\+plus\+\_\+\+Freq/\+Source/\+FM.c File Reference}
+\hypertarget{_f_m_8c}{}\label{_f_m_8c}\index{Documents/Keil/DQPSK\_plus\_Freq/Source/FM.c@{Documents/Keil/DQPSK\_plus\_Freq/Source/FM.c}}
+
+
+Обработка АРС сигнала  
+
+
+{\ttfamily \#include \"{}FM.\+h\"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_f_m_8c_a60ea4451e858f4a0ba3026c54783648c}{Spectrum\+Analysis}} (double \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{_t_i_m__lib_8c_a023d44daad4b1ebc1b7dfe8ed37cc27b}{FFT\+\_\+\+Buff}}, uint8\+\_\+t \mbox{\hyperlink{_t_i_m__lib_8c_a06d87010c135671bee571365d31ba043}{Low\+Level}}, double \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{_t_i_m__lib_8c_a42489e419158b2e29f4d5ab5631ebc1f}{voltage\+Buff}})
+\begin{DoxyCompactList}\small\item\em Спектральный и амплитудный анализ АРС сигнала \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Обработка АРС сигнала 
+
+\begin{DoxyVersion}{Version}
+V1.\+0.\+0
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+12-\/09-\/2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_f_m_8c_a60ea4451e858f4a0ba3026c54783648c}\label{_f_m_8c_a60ea4451e858f4a0ba3026c54783648c} 
+\index{FM.c@{FM.c}!SpectrumAnalysis@{SpectrumAnalysis}}
+\index{SpectrumAnalysis@{SpectrumAnalysis}!FM.c@{FM.c}}
+\doxysubsubsection{\texorpdfstring{SpectrumAnalysis()}{SpectrumAnalysis()}}
+{\footnotesize\ttfamily void Spectrum\+Analysis (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}}]{FFT\+\_\+\+Buff,  }\item[{uint8\+\_\+t}]{Low\+Level,  }\item[{double \texorpdfstring{$\ast$}{*}}]{voltage\+Buff }\end{DoxyParamCaption})}
+
+
+
+Спектральный и амплитудный анализ АРС сигнала 
+
+Функция обеспечивает анализ АРС сигнала и корректное завершение приёма
+
+Принцип работы функции следующий\+:
+\begin{DoxyItemize}
+\item Переключение светодиодов (LED2 -\/ off, LED3 -\/ on), выставляется High напряжение на ЦАП (для визуального и сигнального информирования о состоянии системы)
+\item Амплитудный анализ полученного сигнала (см. \doxylink{_a_m_p_8c_adbea7f0464f380bf508408bb38fbb5a9}{Amlitude\+Analysis})
+\item Быстрое преобразование Фурье (спектральный анализ). БПФ реализована при помощи MATLAB Coder, исходные файлы содержит библиотека FFT\+\_\+lib
+\item Отправка результатов спектрального анализа по USART и на LCD (см. \doxylink{_l_c_d__lib_8c_a9d046a321b80f763b5cdf78b26c0fbe2}{LCD\+\_\+\+Freq\+\_\+\+Result})
+\item Обнуление (возврат к значениям при инициализации) всех переменных и переинициализация используемой перефирии
+\item Отключение LED3, выставляется Low напряжение на ЦАП 
+\end{DoxyItemize}
