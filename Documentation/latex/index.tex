@@ -1,3 +1,17 @@
 \chapter{DQPSK\+\_\+plus\+\_\+\+Freq}
 \hypertarget{index}{}\label{index}\index{DQPSK\_plus\_Freq@{DQPSK\_plus\_Freq}}
-Программа содержит слежующие компоненты\+: 
+Устройство по приёму АРС/АРСФ кодов работает следующим образом\+:
+\begin{DoxyEnumerate}
+\item Инифиализация используемой перефирии\+:
+\begin{DoxyItemize}
+\item \doxylink{_u_a_r_t__lib_8c_aba398ef6d2b9f80899b2d65ca9a0fe7d}{USART\+\_\+\+Init}
+\item \doxylink{_d_a_c__lib_8c_aebfb87cace98dbe3d03d35255da89c59}{DAC\+\_\+\+Init}
+\item \doxylink{_a_d_c__lib_8c_a3fdaf3b8949082abe85a7e7083087eb7}{ADC\+\_\+\+Init}
+\item \doxylink{_s_p_i__lib_8c_a9405ec7074e866a9c74f393f11f18ede}{SPI\+\_\+\+Init}
+\item \doxylink{_l_c_d__lib_8c_a5ef93ea663540adb55fb253fa41478c9}{LCD\+\_\+\+Start}
+\end{DoxyItemize}
+\item По кнопке KEY1 выбирается текущий режим работы (см. \doxylink{_k_e_y__lib_8c_ae88ba0c2b32d7fdcf932def2e70edf24}{KEY1\+\_\+\+IRQHandler})
+\item Запускается соответсвующий таймер (\doxylink{_t_i_m__lib_8c_ad4667872eeecb6411675ef94133723fd}{TMR2\+\_\+\+Init} для АРСФ, \doxylink{_t_i_m__lib_8c_a9d47a34e2c52ccf4c024d63bf7172903}{TMR3\+\_\+\+Init} для АРС), в прерывании таймера выполняется приём пакетов/сигнала
+\item Полученные данные обрабатываются (\doxylink{_p_m_8c_aa92798f5c24b17ca3e65c262581731f5}{Demodulation} для АРСФ, \doxylink{_f_m_8c_a60ea4451e858f4a0ba3026c54783648c}{Spectrum\+Analysis} для АРС)
+\item Результат выводится на LCD экран (\doxylink{_l_c_d__lib_8c_a67d65e7546dc387e220507035c7c4346}{LCD\+\_\+\+DQPSK\+\_\+\+Result} для АРСФ, \doxylink{_l_c_d__lib_8c_a9d046a321b80f763b5cdf78b26c0fbe2}{LCD\+\_\+\+Freq\+\_\+\+Result} для АРС) 
+\end{DoxyEnumerate}

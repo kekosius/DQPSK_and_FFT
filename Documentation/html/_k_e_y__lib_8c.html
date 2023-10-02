@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>DQPSK_plus_Freq: Documents/Keil/DQPSK_plus_Freq/Source/DAC_lib.c File Reference</title>
+<title>DQPSK_plus_Freq: Documents/Keil/DQPSK_plus_Freq/Source/KEY_lib.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -63,7 +63,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('_d_a_c__lib_8c.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('_k_e_y__lib_8c.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -90,42 +90,40 @@ $(document).ready(function(){initNavTree('_d_a_c__lib_8c.html',''); initResizabl
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">DAC_lib.c File Reference</div></div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">KEY_lib.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Функции для работы с ЦАП  
+<p>Смена режимов работы (АРС/АРСФ)  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;DAC_lib.h&quot;</code><br />
+<div class="textblock"><code>#include &quot;KEY_lib.h&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aebfb87cace98dbe3d03d35255da89c59"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_d_a_c__lib_8c.html#aebfb87cace98dbe3d03d35255da89c59">DAC_Init</a> ()</td></tr>
-<tr class="memdesc:aebfb87cace98dbe3d03d35255da89c59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Инициализация модуля ЦАП  <br /></td></tr>
-<tr class="separator:aebfb87cace98dbe3d03d35255da89c59"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afbd3114f8f6c66a40afb0ae5ddab4a8f"><td class="memItemLeft" align="right" valign="top"><a id="afbd3114f8f6c66a40afb0ae5ddab4a8f" name="afbd3114f8f6c66a40afb0ae5ddab4a8f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>DAC_SetHigh</b> ()</td></tr>
-<tr class="memdesc:afbd3114f8f6c66a40afb0ae5ddab4a8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка High (3.3 V) уровня на ЦАП <br /></td></tr>
-<tr class="separator:afbd3114f8f6c66a40afb0ae5ddab4a8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15f28bb52150d2a7088d1182b1b83323"><td class="memItemLeft" align="right" valign="top"><a id="a15f28bb52150d2a7088d1182b1b83323" name="a15f28bb52150d2a7088d1182b1b83323"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>DAC_SetLow</b> ()</td></tr>
-<tr class="memdesc:a15f28bb52150d2a7088d1182b1b83323"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка Low (0 V) уровня на ЦАП <br /></td></tr>
-<tr class="separator:a15f28bb52150d2a7088d1182b1b83323"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae88ba0c2b32d7fdcf932def2e70edf24"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_k_e_y__lib_8c.html#ae88ba0c2b32d7fdcf932def2e70edf24">KEY1_IRQHandler</a> ()</td></tr>
+<tr class="memdesc:ae88ba0c2b32d7fdcf932def2e70edf24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Смена режимов работы по нажатию на KEY1.  <br /></td></tr>
+<tr class="separator:ae88ba0c2b32d7fdcf932def2e70edf24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a4ae55ec4f689d7918dec56c2afe7459d"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_k_e_y__lib_8c.html#a4ae55ec4f689d7918dec56c2afe7459d">WorkStatus</a> = 0</td></tr>
+<tr class="separator:a4ae55ec4f689d7918dec56c2afe7459d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Функции для работы с ЦАП </p>
+<div class="textblock"><p>Смена режимов работы (АРС/АРСФ) </p>
 <dl class="section version"><dt>Version</dt><dd>V1.0.0</dd></dl>
 <dl class="section date"><dt>Date</dt><dd>02-10-2023 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="aebfb87cace98dbe3d03d35255da89c59" name="aebfb87cace98dbe3d03d35255da89c59"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aebfb87cace98dbe3d03d35255da89c59">&#9670;&#160;</a></span>DAC_Init()</h2>
+<a id="ae88ba0c2b32d7fdcf932def2e70edf24" name="ae88ba0c2b32d7fdcf932def2e70edf24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae88ba0c2b32d7fdcf932def2e70edf24">&#9670;&#160;</a></span>KEY1_IRQHandler()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void DAC_Init </td>
+          <td class="memname">void KEY1_IRQHandler </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -133,10 +131,24 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>DAC_SetLow</b> ()</td
       </table>
 </div><div class="memdoc">
 
-<p>Инициализация модуля ЦАП </p>
-<p>Выставленные параметры:</p><ul>
-<li>канал 1, пин PA4 </li>
-</ul>
+<p>Смена режимов работы по нажатию на KEY1. </p>
+<p>При нажатии на кнопку KEY1 сменяет текущий режим работы. Отключает управляющий таймер для текущего режима работы, выполняет возврат к дефолтным значенияем всех используемых переменных и запускает новый режим работы. Переменная WorkStatus определяет текущий режим работы. Значение 1 соответсвует режиму АРСФ, значение 0 соответсвует режиму АРС </p>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a4ae55ec4f689d7918dec56c2afe7459d" name="a4ae55ec4f689d7918dec56c2afe7459d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ae55ec4f689d7918dec56c2afe7459d">&#9670;&#160;</a></span>WorkStatus</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t WorkStatus = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Содержит информацию о текущем режиме работе. Extern переменная, используется в <a class="el" href="_k_e_y__lib_8c.html#ae88ba0c2b32d7fdcf932def2e70edf24">KEY1_IRQHandler()</a> для смены режима режима работы и в <a class="el" href="_l_c_d__lib_8c.html#ad4fcbc10f1d0f8b3738d929d33386ccc">LCD_Show_No_Result()</a> для отображения отсутсвия приёма АРС/АРСФ кодов </p>
 
 </div>
 </div>
@@ -145,7 +157,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>DAC_SetLow</b> ()</td
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_f396504afdc959660871b003fa10164d.html">Documents</a></li><li class="navelem"><a class="el" href="dir_8e868eb912c045a3346be088bc60331b.html">Keil</a></li><li class="navelem"><a class="el" href="dir_221782dba50d5657e716c168483b326f.html">DQPSK_plus_Freq</a></li><li class="navelem"><a class="el" href="dir_10c1ba3ff968427fc90347fa71957050.html">Source</a></li><li class="navelem"><a class="el" href="_d_a_c__lib_8c.html">DAC_lib.c</a></li>
+    <li class="navelem"><a class="el" href="dir_f396504afdc959660871b003fa10164d.html">Documents</a></li><li class="navelem"><a class="el" href="dir_8e868eb912c045a3346be088bc60331b.html">Keil</a></li><li class="navelem"><a class="el" href="dir_221782dba50d5657e716c168483b326f.html">DQPSK_plus_Freq</a></li><li class="navelem"><a class="el" href="dir_10c1ba3ff968427fc90347fa71957050.html">Source</a></li><li class="navelem"><a class="el" href="_k_e_y__lib_8c.html">KEY_lib.c</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>

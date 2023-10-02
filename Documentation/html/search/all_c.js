@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['offlcd_0',['offLCD',['../_l_c_d__lib_8c.html#a58da74816ca00e0067c30b4faaefc366',1,'LCD_lib.c']]],
-  ['onlcd_1',['onLCD',['../_l_c_d__lib_8c.html#aabad06e989a5bc1992d5d136d02dc6cb',1,'LCD_lib.c']]]
+  ['noresultcounter_0',['NoResultCounter',['../_l_c_d__lib_8c.html#a0efe09d8a193aa45418e4c33c4f420c2',1,'LCD_lib.c']]],
+  ['noresultstate_1',['NoResultState',['../_l_c_d__lib_8c.html#ac24684fc351237f8c32cad80903246bc',1,'LCD_lib.c']]]
 ];

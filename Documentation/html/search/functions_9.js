@@ -1,5 +1,12 @@
 var searchData=
 [
-  ['offlcd_0',['offLCD',['../_l_c_d__lib_8c.html#a58da74816ca00e0067c30b4faaefc366',1,'LCD_lib.c']]],
-  ['onlcd_1',['onLCD',['../_l_c_d__lib_8c.html#aabad06e989a5bc1992d5d136d02dc6cb',1,'LCD_lib.c']]]
+  ['lcd_5fdqpsk_5fmode_0',['LCD_DQPSK_mode',['../_l_c_d__lib_8c.html#ab589cadffbb3a4300057f868e30a910f',1,'LCD_lib.c']]],
+  ['lcd_5fdqpsk_5fresult_1',['LCD_DQPSK_Result',['../_l_c_d__lib_8c.html#a67d65e7546dc387e220507035c7c4346',1,'LCD_lib.c']]],
+  ['lcd_5ffreq_5fmode_2',['LCD_Freq_mode',['../_l_c_d__lib_8c.html#a84301f23dd4c003654d6c44781b4017e',1,'LCD_lib.c']]],
+  ['lcd_5ffreq_5fresult_3',['LCD_Freq_Result',['../_l_c_d__lib_8c.html#a9d046a321b80f763b5cdf78b26c0fbe2',1,'LCD_lib.c']]],
+  ['lcd_5fgpio_5fconfig_4',['LCD_GPIO_Config',['../_l_c_d__lib_8c.html#a83784927feb59f3a527130ac4b016fac',1,'LCD_lib.c']]],
+  ['lcd_5fresult_5freset_5',['LCD_Result_Reset',['../_l_c_d__lib_8c.html#ac649c9a194e457f7a19801c035932848',1,'LCD_lib.c']]],
+  ['lcd_5fshow_5fno_5fresult_6',['LCD_Show_No_Result',['../_l_c_d__lib_8c.html#ad4fcbc10f1d0f8b3738d929d33386ccc',1,'LCD_lib.c']]],
+  ['lcd_5fstart_7',['LCD_Start',['../_l_c_d__lib_8c.html#a5ef93ea663540adb55fb253fa41478c9',1,'LCD_lib.c']]],
+  ['lcd_5fvoltage_5fresult_8',['LCD_Voltage_Result',['../_l_c_d__lib_8c.html#affd4a185dd859d8f300c9acd37b65115',1,'LCD_lib.c']]]
 ];

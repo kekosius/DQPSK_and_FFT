@@ -92,7 +92,20 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
   <div class="headertitle"><div class="title">DQPSK_plus_Freq </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Программа содержит слежующие компоненты: </p>
+<div class="textblock"><p>Устройство по приёму АРС/АРСФ кодов работает следующим образом:</p><ol type="1">
+<li>Инифиализация используемой перефирии:<ul>
+<li><a class="el" href="_u_a_r_t__lib_8c.html#aba398ef6d2b9f80899b2d65ca9a0fe7d" title="Инициализация USART канала">USART_Init</a></li>
+<li><a class="el" href="_d_a_c__lib_8c.html#aebfb87cace98dbe3d03d35255da89c59" title="Инициализация модуля ЦАП">DAC_Init</a></li>
+<li><a class="el" href="_a_d_c__lib_8c.html#a3fdaf3b8949082abe85a7e7083087eb7" title="Инициализация модуля АЦП">ADC_Init</a></li>
+<li><a class="el" href="_s_p_i__lib_8c.html#a9405ec7074e866a9c74f393f11f18ede" title="Инициализация шины SPI.">SPI_Init</a></li>
+<li><a class="el" href="_l_c_d__lib_8c.html#a5ef93ea663540adb55fb253fa41478c9" title="Запускает LCD экран">LCD_Start</a></li>
+</ul>
+</li>
+<li>По кнопке KEY1 выбирается текущий режим работы (см. <a class="el" href="_k_e_y__lib_8c.html#ae88ba0c2b32d7fdcf932def2e70edf24" title="Смена режимов работы по нажатию на KEY1.">KEY1_IRQHandler</a>)</li>
+<li>Запускается соответсвующий таймер (<a class="el" href="_t_i_m__lib_8c.html#ad4667872eeecb6411675ef94133723fd" title="Инициализация таймера TIM2.">TMR2_Init</a> для АРСФ, <a class="el" href="_t_i_m__lib_8c.html#a9d47a34e2c52ccf4c024d63bf7172903" title="Инициализация таймера TIM3.">TMR3_Init</a> для АРС), в прерывании таймера выполняется приём пакетов/сигнала</li>
+<li>Полученные данные обрабатываются (<a class="el" href="_p_m_8c.html#aa92798f5c24b17ca3e65c262581731f5" title="Демодуляцмя АРСФ пакета">Demodulation</a> для АРСФ, <a class="el" href="_f_m_8c.html#a60ea4451e858f4a0ba3026c54783648c" title="Спектральный и амплитудный анализ АРС сигнала">SpectrumAnalysis</a> для АРС)</li>
+<li>Результат выводится на LCD экран (<a class="el" href="_l_c_d__lib_8c.html#a67d65e7546dc387e220507035c7c4346" title="Отображения результата декодирования АРСФ на LCD экране">LCD_DQPSK_Result</a> для АРСФ, <a class="el" href="_l_c_d__lib_8c.html#a9d046a321b80f763b5cdf78b26c0fbe2" title="Отображения результата декодирования АРС на LCD экране">LCD_Freq_Result</a> для АРС) </li>
+</ol>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->

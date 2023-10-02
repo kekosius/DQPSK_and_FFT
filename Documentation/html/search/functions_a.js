@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['readytostartreceive_0',['ReadyToStartReceive',['../_signal_receive_handler_8c.html#aefeec6db79e536a31f0d889d4b39b64e',1,'SignalReceiveHandler.c']]],
-  ['receivestop_1',['ReceiveStop',['../_signal_receive_handler_8c.html#ab53fdddca3f5eb3f9d44cdb67de13707',1,'SignalReceiveHandler.c']]]
+  ['main_0',['main',['../main_8c.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main.c']]],
+  ['movingaverage_1',['MovingAverage',['../_a_m_p_8c.html#a34d5185ffc8f108f8315563b8190bbf1',1,'AMP.c']]],
+  ['movingaverageclear_2',['MovingAverageClear',['../_a_m_p_8c.html#a0039df7ab0aa659c2d2b0654ce4fbef6',1,'AMP.c']]]
 ];

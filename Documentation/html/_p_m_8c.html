@@ -112,15 +112,12 @@ Functions</h2></td></tr>
 <tr class="memitem:ad2390af362a4e67b648e37d8f4203f8e"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_m_8c.html#ad2390af362a4e67b648e37d8f4203f8e">Decoding</a> (uint8_t *High, uint8_t *Low)</td></tr>
 <tr class="memdesc:ad2390af362a4e67b648e37d8f4203f8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Декодирование демодулированной последовательности  <br /></td></tr>
 <tr class="separator:ad2390af362a4e67b648e37d8f4203f8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07e8b6a4cdeef470118ad55376066044"><td class="memItemLeft" align="right" valign="top"><a id="a07e8b6a4cdeef470118ad55376066044" name="a07e8b6a4cdeef470118ad55376066044"></a>
-uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>BauerToOrig</b> (uint16_t, uint8_t *)</td></tr>
-<tr class="separator:a07e8b6a4cdeef470118ad55376066044"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7bfcc90b9b76cd251c217ca9909e581d"><td class="memItemLeft" align="right" valign="top"><a id="a7bfcc90b9b76cd251c217ca9909e581d" name="a7bfcc90b9b76cd251c217ca9909e581d"></a>
-uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>GoodCodeFinder</b> (uint16_t *, uint8_t *)</td></tr>
-<tr class="separator:a7bfcc90b9b76cd251c217ca9909e581d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f218322d7ab616d2233574903b6959a"><td class="memItemLeft" align="right" valign="top"><a id="a4f218322d7ab616d2233574903b6959a" name="a4f218322d7ab616d2233574903b6959a"></a>
-uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>SpeedLimit</b> (uint16_t)</td></tr>
-<tr class="separator:a4f218322d7ab616d2233574903b6959a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f8b9084b63f6c1cabd4df3a1d9861b2"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_m_8c.html#a8f8b9084b63f6c1cabd4df3a1d9861b2">BauerToOrig</a> (uint16_t data, uint8_t *ErrorVar)</td></tr>
+<tr class="memdesc:a8f8b9084b63f6c1cabd4df3a1d9861b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Табличный переход от кода Бауера к исходному числу  <br /></td></tr>
+<tr class="separator:a8f8b9084b63f6c1cabd4df3a1d9861b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ec6aff347d982145234794aeda45232"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_m_8c.html#a5ec6aff347d982145234794aeda45232">SpeedLimit</a> (uint16_t DQPSK_code)</td></tr>
+<tr class="memdesc:a5ec6aff347d982145234794aeda45232"><td class="mdescLeft">&#160;</td><td class="mdescRight">Табличный переход от hex кода к разрешенной скорости  <br /></td></tr>
+<tr class="separator:a5ec6aff347d982145234794aeda45232"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad661cb7c42214740f919cf580a37ffec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_m_8c.html#ad661cb7c42214740f919cf580a37ffec">AnalysisEnd</a> ()</td></tr>
 <tr class="memdesc:ad661cb7c42214740f919cf580a37ffec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Присвоение идентификаторам дефолтных значений  <br /></td></tr>
 <tr class="separator:ad661cb7c42214740f919cf580a37ffec"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -165,7 +162,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>ErrorMessage</b> [
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Обработка АРСФ пакетов </p>
 <dl class="section version"><dt>Version</dt><dd>V1.0.0</dd></dl>
-<dl class="section date"><dt>Date</dt><dd>12-09-2023 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>02-10-2023 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="ad661cb7c42214740f919cf580a37ffec" name="ad661cb7c42214740f919cf580a37ffec"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad661cb7c42214740f919cf580a37ffec">&#9670;&#160;</a></span>AnalysisEnd()</h2>
@@ -254,6 +251,50 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>ErrorMessage</b> [
 
 </div>
 </div>
+<a id="a8f8b9084b63f6c1cabd4df3a1d9861b2" name="a8f8b9084b63f6c1cabd4df3a1d9861b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f8b9084b63f6c1cabd4df3a1d9861b2">&#9670;&#160;</a></span>BauerToOrig()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t BauerToOrig </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>ErrorVar</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Табличный переход от кода Бауера к исходному числу </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>демодулированное hex число (код Бауера) </td></tr>
+    <tr><td class="paramname">ErrorVar</td><td>ссылка на идентификатор ошибки перехода</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">Orig</td><td>исходный код</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Возвращает табличное значение исходного кода, которому соответсвует полученный код Бауера. Если такого кода нет, то возвращает невозможное число 0xff, *ErrorVar = 1 </p>
+
+</div>
+</div>
 <a id="a6def050aeb552326bca23e18bb543253" name="a6def050aeb552326bca23e18bb543253"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6def050aeb552326bca23e18bb543253">&#9670;&#160;</a></span>CodeSearch()</h2>
 
@@ -308,7 +349,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>ErrorMessage</b> [
   </table>
   </dd>
 </dl>
-<p>Для переданной последовательности (High, Low) производит поиск АРСФ кода, используя табличные значения (см. BauerToOrig). АРСФ код считается правдоподобным, если количество одинаковых кодов больше или равно единицы (Counter &gt; 1) </p>
+<p>Для переданной последовательности (High, Low) производит поиск АРСФ кода, используя табличные значения (см. BauerToOrig). АРСФ код считается правдоподобным, если количество одинаковых кодов больше единицы (Counter &gt; 1) </p>
 
 </div>
 </div>
@@ -340,6 +381,20 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>ErrorMessage</b> [
 
 <p>Декодирование демодулированной последовательности </p>
 <p>Содержит информацию о том, что текущий фазовый переход первый</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">High</td><td>Последовательность исходного кода (старшая тетрада) </td></tr>
+    <tr><td class="paramname">Low</td><td>Последовательнось исходного кода (младшая тетрада)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">BadState</td><td>Идентификатор ошибки декодирования</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Выполняет поиск АРСФ кода для исходной последовательности. Если код не был обнаружен, массив сдвигается вправо (см. <a class="el" href="_p_m_8c.html#a6b128c019f76d2ce6ef40889be713f9c" title="Сдвиг массива на Shift позиций вправо">ArrayShift</a>), поиск продолжается вплоть до 7-ми сдвигов. Если был получен достоверный код (т.е. код был обнаружен в последовательности более одного раза), то результат отправляется по USART и выводится на LCD экран (см. <a class="el" href="_l_c_d__lib_8c.html#a67d65e7546dc387e220507035c7c4346" title="Отображения результата декодирования АРСФ на LCD экране">LCD_DQPSK_Result</a>), программа возвращает 0. Если достоверный код не был обнаружен, то по USART отправляется сообщение об ошибке, программа возвращает 1. При долгом отсутсвии приёма (более 1,5 сек) информация о коде пропадёт и с LCD экрана (см. <a class="el" href="_l_c_d__lib_8c.html#ad4fcbc10f1d0f8b3738d929d33386ccc" title="Отображение состояния">LCD_Show_No_Result</a>). </p>
 
 </div>
 </div>
@@ -404,6 +459,39 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>ErrorMessage</b> [
 <li>По полученному фазовому сдвигу находится бинарный код, которому этот фазовый переход соответсвует. Так фазовый переход 0 соответсвует коду 00, pi/2 - 10, pi - 11, -pi/2 - 01. Полученный результат суммируется с нулевой фазой и используется как нулевая фаза для следующего фазового перехода</li>
 <li>После демодуляции всех 40 фазовых переходов, запускается поиск АРСФ кода <a class="el" href="_p_m_8c.html#ad2390af362a4e67b648e37d8f4203f8e" title="Декодирование демодулированной последовательности">Decoding</a> </li>
 </ul>
+
+</div>
+</div>
+<a id="a5ec6aff347d982145234794aeda45232" name="a5ec6aff347d982145234794aeda45232"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ec6aff347d982145234794aeda45232">&#9670;&#160;</a></span>SpeedLimit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t SpeedLimit </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>DQPSK_code</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Табличный переход от hex кода к разрешенной скорости </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">DQPSK_code</td><td>декодированный АРСФ код</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">speedCode</td><td>Разрешенные скорости</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Возвращает табличное значение разрешенной скорости, которая соответсвует полученному АРСФ коду. Скорость возвращается в формате XXYY, где XX - КРЦ, YY - СРЦ. Информация о разрешенной скорости используется для отображения на LCD экране (см. <a class="el" href="_l_c_d__lib_8c.html#a67d65e7546dc387e220507035c7c4346" title="Отображения результата декодирования АРСФ на LCD экране">LCD_DQPSK_Result</a>) </p>
 
 </div>
 </div>

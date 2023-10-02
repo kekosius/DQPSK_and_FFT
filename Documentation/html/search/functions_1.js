@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['catchpackagestart_0',['CatchPackageStart',['../_signal_receive_handler_8c.html#afb21728292519ac5322ab0709ed8a987',1,'SignalReceiveHandler.c']]],
-  ['chartouchar_1',['CharToUChar',['../font__lib_8c.html#a4044ca3cc0853b3123f6ff2b57b2e90b',1,'font_lib.c']]],
-  ['codesearch_2',['CodeSearch',['../_p_m_8c.html#a6def050aeb552326bca23e18bb543253',1,'PM.c']]]
+  ['bauertoorig_0',['BauerToOrig',['../_p_m_8c.html#a8f8b9084b63f6c1cabd4df3a1d9861b2',1,'PM.c']]]
 ];

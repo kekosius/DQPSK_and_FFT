@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['zerocrossanalysis_0',['ZeroCrossAnalysis',['../_p_m_8c.html#a9f059a669299ce6cdba20cf4efbd6186',1,'PM.c']]]
+  ['varreinit_0',['VarReInit',['../_t_i_m__lib_8c.html#a2f9bd7b9273ce18ca6275e4a3f943eda',1,'TIM_lib.c']]]
 ];

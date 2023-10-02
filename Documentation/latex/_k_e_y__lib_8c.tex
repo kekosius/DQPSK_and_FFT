@@ -1,0 +1,52 @@
+\doxysection{Documents/\+Keil/\+DQPSK\+\_\+plus\+\_\+\+Freq/\+Source/\+KEY\+\_\+lib.c File Reference}
+\hypertarget{_k_e_y__lib_8c}{}\label{_k_e_y__lib_8c}\index{Documents/Keil/DQPSK\_plus\_Freq/Source/KEY\_lib.c@{Documents/Keil/DQPSK\_plus\_Freq/Source/KEY\_lib.c}}
+
+
+Смена режимов работы (АРС/АРСФ)  
+
+
+{\ttfamily \#include \"{}KEY\+\_\+lib.\+h\"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_k_e_y__lib_8c_ae88ba0c2b32d7fdcf932def2e70edf24}{KEY1\+\_\+\+IRQHandler}} ()
+\begin{DoxyCompactList}\small\item\em Смена режимов работы по нажатию на KEY1. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_k_e_y__lib_8c_a4ae55ec4f689d7918dec56c2afe7459d}{Work\+Status}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Смена режимов работы (АРС/АРСФ) 
+
+\begin{DoxyVersion}{Version}
+V1.\+0.\+0
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+02-\/10-\/2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_k_e_y__lib_8c_ae88ba0c2b32d7fdcf932def2e70edf24}\label{_k_e_y__lib_8c_ae88ba0c2b32d7fdcf932def2e70edf24} 
+\index{KEY\_lib.c@{KEY\_lib.c}!KEY1\_IRQHandler@{KEY1\_IRQHandler}}
+\index{KEY1\_IRQHandler@{KEY1\_IRQHandler}!KEY\_lib.c@{KEY\_lib.c}}
+\doxysubsubsection{\texorpdfstring{KEY1\_IRQHandler()}{KEY1\_IRQHandler()}}
+{\footnotesize\ttfamily void KEY1\+\_\+\+IRQHandler (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Смена режимов работы по нажатию на KEY1. 
+
+При нажатии на кнопку KEY1 сменяет текущий режим работы. Отключает управляющий таймер для текущего режима работы, выполняет возврат к дефолтным значенияем всех используемых переменных и запускает новый режим работы. Переменная Work\+Status определяет текущий режим работы. Значение 1 соответсвует режиму АРСФ, значение 0 соответсвует режиму АРС 
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{_k_e_y__lib_8c_a4ae55ec4f689d7918dec56c2afe7459d}\label{_k_e_y__lib_8c_a4ae55ec4f689d7918dec56c2afe7459d} 
+\index{KEY\_lib.c@{KEY\_lib.c}!WorkStatus@{WorkStatus}}
+\index{WorkStatus@{WorkStatus}!KEY\_lib.c@{KEY\_lib.c}}
+\doxysubsubsection{\texorpdfstring{WorkStatus}{WorkStatus}}
+{\footnotesize\ttfamily uint8\+\_\+t Work\+Status = 0}
+
+Содержит информацию о текущем режиме работе. Extern переменная, используется в \doxylink{_k_e_y__lib_8c_ae88ba0c2b32d7fdcf932def2e70edf24}{KEY1\+\_\+\+IRQHandler()} для смены режима режима работы и в \doxylink{_l_c_d__lib_8c_ad4fcbc10f1d0f8b3738d929d33386ccc}{LCD\+\_\+\+Show\+\_\+\+No\+\_\+\+Result()} для отображения отсутсвия приёма АРС/АРСФ кодов 
